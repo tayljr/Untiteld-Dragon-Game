@@ -35,31 +35,54 @@ public class CharacterMovement : MonoBehaviour
     public void Look(Vector2 dir)
     {
         currentHeadDir += dir;
-        if (currentHeadDir.y > minMaxHeadTilt.y)
+
+        if (moveDir.x != 0f || moveDir.z != 0f)
         {
-            currentHeadDir.y = minMaxHeadTilt.y;
-        }
-        else if (currentHeadDir.y < minMaxHeadTilt.x)
-        {
-            currentHeadDir.y = minMaxHeadTilt.x;
-        }
-        if (currentHeadDir.x > minMaxHeadTurn.y)
-        {
-            currentHeadDir.x = minMaxHeadTurn.y;
             currentCharacterDir.x += dir.x;
+            currentHeadDir.x = 0;
         }
-        else if (currentHeadDir.x < minMaxHeadTurn.x)
+        else
         {
-            currentHeadDir.x = minMaxHeadTurn.x;
-            currentCharacterDir.x += dir.x;
+            if (currentHeadDir.y > minMaxHeadTilt.y)
+            {
+                currentHeadDir.y = minMaxHeadTilt.y;
+            }
+            else if (currentHeadDir.y < minMaxHeadTilt.x)
+            {
+                currentHeadDir.y = minMaxHeadTilt.x;
+            }
+            if (currentHeadDir.x > minMaxHeadTurn.y)
+            {
+                currentHeadDir.x = minMaxHeadTurn.y;
+                currentCharacterDir.x += dir.x;
+            }
+            else if (currentHeadDir.x < minMaxHeadTurn.x)
+            {
+                currentHeadDir.x = minMaxHeadTurn.x;
+                currentCharacterDir.x += dir.x;
+            }
         }
+
         head.transform.localRotation = Quaternion.Euler(-currentHeadDir.y, currentHeadDir.x, 0);
-        transform.localRotation = Quaternion.Euler(-currentCharacterDir.y, currentCharacterDir.x, 0);
+        transform.localRotation = Quaternion.Euler(0, currentCharacterDir.x, 0);
     }
     public void Move(Vector2 dir)
     {
         moveDir = new Vector3(dir.x, moveDir.y, dir.y);
-        //controller.Move(moveDir);
+        currentCharacterDir.x += currentHeadDir.x;
+        //transform.localRotation = Quaternion.Euler(0, currentHeadDir.y, 0);
+        currentHeadDir.x = 0;
+        head.transform.localRotation = Quaternion.Euler(-currentHeadDir.y, currentHeadDir.x, 0);
+
+        transform.localRotation = Quaternion.Euler(0, currentCharacterDir.x, 0);
+        /*
+        if (moveDir.x != 0f || moveDir.y != 0f)
+        {
+            currentHeadDir.x = 0;
+        }
+
+        head.transform.localRotation = Quaternion.Euler(-currentHeadDir.y, currentHeadDir.x, 0);
+        */
     }
 
     public void Jump()
