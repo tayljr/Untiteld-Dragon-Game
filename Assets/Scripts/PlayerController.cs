@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
     private void Look(InputAction.CallbackContext obj)
     {
+        characterMovement.Look(obj.ReadValue<Vector2>());
         //Debug.Log(obj.ReadValue<Vector2>());
     }
 

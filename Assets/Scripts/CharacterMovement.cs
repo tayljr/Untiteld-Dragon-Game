@@ -4,6 +4,10 @@ public class CharacterMovement : MonoBehaviour
 {
     public CharacterController controller;
 
+    public GameObject head;
+    public Vector2 minMaxHeadTilt = new Vector2(-45f, 45f);
+    public Vector2 minMaxHeadTurn = new Vector2(-45f, 45f);
+
     public float speed = 10f;
     public float sprintModifier = 1.5f;
     public float crouchModifier = 0.5f;
@@ -13,6 +17,7 @@ public class CharacterMovement : MonoBehaviour
     public float fallingModifier = 1.5f;
     public float gravity = 10f;
 
+
     private Vector3 moveDir = Vector3.zero;
     private float speedModifier = 1f;
     [SerializeField]
@@ -20,7 +25,36 @@ public class CharacterMovement : MonoBehaviour
 
     [SerializeField]
     private bool grounded = false;
+    private int groundCount = 0;
 
+    [SerializeField]
+    private Vector2 currentHeadDir = Vector2.zero;
+    private Vector2 currentCharacterDir = Vector2.zero;
+
+    public void Look(Vector2 dir)
+    {
+        currentHeadDir += dir;
+        if (currentHeadDir.y > minMaxHeadTilt.y)
+        {
+            currentHeadDir.y = minMaxHeadTilt.y;
+        }
+        else if (currentHeadDir.y < minMaxHeadTilt.x)
+        {
+            currentHeadDir.y = minMaxHeadTilt.x;
+        }
+        if (currentHeadDir.x > minMaxHeadTurn.y)
+        {
+            currentHeadDir.x = minMaxHeadTurn.y;
+            currentCharacterDir.x += dir.x;
+        }
+        else if (currentHeadDir.x < minMaxHeadTurn.x)
+        {
+            currentHeadDir.x = minMaxHeadTurn.x;
+            currentCharacterDir.x += dir.x;
+        }
+        head.transform.localRotation = Quaternion.Euler(-currentHeadDir.y, currentHeadDir.x, 0);
+        transform.localRotation = Quaternion.Euler(-currentCharacterDir.y, currentCharacterDir.x, 0);
+    }
     public void Move(Vector2 dir)
     {
         moveDir = new Vector3(dir.x, moveDir.y, dir.y);
@@ -39,13 +73,18 @@ public class CharacterMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject != gameObject)
         {
+            groundCount--;
+        }
+        if (groundCount <= 0)
+        {
+            groundCount = 0;
             grounded = false;
         }
     }
@@ -55,6 +94,7 @@ public class CharacterMovement : MonoBehaviour
         {
             verticalVelocity = 0;
             grounded = true;
+            groundCount++;
         }
     }
 
@@ -68,8 +108,9 @@ public class CharacterMovement : MonoBehaviour
         feetPos.y -= controller.height / 3;
         grounded = Physics.SphereCast(feetPos, controller.height / 4, -transform.up, out hit, 0.5f);
         */
-        moveDir.y = verticalVelocity;
-        controller.Move(moveDir * speed * speedModifier * Time.deltaTime);
+        Vector3 worldMoveDir = head.transform.TransformDirection(moveDir);
+        worldMoveDir.y = verticalVelocity;
+        controller.Move(worldMoveDir * speed * speedModifier * Time.deltaTime);
         if (!grounded)
         {
             if (fastFalling && verticalVelocity < 0)
