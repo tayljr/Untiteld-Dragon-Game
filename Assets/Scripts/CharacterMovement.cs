@@ -11,6 +11,7 @@ public class CharacterMovement : MonoBehaviour
     public float speed = 10f;
     public float sprintModifier = 1.5f;
     public float crouchModifier = 0.5f;
+    private bool isCrouching = false;
 
     public float jumpForce = 2f;
     public bool fastFalling = true;
@@ -67,6 +68,33 @@ public class CharacterMovement : MonoBehaviour
         if (grounded)
         {
             verticalVelocity = jumpForce;
+        }
+    }
+
+    public void Sprint(bool on)
+    {
+        if (on)
+        {
+            speedModifier = sprintModifier;
+            isCrouching = false;
+        }
+        else if (isCrouching == false)
+        {
+            speedModifier = 1;
+        }
+    }
+
+    public void Crouch(bool on)
+    {
+        if (on)
+        {
+            speedModifier = crouchModifier;
+            isCrouching = true;
+        }
+        else
+        {
+            speedModifier = 1;
+            isCrouching = false;
         }
     }
 

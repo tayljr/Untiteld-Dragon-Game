@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private InputAction move;
     private InputAction jump;
     private InputAction look;
+    private InputAction sprint;
+    private InputAction crouch;
 
     private void Awake()
     {
@@ -22,6 +24,14 @@ public class PlayerController : MonoBehaviour
         move.Enable();
         move.performed += Move;
         move.canceled += Move;
+        sprint = playerControls.Player.Sprint;
+        sprint.Enable();
+        sprint.performed += Sprint;
+        sprint.canceled += StopSprint;
+        crouch = playerControls.Player.Crouch;
+        crouch.Enable();
+        crouch.performed += Crouch;
+        crouch.canceled += StopCrouch;
         jump = playerControls.Player.Jump;
         jump.Enable();
         jump.performed += Jump;
@@ -29,7 +39,27 @@ public class PlayerController : MonoBehaviour
         look.Enable();
         look.performed += Look;
     }
+    private void Crouch(InputAction.CallbackContext obj)
+    {
+        characterMovement.Crouch(true);
+    }
+    private void StopCrouch(InputAction.CallbackContext obj)
+    {
+        characterMovement.Crouch(false);
+    }
 
+    
+    private void Sprint(InputAction.CallbackContext obj)
+    {
+        characterMovement.Sprint(true);
+    }
+
+    private void StopSprint(InputAction.CallbackContext obj)
+    {
+        characterMovement.Sprint(false);
+    }
+
+   
     private void Look(InputAction.CallbackContext obj)
     {
         characterMovement.Look(obj.ReadValue<Vector2>());
@@ -53,6 +83,12 @@ public class PlayerController : MonoBehaviour
         move.Disable();
         move.performed -= Move;
         move.canceled -= Move;
+        sprint.Disable();
+        sprint.performed -= Sprint;
+        sprint.canceled -= StopSprint;
+        crouch.Disable();
+        crouch.performed -= Crouch;
+        crouch.canceled -= StopCrouch;
         jump.Disable();
         jump.performed -= Jump;
         look.Disable();
