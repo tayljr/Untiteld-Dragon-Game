@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private InputAction look;
     private InputAction sprint;
     private InputAction crouch;
+    [Range(0.05f, 0.8f)]
+    [SerializeField] private float lookSensitivity;
 
     private void Awake()
     {
@@ -62,7 +64,8 @@ public class PlayerController : MonoBehaviour
    
     private void Look(InputAction.CallbackContext obj)
     {
-        characterMovement.Look(obj.ReadValue<Vector2>());
+
+        characterMovement.Look(lookSensitivity * obj.ReadValue<Vector2>());
         //Debug.Log(obj.ReadValue<Vector2>());
     }
 
