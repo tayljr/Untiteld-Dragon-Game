@@ -1014,10 +1014,12 @@ GameObject:
   - component: {fileID: 838115305}
   - component: {fileID: 838115304}
   - component: {fileID: 838115303}
+  - component: {fileID: 838115306}
+  - component: {fileID: 838115307}
   - component: {fileID: 838115302}
   - component: {fileID: 838115301}
   m_Layer: 0
-  m_Name: Cube (5)
+  m_Name: BadCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1094,7 +1096,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: bfea348b279393444a4c9c3399aab4ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1139,6 +1141,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &838115306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838115300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bbc981969568084889a96183c828d81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageType: 1
+  damage: 1
+--- !u!65 &838115307
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838115300}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1, y: 1.1, z: 1.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &915586577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1858,10 +1895,10 @@ SceneRoots:
   - {fileID: 915586580}
   - {fileID: 330585546}
   - {fileID: 965590397082298380}
+  - {fileID: 838115305}
   - {fileID: 342714100}
   - {fileID: 463255452}
   - {fileID: 2125536197}
-  - {fileID: 838115305}
   - {fileID: 1944028220}
   - {fileID: 2081631103}
   - {fileID: 457873431}
