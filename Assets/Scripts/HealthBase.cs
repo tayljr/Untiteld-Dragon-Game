@@ -1,10 +1,14 @@
 using UnityEngine;
-
+using System.Collections;
 public class HealthBase : MonoBehaviour
 {
     public float maxHealth = 10f;
     public float health = 10f;
     public float healthPercent = 100f;
+
+    public float iFrameTime = 0.25f;
+
+    public bool invincible = false;
 
     public bool isDead = false;
 
@@ -12,22 +16,37 @@ public class HealthBase : MonoBehaviour
     void Start()
     {
         health = maxHealth * (healthPercent / 100);
+        invincible = false;
         HealthCheck();
     }
 
     public void Damage(float amount)
     {
-        health -= amount;
-
-        HealthCheck();
+        if (!invincible)
+        {
+            health -= amount;
+            StartCoroutine(IFrames());
+            HealthCheck();
+        }
     }
 
     public void DamagePercent(float percentage)
     {
-        health -= maxHealth * (percentage / 100);
-
-        HealthCheck();
+        if (!invincible)
+        {
+            health -= maxHealth * (percentage / 100);
+            StartCoroutine(IFrames());
+            HealthCheck();
+        }
     }
+
+    IEnumerator IFrames()
+    {
+        invincible = true;
+        yield return new WaitForSeconds(iFrameTime);
+        invincible = false;
+    }
+
     public void Heal(float amount)
     {
         health += amount;
