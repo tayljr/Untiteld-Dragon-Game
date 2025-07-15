@@ -4,6 +4,8 @@ public class CharacterMovement : MonoBehaviour
 {
     public CharacterController controller;
 
+    public ColliderEvents groundTrigger;
+
     public GameObject head;
     public Vector2 minMaxHeadTilt = new Vector2(-45f, 45f);
     public Vector2 minMaxHeadTurn = new Vector2(-45f, 45f);
@@ -127,7 +129,17 @@ public class CharacterMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnEnable()
+    {
+        groundTrigger.OnTriggerEnterEvent += Grounded;
+        groundTrigger.OnTriggerExitEvent += NotGrounded;
+    }
+    private void OnDisable()
+    {
+        groundTrigger.OnTriggerEnterEvent -= Grounded;
+        groundTrigger.OnTriggerExitEvent -= NotGrounded;
+    }
+    private void NotGrounded(Collider other)
     {
         if (other.gameObject != gameObject)
         {
@@ -139,7 +151,7 @@ public class CharacterMovement : MonoBehaviour
             grounded = false;
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void Grounded( Collider other)
     {
         if (other.gameObject != gameObject)
         {
