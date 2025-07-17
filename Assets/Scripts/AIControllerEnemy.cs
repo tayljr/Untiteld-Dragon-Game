@@ -9,6 +9,8 @@ public class AIControllerEnemy : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private NavMeshAgent agent;
+    private CharacterController characterController;
+    private Rigidbody rb;
     [SerializeField] private GameObject target;
     [SerializeField] private Transform position;
     [SerializeField] private Transform foveye;
@@ -16,10 +18,13 @@ public class AIControllerEnemy : MonoBehaviour
     public int currentPoint;
     public bool patroling;
     public float fovdelay;
+
+    public bool notGrounded;
+    private float verticalvel;
     public float agro;
     [SerializeField,Range(0f,10f)]
     private float agromax = 4f;
-
+    public float Gravity;
     public float minDistance;
 
     [Range(40f, 120f)]
@@ -28,10 +33,19 @@ public class AIControllerEnemy : MonoBehaviour
     public float FOVRange = 10.0f;
     public LayerMask RaycastMask;
 
+    [SerializeField] private Vector3 agentVelocity;
+    [SerializeField] private Vector3 CharControlVelocity;
+
     void Awake()
     {
         //grabs that boi at the start
         agent = GetComponent<NavMeshAgent>();
+        characterController = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
+
+        agent.updatePosition = false;
+        agent.updateRotation = false;
+
         agent.autoTraverseOffMeshLink = true;
         StartCoroutine(FOVCoroutine());
     }
@@ -39,7 +53,42 @@ public class AIControllerEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        agentVelocity = agent.velocity;
+        CharControlVelocity = characterController.velocity;
+
+        notGrounded = !characterController.isGrounded;
+        Vector3 desVelocity = agent.desiredVelocity;
+
+        Vector3 Lookpos = agent.steeringTarget - transform.position;
+        Lookpos.y = 0;
+        if (Lookpos!= Vector3.zero)
+        {
+            Quaternion targetRot = Quaternion.LookRotation(Lookpos);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * agent.angularSpeed);
+
+        }
+        if (notGrounded)
+        {
+            verticalvel += Gravity * Time.deltaTime;
+        }
+        else
+        {
+            verticalvel = -1f;
+        }
+        //move for charcontroller according to NavMeshAgent
+
+        Vector3 move = desVelocity.normalized * agent.speed;
+        move.y = verticalvel;
+
+        characterController.Move(move * Time.deltaTime);
+        agent.nextPosition = transform.position;
         
+  
+
+        
+        //gravity for the CharController!
+
+
         //patrol bool
         if (patroling)
             Patrol();
@@ -125,6 +174,8 @@ public class AIControllerEnemy : MonoBehaviour
     private void OnDisable()
     {
         agent.enabled = false;
+        rb.isKinematic = false;
+        rb.linearVelocity = characterController.velocity;
     }
     private void OnEnable()
     {
