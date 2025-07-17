@@ -1,6 +1,6 @@
 using UnityEditor;
 using UnityEngine;
-[CustomEditor(typeof(AIController))]
+[CustomEditor(typeof(AIControllerEnemy))]
 public class AIEditorScript : Editor
 {
 
@@ -10,7 +10,7 @@ public class AIEditorScript : Editor
         base.OnInspectorGUI();
         if (GUILayout.Button("Go To Position"))
         {
-            AIController controller = (AIController)target;
+            AIControllerEnemy controller = (AIControllerEnemy)target;
             controller.gotopos();
         }
         

@@ -1,43 +1,45 @@
+using System;
 using System.Collections;
-using System.Drawing;
-using TreeEditor;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
-
-public class AIController : MonoBehaviour
+[RequireComponent(typeof(NavMeshAgent))]
+public class AIControllerEnemy : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private NavMeshAgent agent;
     [SerializeField] private GameObject target;
-    [SerializeField]
-    private Transform position;
-
+    [SerializeField] private Transform position;
+    [SerializeField] private Transform foveye;
     public Transform[] patrolPoints;
     public int currentPoint;
     public bool patroling;
     public float fovdelay;
     public float agro;
     [SerializeField,Range(0f,10f)]
-    private float agromax;
+    private float agromax = 4f;
 
     public float minDistance;
 
     [Range(40f, 120f)]
-    public float FOV;
+    public float FOV = 65f;
+    [Range (30f, 1000f)]
+    public float FOVRange = 10.0f;
     public LayerMask RaycastMask;
 
-    void Start()
+    void Awake()
     {
         //grabs that boi at the start
         agent = GetComponent<NavMeshAgent>();
+        agent.autoTraverseOffMeshLink = true;
         StartCoroutine(FOVCoroutine());
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
         //patrol bool
         if (patroling)
             Patrol();
@@ -48,7 +50,7 @@ public class AIController : MonoBehaviour
         }
         else
         {
-            agent.ResetPath();
+            //agent.ResetPath();
         }
     }
 
@@ -83,21 +85,25 @@ public class AIController : MonoBehaviour
     private void FovCheck()
     {
         Vector3 dir = (target.transform.position - transform.position).normalized;
+
+        float angleToTarget = Vector3.Angle(transform.forward, dir);
+        if (angleToTarget > FOV / 2)
+            return; //outside of view, lets get out of this function!
         RaycastHit hit;
-        Physics.Raycast(transform.position, dir, out hit, Mathf.Infinity, RaycastMask);
-        if( hit.collider != null )
+        if (Physics.Raycast(transform.position, dir, out hit, FOVRange, RaycastMask))
         {
-            Debug.DrawRay(transform.position, hit.point);
-        }
-        if (Mathf.Abs(Vector3.Angle(transform.forward, dir)) < FOV && hit.transform.gameObject == target)
-        {
-           agro = agromax;
+            Debug.DrawRay(transform.position, dir * hit.distance, Color.red);
+
+            if (hit.transform.gameObject == target)
+            {
+                agro = agromax;
+            }
         }
     }
 
     public void gotopos()
     {
-        agent.SetDestination(target.transform.position);
+        agent.SetDestination(position.transform.position);
     }
     private void OnDrawGizmos()
     {
@@ -114,5 +120,14 @@ public class AIController : MonoBehaviour
                 }
             }
         }
+        Handles.DrawWireArc(foveye.transform.position, Vector3.up,Vector3.forward,360,FOVRange);
+    }
+    private void OnDisable()
+    {
+        agent.enabled = false;
+    }
+    private void OnEnable()
+    {
+        agent.enabled = true;
     }
 }
