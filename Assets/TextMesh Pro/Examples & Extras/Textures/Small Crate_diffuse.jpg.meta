@@ -1,12 +1,20 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Textures/Small Crate_diffuse.jpg.meta
 guid: 602cb87b6a29443b8636370ea0751574
+========
+guid: 00e10fa048d6d054faff51fbff5aa479
+>>>>>>>> origin/AI_Draft:Assets/Gizmos/point.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
+<<<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Textures/Small Crate_diffuse.jpg.meta
   serializedVersion: 7
+========
+  serializedVersion: 13
+>>>>>>>> origin/AI_Draft:Assets/Gizmos/point.png.meta
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -20,9 +28,15 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+<<<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Textures/Small Crate_diffuse.jpg.meta
+========
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+>>>>>>>> origin/AI_Draft:Assets/Gizmos/point.png.meta
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -31,12 +45,21 @@ TextureImporter:
   maxTextureSize: 512
   textureSettings:
     serializedVersion: 2
+<<<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Textures/Small Crate_diffuse.jpg.meta
     filterMode: -1
     aniso: 16
     mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
+========
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+>>>>>>>> origin/AI_Draft:Assets/Gizmos/point.png.meta
   nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
@@ -57,8 +80,17 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+<<<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Textures/Small Crate_diffuse.jpg.meta
   platformSettings:
   - serializedVersion: 2
+========
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+>>>>>>>> origin/AI_Draft:Assets/Gizmos/point.png.meta
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 512
     resizeAlgorithm: 0
@@ -68,8 +100,14 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
+<<<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Textures/Small Crate_diffuse.jpg.meta
   - serializedVersion: 2
+========
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+>>>>>>>> origin/AI_Draft:Assets/Gizmos/point.png.meta
     buildTarget: Standalone
     maxTextureSize: 512
     resizeAlgorithm: 0
@@ -79,6 +117,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Textures/Small Crate_diffuse.jpg.meta
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
@@ -112,11 +151,15 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+========
+    ignorePlatformSupport: 0
+>>>>>>>> origin/AI_Draft:Assets/Gizmos/point.png.meta
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
     spriteID: 
@@ -124,9 +167,16 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
+<<<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Textures/Small Crate_diffuse.jpg.meta
   spritePackingTag: 
+========
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+>>>>>>>> origin/AI_Draft:Assets/Gizmos/point.png.meta
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

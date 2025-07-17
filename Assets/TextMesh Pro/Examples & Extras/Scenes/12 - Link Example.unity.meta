@@ -1,8 +1,14 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/12 - Link Example.unity.meta
 guid: 9747140c28254be2adc582210dfb89b8
 timeCreated: 1432629665
 licenseType: Store
+========
+guid: 7a163431d46093447a164bf71090c6a4
+folderAsset: yes
+>>>>>>>> origin/AI_Draft:Assets/Scenes/AI.meta
 DefaultImporter:
+  externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 

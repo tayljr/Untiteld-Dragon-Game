@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/EditorScripts.meta
 guid: ee3731e2629bab7448ca665d4e973359
+========
+guid: 9fb9fb9941a5f6b419c1a74806895d0d
+>>>>>>>> origin/AI_Draft:Assets/Gizmos.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
