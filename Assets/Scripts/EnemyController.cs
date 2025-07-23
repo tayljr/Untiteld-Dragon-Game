@@ -1,16 +1,30 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
+
+public enum EnemyType
+{
+    Melee,
+    Charge,
+    Flying_Melee,
+    Ranged,
+    Flying_Ranged
+}
 
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private AIControllerEnemy AI;
     [SerializeField] private HealthBase HealthBase;
     [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private EnemyCombatBase combat;
+    [SerializeField] private Animator animator;
+    public EnemyType enemyType;
+
+   
     public float speed = 1f;
     public float damage = 2f;
 
     public bool isDead = false;
-    public bool isAttacking = false;
 
 
 
@@ -22,6 +36,9 @@ public class EnemyController : MonoBehaviour
         AI = GetComponent<AIControllerEnemy>();
         agent = GetComponent<NavMeshAgent>();
         HealthBase = GetComponent<HealthBase>();
+        animator = GetComponentInChildren<Animator>();
+        combat = gameObject.AddComponent<EnemyCombatBase>();
+        combat.type = enemyType;
     }
     private void Start()
     {

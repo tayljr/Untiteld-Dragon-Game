@@ -4,6 +4,13 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
+
+
+public enum AIType
+{
+    Flying,
+    Grounded
+}
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIControllerEnemy : MonoBehaviour
 {
@@ -14,8 +21,11 @@ public class AIControllerEnemy : MonoBehaviour
     [SerializeField] private GameObject target;
     [SerializeField] private Transform position;
     [SerializeField] private Transform foveye;
+
+    public AIType Type;
     public Transform[] patrolPoints;
     public int currentPoint;
+    public bool isAttacking = false;
     public bool patroling;
     public float fovdelay;
 
@@ -41,7 +51,7 @@ public class AIControllerEnemy : MonoBehaviour
         //grabs that boi at the start
         agent = GetComponent<NavMeshAgent>();
         characterController = GetComponent<CharacterController>();
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponentInChildren<Rigidbody>();
 
         agent.updatePosition = false;
         agent.updateRotation = false;
@@ -77,11 +87,21 @@ public class AIControllerEnemy : MonoBehaviour
         }
         //move for charcontroller according to NavMeshAgent
 
+       
         Vector3 move = desVelocity.normalized * agent.speed;
         move.y = verticalvel;
 
-        characterController.Move(move * Time.deltaTime);
-        agent.nextPosition = transform.position;
+
+        if (isAttacking)
+        {
+            agent.isStopped = true;
+        }
+        else
+        {
+            characterController.Move(move * Time.deltaTime);
+            agent.nextPosition = transform.position;
+        }
+
         
   
 
