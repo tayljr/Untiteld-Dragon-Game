@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 public class HealthBase : MonoBehaviour
 {
     public float maxHealth = 10f;
@@ -68,6 +69,8 @@ public class HealthBase : MonoBehaviour
             health = 0;
             isDead = true;
             Debug.Log("Dead");
+
+            
         }
         else if(health > maxHealth)
         {

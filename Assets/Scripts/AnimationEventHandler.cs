@@ -8,9 +8,12 @@ public class AnimationEventHandler : MonoBehaviour
     {
         combat = GetComponentInParent<EnemyCombatBase>();
     }
-    public void CallEvent(AnimationEventObj animationEvent) 
-    { 
-
-        
+    public void HurtBoxOn()
+    {
+        combat.hurtBox.enabled = true;
+    }
+    public void HurtBoxOff()
+    {
+        combat.hurtBox.enabled = false;
     }
 }

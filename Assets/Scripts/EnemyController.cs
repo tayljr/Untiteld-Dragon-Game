@@ -16,10 +16,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private AIControllerEnemy AI;
     [SerializeField] private HealthBase HealthBase;
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private EnemyCombatBase combat;
     [SerializeField] private Animator animator;
     public EnemyType enemyType;
-
+    
    
     public float speed = 1f;
     public float damage = 2f;
@@ -37,8 +36,7 @@ public class EnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         HealthBase = GetComponent<HealthBase>();
         animator = GetComponentInChildren<Animator>();
-        combat = gameObject.AddComponent<EnemyCombatBase>();
-        combat.type = enemyType;
+
     }
     private void Start()
     {
@@ -56,5 +54,12 @@ public class EnemyController : MonoBehaviour
             AI.enabled = false;
         }
 
+    }
+    private void OnEnable() => AIControllerEnemy.OnAttackEvent += AIControllerEnemy_OnAttackEvent;
+    private void OnDisable() => AIControllerEnemy.OnAttackEvent -= AIControllerEnemy_OnAttackEvent;
+
+    private void AIControllerEnemy_OnAttackEvent(ListOfAttacks attack)
+    {
+        animator.SetTrigger(attack.ToString());
     }
 }

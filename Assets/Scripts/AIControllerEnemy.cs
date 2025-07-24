@@ -14,10 +14,14 @@ public enum AIType
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIControllerEnemy : MonoBehaviour
 {
+    public delegate void AttackEvent(ListOfAttacks attack);
+    public static event AttackEvent OnAttackEvent;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private NavMeshAgent agent;
     private CharacterController characterController;
     private Rigidbody rb;
+    public EnemyCombatBase combat;
     [SerializeField] private GameObject target;
     [SerializeField] private Transform position;
     [SerializeField] private Transform foveye;
@@ -27,6 +31,7 @@ public class AIControllerEnemy : MonoBehaviour
     public int currentPoint;
     public bool isAttacking = false;
     public bool patroling;
+    public bool lineOfSight = false;
     public float fovdelay;
 
     public bool notGrounded;
@@ -52,12 +57,13 @@ public class AIControllerEnemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         characterController = GetComponent<CharacterController>();
         rb = GetComponentInChildren<Rigidbody>();
-
+        combat = GetComponent<EnemyCombatBase>();
         agent.updatePosition = false;
         agent.updateRotation = false;
 
         agent.autoTraverseOffMeshLink = true;
         StartCoroutine(FOVCoroutine());
+        StartCoroutine(AttackCoroutine());
     }
 
     // Update is called once per frame
@@ -92,15 +98,9 @@ public class AIControllerEnemy : MonoBehaviour
         move.y = verticalvel;
 
 
-        if (isAttacking)
-        {
-            agent.isStopped = true;
-        }
-        else
-        {
             characterController.Move(move * Time.deltaTime);
             agent.nextPosition = transform.position;
-        }
+        
 
         
   
@@ -146,30 +146,62 @@ public class AIControllerEnemy : MonoBehaviour
         {
             yield return new WaitForSeconds(fovdelay);
             //check if player is still in view
-            FovCheck();
+           LineOfSight();
         }
 
     }
-
-    private void FovCheck()
+    public IEnumerator AttackCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(combat.attackDelay);
+            //check if the enemy can attack the player
+            if (AttackDistanceCheck())
+            {
+                isAttacking = true;
+                OnAttackEvent.Invoke(combat.TypeOfAttack);
+            }
+            
+        }
+    }
+    public void LineOfSight()
     {
         Vector3 dir = (target.transform.position - transform.position).normalized;
 
         float angleToTarget = Vector3.Angle(transform.forward, dir);
         if (angleToTarget > FOV / 2)
-            return; //outside of view, lets get out of this function!
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, dir, out hit, FOVRange, RaycastMask))
         {
-            Debug.DrawRay(transform.position, dir * hit.distance, Color.red);
-
-            if (hit.transform.gameObject == target)
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, dir, out hit, FOVRange, RaycastMask))
             {
-                agro = agromax;
+                Debug.DrawRay(transform.position, dir * hit.distance, Color.red);
+
+                if (hit.transform.gameObject == target)
+                {
+                    agro = agromax;
+                    lineOfSight = true;
+                }
+                else lineOfSight = false;
             }
+        else
+        {
+                lineOfSight = false;
+                return; //outside of view, lets get out of this function!
+        }
+
+            
+        
         }
     }
-
+    public bool AttackDistanceCheck()
+    {
+        if (Vector3.Distance(gameObject.transform.position,target.transform.position) <= combat.attackRange && lineOfSight)
+        {
+            return true;
+        }
+        else 
+            return false;
+    }
     public void gotopos()
     {
         agent.SetDestination(position.transform.position);
