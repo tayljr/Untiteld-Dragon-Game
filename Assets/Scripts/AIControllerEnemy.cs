@@ -14,13 +14,12 @@ public enum AIType
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIControllerEnemy : MonoBehaviour
 {
-    public delegate void AttackEvent(ListOfAttacks attack);
-    public static event AttackEvent OnAttackEvent;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private NavMeshAgent agent;
     private CharacterController characterController;
     private Rigidbody rb;
+    private EnemyController enemyController;
     public EnemyCombatBase combat;
     [SerializeField] private GameObject target;
     [SerializeField] private Transform position;
@@ -56,6 +55,7 @@ public class AIControllerEnemy : MonoBehaviour
         //grabs that boi at the start
         agent = GetComponent<NavMeshAgent>();
         characterController = GetComponent<CharacterController>();
+        enemyController = GetComponent<EnemyController>();
         rb = GetComponentInChildren<Rigidbody>();
         combat = GetComponent<EnemyCombatBase>();
         agent.updatePosition = false;
@@ -98,8 +98,8 @@ public class AIControllerEnemy : MonoBehaviour
         move.y = verticalvel;
 
 
-            characterController.Move(move * Time.deltaTime);
-            agent.nextPosition = transform.position;
+        characterController.Move(move * Time.deltaTime);
+        agent.nextPosition = transform.position;
         
 
         
@@ -119,7 +119,7 @@ public class AIControllerEnemy : MonoBehaviour
         }
         else
         {
-            //agent.ResetPath();
+            patroling = true;
         }
     }
 
@@ -159,7 +159,7 @@ public class AIControllerEnemy : MonoBehaviour
             if (AttackDistanceCheck())
             {
                 isAttacking = true;
-                OnAttackEvent.Invoke(combat.TypeOfAttack);
+                enemyController.OnAttackEvent(combat.TypeOfAttack);
             }
             
         }
