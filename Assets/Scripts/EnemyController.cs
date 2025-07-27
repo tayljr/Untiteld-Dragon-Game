@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
     }
     private void Start()
     {
-        agent.speed *= speed;
+
 
     }
 
@@ -48,6 +48,8 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         isDead = HealthBase.isDead;
+        agent.speed = speed;
+
 
         if (isDead)
         {

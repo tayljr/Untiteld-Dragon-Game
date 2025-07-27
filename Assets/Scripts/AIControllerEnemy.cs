@@ -1,5 +1,6 @@
-using System;
+
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
@@ -22,7 +23,7 @@ public class AIControllerEnemy : MonoBehaviour
     private EnemyController enemyController;
     public EnemyCombatBase combat;
     [SerializeField] private GameObject target;
-    [SerializeField] private Transform position;
+
     [SerializeField] private Transform foveye;
 
     public AIType Type;
@@ -30,6 +31,8 @@ public class AIControllerEnemy : MonoBehaviour
     public int currentPoint;
     public bool isAttacking = false;
     public bool patroling;
+    public bool roaming;
+    [SerializeField] private Vector3 roamPosition;
     public bool lineOfSight = false;
     public float fovdelay;
 
@@ -67,7 +70,12 @@ public class AIControllerEnemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
+    {
+        agent.speed = enemyController.speed;
+        agent.angularSpeed = enemyController.speed/2;
+    }
+    void FixedUpdate()
     {
         agentVelocity = agent.velocity;
         CharControlVelocity = characterController.velocity;
@@ -93,10 +101,10 @@ public class AIControllerEnemy : MonoBehaviour
         }
         //move for charcontroller according to NavMeshAgent
 
-       
-        Vector3 move = desVelocity.normalized * agent.speed;
+        Vector3 move = (desVelocity.magnitude * transform.forward)  * agent.speed;
         move.y = verticalvel;
-
+        
+        
 
         characterController.Move(move * Time.deltaTime);
         agent.nextPosition = transform.position;
@@ -112,6 +120,8 @@ public class AIControllerEnemy : MonoBehaviour
         //patrol bool
         if (patroling)
             Patrol();
+        if (roaming)
+            Roam();
         if (agro > 0)
         {
             agent.SetDestination(target.transform.position);
@@ -119,27 +129,70 @@ public class AIControllerEnemy : MonoBehaviour
         }
         else
         {
-            patroling = true;
+            roaming = true;
         }
     }
+    private void Roam()
+    {
+       if (roamPosition != Vector3.zero)
+       {
+           if (agent.remainingDistance <= minDistance)
+            {
+                
+                if (RandomPointOnNavMesh(agent.transform.position, FOVRange, out roamPosition))
+                {
+                    agent.SetDestination(roamPosition);
+                }
+            }
+       }
+       else
+       {
+           RandomPointOnNavMesh(agent.transform.position, FOVRange, out roamPosition);
+           agent.SetDestination(roamPosition);
+       }
+ 
 
+    
+    }
     private void Patrol()
     {
-        //if agent has no path then set destination
-        if (agent.remainingDistance <= minDistance)
+        //check if patrol has points
+        if (patrolPoints != null && patrolPoints.Length > 0)
         {
-            //checks if its the last
-
-            currentPoint++;
-            if (currentPoint == patrolPoints.Length)
+            //if the agent is close to the marker
+            if (agent.remainingDistance <= minDistance)
             {
-                currentPoint = 0;
+                //checks if its the last
+
+                currentPoint++;
+                if (currentPoint == patrolPoints.Length)
+                {
+                    currentPoint = 0;
+                }
+
+                agent.SetDestination(patrolPoints[currentPoint].position);
             }
-            agent.SetDestination(patrolPoints[currentPoint].position);
         }
 
-    }
 
+
+    }
+    public bool RandomPointOnNavMesh(Vector3 center,float range,out Vector3 position)
+    {
+        for (int i = 0; i < 30; i++)
+        { 
+            Vector3 randomPoint = center + Random.insideUnitSphere * range;
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randomPoint,out hit, range, NavMesh.AllAreas))
+            {
+                position = hit.position;
+                return true;
+            }
+
+        }
+        position = Vector3.zero;
+        return false;
+    }
     public IEnumerator FOVCoroutine()
     {
         while (true)
@@ -202,10 +255,6 @@ public class AIControllerEnemy : MonoBehaviour
         else 
             return false;
     }
-    public void gotopos()
-    {
-        agent.SetDestination(position.transform.position);
-    }
     private void OnDrawGizmos()
     {
         //null check for patrol points so no 100000 errors
@@ -216,7 +265,6 @@ public class AIControllerEnemy : MonoBehaviour
                 //null check for poins for also no 10000 errors
                 if (point != null)
                 {
-                    
                     Gizmos.DrawIcon(point.position, "point",true);
                 }
             }
