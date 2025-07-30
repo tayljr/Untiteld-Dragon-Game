@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 92643d9de8c29c04f874c92e5471981f, type: 2}
+    - target: {fileID: -5754084199372789682, guid: f524323d136d70d4d8cb6cb698cafc74, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4908881513094138184, guid: 75211a7fe767e90459167f9daffb14ee, type: 3}
     - target: {fileID: 919132149155446097, guid: f524323d136d70d4d8cb6cb698cafc74, type: 3}
       propertyPath: m_Name
       value: M_W1Hub_Building_RoofPart_1
@@ -90,4 +94,4 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -4908881513094138184, guid: f524323d136d70d4d8cb6cb698cafc74, type: 3}
+  m_Mesh: {fileID: -4908881513094138184, guid: 75211a7fe767e90459167f9daffb14ee, type: 3}
