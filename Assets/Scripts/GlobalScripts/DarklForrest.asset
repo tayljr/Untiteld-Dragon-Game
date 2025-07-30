@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1a0668677a7e9488647df2c9c50cf1, type: 3}
+  m_Name: DarklForrest
+  m_EditorClassIdentifier: 
+  SpawnPosition: {x: 0, y: 0, z: 0}
+  SpawnRotation: {x: 0, y: 0, z: 0}
+  Scene: {fileID: 102900000, guid: 7cf61faf623ab814abb343019126ee36, type: 3}
+  Icon: {fileID: 2800000, guid: 8878a782f4334ecbbcf683b3ac780966, type: 3}

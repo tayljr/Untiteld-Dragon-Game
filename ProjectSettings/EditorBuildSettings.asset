@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Blockout.unity
     guid: fc75ca1103a4fa1499fd0ec92fb45e9b
+  - enabled: 1
+    path: Assets/Scenes/Levels/DarkForrest.unity
+    guid: 7cf61faf623ab814abb343019126ee36
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
