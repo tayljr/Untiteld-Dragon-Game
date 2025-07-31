@@ -20,6 +20,8 @@ public class CharacterMovement : MonoBehaviour
     public float fallingModifier = 1.5f;
     public float gravity = 10f;
 
+    //will be private
+    public bool canClimb;
 
     private Vector3 moveDir = Vector3.zero;
     private float speedModifier = 1f;
@@ -121,6 +123,11 @@ public class CharacterMovement : MonoBehaviour
             speedModifier = 1;
             isCrouching = false;
         }
+    }
+
+    public void Climb(bool enableClimb)
+    {
+        canClimb = enableClimb;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
