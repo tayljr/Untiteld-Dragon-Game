@@ -8,7 +8,10 @@ using UnityEngine;
 public class ClimibUpdgrade : MonoBehaviour
 {
     public ColliderEvents climbTrigger;
-    public CharacterMovement characterMovement; 
+    public CharacterMovement characterMovement;
+    public string climbableTag = "Climbable";
+
+    private int climbCount = 0;
 
     private void OnEnable()
     {
@@ -18,14 +21,30 @@ public class ClimibUpdgrade : MonoBehaviour
     }
 
     //todo add filter for climbables
-    private void NotTouchingClimbable(Collider other)
-    {
-        characterMovement.Climb(false);
-    }
-
     private void TouchingClimbable(Collider other)
     {
-        characterMovement.Climb(true);
+        print(other.tag);
+        if (other.tag == climbableTag)
+        {
+            climbCount++;
+        }
+        if (climbCount > 0)
+        {
+            characterMovement.Climb(true);
+        }
+    }
+
+    private void NotTouchingClimbable(Collider other)
+    {
+        if (other.tag == climbableTag)
+        {
+            climbCount--;
+        }
+        if (climbCount <= 0)
+        {
+            climbCount = 0;
+            characterMovement.Climb(false);
+        }
     }
 
     private void OnDisable()

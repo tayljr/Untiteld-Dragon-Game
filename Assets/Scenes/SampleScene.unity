@@ -1525,6 +1525,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3891628132023875448, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
+      propertyPath: m_Size.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891628132023875448, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
+      propertyPath: m_Size.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891628132023875448, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
+      propertyPath: m_Center.z
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 8889770509851251748, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
       propertyPath: m_Name
       value: PlayerModel
@@ -1535,7 +1547,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8889770509851251748, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
       insertIndex: 6
-      addedObject: {fileID: 1980903043}
+      addedObject: {fileID: 1980903050}
   m_SourcePrefab: {fileID: 100100000, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
 --- !u!1 &1399481854
 GameObject:
@@ -1628,7 +1640,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 0fc4e77def9741a47bf4a9221f6c1eb8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2111,7 +2123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f963c2640dda449b6c6b75993fad38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1980903043
+--- !u!114 &1980903050
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2125,6 +2137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   climbTrigger: {fileID: 41810159}
   characterMovement: {fileID: 1980903037}
+  climbableTag: Climbable
 --- !u!1 &2081631098
 GameObject:
   m_ObjectHideFlags: 0

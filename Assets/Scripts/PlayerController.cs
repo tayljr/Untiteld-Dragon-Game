@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public CharacterMovement characterMovement;
-
+    
 
     //could have a list of attacks, like ratchet and clank
     public AttackBase punch;
