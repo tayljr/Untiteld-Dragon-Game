@@ -1514,6 +1514,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7917021901460462176, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
+      propertyPath: jumpForce
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8889770509851251748, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
       propertyPath: m_Name
       value: PlayerModel
@@ -2097,6 +2101,8 @@ MonoBehaviour:
   maxHealth: 10
   health: 10
   healthPercent: 100
+  iFrameTime: 0.25
+  invincible: 0
   isDead: 0
 --- !u!1 &2125536192
 GameObject:
