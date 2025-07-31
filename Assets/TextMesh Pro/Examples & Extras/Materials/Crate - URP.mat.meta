@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Materials/Crate - URP.mat.meta
+guid: 3b5cc91c3bf8cf74391252247f52fb59
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+========
+guid: c4a5d378b1a0c2645960299c24f49bde
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 23800000
+>>>>>>>> origin/AI_Draft:Assets/Scenes/AI/NavMesh-Ground.asset.meta
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
