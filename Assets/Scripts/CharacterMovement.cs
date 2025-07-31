@@ -172,9 +172,9 @@ public class CharacterMovement : MonoBehaviour
         grounded = Physics.SphereCast(feetPos, controller.height / 4, -transform.up, out hit, 0.5f);
         */
         Vector3 worldMoveDir = head.transform.TransformDirection(moveDir);
-        worldMoveDir = worldMoveDir * speed * speedModifier * Time.deltaTime;
-        worldMoveDir.y = verticalVelocity * speed * Time.deltaTime;
-        controller.Move(worldMoveDir);
+        worldMoveDir = worldMoveDir * speed * speedModifier;
+        worldMoveDir.y = verticalVelocity;
+        controller.Move(worldMoveDir * Time.deltaTime);
         if (!grounded)
         {
             if (fastFalling && verticalVelocity < 0)

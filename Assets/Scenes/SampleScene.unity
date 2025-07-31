@@ -1515,8 +1515,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7917021901460462176, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
+      propertyPath: gravity
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917021901460462176, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
       propertyPath: jumpForce
-      value: 3
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8889770509851251748, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
       propertyPath: m_Name
