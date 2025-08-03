@@ -19,7 +19,10 @@ public class CharacterMovement : MonoBehaviour
     public bool fastFalling = true;
     public float fallingModifier = 1.5f;
     public float gravity = 10f;
+    public Vector3 climbSpeed = new Vector3(10f, 10f, 10f);
 
+    //will be private
+    public bool canClimb;
 
     private Vector3 moveDir = Vector3.zero;
     private float speedModifier = 1f;
@@ -123,6 +126,11 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
+    public void Climb(bool enableClimb)
+    {
+        canClimb = enableClimb;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -172,8 +180,19 @@ public class CharacterMovement : MonoBehaviour
         grounded = Physics.SphereCast(feetPos, controller.height / 4, -transform.up, out hit, 0.5f);
         */
         Vector3 worldMoveDir = head.transform.TransformDirection(moveDir);
+        worldMoveDir = worldMoveDir * speed * speedModifier;
         worldMoveDir.y = verticalVelocity;
-        controller.Move(worldMoveDir * speed * speedModifier * Time.deltaTime);
+        if (canClimb)
+        {
+            //worldMoveDir.y = worldMoveDir.x;
+            float forwardMoveDir = moveDir.z;
+            if (!grounded)
+            {
+                forwardMoveDir = 0;
+            }
+            worldMoveDir = Vector3.Scale(transform.TransformDirection(moveDir.x, moveDir.z, forwardMoveDir), climbSpeed);
+        }
+        controller.Move(worldMoveDir * Time.deltaTime);
         if (!grounded)
         {
             if (fastFalling && verticalVelocity < 0)
