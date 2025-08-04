@@ -15,6 +15,9 @@ public class CharacterMovement : MonoBehaviour
     public float crouchModifier = 0.5f;
     private bool isCrouching = false;
 
+    public int defaultJumpCount = 1;
+    public int maxJumpCount = 1;
+    private int jumpCount = 0;
     public float jumpForce = 2f;
     public bool fastFalling = true;
     public float fallingModifier = 1.5f;
@@ -93,9 +96,10 @@ public class CharacterMovement : MonoBehaviour
 
     public void Jump()
     {
-        Debug.Log(grounded);
-        if (grounded)
+        //Debug.Log(grounded);
+        if (jumpCount < maxJumpCount)
         {
+            jumpCount++;
             verticalVelocity = jumpForce;
         }
     }
@@ -132,6 +136,22 @@ public class CharacterMovement : MonoBehaviour
         canClimb = enableClimb;
     }
 
+    //double jump
+    public void SetJumpCount(int newCount)
+    {
+        maxJumpCount = newCount;
+    }
+    public void AddJumpCount(int newCount)
+    {
+        maxJumpCount += newCount;
+    }
+    public void ResetJumpCount()
+    {
+        maxJumpCount = defaultJumpCount;
+    }
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -166,6 +186,7 @@ public class CharacterMovement : MonoBehaviour
         {
             verticalVelocity = 0;
             grounded = true;
+            jumpCount = 0;
             groundCount++;
         }
     }
