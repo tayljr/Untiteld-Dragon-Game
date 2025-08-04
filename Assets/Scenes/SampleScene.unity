@@ -119,17 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &41810159 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5291567575059607365, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
-  m_PrefabInstance: {fileID: 1324910932}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e295958309cba1348af671314aff7f4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,18 +1514,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3891628132023875448, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
-      propertyPath: m_Size.y
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891628132023875448, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
-      propertyPath: m_Size.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891628132023875448, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
-      propertyPath: m_Center.z
-      value: 0.75
-      objectReference: {fileID: 0}
     - target: {fileID: 8889770509851251748, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
       propertyPath: m_Name
       value: PlayerModel
@@ -1544,10 +1521,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8889770509851251748, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
-      insertIndex: 6
-      addedObject: {fileID: 1980903050}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
 --- !u!1 &1399481854
 GameObject:
@@ -2107,37 +2081,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1980903035 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8889770509851251748, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
-  m_PrefabInstance: {fileID: 1324910932}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1980903037 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7917021901460462176, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
-  m_PrefabInstance: {fileID: 1324910932}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980903035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13f963c2640dda449b6c6b75993fad38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1980903050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980903035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d0d9922a61f642478f12070727b8698, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  climbTrigger: {fileID: 41810159}
-  characterMovement: {fileID: 1980903037}
-  climbableTag: Climbable
 --- !u!1 &2081631098
 GameObject:
   m_ObjectHideFlags: 0

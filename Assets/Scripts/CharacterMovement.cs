@@ -48,14 +48,6 @@ public class CharacterMovement : MonoBehaviour
         }
         else
         {
-            if (currentHeadDir.y > minMaxHeadTilt.y)
-            {
-                currentHeadDir.y = minMaxHeadTilt.y;
-            }
-            else if (currentHeadDir.y < minMaxHeadTilt.x)
-            {
-                currentHeadDir.y = minMaxHeadTilt.x;
-            }
             if (currentHeadDir.x > minMaxHeadTurn.y)
             {
                 currentHeadDir.x = minMaxHeadTurn.y;
@@ -66,6 +58,15 @@ public class CharacterMovement : MonoBehaviour
                 currentHeadDir.x = minMaxHeadTurn.x;
                 currentCharacterDir.x += dir.x;
             }
+        }
+
+        if (currentHeadDir.y > minMaxHeadTilt.y)
+        {
+            currentHeadDir.y = minMaxHeadTilt.y;
+        }
+        else if (currentHeadDir.y < minMaxHeadTilt.x)
+        {
+            currentHeadDir.y = minMaxHeadTilt.x;
         }
 
         head.transform.localRotation = Quaternion.Euler(-currentHeadDir.y, currentHeadDir.x, 0);
