@@ -556,8 +556,8 @@ GameObject:
   - component: {fileID: 5769930653430465538}
   - component: {fileID: 7595089998109809947}
   - component: {fileID: 7917021901460462176}
-  - component: {fileID: 2509649489352742775}
   - component: {fileID: 2236195396783228936}
+  - component: {fileID: 7098166657773592184}
   - component: {fileID: 8344615693750456676}
   m_Layer: 0
   m_Name: PlayerModel
@@ -687,8 +687,6 @@ MonoBehaviour:
   speed: 10
   sprintModifier: 1.5
   crouchModifier: 0.5
-  defaultJumpCount: 1
-  maxJumpCount: 1
   jumpForce: 30
   fastFalling: 1
   fallingModifier: 1.5
@@ -698,7 +696,7 @@ MonoBehaviour:
   verticalVelocity: 0
   grounded: 0
   currentHeadDir: {x: 0, y: 0}
---- !u!114 &2509649489352742775
+--- !u!114 &2236195396783228936
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -707,12 +705,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8889770509851251748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4b00229b0593d1499ca17d683d9d97d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d0d9922a61f642478f12070727b8698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newJumpCount: 2
+  climbTrigger: {fileID: 5291567575059607365}
   characterMovement: {fileID: 7917021901460462176}
---- !u!114 &2236195396783228936
+  climbableTag: Climbable
+--- !u!114 &7098166657773592184
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
