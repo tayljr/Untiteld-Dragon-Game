@@ -302,8 +302,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 0.25}
-  m_Center: {x: 0, y: 0, z: 0.5}
+  m_Size: {x: 1, y: 2, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0.75}
 --- !u!1 &3744368120735466661
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +556,7 @@ GameObject:
   - component: {fileID: 5769930653430465538}
   - component: {fileID: 7595089998109809947}
   - component: {fileID: 7917021901460462176}
+  - component: {fileID: 7098166657773592184}
   - component: {fileID: 8344615693750456676}
   m_Layer: 0
   m_Name: PlayerModel
@@ -689,10 +690,26 @@ MonoBehaviour:
   fastFalling: 1
   fallingModifier: 1.5
   gravity: 100
+  climbSpeed: {x: 10, y: 10, z: 10}
   canClimb: 0
   verticalVelocity: 0
   grounded: 0
   currentHeadDir: {x: 0, y: 0}
+--- !u!114 &7098166657773592184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8889770509851251748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d0d9922a61f642478f12070727b8698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbTrigger: {fileID: 5291567575059607365}
+  characterMovement: {fileID: 7917021901460462176}
+  climbableTag: Climbable
 --- !u!114 &8344615693750456676
 MonoBehaviour:
   m_ObjectHideFlags: 0

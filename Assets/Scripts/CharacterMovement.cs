@@ -189,6 +189,7 @@ public class CharacterMovement : MonoBehaviour
             if (!grounded)
             {
                 forwardMoveDir = 0;
+                verticalVelocity = 0;
             }
             worldMoveDir = Vector3.Scale(transform.TransformDirection(moveDir.x, moveDir.z, forwardMoveDir), climbSpeed);
         }
