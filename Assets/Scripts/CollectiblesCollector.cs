@@ -6,9 +6,15 @@ using TMPro;
 public class CollectiblesCollector : MonoBehaviour
 {
 
-    private int Collectibles = 0;
+    [SerializeField] private int Collectibles = 0;
+
+    [SerializeField] private int Keys = 0;
+
 
     public TextMeshProUGUI collectibleText;
+
+    public TextMeshProUGUI KeysText;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,5 +28,14 @@ public class CollectiblesCollector : MonoBehaviour
             Debug.Log("TEST");
             Destroy(other.gameObject);
         }
+
+        if (other.transform.tag == "Key")
+        {
+            Keys++;
+            KeysText.text = "Key : " + Keys.ToString();
+            Destroy(other.gameObject);
+        }
+
     }
+    
 }
