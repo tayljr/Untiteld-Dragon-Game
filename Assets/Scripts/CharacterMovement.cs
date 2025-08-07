@@ -23,8 +23,10 @@ public class CharacterMovement : MonoBehaviour
     public bool fastFalling = true;
     public float fallingModifier = 1.5f;
     public float gravity = 10f;
+    public float terminalVelociy = 10f;
     public Vector3 climbSpeed = new Vector3(10f, 10f, 10f);
     public float glideGrav = 25f;
+    public float teminalGlideVel = 2.5f;
     public float glideForwardSpeed = 10f;
 
 
@@ -83,12 +85,9 @@ public class CharacterMovement : MonoBehaviour
     public void Move(Vector2 dir)
     {
         moveDir = new Vector3(dir.x, moveDir.y, dir.y);
-        currentCharacterDir.x += currentHeadDir.x;
-        //transform.localRotation = Quaternion.Euler(0, currentHeadDir.y, 0);
-        currentHeadDir.x = 0;
-        head.transform.localRotation = Quaternion.Euler(-currentHeadDir.y, currentHeadDir.x, 0);
 
-        transform.localRotation = Quaternion.Euler(0, currentCharacterDir.x, 0);
+        LockHead();
+
         /*
         if (moveDir.x != 0f || moveDir.y != 0f)
         {
@@ -148,15 +147,14 @@ public class CharacterMovement : MonoBehaviour
 
     public void Glide(bool startGliding)
     {
-        if (canGlide && !grounded)
+        if (canGlide)
         {
             isGliding = startGliding;
-            Move(new Vector2(moveDir.x, 1));
-        }else if (grounded)
+        }else
         {
             isGliding = false;
             //todo not stoppping
-            Move(Vector2.zero);
+            //Move(Vector2.zero);
         }
     }
 
@@ -215,6 +213,16 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
+    private void LockHead()
+    {
+        currentCharacterDir.x += currentHeadDir.x;
+        //transform.localRotation = Quaternion.Euler(0, currentHeadDir.y, 0);
+        currentHeadDir.x = 0;
+        head.transform.localRotation = Quaternion.Euler(-currentHeadDir.y, currentHeadDir.x, 0);
+
+        transform.localRotation = Quaternion.Euler(0, currentCharacterDir.x, 0);
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -226,9 +234,18 @@ public class CharacterMovement : MonoBehaviour
         grounded = Physics.SphereCast(feetPos, controller.height / 4, -transform.up, out hit, 0.5f);
         */
 
-        Vector3 worldMoveDir = head.transform.TransformDirection(moveDir);
+        Vector3 worldMoveDir = transform.TransformDirection(moveDir);
         worldMoveDir = worldMoveDir * speed * speedModifier;
+
+        if (isGliding && !grounded && !canClimb)
+        {
+            //worldMoveDir.y = -glideGrav;
+            worldMoveDir = transform.TransformDirection(moveDir.x, moveDir.y, glideForwardSpeed);
+            LockHead();
+        }
+
         worldMoveDir.y = verticalVelocity;
+
         if (canClimb)
         {
             //worldMoveDir.y = worldMoveDir.x;
@@ -241,22 +258,31 @@ public class CharacterMovement : MonoBehaviour
             worldMoveDir = Vector3.Scale(transform.TransformDirection(moveDir.x, moveDir.z, forwardMoveDir), climbSpeed);
         }
 
-        if(isGliding)
-        {
-            //worldMoveDir.y = -glideGrav;
-            worldMoveDir = transform.TransformDirection(moveDir.x, -glideGrav, moveDir.z * glideForwardSpeed);
-        }
-
         controller.Move(worldMoveDir * Time.deltaTime);
+
         if (!grounded)
         {
+            float _gravity = gravity;
+            float _termVel = terminalVelociy;
             if (fastFalling && verticalVelocity < 0)
             {
-                verticalVelocity -= gravity * fallingModifier * Time.deltaTime;
+                _gravity = gravity * fallingModifier;
+                if (isGliding)
+                {
+                    _gravity = glideGrav;
+                    _termVel = teminalGlideVel;
+                }
             }
             else
             {
-                verticalVelocity -= gravity * Time.deltaTime;
+                _gravity = gravity;
+            }
+
+            verticalVelocity -= _gravity * Time.deltaTime;
+            //todo print vertical veloity
+            if (verticalVelocity == -_termVel)
+            {
+                verticalVelocity = -_termVel;
             }
         }
         
