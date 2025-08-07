@@ -22,9 +22,13 @@ public class CharacterMovement : MonoBehaviour
     public float fallingModifier = 1.5f;
     public float gravity = 10f;
     public Vector3 climbSpeed = new Vector3(10f, 10f, 10f);
+    public float glideGrav = 25f;
+    public float glideForwardSpeed = 10f;
+
 
     //will be private
     public bool canClimb;
+    public bool canGlide = true;
 
     private Vector3 moveDir = Vector3.zero;
     private float speedModifier = 1f;
@@ -139,6 +143,25 @@ public class CharacterMovement : MonoBehaviour
         canClimb = enableClimb;
     }
 
+    public void SetCanGlide(bool enableGlide)
+    {
+        canGlide = enableGlide;
+    }
+
+    public void Glide(bool startGliding)
+    {
+        if (canGlide && !grounded)
+        {
+            isGliding = startGliding;
+            Move(new Vector2(moveDir.x, 1));
+        }else if (grounded)
+        {
+            isGliding = false;
+            //todo not stoppping
+            Move(Vector2.zero);
+        }
+    }
+
     //double jump
     public void SetJumpCount(int newCount)
     {
@@ -158,7 +181,6 @@ public class CharacterMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void OnEnable()
@@ -191,6 +213,7 @@ public class CharacterMovement : MonoBehaviour
             grounded = true;
             jumpCount = 0;
             groundCount++;
+            isGliding = false;
         }
     }
 
@@ -204,6 +227,7 @@ public class CharacterMovement : MonoBehaviour
         feetPos.y -= controller.height / 3;
         grounded = Physics.SphereCast(feetPos, controller.height / 4, -transform.up, out hit, 0.5f);
         */
+
         Vector3 worldMoveDir = head.transform.TransformDirection(moveDir);
         worldMoveDir = worldMoveDir * speed * speedModifier;
         worldMoveDir.y = verticalVelocity;
@@ -218,6 +242,13 @@ public class CharacterMovement : MonoBehaviour
             }
             worldMoveDir = Vector3.Scale(transform.TransformDirection(moveDir.x, moveDir.z, forwardMoveDir), climbSpeed);
         }
+
+        if(isGliding)
+        {
+            //worldMoveDir.y = -glideGrav;
+            worldMoveDir = transform.TransformDirection(moveDir.x, -glideGrav, moveDir.z * glideForwardSpeed);
+        }
+
         controller.Move(worldMoveDir * Time.deltaTime);
         if (!grounded)
         {

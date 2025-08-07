@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private InputAction crouch;
     private InputAction attack;
     private InputAction interact;
+    private InputAction glide;
 
     [Range(0.05f, 0.8f)]
     [SerializeField] private float lookSensitivity;
@@ -63,10 +64,25 @@ public class PlayerController : MonoBehaviour
         interact.Enable();
         interact.performed += Interact;
         interact.canceled += StopInteract;
+
+        glide = playerControls.Player.Glide;
+        glide.Enable();
+        glide.performed += Glide;
+        glide.canceled += StopGlide;
     }
 
 
     //could have a list of attacks, like ratchet and clank
+
+    private void Glide(InputAction.CallbackContext obj) 
+    {
+        characterMovement.Glide(true);
+    }
+
+    private void StopGlide(InputAction.CallbackContext obj)
+    {
+        characterMovement.Glide(false);
+    }
 
     private void Interact(InputAction.CallbackContext obj)
     {
@@ -145,13 +161,17 @@ public class PlayerController : MonoBehaviour
         look.performed -= Look;
         attack.performed -= Attack;
         attack.canceled -= StopAttack;
+        interact.performed -= Interact;
+        interact.canceled -= StopInteract;
+        glide.performed -= Glide;
+        glide.canceled -= StopGlide;
     }
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
