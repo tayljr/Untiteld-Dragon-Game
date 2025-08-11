@@ -13,7 +13,6 @@ public class CharacterMovement : MonoBehaviour
     public float speed = 10f;
     public float sprintModifier = 1.5f;
     public float crouchModifier = 0.5f;
-    private bool isCrouching = false;
 
     public int defaultJumpCount = 1;
     public int maxJumpCount = 1;
@@ -32,8 +31,12 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField]
     private float verticalVelocity = 0f;
 
+    //please dont priv this i need for animator :(
+    public bool grounded = false;
+    public bool isCrouching = false;
+
+
     [SerializeField]
-    private bool grounded = false;
     private int groundCount = 0;
 
     [SerializeField]

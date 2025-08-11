@@ -1514,6 +1514,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1358442556459084746, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7384269827065473134, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
+      propertyPath: jump
+      value: 
+      objectReference: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 7384269827065473134, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
+      propertyPath: move
+      value: 
+      objectReference: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 7384269827065473134, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
+      propertyPath: sprint
+      value: 
+      objectReference: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 7917021901460462176, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917021901460462176, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
+      propertyPath: gravity
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917021901460462176, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
+      propertyPath: jumpForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917021901460462176, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
+      propertyPath: sprintModifier
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8889770509851251748, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
       propertyPath: m_Name
       value: PlayerModel
