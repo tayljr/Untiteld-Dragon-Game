@@ -202,7 +202,7 @@ public class CharacterMovement : MonoBehaviour
             grounded = false;
         }
     }
-    private void Grounded( Collider other)
+    private void Grounded(Collider other)
     {
         if (other.gameObject != gameObject)
         {
