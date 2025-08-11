@@ -28,11 +28,12 @@ public class CharacterMovement : MonoBehaviour
     public float glideGrav = 5f;
     public float teminalGlideVel = 2.5f;
     public float glideForwardSpeed = 10f;
+    public float glideSidewaysSpeed = 5f;
 
 
     //will be private
-    public bool canClimb;
-    public bool canGlide = true;
+    private bool canClimb = false;
+    private bool canGlide = false;
 
     private Vector3 moveDir = Vector3.zero;
     private float speedModifier = 1f;
@@ -240,7 +241,7 @@ public class CharacterMovement : MonoBehaviour
         if (isGliding && !grounded && !canClimb)
         {
             //worldMoveDir.y = -glideGrav;
-            worldMoveDir = transform.TransformDirection(moveDir.x, moveDir.y, glideForwardSpeed);
+            worldMoveDir = transform.TransformDirection(moveDir.x * glideSidewaysSpeed, moveDir.y, glideForwardSpeed);
             LockHead();
         }
 
@@ -255,10 +256,9 @@ public class CharacterMovement : MonoBehaviour
                 forwardMoveDir = 0;
                 verticalVelocity = 0;
             }
-            worldMoveDir = Vector3.Scale(transform.TransformDirection(moveDir.x * forwardMoveDir, moveDir.z, forwardMoveDir), climbSpeed);
+            worldMoveDir = Vector3.Scale(transform.TransformDirection(moveDir.x, moveDir.z, forwardMoveDir), climbSpeed);
         }
 
-        controller.Move(worldMoveDir * Time.deltaTime);
 
         if (!grounded)
         {
@@ -286,5 +286,6 @@ public class CharacterMovement : MonoBehaviour
             Debug.Log(verticalVelocity);
         }
         
+        controller.Move(worldMoveDir * Time.deltaTime);
     }
 }
