@@ -21,9 +21,9 @@ public class CharacterMovement : MonoBehaviour
     public bool fastFalling = true;
     public float fallingModifier = 1.5f;
     public float gravity = 10f;
-    public float terminalVelociy = 10f;
+    public float terminalVelociy = 50f;
     public Vector3 climbSpeed = new Vector3(10f, 10f, 10f);
-    public float glideGrav = 25f;
+    public float glideGrav = 5f;
     public float teminalGlideVel = 2.5f;
     public float glideForwardSpeed = 10f;
 
@@ -257,7 +257,7 @@ public class CharacterMovement : MonoBehaviour
                 forwardMoveDir = 0;
                 verticalVelocity = 0;
             }
-            worldMoveDir = Vector3.Scale(transform.TransformDirection(moveDir.x, moveDir.z, forwardMoveDir), climbSpeed);
+            worldMoveDir = Vector3.Scale(transform.TransformDirection(moveDir.x * forwardMoveDir, moveDir.z, forwardMoveDir), climbSpeed);
         }
 
         controller.Move(worldMoveDir * Time.deltaTime);
@@ -281,11 +281,11 @@ public class CharacterMovement : MonoBehaviour
             }
 
             verticalVelocity -= _gravity * Time.deltaTime;
-            //todo print vertical veloity
-            if (verticalVelocity == -_termVel)
+            if (verticalVelocity <= -_termVel)
             {
                 verticalVelocity = -_termVel;
             }
+            Debug.Log(verticalVelocity);
         }
 
     }

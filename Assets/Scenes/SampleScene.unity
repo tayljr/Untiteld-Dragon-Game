@@ -15369,6 +15369,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7917021901460462176, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
+      propertyPath: terminalVelociy
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917021901460462176, guid: 4a446fed7e021fc4a8aa77e34d2c6e67, type: 3}
       propertyPath: gravity
       value: 35
       objectReference: {fileID: 0}
