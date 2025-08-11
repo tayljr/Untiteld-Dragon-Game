@@ -46,6 +46,7 @@ public class CollectiblesCollector : MonoBehaviour
 
         if (other.gameObject.CompareTag("Currency"))
         {
+            coin = other.gameObject.GetComponent<Coin>();
             currencyCount += coin.coinValue;
             currencyText.text = "currency: " + currencyCount.ToString();
             Destroy(other.gameObject);
