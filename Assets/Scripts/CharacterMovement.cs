@@ -13,6 +13,8 @@ public class CharacterMovement : MonoBehaviour
     public float speed = 10f;
     public float sprintModifier = 1.5f;
     public float crouchModifier = 0.5f;
+    private bool isCrouching = false;
+    private bool isGliding = false;
 
     public int defaultJumpCount = 1;
     public int maxJumpCount = 1;
