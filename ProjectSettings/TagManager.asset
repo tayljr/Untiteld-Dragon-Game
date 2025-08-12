@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - Climbable
+  - Collectible
+  - Key
+  - Currency
   layers:
   - Default
   - TransparentFX

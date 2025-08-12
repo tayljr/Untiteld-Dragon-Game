@@ -147,21 +147,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a202825d98abf9418613218806eb356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combat: {fileID: 0}
   target: {fileID: 0}
-  position: {fileID: 0}
   foveye: {fileID: 369563937912572187}
+  Type: 0
   patrolPoints: []
   currentPoint: 0
+  isAttacking: 0
   patroling: 0
+  roaming: 0
+  roamPosition: {x: 0, y: 0, z: 0}
+  lineOfSight: 0
   fovdelay: 0.4
+  notGrounded: 0
   agro: 0
   agromax: 4
+  Gravity: 0
   minDistance: 0.1
   FOV: 44.5
-  FOVRange: 10
+  FOVRange: 30
   RaycastMask:
     serializedVersion: 2
     m_Bits: 1
+  agentVelocity: {x: 0, y: 0, z: 0}
+  CharControlVelocity: {x: 0, y: 0, z: 0}
 --- !u!1 &7929865875827452963
 GameObject:
   m_ObjectHideFlags: 0

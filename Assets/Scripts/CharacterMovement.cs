@@ -15,11 +15,17 @@ public class CharacterMovement : MonoBehaviour
     public float crouchModifier = 0.5f;
     private bool isCrouching = false;
 
+    public int defaultJumpCount = 1;
+    public int maxJumpCount = 1;
+    private int jumpCount = 0;
     public float jumpForce = 2f;
     public bool fastFalling = true;
     public float fallingModifier = 1.5f;
     public float gravity = 10f;
+    public Vector3 climbSpeed = new Vector3(10f, 10f, 10f);
 
+    //will be private
+    public bool canClimb;
 
     private Vector3 moveDir = Vector3.zero;
     private float speedModifier = 1f;
@@ -45,14 +51,6 @@ public class CharacterMovement : MonoBehaviour
         }
         else
         {
-            if (currentHeadDir.y > minMaxHeadTilt.y)
-            {
-                currentHeadDir.y = minMaxHeadTilt.y;
-            }
-            else if (currentHeadDir.y < minMaxHeadTilt.x)
-            {
-                currentHeadDir.y = minMaxHeadTilt.x;
-            }
             if (currentHeadDir.x > minMaxHeadTurn.y)
             {
                 currentHeadDir.x = minMaxHeadTurn.y;
@@ -63,6 +61,15 @@ public class CharacterMovement : MonoBehaviour
                 currentHeadDir.x = minMaxHeadTurn.x;
                 currentCharacterDir.x += dir.x;
             }
+        }
+
+        if (currentHeadDir.y > minMaxHeadTilt.y)
+        {
+            currentHeadDir.y = minMaxHeadTilt.y;
+        }
+        else if (currentHeadDir.y < minMaxHeadTilt.x)
+        {
+            currentHeadDir.y = minMaxHeadTilt.x;
         }
 
         head.transform.localRotation = Quaternion.Euler(-currentHeadDir.y, currentHeadDir.x, 0);
@@ -89,9 +96,10 @@ public class CharacterMovement : MonoBehaviour
 
     public void Jump()
     {
-        Debug.Log(grounded);
-        if (grounded)
+        //Debug.Log(grounded);
+        if (jumpCount < maxJumpCount)
         {
+            jumpCount++;
             verticalVelocity = jumpForce;
         }
     }
@@ -123,6 +131,27 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
+    public void Climb(bool enableClimb)
+    {
+        canClimb = enableClimb;
+    }
+
+    //double jump
+    public void SetJumpCount(int newCount)
+    {
+        maxJumpCount = newCount;
+    }
+    public void AddJumpCount(int newCount)
+    {
+        maxJumpCount += newCount;
+    }
+    public void ResetJumpCount()
+    {
+        maxJumpCount = defaultJumpCount;
+    }
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -151,12 +180,13 @@ public class CharacterMovement : MonoBehaviour
             grounded = false;
         }
     }
-    private void Grounded( Collider other)
+    private void Grounded(Collider other)
     {
         if (other.gameObject != gameObject)
         {
             verticalVelocity = 0;
             grounded = true;
+            jumpCount = 0;
             groundCount++;
         }
     }
@@ -172,8 +202,20 @@ public class CharacterMovement : MonoBehaviour
         grounded = Physics.SphereCast(feetPos, controller.height / 4, -transform.up, out hit, 0.5f);
         */
         Vector3 worldMoveDir = head.transform.TransformDirection(moveDir);
+        worldMoveDir = worldMoveDir * speed * speedModifier;
         worldMoveDir.y = verticalVelocity;
-        controller.Move(worldMoveDir * speed * speedModifier * Time.deltaTime);
+        if (canClimb)
+        {
+            //worldMoveDir.y = worldMoveDir.x;
+            float forwardMoveDir = moveDir.z;
+            if (!grounded)
+            {
+                forwardMoveDir = 0;
+                verticalVelocity = 0;
+            }
+            worldMoveDir = Vector3.Scale(transform.TransformDirection(moveDir.x, moveDir.z, forwardMoveDir), climbSpeed);
+        }
+        controller.Move(worldMoveDir * Time.deltaTime);
         if (!grounded)
         {
             if (fastFalling && verticalVelocity < 0)
@@ -185,6 +227,6 @@ public class CharacterMovement : MonoBehaviour
                 verticalVelocity -= gravity * Time.deltaTime;
             }
         }
-        
+
     }
 }

@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
     }
     private void Start()
     {
-        agent.speed *= speed;
+
 
     }
 
@@ -48,6 +48,8 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         isDead = HealthBase.isDead;
+        agent.speed = speed;
+
 
         if (isDead)
         {
@@ -55,10 +57,8 @@ public class EnemyController : MonoBehaviour
         }
 
     }
-    private void OnEnable() => AIControllerEnemy.OnAttackEvent += AIControllerEnemy_OnAttackEvent;
-    private void OnDisable() => AIControllerEnemy.OnAttackEvent -= AIControllerEnemy_OnAttackEvent;
 
-    private void AIControllerEnemy_OnAttackEvent(ListOfAttacks attack)
+    public void OnAttackEvent(ListOfAttacks attack)
     {
         animator.SetTrigger(attack.ToString());
     }
