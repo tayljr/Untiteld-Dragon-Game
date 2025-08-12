@@ -23,7 +23,7 @@ public class ClimibUpdgrade : MonoBehaviour
     //todo add filter for climbables
     private void TouchingClimbable(Collider other)
     {
-        print(other.tag);
+        //print(other.tag);
         if (other.tag == climbableTag)
         {
             climbCount++;
