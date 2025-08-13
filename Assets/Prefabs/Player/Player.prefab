@@ -1579,10 +1579,8 @@ GameObject:
   - component: {fileID: 2311948180293268705}
   - component: {fileID: 1355662083719854933}
   - component: {fileID: 723595721396505957}
-  - component: {fileID: 2175142256696566808}
-  - component: {fileID: 8453707684167208563}
   - component: {fileID: 4488075488164338901}
-  - component: {fileID: 6077212402297369044}
+  - component: {fileID: 8453707684167208563}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1598,7 +1596,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5382560219466656962}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1798,7 +1796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterMovement: {fileID: 2311948180293268705}
---- !u!114 &2175142256696566808
+--- !u!114 &4488075488164338901
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1807,12 +1805,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5382560219466656962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d0d9922a61f642478f12070727b8698, type: 3}
+  m_Script: {fileID: 11500000, guid: 909075522e9051141a84e4f19d3a75f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbTrigger: {fileID: 3891959835567655656}
+  newJumpCount: 2
   characterMovement: {fileID: 2311948180293268705}
-  climbableTag: Climbable
 --- !u!114 &8453707684167208563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1923,34 +1920,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &4488075488164338901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5382560219466656962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 909075522e9051141a84e4f19d3a75f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newJumpCount: 2
-  characterMovement: {fileID: 2311948180293268705}
---- !u!114 &6077212402297369044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5382560219466656962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 909075522e9051141a84e4f19d3a75f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newJumpCount: 2
-  characterMovement: {fileID: 2311948180293268705}
 --- !u!1 &5464076519506682553
 GameObject:
   m_ObjectHideFlags: 0
