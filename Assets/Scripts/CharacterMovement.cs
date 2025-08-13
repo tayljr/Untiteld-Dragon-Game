@@ -270,15 +270,15 @@ public class CharacterMovement : MonoBehaviour
             if (fastFalling && verticalVelocity < 0)
             {
                 _gravity = gravity * fallingModifier;
-                if (isGliding)
-                {
-                    _gravity = glideGrav;
-                    _termVel = teminalGlideVel;
-                }
             }
             else
             {
                 _gravity = gravity;
+            }
+            if (isGliding)
+            {
+                _gravity = glideGrav;
+                _termVel = teminalGlideVel;
             }
 
             verticalVelocity -= _gravity * Time.deltaTime;
