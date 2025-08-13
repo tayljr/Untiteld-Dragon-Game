@@ -651,7 +651,6 @@ GameObject:
   - component: {fileID: 8659434241706623227}
   - component: {fileID: 7613915666208480930}
   - component: {fileID: 5906588057689946263}
-  - component: {fileID: 8989187468314449172}
   - component: {fileID: 4501363382195466685}
   - component: {fileID: 7213064327068071019}
   - component: {fileID: 186904837727385282}
@@ -752,26 +751,6 @@ MonoBehaviour:
   invincible: 0
   isDead: 0
 --- !u!114 &5906588057689946263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062362060591690397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15bacb415dfff8b4785c0258637edf81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Collectibles: 0
-  Keys: 0
-  collectibleText: {fileID: 0}
-  currencyText: {fileID: 0}
-  KeysText: {fileID: 0}
-  currencyCount: 0
-  cm: {fileID: 0}
-  coin: {fileID: 0}
---- !u!114 &8989187468314449172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
