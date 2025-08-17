@@ -7,7 +7,8 @@ public class SceneScriptableObject : ScriptableObject
 {
     public Vector3 SpawnPosition;
     public Vector3 SpawnRotation;
-    public SceneAsset Scene;
+    //not working with build
+    //public SceneAsset Scene;
     public Texture Icon;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

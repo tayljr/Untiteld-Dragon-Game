@@ -269,7 +269,8 @@ public class AIControllerEnemy : MonoBehaviour
                 }
             }
         }
-        Handles.DrawWireArc(foveye.transform.position, Vector3.up,Vector3.forward,360,FOVRange);
+        //does not work in build
+        //Handles.DrawWireArc(foveye.transform.position, Vector3.up,Vector3.forward,360,FOVRange);
     }
     private void OnDisable()
     {

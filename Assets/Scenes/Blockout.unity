@@ -11172,6 +11172,10 @@ PrefabInstance:
       propertyPath: fallingModifier
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2311948180293268705, guid: ae145dac8683d6f439a8af4fad905c53, type: 3}
+      propertyPath: sprintModifier
+      value: 2.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5266907268725948153, guid: ae145dac8683d6f439a8af4fad905c53, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.451319
