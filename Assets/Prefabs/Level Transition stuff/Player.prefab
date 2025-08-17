@@ -672,7 +672,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062362060591690397}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.608761, z: -0, w: 0.7933537}
+  m_LocalRotation: {x: 0, y: 0.60876137, z: 0, w: 0.7933534}
   m_LocalPosition: {x: -9.451319, y: 8.914429, z: -96.326645}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -803,7 +803,7 @@ MonoBehaviour:
   head: {fileID: 8339556350415297028}
   minMaxHeadTilt: {x: -45, y: 45}
   minMaxHeadTurn: {x: -45, y: 45}
-  speed: 8
+  speed: 2.2
   sprintModifier: 3.2
   crouchModifier: 0.5
   defaultJumpCount: 1
