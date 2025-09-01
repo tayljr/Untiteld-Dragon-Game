@@ -73,7 +73,7 @@ public class AIControllerEnemy : MonoBehaviour
     private void Update()
     {
         agent.speed = enemyController.speed;
-        agent.angularSpeed = enemyController.speed/2;
+        
     }
     void FixedUpdate()
     {
@@ -127,8 +127,11 @@ public class AIControllerEnemy : MonoBehaviour
             agent.SetDestination(target.transform.position);
             agro -= Time.deltaTime;
         }
-        else
+        else if (!patroling && !roaming)
         {
+            agent.ResetPath();
+            agro = 0;
+            lineOfSight = false;
             roaming = true;
         }
     }
@@ -228,10 +231,12 @@ public class AIControllerEnemy : MonoBehaviour
             if (Physics.Raycast(transform.position, dir, out hit, FOVRange, RaycastMask))
             {
                 Debug.DrawRay(transform.position, dir * hit.distance, Color.red);
-
+                Debug.Log($"Did Hit {hit.collider.name}");
                 if (hit.transform.gameObject == target)
                 {
                     agro = agromax;
+                    patroling = false;
+                    roaming = false;
                     lineOfSight = true;
                 }
                 else lineOfSight = false;

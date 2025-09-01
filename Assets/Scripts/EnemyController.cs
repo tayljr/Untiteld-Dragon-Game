@@ -54,6 +54,9 @@ public class EnemyController : MonoBehaviour
         if (isDead)
         {
             AI.enabled = false;
+            animator.enabled = false;  
+            enabled = false;
+
         }
 
     }

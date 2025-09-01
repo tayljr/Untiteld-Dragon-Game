@@ -16,6 +16,7 @@ public class PlayerAnimation : MonoBehaviour
 
 
     [SerializeField] private InputActionReference move;
+    [SerializeField] private InputActionReference punch;
     [SerializeField] private InputActionReference jump;
     [SerializeField] private InputActionReference sprint;
 
@@ -32,6 +33,12 @@ public class PlayerAnimation : MonoBehaviour
         move.action.performed += Move;
         jump.action.performed += Jump;
         sprint.action.performed += Sprint;
+        punch.action.performed += Punch;
+    }
+
+    private void Punch(InputAction.CallbackContext obj)
+    {
+        animator.SetTrigger("HasPunched");
     }
 
     private void Sprint(InputAction.CallbackContext obj)

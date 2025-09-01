@@ -33144,7 +33144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ae6dfdb8246d84899920116515101e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneAsset: {fileID: 102900000, guid: 4651fa489ff1245438608f78b510d8cd, type: 3}
+  scene: 
 --- !u!1001 &1420327921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37959,6 +37959,10 @@ PrefabInstance:
       value: Base
       objectReference: {fileID: 0}
     - target: {fileID: 1230337264966896174, guid: cef140ba6f1b31d40bd96afbc80d69dc, type: 3}
+      propertyPath: FOV
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230337264966896174, guid: cef140ba6f1b31d40bd96afbc80d69dc, type: 3}
       propertyPath: combat
       value: 
       objectReference: {fileID: 1327607144}
@@ -37966,6 +37970,26 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1067164210}
+    - target: {fileID: 1230337264966896174, guid: cef140ba6f1b31d40bd96afbc80d69dc, type: 3}
+      propertyPath: roaming
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230337264966896174, guid: cef140ba6f1b31d40bd96afbc80d69dc, type: 3}
+      propertyPath: FOVRange
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230337264966896174, guid: cef140ba6f1b31d40bd96afbc80d69dc, type: 3}
+      propertyPath: RaycastMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061243543483362423, guid: cef140ba6f1b31d40bd96afbc80d69dc, type: 3}
+      propertyPath: attackRange
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2690464948460561028, guid: cef140ba6f1b31d40bd96afbc80d69dc, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4184235216985158389, guid: cef140ba6f1b31d40bd96afbc80d69dc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 100.38306
@@ -49081,6 +49105,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2229402396176430295, guid: a90628d1f2f4585448ed1341036b478f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2917553936706415414, guid: a90628d1f2f4585448ed1341036b478f, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908587132512706312, guid: a90628d1f2f4585448ed1341036b478f, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018417356474097014, guid: a90628d1f2f4585448ed1341036b478f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107560074821029791, guid: a90628d1f2f4585448ed1341036b478f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5310731041910607780, guid: a90628d1f2f4585448ed1341036b478f, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410870456075285253, guid: a90628d1f2f4585448ed1341036b478f, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5906588057689946263, guid: a90628d1f2f4585448ed1341036b478f, type: 3}
       propertyPath: cm
       value: 
@@ -49133,6 +49185,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6829856096534503013, guid: a90628d1f2f4585448ed1341036b478f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362481148212519528, guid: a90628d1f2f4585448ed1341036b478f, type: 3}
+      propertyPath: punch
+      value: 
+      objectReference: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
