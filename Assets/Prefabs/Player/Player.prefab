@@ -1747,12 +1747,12 @@ MonoBehaviour:
   head: {fileID: 5519938158101405960}
   minMaxHeadTilt: {x: -45, y: 45}
   minMaxHeadTurn: {x: -45, y: 45}
-  speed: 8
-  sprintModifier: 3.2
+  speed: 5
+  sprintModifier: 0
   crouchModifier: 0.5
   defaultJumpCount: 1
-  maxJumpCount: 1
-  jumpForce: 9
+  maxJumpCount: 2
+  jumpForce: 7
   fastFalling: 0
   fallingModifier: 0.5
   gravity: 22
@@ -2848,7 +2848,7 @@ Transform:
   m_GameObject: {fileID: 7421246742215660765}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.019, z: 0}
+  m_LocalPosition: {x: 0, y: -1.068, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
