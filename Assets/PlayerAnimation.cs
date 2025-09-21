@@ -18,7 +18,7 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private InputActionReference move;
     [SerializeField] private InputActionReference jump;
     [SerializeField] private InputActionReference sprint;
-
+    [SerializeField] private InputActionReference punch;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,6 +32,12 @@ public class PlayerAnimation : MonoBehaviour
         move.action.performed += Move;
         jump.action.performed += Jump;
         sprint.action.performed += Sprint;
+        punch.action.performed += Punch;
+    }
+
+    private void Punch(InputAction.CallbackContext obj)
+    {
+        animator.SetTrigger("Punch");
     }
 
     private void Sprint(InputAction.CallbackContext obj)
@@ -49,6 +55,7 @@ public class PlayerAnimation : MonoBehaviour
         move.action.performed -= Move;
         jump.action.performed -= Jump;
         sprint.action.performed -= Sprint;
+        punch.action.performed -= Punch;
     }
     private void Move(InputAction.CallbackContext obj)
     {
@@ -56,8 +63,6 @@ public class PlayerAnimation : MonoBehaviour
 
         animator.SetFloat("Input.x", obj.ReadValue<Vector2>().x);
         animator.SetFloat("Input.y", obj.ReadValue<Vector2>().y);
-
-
 
     }
 
