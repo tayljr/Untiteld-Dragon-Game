@@ -1,4 +1,5 @@
 
+using Mono.Cecil.Cil;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -22,7 +23,7 @@ public class AIControllerEnemy : MonoBehaviour
     private Rigidbody rb;
     private EnemyController enemyController;
     public EnemyCombatBase combat;
-    [SerializeField] private GameObject target;
+    [SerializeField] private GameObject PlayerTarget;
 
     [SerializeField] private Transform foveye;
 
@@ -65,7 +66,7 @@ public class AIControllerEnemy : MonoBehaviour
         agent.updateRotation = false;
 
         agent.autoTraverseOffMeshLink = true;
-        StartCoroutine(FOVCoroutine());
+        StartCoroutine(FindPlayer());
         StartCoroutine(AttackCoroutine());
     }
 
@@ -73,7 +74,9 @@ public class AIControllerEnemy : MonoBehaviour
     private void Update()
     {
         agent.speed = enemyController.speed;
-        agent.angularSpeed = enemyController.speed/2;
+        agent.angularSpeed = enemyController.speed*2;
+
+        LineOfSight();
     }
     void FixedUpdate()
     {
@@ -99,21 +102,29 @@ public class AIControllerEnemy : MonoBehaviour
         {
             verticalvel = -1f;
         }
-        //move for charcontroller according to NavMeshAgent
 
+        //move for charcontroller according to NavMeshAgent
         Vector3 move = (desVelocity.magnitude * transform.forward)  * agent.speed;
         move.y = verticalvel;
         
-        
+        if (AttackDistanceCheck())
+        {
+            characterController.Move(Vector3.zero * Time.deltaTime);
+            agent.nextPosition = transform.position;
 
-        characterController.Move(move * Time.deltaTime);
-        agent.nextPosition = transform.position;
-        
+        }
+        else
+        {
+            characterController.Move(move * Time.deltaTime);
+            agent.nextPosition = characterController.transform.position;
+        }
 
-        
-  
 
-        
+
+
+
+
+
         //gravity for the CharController!
 
 
@@ -124,12 +135,13 @@ public class AIControllerEnemy : MonoBehaviour
             Roam();
         if (agro > 0)
         {
-            agent.SetDestination(target.transform.position);
+            agent.SetDestination(PlayerTarget.transform.position);
             agro -= Time.deltaTime;
         }
         else
         {
             roaming = true;
+            isAttacking = false;
         }
     }
     private void Roam()
@@ -156,6 +168,8 @@ public class AIControllerEnemy : MonoBehaviour
     }
     private void Patrol()
     {
+        isAttacking = false;
+        roaming = false;
         //check if patrol has points
         if (patrolPoints != null && patrolPoints.Length > 0)
         {
@@ -193,15 +207,14 @@ public class AIControllerEnemy : MonoBehaviour
         position = Vector3.zero;
         return false;
     }
-    public IEnumerator FOVCoroutine()
+    public IEnumerator FindPlayer()
     {
-        while (true)
+        if (PlayerTarget == null)
         {
-            yield return new WaitForSeconds(fovdelay);
-            //check if player is still in view
-           LineOfSight();
+            PlayerTarget = GameObject.FindGameObjectWithTag("Player");
+            
         }
-
+        yield return new WaitForSeconds(0.5f);
     }
     public IEnumerator AttackCoroutine()
     {
@@ -212,6 +225,7 @@ public class AIControllerEnemy : MonoBehaviour
             if (AttackDistanceCheck())
             {
                 isAttacking = true;
+                roaming = false;
                 enemyController.OnAttackEvent(combat.TypeOfAttack);
             }
             
@@ -219,7 +233,7 @@ public class AIControllerEnemy : MonoBehaviour
     }
     public void LineOfSight()
     {
-        Vector3 dir = (target.transform.position - transform.position).normalized;
+        Vector3 dir = (PlayerTarget.transform.position - transform.position).normalized;
 
         float angleToTarget = Vector3.Angle(transform.forward, dir);
         if (angleToTarget > FOV / 2)
@@ -228,8 +242,8 @@ public class AIControllerEnemy : MonoBehaviour
             if (Physics.Raycast(transform.position, dir, out hit, FOVRange, RaycastMask))
             {
                 Debug.DrawRay(transform.position, dir * hit.distance, Color.red);
-
-                if (hit.transform.gameObject == target)
+                //Debug.Log($"Did Hit {hit.collider.name}");
+                if (hit.transform.gameObject == PlayerTarget)
                 {
                     agro = agromax;
                     lineOfSight = true;
@@ -248,7 +262,7 @@ public class AIControllerEnemy : MonoBehaviour
     }
     public bool AttackDistanceCheck()
     {
-        if (Vector3.Distance(gameObject.transform.position,target.transform.position) <= combat.attackRange && lineOfSight)
+        if (Vector3.Distance(gameObject.transform.position, PlayerTarget.transform.position) <= combat.attackRange)
         {
             return true;
         }

@@ -70,6 +70,7 @@ public class PlayerAnimation : MonoBehaviour
     void Update()
     {
         UpdateAnimatorValues();
+
     }
     public void UpdateAnimatorValues()
     {
@@ -84,11 +85,17 @@ public class PlayerAnimation : MonoBehaviour
             IsSprinting = false;
         }
         IsFalling = !characterMovement.grounded;
-
+        
         animator.SetBool("IsIdle",IsIdle);
         animator.SetBool("IsFalling", IsFalling);
         animator.SetBool("IsSprinting",IsSprinting);
 
 
+    }
+    void OnAnimatorIK(int layerIndex)
+    {
+        
+        animator.SetLookAtWeight(1f,1f);
+        animator.SetLookAtPosition(characterMovement.head.transform.position + characterMovement.head.transform.forward * 10f);
     }
 }

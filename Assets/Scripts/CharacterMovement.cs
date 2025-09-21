@@ -42,13 +42,13 @@ public class CharacterMovement : MonoBehaviour
     public bool grounded = false;
     public bool isCrouching = false;
     public bool isGliding = false;
+    public Vector2 currentHeadDir = Vector2.zero;
 
 
     [SerializeField]
     private int groundCount = 0;
 
     [SerializeField]
-    private Vector2 currentHeadDir = Vector2.zero;
     private Vector2 currentCharacterDir = Vector2.zero;
 
     public void Look(Vector2 dir)

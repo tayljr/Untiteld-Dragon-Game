@@ -57,7 +57,7 @@ public class RespawnSystem : MonoBehaviour
     {
         if (playerRef != null && SpawnAtStart && respawnPoints.Count > 0)
         {
-            //playerRef.Respawn function here = respawnPoints[0].transform.position;
+            playerRef.transform.position = respawnPoints[0].transform.position;
             SpawnAtStart = false;
         }
 
