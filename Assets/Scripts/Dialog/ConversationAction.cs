@@ -60,6 +60,7 @@ public partial class ConversationAction : Action
     {
         if (currentMessage == Conversation.Value.myMessageList.message.Length)
         {
+            currentMessage = 0;
             return Status.Success;
         }
         if (!Conversation.Value.myMessageList.message[currentMessage].targetResponding)
