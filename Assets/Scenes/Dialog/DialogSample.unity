@@ -1203,7 +1203,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1833761777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3782a8ddab35db547bf89e30b6948845, type: 3}
+  m_Script: {fileID: 11500000, guid: 4dc96d8e493beb54cae7feefa8a564b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textJSON: {fileID: 4900000, guid: c189ec1f4428ce44a8933399d916dff8, type: 3}
@@ -1218,12 +1218,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1833761777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a289ebdaf101ced4db223eb720e48f59, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e12068ee8d0c144e8f527cc81ad6a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  charPortrait: {fileID: 21300000, guid: 9568ab752a1abc4409a476aad6933488, type: 3}
-  charName: blue
+  charPortrait: {fileID: 21300000, guid: 4e36fcc6cee7a1c4da0df09304393860, type: 3}
+  charName: Blue
   textColour: {r: 0, g: 1, b: 1, a: 1}
 --- !u!212 &1833761781
 SpriteRenderer:
@@ -1277,7 +1277,7 @@ SpriteRenderer:
   m_Size: {x: 12.8, y: 12.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1833761782
@@ -1505,12 +1505,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1907925580}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a289ebdaf101ced4db223eb720e48f59, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e12068ee8d0c144e8f527cc81ad6a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 1
-  charPortrait: {fileID: 21300000, guid: 8d856612110d7304d8e622c60cef35d1, type: 3}
-  charName: player
+  charPortrait: {fileID: 21300000, guid: 009e15de1137ab74fa3546f9370ba11c, type: 3}
+  charName: Player
   textColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!212 &1907925582
 SpriteRenderer:
@@ -1564,7 +1564,7 @@ SpriteRenderer:
   m_Size: {x: 12.8, y: 12.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1907925583
@@ -1985,13 +1985,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2085887338}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a289ebdaf101ced4db223eb720e48f59, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e12068ee8d0c144e8f527cc81ad6a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  charPortrait: {fileID: 21300000, guid: bf813f954ef43264a95d13ca91859509, type: 3}
-  charName: orange
-  textColour: {r: 1, g: 0.5, b: 0, a: 1}
+  charPortrait: {fileID: 21300000, guid: f3d3e609c91c05c4fa04161aec589cda, type: 3}
+  charName: Orange
+  textColour: {r: 1, g: 0.5779401, b: 0, a: 1}
 --- !u!212 &2085887340
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2044,7 +2044,7 @@ SpriteRenderer:
   m_Size: {x: 12.8, y: 12.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &2085887341
@@ -2189,7 +2189,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2085887338}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3782a8ddab35db547bf89e30b6948845, type: 3}
+  m_Script: {fileID: 11500000, guid: 4dc96d8e493beb54cae7feefa8a564b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textJSON: {fileID: 4900000, guid: 81183c0ad0903e947804e10be7dff801, type: 3}
