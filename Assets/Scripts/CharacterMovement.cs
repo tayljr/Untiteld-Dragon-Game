@@ -42,15 +42,20 @@ public class CharacterMovement : MonoBehaviour
     public bool grounded = false;
     public bool isCrouching = false;
     public bool isGliding = false;
+    public Vector2 currentHeadDir = Vector2.zero;
 
 
     [SerializeField]
     private int groundCount = 0;
 
     [SerializeField]
-    private Vector2 currentHeadDir = Vector2.zero;
     private Vector2 currentCharacterDir = Vector2.zero;
 
+    public void Teleport(Vector3 pos)
+    {
+        transform.position = pos;
+    }
+    
     public void Look(Vector2 dir)
     {
         currentHeadDir += dir;
@@ -195,7 +200,7 @@ public class CharacterMovement : MonoBehaviour
     }
     private void NotGrounded(Collider other)
     {
-        if (other.gameObject != gameObject)
+        if (other.gameObject != gameObject && !other.isTrigger)
         {
             groundCount--;
         }
@@ -207,8 +212,9 @@ public class CharacterMovement : MonoBehaviour
     }
     private void Grounded(Collider other)
     {
-        if (other.gameObject != gameObject)
+        if (other.gameObject != gameObject && !other.isTrigger)
         {
+            Debug.Log(other.gameObject.name);
             verticalVelocity = 0;
             grounded = true;
             jumpCount = 0;

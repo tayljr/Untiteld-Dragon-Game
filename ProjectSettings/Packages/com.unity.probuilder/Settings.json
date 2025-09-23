@@ -99,7 +99,7 @@
             {
                 "type": "UnityEngine.ProBuilder.SelectMode, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "s_SelectMode",
-                "value": "{\"m_Value\":4}"
+                "value": "{\"m_Value\":1}"
             },
             {
                 "type": "UnityEngine.ProBuilder.RectSelectMode, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -114,7 +114,15 @@
             {
                 "type": "UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ShapeBuilder.LastSize.Cube",
+<<<<<<< HEAD
+<<<<<<< HEAD
+                "value": "{\"m_Value\":{\"x\":0.40107154846191409,\"y\":0.3087768852710724,\"z\":1.9185791015625}}"
+=======
                 "value": "{\"m_Value\":{\"x\":2.8000001907348635,\"y\":10.40000057220459,\"z\":18.600000381469728}}"
+>>>>>>> DialogSystem
+=======
+                "value": "{\"m_Value\":{\"x\":-0.6351167559623718,\"y\":6.891465187072754,\"z\":-8.470752716064454}}"
+>>>>>>> Develoupment
             },
             {
                 "type": "UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -124,7 +132,15 @@
             {
                 "type": "UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ShapeBuilder.LastSize.Plane",
+<<<<<<< HEAD
+<<<<<<< HEAD
+                "value": "{\"m_Value\":{\"x\":-10.76580810546875,\"y\":0.0,\"z\":-1.53631591796875}}"
+=======
                 "value": "{\"m_Value\":{\"x\":-40.0,\"y\":0.0,\"z\":40.0}}"
+>>>>>>> DialogSystem
+=======
+                "value": "{\"m_Value\":{\"x\":-16.856689453125,\"y\":0.0,\"z\":-10.40948486328125}}"
+>>>>>>> Develoupment
             },
             {
                 "type": "UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",

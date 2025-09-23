@@ -15,29 +15,49 @@ public class ColliderEvents : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        OnTriggerEnterEvent?.Invoke(other);
+        if (other.gameObject != gameObject)
+        {
+            OnTriggerEnterEvent?.Invoke(other);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        OnTriggerExitEvent?.Invoke(other);
+        if (other.gameObject != gameObject)
+        {
+            OnTriggerExitEvent?.Invoke(other);
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        OnTriggerStayEvent?.Invoke(other);
+        if (other.gameObject != gameObject)
+        {
+            OnTriggerStayEvent?.Invoke(other);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        OnCollisionEnterEvent?.Invoke(collision);
+        if (collision.gameObject != gameObject)
+        {
+            OnCollisionEnterEvent?.Invoke(collision);
+        }
     }
+
     private void OnCollisionExit(Collision collision)
     {
-        OnCollisionExitEvent?.Invoke(collision);
+        if (collision.gameObject != gameObject)
+        {
+            OnCollisionExitEvent?.Invoke(collision);
+        }
     }
+
     private void OnCollisionStay(Collision collision)
     {
-        OnCollisionStayEvent?.Invoke(collision);
+        if (collision.gameObject != gameObject)
+        {
+            OnCollisionStayEvent?.Invoke(collision);
+        }
     }
 }

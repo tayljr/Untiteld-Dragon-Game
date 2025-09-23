@@ -672,7 +672,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062362060591690397}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.608761, z: -0, w: 0.7933537}
+  m_LocalRotation: {x: 0, y: 0.60876137, z: 0, w: 0.7933534}
   m_LocalPosition: {x: -9.451319, y: 8.914429, z: -96.326645}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -822,8 +822,9 @@ MonoBehaviour:
   grounded: 0
   isCrouching: 0
   isGliding: 0
-  groundCount: 0
   currentHeadDir: {x: 0, y: 0}
+  groundCount: 0
+  currentCharacterDir: {x: 0, y: 0}
 --- !u!114 &186904837727385282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1053,7 +1054,7 @@ GameObject:
   - component: {fileID: 3135948726544080875}
   - component: {fileID: 5879922802734283560}
   - component: {fileID: 5310731041910607780}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Punch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1300,6 +1301,7 @@ MonoBehaviour:
   move: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jump: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   sprint: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  punch: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!1 &3057914780335932191
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,7 +1660,7 @@ GameObject:
   - component: {fileID: 6513335068335622756}
   - component: {fileID: 6820380964619908694}
   - component: {fileID: 1081693668970981191}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2047,7 +2049,7 @@ GameObject:
   - component: {fileID: 2351993469525154069}
   - component: {fileID: 3038109846078974499}
   - component: {fileID: 5410870456075285253}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ClimbCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2528,7 +2530,7 @@ GameObject:
   - component: {fileID: 5741634275668444370}
   - component: {fileID: 4914595918657058360}
   - component: {fileID: 3908587132512706312}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FireBreath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2628,7 +2630,7 @@ Transform:
   m_GameObject: {fileID: 7003962763914789001}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.000011444092, z: 95.1}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2680,7 +2682,7 @@ SkinnedMeshRenderer:
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
-  m_UpdateWhenOffscreen: 0
+  m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: -5495902117074765545, guid: d2942f0e18fa8c8468352820462e2363, type: 3}
   m_Bones:
