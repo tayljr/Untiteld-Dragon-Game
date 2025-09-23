@@ -1,0 +1,20 @@
+{
+	"message": [
+		{
+			"targetResponding": false,
+			"saying": "hi, press space to continue..."
+		},
+		{
+			"targetResponding": true,
+			"saying": "hello there"
+		},
+		{
+			"targetResponding": false,
+			"saying": "see you later"
+		},
+		{
+			"targetResponding": true,
+			"saying": "bye"
+		}
+	]
+}
