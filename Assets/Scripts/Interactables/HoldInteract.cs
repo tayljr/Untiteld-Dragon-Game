@@ -3,9 +3,8 @@ using UnityEngine;
 
 public class HoldInteract : MonoBehaviour, IInteractable
 {
-    public delegate void BoolDelegate(bool value);
     
-    public event BoolDelegate InteractEvent;
+    public event IInteractable.BoolDelegate InteractEvent;
     public bool isPressed;
     public float holdTime;
 
@@ -17,6 +16,7 @@ public class HoldInteract : MonoBehaviour, IInteractable
     public void StopInteract()
     {
        StopCoroutine(Hold());
+       isPressed = false;
        InteractEvent?.Invoke(false);
     }
 

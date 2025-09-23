@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class PressInteract : MonoBehaviour, IInteractable
 {
-    public delegate void BoolDelegate(bool value);
-    public event BoolDelegate InteractEvent;
+    public event IInteractable.BoolDelegate InteractEvent;
 
     public void StartInteract()
     {
