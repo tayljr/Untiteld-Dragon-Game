@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public AttackBase punch;
     public AttackBase fireBreath;
 
+    public Interactor interactor;
+    
     public InputSystem_Actions playerControls;
 
     private InputAction move;
@@ -86,11 +88,13 @@ public class PlayerController : MonoBehaviour
 
     private void Interact(InputAction.CallbackContext obj)
     {
+        interactor.Interact(true);
         fireBreath.StartAttack();
     }
 
     private void StopInteract(InputAction.CallbackContext obj)
     {
+        interactor.Interact(false);
         fireBreath.StopAttack();
     }
 

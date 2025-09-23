@@ -1,0 +1,33 @@
+using System.Collections;
+using UnityEngine;
+
+public class ToggleInteract : MonoBehaviour, IInteractable
+{
+    public delegate void BoolDelegate(bool value);
+    public event BoolDelegate InteractEvent;
+    
+    public bool isToggled;
+
+    public void StartInteract()
+    {
+        isToggled = !isToggled;
+        InteractEvent?.Invoke(isToggled);
+    }
+    public void StopInteract()
+    {
+    }
+
+
+    
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}

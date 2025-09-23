@@ -5,25 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f94100f-c895-4bd5-a498-acd157d05846" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/DialogSystem/SampleDialogGraph.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DialogSystem/SampleDialogGraph.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialog/CharacterBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialog/CharacterBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialog/ConversationAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialog/ConversationAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Untiteld-Dragon-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Untiteld-Dragon-Game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dialog/DialogSample.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dialog/DialogSample.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialog/BeginConversationAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialog/BeginConversationAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/BehaviorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/BehaviorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialog/BeginConversationAction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/Interactor.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="332f0M1Kt88smNJZqrPFmfV2cfg" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,6 +39,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -94,13 +103,15 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="30828">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="30828" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list />
+        <list>
+          <MonoRuntime />
+        </list>
       </option>
       <option name="selectedOptions">
         <list />
@@ -120,6 +131,7 @@
       <option name="presentableId" value="Default" />
       <updated>1758519867647</updated>
       <workItem from="1758519870325" duration="1544000" />
+      <workItem from="1758596659624" duration="6027000" />
     </task>
     <servers />
   </component>
@@ -151,6 +163,45 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Dialog/BeginConversationAction.cs</url>
+          <line>35</line>
+          <properties documentPath="C:\Users\jrtay\Documents\Unity\Untiteld-Dragon-Game\Assets\Scripts\Dialog\BeginConversationAction.cs" containingFunctionPresentation="Method 'StartInteract'">
+            <startOffsets>
+              <option value="907" />
+            </startOffsets>
+            <endOffsets>
+              <option value="926" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Interactables/Interactor.cs</url>
+          <line>19</line>
+          <properties documentPath="C:\Users\jrtay\Documents\Unity\Untiteld-Dragon-Game\Assets\Scripts\Interactables\Interactor.cs" containingFunctionPresentation="Method 'Interact'">
+            <startOffsets>
+              <option value="641" />
+            </startOffsets>
+            <endOffsets>
+              <option value="651" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Interactables/Interactor.cs</url>
+          <line>15</line>
+          <properties documentPath="C:\Users\jrtay\Documents\Unity\Untiteld-Dragon-Game\Assets\Scripts\Interactables\Interactor.cs" containingFunctionPresentation="Method 'Interact'">
+            <startOffsets>
+              <option value="489" />
+            </startOffsets>
+            <endOffsets>
+              <option value="571" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
