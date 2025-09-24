@@ -18,12 +18,13 @@ public class NPCInteract : MonoBehaviour, IInteractable
 
     public event IInteractable.BoolDelegate InteractEvent;
 
-    public void StartInteract()
+    public void StartInteract(GameObject interactor)
     {
+        //interactor.GetComponent<PlayerController>().enabled = false;
         hasInteract = true;
     }
 
-    public void StopInteract()
+    public void StopInteract(GameObject interactor)
     {
         
     }

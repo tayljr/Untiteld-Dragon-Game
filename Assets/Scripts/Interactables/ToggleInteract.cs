@@ -7,12 +7,12 @@ public class ToggleInteract : MonoBehaviour, IInteractable
     
     public bool isToggled;
 
-    public void StartInteract()
+    public void StartInteract(GameObject interactor)
     {
         isToggled = !isToggled;
         InteractEvent?.Invoke(isToggled);
     }
-    public void StopInteract()
+    public void StopInteract(GameObject interactor)
     {
     }
 

@@ -6,7 +6,7 @@ public class Interactor : MonoBehaviour
     public float interactDistance = 5f;
     public Vector3 interactOffset = new Vector3(0f, 1f, 0f);
     private IInteractable interactable;
-
+    private Vector3 interactPosition;
     public void Interact(bool start)
     {
         if (start)
@@ -16,18 +16,21 @@ public class Interactor : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit, interactDistance, Int32.MaxValue,
                     QueryTriggerInteraction.Ignore))
             {
-                Debug.Log(hit.collider.name);
+                //Debug.Log(hit.collider.name);
                 interactable = hit.collider.GetComponentInChildren<IInteractable>();
-
+                interactPosition = hit.point;
                 if (interactable != null)
                 {
-                    interactable.StartInteract();
+                    interactable.StartInteract(gameObject);
                 }
             }
         }
         else
         {
-            interactable.StopInteract();
+            if (interactable != null)
+            {
+                interactable.StopInteract(gameObject);
+            }
         }
     }
     
@@ -40,6 +43,12 @@ public class Interactor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Vector3.Distance(transform.position, interactPosition) > interactDistance)
+        {
+            if (interactable != null)
+            {
+                interactable.StopInteract(gameObject);
+            }
+        }
     }
 }

@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bc087fa33ee687479df5556f987361c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactDistance: 5
+  interactDistance: 2
   interactOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &88541311
 PrefabInstance:
@@ -650,7 +650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPressed: 0
-  holdTime: 0.5
+  holdTime: 5
 --- !u!33 &706286606
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1183,6 +1183,10 @@ PrefabInstance:
       propertyPath: interactor
       value: 
       objectReference: {fileID: 71895752}
+    - target: {fileID: 8453707684167208563, guid: ae145dac8683d6f439a8af4fad905c53, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

@@ -8,12 +8,12 @@ public class HoldInteract : MonoBehaviour, IInteractable
     public bool isPressed;
     public float holdTime;
 
-    public void StartInteract()
+    public void StartInteract(GameObject interactor)
     {
         isPressed = true;
         StartCoroutine(Hold());
     }
-    public void StopInteract()
+    public void StopInteract(GameObject interactor)
     {
        StopCoroutine(Hold());
        isPressed = false;

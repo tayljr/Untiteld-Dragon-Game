@@ -5,11 +5,11 @@ public class PressInteract : MonoBehaviour, IInteractable
 {
     public event IInteractable.BoolDelegate InteractEvent;
 
-    public void StartInteract()
+    public void StartInteract(GameObject interactor)
     {
         InteractEvent?.Invoke(true);
     }
-    public void StopInteract()
+    public void StopInteract(GameObject interactor)
     {
         InteractEvent?.Invoke(false);
     }
