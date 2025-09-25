@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEditor;
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(HealthBase))]
 public class HealthBase_Editor : Editor
 {
@@ -29,3 +30,4 @@ public class HealthBase_Editor : Editor
         base.OnInspectorGUI();
     }
 }
+#endif

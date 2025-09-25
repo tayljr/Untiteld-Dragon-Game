@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
+
+
     public CharacterController controller;
 
     public ColliderEvents groundTrigger;
