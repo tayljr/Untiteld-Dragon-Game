@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 4171529159505433185}
   - component: {fileID: 5151307173428227930}
   - component: {fileID: 7752858630211847152}
+  - component: {fileID: 2801106050957158688}
   m_Layer: 0
   m_Name: Punch
   m_TagString: Untagged
@@ -245,6 +246,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.5200133, z: 1.5488083}
   m_Center: {x: 0, y: 0.056576967, z: 0.27440417}
+--- !u!54 &2801106050957158688
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428418690460866986}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1629439326756493855
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,8 +1794,9 @@ MonoBehaviour:
   grounded: 0
   isCrouching: 0
   isGliding: 0
-  groundCount: 0
   currentHeadDir: {x: 0, y: 0}
+  groundCount: 0
+  currentCharacterDir: {x: 0, y: 0}
 --- !u!114 &1355662083719854933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2337,6 +2366,7 @@ GameObject:
   - component: {fileID: 1349134581403494410}
   - component: {fileID: 3891959835567655656}
   - component: {fileID: 5291095552783356629}
+  - component: {fileID: 4823716596887487260}
   m_Layer: 0
   m_Name: ClimbCheck
   m_TagString: Untagged
@@ -2392,6 +2422,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0.75}
+--- !u!54 &4823716596887487260
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6715767148126578194}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6736887766439999346
 GameObject:
   m_ObjectHideFlags: 0
@@ -2896,6 +2953,7 @@ MonoBehaviour:
   move: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jump: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   sprint: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  punch: {fileID: 0}
 --- !u!1 &7513666230039980927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2970,6 +3028,7 @@ GameObject:
   - component: {fileID: 600872557431022177}
   - component: {fileID: 8377326461143470581}
   - component: {fileID: 3672141892170892952}
+  - component: {fileID: 2580967777806546306}
   m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
@@ -3025,6 +3084,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8, y: 0.1, z: 0.8}
   m_Center: {x: 0, y: -1, z: 0}
+--- !u!54 &2580967777806546306
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7740254224612263446}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7815014333345869728
 GameObject:
   m_ObjectHideFlags: 0
@@ -3291,6 +3377,7 @@ GameObject:
   - component: {fileID: 6890216810356625748}
   - component: {fileID: 8151910811845410999}
   - component: {fileID: 8690909936483226601}
+  - component: {fileID: 73126830904907048}
   m_Layer: 0
   m_Name: FireBreath
   m_TagString: Untagged
@@ -3365,6 +3452,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.49475807, y: 0.5269487, z: 3.786218}
   m_Center: {x: 0.017672807, y: 0.5531093, z: 1.393109}
+--- !u!54 &73126830904907048
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8550241850036526272}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8650851659453431298
 GameObject:
   m_ObjectHideFlags: 0

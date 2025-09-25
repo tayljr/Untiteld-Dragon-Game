@@ -1,0 +1,20 @@
+{
+	"message": [
+		{
+			"targetResponding": false,
+			"saying": "hi, blue"
+		},
+		{
+			"targetResponding": true,
+			"saying": "hello there, orrange"
+		},
+		{
+			"targetResponding": false,
+			"saying": "see you later, blue"
+		},
+		{
+			"targetResponding": true,
+			"saying": "bye bye, orange"
+		}
+	]
+}
