@@ -21,7 +21,6 @@ public class UIManager : MonoBehaviour, IPauseable
         {
             HUD.SetActive(HUDOn);
         }
-
     }
     public void TogglePauseMenu()
     {
@@ -30,12 +29,14 @@ public class UIManager : MonoBehaviour, IPauseable
     public void OnPause()
     {
         PauseMenuOpen = true;
+        HUDOn = false;
         Cursor.lockState = CursorLockMode.None;
         TogglePauseMenu();
     }
     public void OnResume()
     {
         PauseMenuOpen = false;
+        HUDOn = true;
         Cursor.lockState = CursorLockMode.Locked;
         TogglePauseMenu();
     }

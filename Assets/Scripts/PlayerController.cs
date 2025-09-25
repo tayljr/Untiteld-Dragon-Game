@@ -2,10 +2,10 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IPauseable
 {
     public CharacterMovement characterMovement;
-    
+    public PlayerAnimation playerAnimation;
 
     //could have a list of attacks, like ratchet and clank
     public AttackBase punch;
@@ -28,6 +28,21 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerControls = new InputSystem_Actions();
+    }
+
+    public void OnPause()
+    {
+        //isPaused = true;
+        enabled = false;
+        characterMovement.enabled = false;
+        playerAnimation.enabled = false;
+    }
+    public void OnResume()
+    {
+        //isPaused = false;
+        enabled = true;
+        characterMovement.enabled = true;
+        playerAnimation.enabled = true;
     }
 
     private void OnEnable()

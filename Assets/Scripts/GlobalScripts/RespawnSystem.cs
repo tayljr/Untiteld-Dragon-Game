@@ -26,6 +26,19 @@ public class RespawnSystem : MonoBehaviour
     {
         StartCoroutine(FindPlayer());
     }
+    public void OnEnable() => HealthBase.OnDeath += HealthBase_OnDeath;
+    public void OnDisable() => HealthBase.OnDeath -= HealthBase_OnDeath;
+
+    private void HealthBase_OnDeath(string tag)
+    {
+        // Check if the tag is "Player"
+        Debug.Log("RespawnSystem detected death of: " + tag);
+        if (tag == "Player")
+        {
+            RespawnPlayer();
+        }
+    }
+
     public IEnumerator FindPlayer()
     {
         while (playerRef == null)
@@ -55,16 +68,7 @@ public class RespawnSystem : MonoBehaviour
     // Update is called once per frame
     public void RespawnPlayer()
     {
-        if (playerRef != null && SpawnAtStart && respawnPoints.Count > 0)
-        {
-            playerRef.transform.position = respawnPoints[0].transform.position;
-            SpawnAtStart = false;
-        }
-
-        if (playerRef != null && respawnPoints.Count > 0)
-        {
-            //playerRef.Respawn function here  = respawnPoints[currentRespawnIndex].transform.position;
-        }
+        playerRef.GetComponent<CharacterMovement>().Teleport(respawnPoints[currentRespawnIndex].transform.position);
 
     }
     private void OnDrawGizmos()
