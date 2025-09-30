@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 public class HealthBase : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class HealthBase : MonoBehaviour
     public bool invincible = false;
 
     public bool isDead = false;
+
+    //LootTable
+    [Header("Loot")]
+    public List<LootItem> LootTable = new List<LootItem>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -80,9 +85,18 @@ public class HealthBase : MonoBehaviour
             health = 0;
             isDead = true;
             Debug.Log("Dead");
-            OnDeath?.Invoke(gameObject.tag);
+            Destroy(gameObject);
 
-
+            //Go around loottable
+            //Spawn Item
+            foreach(LootItem lootItem in LootTable)
+            {
+                if(Random.Range(0f, 100f) <= lootItem.dropChance)
+                {
+                    InstantiateLoot(lootItem.itemPrefab);
+                }
+            }
+            
         }
         else if(health > maxHealth)
         {
@@ -96,10 +110,19 @@ public class HealthBase : MonoBehaviour
         }
         healthPercent = (health / maxHealth) * 100;
     }
+    
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    void InstantiateLoot(GameObject loot)
+    {
+        if (loot)
+        {
+            GameObject droppedLoot = Instantiate(loot, transform.position, Quaternion.identity);
+            
+        }
     }
 }
