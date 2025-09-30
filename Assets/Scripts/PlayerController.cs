@@ -103,13 +103,13 @@ public class PlayerController : MonoBehaviour, IPauseable
 
     private void Interact(InputAction.CallbackContext obj)
     {
-        interactor.Interact(true);
+        if (interactor != null) interactor.Interact(true);
         fireBreath.StartAttack();
     }
 
     private void StopInteract(InputAction.CallbackContext obj)
     {
-        interactor.Interact(false);
+        if (interactor != null) interactor.Interact(false);
         fireBreath.StopAttack();
     }
 
