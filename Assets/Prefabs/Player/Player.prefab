@@ -1602,13 +1602,13 @@ GameObject:
   - component: {fileID: 4289998588698078880}
   - component: {fileID: 5511334644805200695}
   - component: {fileID: 5694415475231827034}
-  - component: {fileID: 8787277232795767116}
   - component: {fileID: 7589216892032333065}
   - component: {fileID: 2311948180293268705}
   - component: {fileID: 1355662083719854933}
   - component: {fileID: 723595721396505957}
   - component: {fileID: 4488075488164338901}
   - component: {fileID: 8453707684167208563}
+  - component: {fileID: 7710759129991799733}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1702,27 +1702,8 @@ MonoBehaviour:
   iFrameTime: 0.25
   invincible: 0
   isDead: 0
+  LootTable: []
 --- !u!114 &5694415475231827034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5382560219466656962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15bacb415dfff8b4785c0258637edf81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Collectibles: 0
-  Keys: 0
-  collectibleText: {fileID: 0}
-  currencyText: {fileID: 0}
-  KeysText: {fileID: 0}
-  currencyCount: 0
-  cm: {fileID: 0}
-  coin: {fileID: 0}
---- !u!114 &8787277232795767116
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1949,6 +1930,19 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7710759129991799733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5382560219466656962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98463fe0f1c88a445a59dd40c757d2e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gemCountText: {fileID: 0}
 --- !u!1 &5464076519506682553
 GameObject:
   m_ObjectHideFlags: 0
