@@ -1,5 +1,3 @@
-
-using Mono.Cecil.Cil;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -279,11 +277,13 @@ public class AIControllerEnemy : MonoBehaviour
                 //null check for poins for also no 10000 errors
                 if (point != null)
                 {
-                    Gizmos.DrawIcon(point.position, "point",true);
+                    Gizmos.DrawIcon(point.position, "point", true);
                 }
             }
         }
+#if UNITY_EDITOR
         Handles.DrawWireArc(foveye.transform.position, Vector3.up,Vector3.forward,360,FOVRange);
+#endif
     }
     private void OnDisable()
     {

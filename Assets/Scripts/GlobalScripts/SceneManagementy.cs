@@ -43,9 +43,9 @@ public class SceneManagementy : MonoBehaviour
     {
 
     }
-    public void UIAnimationTrigger(System.Action action, string trigger)
+    public void UIAnimationTrigger(System.Action action)
     {
-        _animator.SetTrigger(trigger);
+        _animator.SetTrigger("trigger");
         action.Invoke();
     }
     public IEnumerator SceneTransit(string sceneName)

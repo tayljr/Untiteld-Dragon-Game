@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
+
+
     public CharacterController controller;
 
     public ColliderEvents groundTrigger;
@@ -192,6 +194,7 @@ public class CharacterMovement : MonoBehaviour
     {
         groundTrigger.OnTriggerEnterEvent += Grounded;
         groundTrigger.OnTriggerExitEvent += NotGrounded;
+        
     }
     private void OnDisable()
     {

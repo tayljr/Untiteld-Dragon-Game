@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SceneTrigger : MonoBehaviour
 {
-    public SceneAsset sceneAsset;
+    public string sceneName;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public delegate void TransitionScene(string Scene);
     public static event TransitionScene OnSceneTransitionEvent;
@@ -22,7 +22,7 @@ public class SceneTrigger : MonoBehaviour
         //transition
         if (other.gameObject.tag == "Player")
         {
-            OnSceneTransitionEvent.Invoke(sceneAsset.name);
+            OnSceneTransitionEvent.Invoke(sceneName);
         }
     }
 }

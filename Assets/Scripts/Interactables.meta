@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Interactables.meta
 guid: 8256b7d80b9283a4f95c7fbb6ae97b2e
 folderAsset: yes
+========
+guid: 8762c7c6167189b499df92611e255653
+>>>>>>>> main:Assets/Scenes/MainMenu/MainMenu.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

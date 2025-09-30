@@ -3,6 +3,15 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 public class HealthBase : MonoBehaviour
 {
+    public delegate void DeathEvent(string tag);
+    public static event DeathEvent OnDeath;
+
+    public delegate void DamageEvent(float damage, string tag);
+    public static event DamageEvent OnDamage;
+
+    public delegate void HealEvent(float heal, string tag);
+    public static event HealEvent OnHeal;
+
     public float maxHealth = 10f;
     public float health = 10f;
     public float healthPercent = 100f;
@@ -28,6 +37,7 @@ public class HealthBase : MonoBehaviour
             health -= amount;
             StartCoroutine(IFrames());
             HealthCheck();
+            OnDamage?.Invoke(amount, gameObject.tag);
         }
     }
 
@@ -53,6 +63,7 @@ public class HealthBase : MonoBehaviour
         health += amount;
 
         HealthCheck();
+        OnHeal?.Invoke(amount, gameObject.tag);
     }
 
     public void HealPercent(float percentage)
@@ -69,13 +80,15 @@ public class HealthBase : MonoBehaviour
             health = 0;
             isDead = true;
             Debug.Log("Dead");
+            OnDeath?.Invoke(gameObject.tag);
 
-            
+
         }
         else if(health > maxHealth)
         {
             health = maxHealth;
             isDead = false;
+
         }
         else
         {
