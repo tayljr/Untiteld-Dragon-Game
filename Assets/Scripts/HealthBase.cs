@@ -87,7 +87,7 @@ public class HealthBase : MonoBehaviour
             Debug.Log("Dead");
             Destroy(gameObject);
 
-            //Go around loottable
+            
             //Spawn Item
             foreach(LootItem lootItem in LootTable)
             {
