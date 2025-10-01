@@ -74,7 +74,6 @@ public class AIControllerEnemy : MonoBehaviour
         agent.speed = enemyController.speed;
         agent.angularSpeed = enemyController.speed*2;
 
-        LineOfSight();
     }
     void FixedUpdate()
     {
@@ -127,20 +126,23 @@ public class AIControllerEnemy : MonoBehaviour
 
 
         //patrol bool
-        if (patroling)
-            Patrol();
-        if (roaming)
-            Roam();
+
         if (agro > 0)
         {
             agent.SetDestination(PlayerTarget.transform.position);
             agro -= Time.deltaTime;
+            roaming = false;
         }
         else
         {
             roaming = true;
             isAttacking = false;
+            if (patroling)
+                Patrol();
+            if (roaming)
+                Roam();
         }
+
     }
     private void Roam()
     {
@@ -218,6 +220,7 @@ public class AIControllerEnemy : MonoBehaviour
     {
         while (true)
         {
+            LineOfSight();
             yield return new WaitForSeconds(combat.attackDelay);
             //check if the enemy can attack the player
             if (AttackDistanceCheck())
@@ -240,7 +243,7 @@ public class AIControllerEnemy : MonoBehaviour
             if (Physics.Raycast(transform.position, dir, out hit, FOVRange, RaycastMask))
             {
                 Debug.DrawRay(transform.position, dir * hit.distance, Color.red);
-                //Debug.Log($"Did Hit {hit.collider.name}");
+                Debug.LogWarning($"Did Hit {hit.collider.name}");
                 if (hit.transform.gameObject == PlayerTarget)
                 {
                     agro = agromax;

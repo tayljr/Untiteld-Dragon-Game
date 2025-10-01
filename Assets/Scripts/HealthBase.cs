@@ -84,6 +84,7 @@ public class HealthBase : MonoBehaviour
         {
             health = 0;
             isDead = true;
+            OnDeath?.Invoke(gameObject.tag);
             Debug.Log("Dead");
             Destroy(gameObject);
 

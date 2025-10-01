@@ -32,7 +32,10 @@ public class PlayerUIController : MonoBehaviour
 
     private void HealthBase_OnDamage(float damage, string tag)
     {
-        healthBar.value -= damage;
+        if (tag == "Player")
+        {
+            healthBar.value -= damage;
+        }
     }
 
     private void HealthBase_OnDeath(string tag)

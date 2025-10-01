@@ -15,28 +15,27 @@ public class RespawnSystem : MonoBehaviour
 
     public List<RespawnPoint> respawnPoints = new List<RespawnPoint>();
     public GameObject playerRef;
-
-    public bool SpawnAtStart = true;
-
+    [SerializeField]
+    private GameObject PlayerOBJInstance;
+    public bool PlayerIsAlive = true;
     [SerializeField] private int currentRespawnIndex = 0;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        RespawnPlayer(0);
         StartCoroutine(FindPlayer());
+        StartCoroutine(TrySpawnPlayer());
     }
     public void OnEnable() => HealthBase.OnDeath += HealthBase_OnDeath;
     public void OnDisable() => HealthBase.OnDeath -= HealthBase_OnDeath;
 
     private void HealthBase_OnDeath(string tag)
     {
-        // Check if the tag is "Player"
-        Debug.Log("RespawnSystem detected death of: " + tag);
-        if (tag == "Player")
-        {
-            RespawnPlayer();
-        }
+        Debug.LogWarning("RespawnSystem detected death of: " + tag);
+        PlayerIsAlive = false;
+        playerRef = Instantiate(PlayerOBJInstance);
     }
 
     public IEnumerator FindPlayer()
@@ -46,29 +45,32 @@ public class RespawnSystem : MonoBehaviour
             playerRef = GameObject.FindGameObjectWithTag("Player");
             yield return new WaitForSeconds(0.5f);
         }
-    }
-    private void FixedUpdate()
-    {
-        StartCoroutine(TrySpawnPlayer());
 
     }
     public IEnumerator TrySpawnPlayer()
     {
-        while (SpawnAtStart == true)
+        while (PlayerIsAlive == false)
         {
             if (playerRef != null && respawnPoints.Count > 0)
             {
-                RespawnPlayer();
-                SpawnAtStart = false;
+                RespawnPlayer(0);
             }
             yield return new WaitForSeconds(0.5f);
         }
-        
+        //while (PlayerIsAlive == true)
+        //{
+        //    if (playerRef != null && respawnPoints.Count > 0)
+        //    {
+        //        RespawnPlayer(currentRespawnIndex);
+        //    }
+        //    yield return new WaitForSeconds(0.5f);
+        //}
+
     }
     // Update is called once per frame
-    public void RespawnPlayer()
+    public void RespawnPlayer(int spawnIndex)
     {
-        playerRef.GetComponent<CharacterMovement>().Teleport(respawnPoints[currentRespawnIndex].transform.position);
+        playerRef.GetComponent<CharacterMovement>().Teleport(respawnPoints[spawnIndex].transform.position);
 
     }
     private void OnDrawGizmos()
