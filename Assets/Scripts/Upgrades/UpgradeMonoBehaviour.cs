@@ -3,20 +3,9 @@ using UnityEngine;
 
 public class UpgradeMonoBehaviour : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void Awake()
     {
+        //when the scene loads, check the upgrade manger to see if this upgrade was active
         if (UpgradeManager.instance.activeUpgrades.Contains(GetType().Name))
         {
             enabled = true;
@@ -25,6 +14,7 @@ public class UpgradeMonoBehaviour : MonoBehaviour
 
     private void OnDestroy()
     {
+        //when the scene unloads, if this upgrade is active, tell the upgrade manager to remember that
         if(enabled)
         {
             UpgradeManager.instance.AddActiveUpgrade(this);
