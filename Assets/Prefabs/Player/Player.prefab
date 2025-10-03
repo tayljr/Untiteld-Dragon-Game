@@ -1757,12 +1757,12 @@ MonoBehaviour:
   head: {fileID: 5519938158101405960}
   minMaxHeadTilt: {x: -45, y: 45}
   minMaxHeadTurn: {x: -45, y: 45}
-  speed: 5
-  sprintModifier: 0
+  speed: 8
+  sprintModifier: 3.2
   crouchModifier: 0.5
   defaultJumpCount: 1
-  maxJumpCount: 2
-  jumpForce: 7
+  maxJumpCount: 1
+  jumpForce: 9
   fastFalling: 0
   fallingModifier: 0.5
   gravity: 22
@@ -1786,7 +1786,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5382560219466656962}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d0d9922a61f642478f12070727b8698, type: 3}
   m_Name: 
@@ -1801,7 +1801,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5382560219466656962}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce24f027bec4e1647a45ddc25464c21f, type: 3}
   m_Name: 
@@ -1814,7 +1814,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5382560219466656962}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 909075522e9051141a84e4f19d3a75f6, type: 3}
   m_Name: 
