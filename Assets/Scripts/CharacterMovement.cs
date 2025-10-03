@@ -295,7 +295,7 @@ public class CharacterMovement : MonoBehaviour
             {
                 verticalVelocity = -_termVel;
             }
-            Debug.Log(verticalVelocity);
+            //Debug.Log(verticalVelocity);
         }
         
         controller.Move(worldMoveDir * Time.deltaTime);

@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// when climb hitbox is colliding with vine, tell character controller they can climb
 /// </summary>
-public class ClimibUpdgrade : MonoBehaviour
+public class ClimibUpdgrade : UpgradeMonoBehaviour
 {
     public ColliderEvents climbTrigger;
     public CharacterMovement characterMovement;
