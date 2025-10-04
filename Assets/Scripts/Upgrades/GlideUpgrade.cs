@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GlideUpgrade : MonoBehaviour
+public class GlideUpgrade : UpgradeMonoBehaviour
 {
     public CharacterMovement characterMovement;
     private void OnEnable()
