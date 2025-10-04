@@ -6,7 +6,7 @@ public class UpgradeMonoBehaviour : MonoBehaviour
     private void Awake()
     {
         //when the scene loads, check the upgrade manger to see if this upgrade was active
-        if (UpgradeManager.instance.activeUpgrades.Contains(GetType().Name))
+        if (UpgradeManager.instance != null && UpgradeManager.instance.activeUpgrades.Contains(GetType().Name))
         {
             enabled = true;
         }
