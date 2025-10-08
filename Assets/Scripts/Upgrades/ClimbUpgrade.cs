@@ -21,7 +21,7 @@ public class ClimbUpgrade : UpgradeMonoBehaviour
     }
 
     //todo add filter for climbables
-    private void TouchingClimbable(Collider other)
+    private void TouchingClimbable(GameObject self, Collider other)
     {
         //print(other.tag);
         if (other.tag == climbableTag)
@@ -34,7 +34,7 @@ public class ClimbUpgrade : UpgradeMonoBehaviour
         }
     }
 
-    private void NotTouchingClimbable(Collider other)
+    private void NotTouchingClimbable(GameObject self, Collider other)
     {
         if (other.tag == climbableTag)
         {
