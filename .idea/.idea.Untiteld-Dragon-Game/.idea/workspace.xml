@@ -548,6 +548,7 @@
       <change afterPath="$PROJECT_DIR$/Assets/Scripts/Loot Item.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Scripts/Loot Item.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Untiteld-Dragon-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Untiteld-Dragon-Game/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/Assets/DialogSystem/SampleDialogGraph.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DialogSystem/SampleDialogGraph.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/JSON/SampleDialog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JSON/SampleDialog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/New Terrain 6.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Terrain 6.asset" afterDir="false" />
@@ -565,6 +566,9 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/LootBag.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterMovement.cs" afterDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -598,7 +602,11 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+<<<<<<< Updated upstream
     "git-widget-placeholder": "Merging DialogSystem",
+=======
+    "git-widget-placeholder": "Respawn",
+>>>>>>> Stashed changes
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -658,10 +666,17 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
+<<<<<<< Updated upstream
     <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+=======
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="3540">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" value="3540" />
+>>>>>>> Stashed changes
       <option name="projectPathOnTarget" />
       <option name="runtimes">
         <list />
@@ -686,6 +701,11 @@
       <workItem from="1758519870325" duration="1544000" />
       <workItem from="1758685291320" duration="3996000" />
       <workItem from="1759207161763" duration="4963000" />
+<<<<<<< Updated upstream
+=======
+      <workItem from="1759541406993" duration="3559000" />
+      <workItem from="1760324461609" duration="17071000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>

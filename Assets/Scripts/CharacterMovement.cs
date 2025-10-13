@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
@@ -29,6 +30,7 @@ public class CharacterMovement : MonoBehaviour
     public float teminalGlideVel = 2.5f;
     public float glideForwardSpeed = 10f;
     public float glideSidewaysSpeed = 5f;
+    public float slideSpeed = 10f;
 
 
     //will be private
@@ -39,8 +41,10 @@ public class CharacterMovement : MonoBehaviour
     private float speedModifier = 1f;
     [SerializeField]
     private float verticalVelocity = 0f;
-
+    public Vector3 slopeAngle = Vector3.up;
+    
     //please dont priv this i need for animator :(
+    public bool isSliding = false;
     public bool grounded = false;
     public bool isCrouching = false;
     public bool isGliding = false;
@@ -215,14 +219,14 @@ public class CharacterMovement : MonoBehaviour
     }
     private void Grounded(Collider other)
     {
-        if (other.gameObject != gameObject && !other.isTrigger)
+        if (other.gameObject != gameObject && !other.isTrigger && !isSliding)
         {
-            Debug.Log(other.gameObject.name);
+            //Debug.Log(other.gameObject.name);
             verticalVelocity = 0;
             grounded = true;
             jumpCount = 0;
             groundCount++;
-            isGliding = false;
+            isGliding = false; 
         }
     }
 
@@ -239,25 +243,43 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //ground check
-        /*
-        RaycastHit hit;
-        Vector3 feetPos = transform.position;
-        feetPos.y -= controller.height / 3;
-        grounded = Physics.SphereCast(feetPos, controller.height / 4, -transform.up, out hit, 0.5f);
-        */
-
         Vector3 worldMoveDir = transform.TransformDirection(moveDir);
         worldMoveDir = worldMoveDir * speed * speedModifier;
+        
+        //ground angle check
+        slopeAngle = Vector3.up;
+        //grounded = false;
+        RaycastHit hit;
+        Physics.Raycast(transform.position, Vector3.down, out hit, 10, Int32.MaxValue, QueryTriggerInteraction.Ignore);
+        var angle = Vector3.Angle(hit.normal, Vector3.up);
+        //Debug.Log(angle);
+        if (angle <= controller.slopeLimit + 0.01f)
+        {
+            slopeAngle = hit.normal;
+            isSliding = false;
+            //grounded = true;
+        }
+        else
+        {
+            //grounded = false;
+            Vector3 slideDir = Vector3.RotateTowards(hit.normal, Vector3.down, 90 * Mathf.Deg2Rad, 0f);
+            Debug.DrawRay(hit.point, slideDir, Color.yellow, 1f);
+            worldMoveDir += slideDir.normalized * slideSpeed * Time.deltaTime;
+            isSliding = true;
+        } 
+        Debug.DrawRay(hit.point, hit.normal, Color.red, 1f);
+        if (grounded)
+        {
+            
+        }
 
         if (isGliding && !grounded && !canClimb)
         {
-            //worldMoveDir.y = -glideGrav;
             worldMoveDir = transform.TransformDirection(moveDir.x * glideSidewaysSpeed, moveDir.y, glideForwardSpeed);
             LockHead();
         }
 
-        worldMoveDir.y = verticalVelocity;
+        worldMoveDir = Vector3.ProjectOnPlane(worldMoveDir, slopeAngle) + new Vector3(0, verticalVelocity, 0);
 
         if (canClimb)
         {
@@ -297,6 +319,7 @@ public class CharacterMovement : MonoBehaviour
             }
             Debug.Log(verticalVelocity);
         }
+        
         
         controller.Move(worldMoveDir * Time.deltaTime);
     }
