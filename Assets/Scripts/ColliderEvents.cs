@@ -3,8 +3,8 @@ using System;
 
 public class ColliderEvents : MonoBehaviour
 {
-    public delegate void TriggerDelegate( Collider other);
-    public delegate void CollisionDelegate(Collision collision);
+    public delegate void TriggerDelegate(GameObject self, Collider other);
+    public delegate void CollisionDelegate(GameObject self, Collision collision);
 
     public event TriggerDelegate OnTriggerEnterEvent;
     public event TriggerDelegate OnTriggerExitEvent;
@@ -17,7 +17,7 @@ public class ColliderEvents : MonoBehaviour
     {
         if (other.gameObject != gameObject)
         {
-            OnTriggerEnterEvent?.Invoke(other);
+            OnTriggerEnterEvent?.Invoke(gameObject, other);
         }
     }
 
@@ -25,7 +25,7 @@ public class ColliderEvents : MonoBehaviour
     {
         if (other.gameObject != gameObject)
         {
-            OnTriggerExitEvent?.Invoke(other);
+            OnTriggerExitEvent?.Invoke(gameObject, other);
         }
     }
 
@@ -33,7 +33,7 @@ public class ColliderEvents : MonoBehaviour
     {
         if (other.gameObject != gameObject)
         {
-            OnTriggerStayEvent?.Invoke(other);
+            OnTriggerStayEvent?.Invoke(gameObject, other);
         }
     }
 
@@ -41,7 +41,7 @@ public class ColliderEvents : MonoBehaviour
     {
         if (collision.gameObject != gameObject)
         {
-            OnCollisionEnterEvent?.Invoke(collision);
+            OnCollisionEnterEvent?.Invoke(gameObject, collision);
         }
     }
 
@@ -49,7 +49,7 @@ public class ColliderEvents : MonoBehaviour
     {
         if (collision.gameObject != gameObject)
         {
-            OnCollisionExitEvent?.Invoke(collision);
+            OnCollisionExitEvent?.Invoke(gameObject, collision);
         }
     }
 
@@ -57,7 +57,7 @@ public class ColliderEvents : MonoBehaviour
     {
         if (collision.gameObject != gameObject)
         {
-            OnCollisionStayEvent?.Invoke(collision);
+            OnCollisionStayEvent?.Invoke(gameObject, collision);
         }
     }
 }

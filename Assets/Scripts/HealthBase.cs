@@ -86,7 +86,10 @@ public class HealthBase : MonoBehaviour
             isDead = true;
             OnDeath?.Invoke(gameObject.tag);
             Debug.Log("Dead");
-            Destroy(gameObject);
+            if(gameObject.tag != "Player")
+            {
+                Destroy(gameObject);
+            }
 
             
             //Spawn Item
