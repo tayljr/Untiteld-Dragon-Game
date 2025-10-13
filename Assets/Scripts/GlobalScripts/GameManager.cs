@@ -6,8 +6,12 @@ public class GameManager : MonoBehaviour, IPauseable
 {
     public GameObject _player;
     private static GameManager _instance;
-    public static GameManager instance {  get { return _instance; } }   
+    public static GameManager instance {  get { return _instance; } }  
     
+    public bool gameOver = false;
+
+    public bool gameStartMenu = true;
+
     public bool isPaused = false;
     
     public bool inDialogue = false;
@@ -37,15 +41,31 @@ public class GameManager : MonoBehaviour, IPauseable
     public void OnPause()
     {
         isPaused = true;
-        _player.SendMessage("OnPause");
+        if (!gameStartMenu)
+        {
+            _player.SendMessage("OnPause");
+        }
     }
     public void OnResume()
     {
         isPaused = false;
-        _player.SendMessage("OnResume");
+        if (!gameStartMenu)
+        {
+            _player.SendMessage("OnResume");
+        }
 
     }
-
+    public void OnMainMenu()
+    {
+        gameOver = false;
+        gameStartMenu = true;
+        OnResume();
+    }
+    public void GameStart()
+    {
+        gameStartMenu = false;
+        gameObject.SendMessage("OnGameStart");
+    }
     // Update is called once per frame
     void Update()
     {

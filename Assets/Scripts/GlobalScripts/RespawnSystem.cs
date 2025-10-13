@@ -24,9 +24,9 @@ public class RespawnSystem : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        RespawnPlayer(0);
         StartCoroutine(FindPlayer());
         StartCoroutine(TrySpawnPlayer());
+        RespawnPlayer(0);
     }
     public void OnEnable() => HealthBase.OnDeath += HealthBase_OnDeath;
     public void OnDisable() => HealthBase.OnDeath -= HealthBase_OnDeath;
@@ -44,8 +44,9 @@ public class RespawnSystem : MonoBehaviour
         {
             playerRef = GameObject.FindGameObjectWithTag("Player");
             yield return new WaitForSeconds(0.5f);
+           
         }
-
+        StopCoroutine(FindPlayer());
     }
     public IEnumerator TrySpawnPlayer()
     {
@@ -71,7 +72,6 @@ public class RespawnSystem : MonoBehaviour
     public void RespawnPlayer(int spawnIndex)
     {
         playerRef.GetComponent<CharacterMovement>().Teleport(respawnPoints[spawnIndex].transform.position);
-
     }
     private void OnDrawGizmos()
     {
