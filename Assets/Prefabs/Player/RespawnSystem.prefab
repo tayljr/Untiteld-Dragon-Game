@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 261056645338868294}
   - component: {fileID: 1736771462885443762}
+  - component: {fileID: 4958580675247139743}
   m_Layer: 0
   m_Name: point1
   m_TagString: Untagged
@@ -25,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619947382447242958}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.70710695, z: -0, w: 0.70710665}
-  m_LocalPosition: {x: 69.921524, y: 31.2, z: 81.92}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 243914023370886839}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1736771462885443762
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -53,6 +54,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4958580675247139743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619947382447242958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e295958309cba1348af671314aff7f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &860166164423799094
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,5 +117,5 @@ MonoBehaviour:
     gizmoColor: {r: 1, g: 0, b: 0, a: 1}
     spawnName: 
   playerRef: {fileID: 0}
-  SpawnAtStart: 1
+  PlayerIsAlive: 1
   currentRespawnIndex: 0

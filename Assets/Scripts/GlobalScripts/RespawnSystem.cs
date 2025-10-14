@@ -16,7 +16,7 @@ public class RespawnSystem : MonoBehaviour
     public List<RespawnPoint> respawnPoints = new List<RespawnPoint>();
     public GameObject playerRef;
     [SerializeField]
-    private GameObject PlayerOBJInstance;
+    //private GameObject PlayerOBJInstance;
     public bool PlayerIsAlive = true;
     [SerializeField] private int currentRespawnIndex = 0;
 
@@ -24,18 +24,39 @@ public class RespawnSystem : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        RespawnPlayer(0);
         StartCoroutine(FindPlayer());
-        StartCoroutine(TrySpawnPlayer());
+        // RespawnPlayer(0);
+        // StartCoroutine(TrySpawnPlayer());
     }
-    public void OnEnable() => HealthBase.OnDeath += HealthBase_OnDeath;
+    public void OnEnable()
+    {
+        HealthBase.OnDeath += HealthBase_OnDeath;
+        foreach (RespawnPoint respawnPoint in respawnPoints)
+        {
+            respawnPoint.transform.gameObject.GetComponent<ColliderEvents>().OnTriggerEnterEvent += OnRespawnTriggerEvent;
+        }
+    }
+
+    private void OnRespawnTriggerEvent(GameObject self, Collider other)
+    {
+        if (other.gameObject == playerRef)
+        {
+            RespawnPoint newRespawnPoint = respawnPoints.Find(RespawnPoint => RespawnPoint.transform == self.transform);
+            currentRespawnIndex = respawnPoints.IndexOf(newRespawnPoint);
+        }
+    }
+
     public void OnDisable() => HealthBase.OnDeath -= HealthBase_OnDeath;
 
     private void HealthBase_OnDeath(string tag)
     {
-        Debug.LogWarning("RespawnSystem detected death of: " + tag);
-        PlayerIsAlive = false;
-        playerRef = Instantiate(PlayerOBJInstance);
+        //Debug.LogWarning("RespawnSystem detected death of: " + tag);
+        //playerRef = Instantiate(PlayerOBJInstance);
+        if(tag == "Player")
+        {
+            PlayerIsAlive = false;
+            StartCoroutine(TrySpawnPlayer());
+        }
     }
 
     public IEnumerator FindPlayer()
@@ -53,7 +74,7 @@ public class RespawnSystem : MonoBehaviour
         {
             if (playerRef != null && respawnPoints.Count > 0)
             {
-                RespawnPlayer(0);
+                RespawnPlayer(currentRespawnIndex);
             }
             yield return new WaitForSeconds(0.5f);
         }
@@ -71,7 +92,8 @@ public class RespawnSystem : MonoBehaviour
     public void RespawnPlayer(int spawnIndex)
     {
         playerRef.GetComponent<CharacterMovement>().Teleport(respawnPoints[spawnIndex].transform.position);
-
+        PlayerIsAlive = true;
+        playerRef.GetComponent<HealthBase>().HealPercent(100f);
     }
     private void OnDrawGizmos()
     {

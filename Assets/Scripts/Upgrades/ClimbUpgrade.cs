@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// when climb hitbox is colliding with vine, tell character controller they can climb
 /// </summary>
-public class ClimibUpdgrade : MonoBehaviour
+public class ClimbUpgrade : UpgradeMonoBehaviour
 {
     public ColliderEvents climbTrigger;
     public CharacterMovement characterMovement;
@@ -21,7 +21,7 @@ public class ClimibUpdgrade : MonoBehaviour
     }
 
     //todo add filter for climbables
-    private void TouchingClimbable(Collider other)
+    private void TouchingClimbable(GameObject self, Collider other)
     {
         //print(other.tag);
         if (other.tag == climbableTag)
@@ -34,7 +34,7 @@ public class ClimibUpdgrade : MonoBehaviour
         }
     }
 
-    private void NotTouchingClimbable(Collider other)
+    private void NotTouchingClimbable(GameObject self, Collider other)
     {
         if (other.tag == climbableTag)
         {

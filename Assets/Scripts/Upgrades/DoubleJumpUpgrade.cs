@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DoubleJumpUpgrade : MonoBehaviour
+public class DoubleJumpUpgrade : UpgradeMonoBehaviour
 {
     public int newJumpCount = 2;
     public CharacterMovement characterMovement;

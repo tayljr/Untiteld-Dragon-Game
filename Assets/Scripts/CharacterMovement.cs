@@ -59,7 +59,9 @@ public class CharacterMovement : MonoBehaviour
 
     public void Teleport(Vector3 pos)
     {
+        controller.enabled = false;
         transform.position = pos;
+        controller.enabled = true;
     }
     
     public void Look(Vector2 dir)
@@ -205,7 +207,7 @@ public class CharacterMovement : MonoBehaviour
         groundTrigger.OnTriggerEnterEvent -= Grounded;
         groundTrigger.OnTriggerExitEvent -= NotGrounded;
     }
-    private void NotGrounded(Collider other)
+    private void NotGrounded(GameObject self, Collider other)
     {
         if (other.gameObject != gameObject && !other.isTrigger)
         {
@@ -217,7 +219,7 @@ public class CharacterMovement : MonoBehaviour
             grounded = false;
         }
     }
-    private void Grounded(Collider other)
+    private void Grounded(GameObject self, Collider other)
     {
         if (other.gameObject != gameObject && !other.isTrigger && !isSliding)
         {
@@ -317,7 +319,7 @@ public class CharacterMovement : MonoBehaviour
             {
                 verticalVelocity = -_termVel;
             }
-            Debug.Log(verticalVelocity);
+            //Debug.Log(verticalVelocity);
         }
         
         
