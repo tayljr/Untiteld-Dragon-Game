@@ -119,8 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &37184289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,7 +1066,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b4e85d91133fc4b9edd52253286d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> Stashed changes
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2037,8 +2034,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -2.896, y: 3.281}
@@ -2870,7 +2865,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b4e85d91133fc4b9edd52253286d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> Stashed changes
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -3261,8 +3255,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1046543264
 GameObject:
   m_ObjectHideFlags: 0
@@ -3476,7 +3468,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 3347634626042575817, guid: 1d96097a22b0e9e4e88eae5aa9efbc4e, type: 3}
   m_PrefabInstance: {fileID: 1115523033}
   m_PrefabAsset: {fileID: 0}
->>>>>>> Stashed changes
 --- !u!1001 &1220847733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4219,8 +4210,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1640990434}
   m_CullTransparentMesh: 1
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1690136201
 GameObject:
   m_ObjectHideFlags: 0
@@ -4510,7 +4499,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -75, y: 0, z: 0}
->>>>>>> Stashed changes
 --- !u!4 &1831680170 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6211296359763924422, guid: ae145dac8683d6f439a8af4fad905c53, type: 3}
@@ -5034,9 +5022,6 @@ SceneRoots:
   - {fileID: 1944028220}
   - {fileID: 457873431}
   - {fileID: 478923849}
-<<<<<<< Updated upstream
-  - {fileID: 697430884}
-=======
   - {fileID: 619731747}
   - {fileID: 1702183082}
   - {fileID: 2027701495}
@@ -5055,4 +5040,3 @@ SceneRoots:
   - {fileID: 38232965}
   - {fileID: 1770054850}
   - {fileID: 677541153}
->>>>>>> Stashed changes
