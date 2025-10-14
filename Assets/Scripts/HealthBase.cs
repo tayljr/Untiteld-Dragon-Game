@@ -74,20 +74,21 @@ public class HealthBase : MonoBehaviour
             health = 0;
             isDead = true;
             Debug.Log("Dead");
+            Register();
             Destroy(gameObject);
 
-            
+
             //Spawn Item
-            foreach(LootItem lootItem in LootTable)
+            foreach (LootItem lootItem in LootTable)
             {
-                if(Random.Range(0f, 100f) <= lootItem.dropChance)
+                if (Random.Range(0f, 100f) <= lootItem.dropChance)
                 {
                     InstantiateLoot(lootItem.itemPrefab);
                 }
             }
-            
+
         }
-        else if(health > maxHealth)
+        else if (health > maxHealth)
         {
             health = maxHealth;
             isDead = false;
@@ -98,19 +99,32 @@ public class HealthBase : MonoBehaviour
         }
         healthPercent = (health / maxHealth) * 100;
     }
-    
+
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     void InstantiateLoot(GameObject loot)
     {
         if (loot)
         {
             GameObject droppedLoot = Instantiate(loot, transform.position, Quaternion.identity);
-            
+
+        }
+    }
+    public void Register()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.1f); // Small sphere to detect triggers at enemy's position
+        foreach (Collider collider in colliders)
+        {
+            CombatZone tracker = collider.GetComponent<CombatZone>();
+            if (tracker != null)
+            {
+                tracker.RegisterKill();
+                break;
+            }
         }
     }
 }
