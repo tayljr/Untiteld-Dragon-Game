@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using System.IO;
 using System.Linq;
-
+#if UNITY_EDITOR
 public static class SceneEnumGenerator
 {
     private const string enumName = "SceneList";
@@ -46,3 +46,4 @@ public static class SceneEnumGenerator
         Debug.Log($"Scene enum generated at {filePath}");
     }
 }
+#endif
