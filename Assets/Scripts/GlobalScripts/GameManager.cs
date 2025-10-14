@@ -2,12 +2,19 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IPauseable
 {
     public GameObject _player;
     private static GameManager _instance;
-    public static GameManager instance {  get { return _instance; } }   
+    public static GameManager instance {  get { return _instance; } }  
     
+    public bool gameOver = false;
+
+    public bool gameStartMenu = true;
+
+    public bool isPaused = false;
+    
+    public bool inDialogue = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
@@ -31,10 +38,38 @@ public class GameManager : MonoBehaviour
         }));
     }
 
+    public void OnPause()
+    {
+        isPaused = true;
+        if (!gameStartMenu)
+        {
+            _player.SendMessage("OnPause");
+        }
+    }
+    public void OnResume()
+    {
+        isPaused = false;
+        if (!gameStartMenu)
+        {
+            _player.SendMessage("OnResume");
+        }
+
+    }
+    public void OnMainMenu()
+    {
+        gameOver = false;
+        gameStartMenu = true;
+        OnResume();
+    }
+    public void GameStart()
+    {
+        gameStartMenu = false;
+        gameObject.SendMessage("OnGameStart");
+    }
     // Update is called once per frame
     void Update()
     {
-
+            Time.timeScale = isPaused ? 0f : 1f ;
     }
     //im going to real chatGPT made this, its kinda peam!
     public IEnumerator FindPlayer(System.Action<GameObject> onFound)

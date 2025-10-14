@@ -4,6 +4,7 @@ using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
 using TMPro;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 [Serializable, GeneratePropertyBag]
@@ -39,7 +40,9 @@ public partial class ConversationAction : Action
     [SerializeReference] public BlackboardVariable<Image> targetPortrait;
 
     private int currentMessage = 0;
-
+    
+    private PlayerController playerController;
+    
     protected override Status OnStart()
     {
         agentName.Value.text = Agent.Value.charName;
@@ -51,7 +54,15 @@ public partial class ConversationAction : Action
         targetName.Value.color = Target.Value.textColour;
         targetDialogBox.Value.color = Target.Value.textColour;
         targetPortrait.Value.sprite = Target.Value.charPortrait;
-
+        
+        
+        playerController = Target.Value.gameObject.GetComponent<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.playerControls.Disable();
+        }
+        //todo: replace this with changing the action map
+        //Target.Value.gameObject.GetComponent<PlayerController>().enabled = false;
 
         return Status.Running;
     }
@@ -61,6 +72,13 @@ public partial class ConversationAction : Action
         if (currentMessage == Conversation.Value.myMessageList.message.Length)
         {
             currentMessage = 0;
+            
+            if (playerController != null)
+            {
+                playerController.playerControls.Enable();
+            }
+            //todo: replace this with changing the action map
+            //Target.Value.gameObject.GetComponent<PlayerController>().enabled = true;
             return Status.Success;
         }
         if (!Conversation.Value.myMessageList.message[currentMessage].targetResponding)

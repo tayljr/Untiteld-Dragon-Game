@@ -4,6 +4,15 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 public class HealthBase : MonoBehaviour
 {
+    public delegate void DeathEvent(string tag);
+    public static event DeathEvent OnDeath;
+
+    public delegate void DamageEvent(float damage, string tag);
+    public static event DamageEvent OnDamage;
+
+    public delegate void HealEvent(float heal, string tag);
+    public static event HealEvent OnHeal;
+
     public float maxHealth = 10f;
     public float health = 10f;
     public float healthPercent = 100f;
@@ -33,6 +42,7 @@ public class HealthBase : MonoBehaviour
             health -= amount;
             StartCoroutine(IFrames());
             HealthCheck();
+            OnDamage?.Invoke(amount, gameObject.tag);
         }
     }
 
@@ -58,6 +68,7 @@ public class HealthBase : MonoBehaviour
         health += amount;
 
         HealthCheck();
+        OnHeal?.Invoke(amount, gameObject.tag);
     }
 
     public void HealPercent(float percentage)
@@ -73,25 +84,29 @@ public class HealthBase : MonoBehaviour
         {
             health = 0;
             isDead = true;
+            OnDeath?.Invoke(gameObject.tag);
             Debug.Log("Dead");
-            Register();
-            Destroy(gameObject);
-
-
-            //Spawn Item
-            foreach (LootItem lootItem in LootTable)
+            if(gameObject.tag != "Player")
             {
-                if (Random.Range(0f, 100f) <= lootItem.dropChance)
+                Destroy(gameObject);
+            }
+
+            
+            //Spawn Item
+            foreach(LootItem lootItem in LootTable)
+            {
+                if(Random.Range(0f, 100f) <= lootItem.dropChance)
                 {
                     InstantiateLoot(lootItem.itemPrefab);
                 }
             }
-
+            
         }
-        else if (health > maxHealth)
+        else if(health > maxHealth)
         {
             health = maxHealth;
             isDead = false;
+
         }
         else
         {
@@ -99,32 +114,19 @@ public class HealthBase : MonoBehaviour
         }
         healthPercent = (health / maxHealth) * 100;
     }
-
+    
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
     void InstantiateLoot(GameObject loot)
     {
         if (loot)
         {
             GameObject droppedLoot = Instantiate(loot, transform.position, Quaternion.identity);
-
-        }
-    }
-    public void Register()
-    {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.1f); // Small sphere to detect triggers at enemy's position
-        foreach (Collider collider in colliders)
-        {
-            CombatZone tracker = collider.GetComponent<CombatZone>();
-            if (tracker != null)
-            {
-                tracker.RegisterKill();
-                break;
-            }
+            
         }
     }
 }

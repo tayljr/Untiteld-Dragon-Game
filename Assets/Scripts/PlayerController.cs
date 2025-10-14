@@ -2,15 +2,17 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IPauseable
 {
     public CharacterMovement characterMovement;
-    
+    public PlayerAnimation playerAnimation;
 
     //could have a list of attacks, like ratchet and clank
     public AttackBase punch;
     public AttackBase fireBreath;
 
+    public Interactor interactor;
+    
     public InputSystem_Actions playerControls;
 
     private InputAction move;
@@ -28,6 +30,21 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerControls = new InputSystem_Actions();
+    }
+
+    public void OnPause()
+    {
+        //isPaused = true;
+        enabled = false;
+        characterMovement.enabled = false;
+        playerAnimation.enabled = false;
+    }
+    public void OnResume()
+    {
+        //isPaused = false;
+        enabled = true;
+        characterMovement.enabled = true;
+        playerAnimation.enabled = true;
     }
 
     private void OnEnable()
@@ -86,11 +103,13 @@ public class PlayerController : MonoBehaviour
 
     private void Interact(InputAction.CallbackContext obj)
     {
+        if (interactor != null) interactor.Interact(true);
         fireBreath.StartAttack();
     }
 
     private void StopInteract(InputAction.CallbackContext obj)
     {
+        if (interactor != null) interactor.Interact(false);
         fireBreath.StopAttack();
     }
 

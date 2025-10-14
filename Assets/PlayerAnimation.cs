@@ -1,4 +1,3 @@
-using Mono.Cecil.Cil;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,7 +6,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private Animator animator;
 
-    private CharacterController characterController;
+    private PlayerController playerController;
     private CharacterMovement characterMovement;
 
     [SerializeField] bool IsIdle;
@@ -24,7 +23,7 @@ public class PlayerAnimation : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        characterController = GetComponentInParent<CharacterController>();
+        playerController = GetComponentInParent<PlayerController>();
         characterMovement = GetComponentInParent<CharacterMovement>();
     }
     private void OnEnable()
@@ -70,7 +69,6 @@ public class PlayerAnimation : MonoBehaviour
     void Update()
     {
         UpdateAnimatorValues();
-
     }
     public void UpdateAnimatorValues()
     {
