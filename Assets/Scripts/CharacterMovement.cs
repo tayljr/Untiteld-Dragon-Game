@@ -264,7 +264,7 @@ public class CharacterMovement : MonoBehaviour
             //grounded = false;
             Vector3 slideDir = Vector3.RotateTowards(hit.normal, Vector3.down, 90 * Mathf.Deg2Rad, 0f);
             Debug.DrawRay(hit.point, slideDir, Color.yellow, 1f);
-            worldMoveDir += slideDir.normalized * slideSpeed * Time.deltaTime;
+            worldMoveDir = slideDir.normalized * slideSpeed * Time.deltaTime;
             isSliding = true;
         } 
         Debug.DrawRay(hit.point, hit.normal, Color.red, 1f);
