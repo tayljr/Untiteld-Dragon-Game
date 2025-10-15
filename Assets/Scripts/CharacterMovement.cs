@@ -30,7 +30,7 @@ public class CharacterMovement : MonoBehaviour
     public float teminalGlideVel = 2.5f;
     public float glideForwardSpeed = 10f;
     public float glideSidewaysSpeed = 5f;
-    public float slideSpeed = 10f;
+    public float slideSpeed = 500f;
 
 
     //will be private
@@ -221,7 +221,7 @@ public class CharacterMovement : MonoBehaviour
     }
     private void Grounded(GameObject self, Collider other)
     {
-        if (other.gameObject != gameObject && !other.isTrigger && !isSliding)
+        if (other.gameObject != gameObject && !other.isTrigger)
         {
             //Debug.Log(other.gameObject.name);
             verticalVelocity = 0;
@@ -250,31 +250,33 @@ public class CharacterMovement : MonoBehaviour
         
         //ground angle check
         slopeAngle = Vector3.up;
-        //grounded = false;
-        RaycastHit hit;
-        Physics.Raycast(transform.position, Vector3.down, out hit, 10, Int32.MaxValue, QueryTriggerInteraction.Ignore);
-        var angle = Vector3.Angle(hit.normal, Vector3.up);
-        //Debug.Log(angle);
-        if (angle <= controller.slopeLimit + 0.01f)
-        {
-            slopeAngle = hit.normal;
-            isSliding = false;
-            //grounded = true;
-        }
-        else
-        {
-            //grounded = false;
-            Vector3 slideDir = Vector3.RotateTowards(hit.normal, Vector3.down, 90 * Mathf.Deg2Rad, 0f);
-            Debug.DrawRay(hit.point, slideDir, Color.yellow, 1f);
-            worldMoveDir = slideDir.normalized * slideSpeed * Time.deltaTime;
-            isSliding = true;
-        } 
-        Debug.DrawRay(hit.point, hit.normal, Color.red, 1f);
+        
         if (grounded)
         {
-            
-        }
+            //grounded = false;
+            RaycastHit hit;
+            Physics.Raycast(transform.position, Vector3.down, out hit, 10, Int32.MaxValue,
+                QueryTriggerInteraction.Ignore);
+            var angle = Vector3.Angle(hit.normal, Vector3.up);
+            //Debug.Log(angle);
+            if (angle <= controller.slopeLimit + 0.01f)
+            {
+                slopeAngle = hit.normal;
+                isSliding = false;
+                //grounded = true;
+            }
+            else
+            {
+                //grounded = false;
+                Vector3 slideDir = Vector3.RotateTowards(hit.normal, Vector3.down, 90 * Mathf.Deg2Rad, 0f);
+                Debug.DrawRay(hit.point, slideDir, Color.yellow, 1f);
+                worldMoveDir = slideDir.normalized * slideSpeed * Time.deltaTime;
+                isSliding = true;
+            }
 
+            Debug.DrawRay(hit.point, hit.normal, Color.red, 1f);
+        }
+        
         if (isGliding && !grounded && !canClimb)
         {
             worldMoveDir = transform.TransformDirection(moveDir.x * glideSidewaysSpeed, moveDir.y, glideForwardSpeed);
