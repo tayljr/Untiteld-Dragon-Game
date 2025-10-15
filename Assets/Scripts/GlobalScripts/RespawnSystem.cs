@@ -65,8 +65,9 @@ public class RespawnSystem : MonoBehaviour
         {
             playerRef = GameObject.FindGameObjectWithTag("Player");
             yield return new WaitForSeconds(0.5f);
+           
         }
-
+        StopCoroutine(FindPlayer());
     }
     public IEnumerator TrySpawnPlayer()
     {
