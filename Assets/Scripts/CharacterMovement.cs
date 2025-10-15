@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
@@ -53,6 +55,8 @@ public class CharacterMovement : MonoBehaviour
 
     [SerializeField]
     private int groundCount = 0;
+    [SerializeField]
+    private List<Collider> groundList = new List<Collider>();
 
     [SerializeField]
     private Vector2 currentCharacterDir = Vector2.zero;
@@ -198,7 +202,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        groundTrigger.OnTriggerEnterEvent += Grounded;
+        groundTrigger.OnTriggerStayEvent += Grounded;
         groundTrigger.OnTriggerExitEvent += NotGrounded;
         
     }
@@ -209,21 +213,20 @@ public class CharacterMovement : MonoBehaviour
     }
     private void NotGrounded(GameObject self, Collider other)
     {
-        if (other.gameObject != gameObject && !other.isTrigger)
+        if (other.gameObject != gameObject && !other.isTrigger && groundList.Contains(other))
         {
+            groundList.Remove(other);
             groundCount--;
         }
-        if (groundCount <= 0)
-        {
-            groundCount = 0;
-            grounded = false;
-        }
+
+        StartCoroutine(CoyoteTime());
     }
     private void Grounded(GameObject self, Collider other)
     {
-        if (other.gameObject != gameObject && !other.isTrigger)
+        if (other.gameObject != gameObject && !other.isTrigger && !groundList.Contains(other))
         {
             //Debug.Log(other.gameObject.name);
+            groundList.Add(other);
             verticalVelocity = 0;
             grounded = true;
             jumpCount = 0;
@@ -232,6 +235,16 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
+    IEnumerator CoyoteTime()
+    {
+        yield return new WaitForSeconds(1f);
+        Debug.Log(groundCount);
+        if (groundCount <= 0)
+        {
+            groundCount = 0;
+            grounded = false;
+        }
+    }
     private void LockHead()
     {
         currentCharacterDir.x += currentHeadDir.x;
@@ -251,7 +264,7 @@ public class CharacterMovement : MonoBehaviour
         //ground angle check
         slopeAngle = Vector3.up;
         
-        if (grounded)
+        if (grounded || isSliding)
         {
             //grounded = false;
             RaycastHit hit;
