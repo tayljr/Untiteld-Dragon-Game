@@ -19,6 +19,7 @@ public class CharacterMovement : MonoBehaviour
     public float sprintModifier = 1.5f;
     public float crouchModifier = 0.5f;
 
+    public float coyoteTime = 0.1f;
     public int defaultJumpCount = 1;
     public int maxJumpCount = 1;
     private int jumpCount = 0;
@@ -122,6 +123,10 @@ public class CharacterMovement : MonoBehaviour
     public void Jump()
     {
         //Debug.Log(grounded);
+        if (grounded)
+        {
+            jumpCount = 0;
+        }
         if (jumpCount < maxJumpCount)
         {
             jumpCount++;
@@ -202,7 +207,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        groundTrigger.OnTriggerStayEvent += Grounded;
+        groundTrigger.OnTriggerEnterEvent += Grounded;
         groundTrigger.OnTriggerExitEvent += NotGrounded;
         
     }
@@ -213,20 +218,29 @@ public class CharacterMovement : MonoBehaviour
     }
     private void NotGrounded(GameObject self, Collider other)
     {
-        if (other.gameObject != gameObject && !other.isTrigger && groundList.Contains(other))
+        if (other.gameObject != gameObject && !other.isTrigger)
         {
-            groundList.Remove(other);
+            if (verticalVelocity < 0)
+            {
+                verticalVelocity = 0;
+            }
+            
             groundCount--;
+            
+            if (groundCount <= 0)
+            {
+                groundCount = 0;
+                grounded = false;
+            }
+            
+            StartCoroutine(CoyoteTime());
         }
 
-        StartCoroutine(CoyoteTime());
     }
     private void Grounded(GameObject self, Collider other)
     {
         if (other.gameObject != gameObject && !other.isTrigger && !groundList.Contains(other))
         {
-            //Debug.Log(other.gameObject.name);
-            groundList.Add(other);
             verticalVelocity = 0;
             grounded = true;
             jumpCount = 0;
@@ -237,12 +251,11 @@ public class CharacterMovement : MonoBehaviour
 
     IEnumerator CoyoteTime()
     {
-        yield return new WaitForSeconds(1f);
-        Debug.Log(groundCount);
-        if (groundCount <= 0)
+        yield return new WaitForSeconds(coyoteTime);
+
+        if (!grounded && jumpCount == 0)
         {
-            groundCount = 0;
-            grounded = false;
+            jumpCount = 1;
         }
     }
     private void LockHead()
@@ -263,13 +276,11 @@ public class CharacterMovement : MonoBehaviour
         
         //ground angle check
         slopeAngle = Vector3.up;
-        
         if (grounded || isSliding)
         {
             //grounded = false;
             RaycastHit hit;
-            Physics.Raycast(transform.position, Vector3.down, out hit, 10, Int32.MaxValue,
-                QueryTriggerInteraction.Ignore);
+            Physics.Raycast(transform.position, Vector3.down, out hit, 10, Int32.MaxValue, QueryTriggerInteraction.Ignore);
             var angle = Vector3.Angle(hit.normal, Vector3.up);
             //Debug.Log(angle);
             if (angle <= controller.slopeLimit + 0.01f)
@@ -283,20 +294,23 @@ public class CharacterMovement : MonoBehaviour
                 //grounded = false;
                 Vector3 slideDir = Vector3.RotateTowards(hit.normal, Vector3.down, 90 * Mathf.Deg2Rad, 0f);
                 Debug.DrawRay(hit.point, slideDir, Color.yellow, 1f);
-                worldMoveDir = slideDir.normalized * slideSpeed * Time.deltaTime;
+                worldMoveDir += slideDir.normalized * slideSpeed * Time.deltaTime;
+                verticalVelocity = -slideSpeed * Time.deltaTime;
                 isSliding = true;
             }
 
             Debug.DrawRay(hit.point, hit.normal, Color.red, 1f);
         }
         
+        worldMoveDir = Vector3.ProjectOnPlane(worldMoveDir, slopeAngle);
+        
         if (isGliding && !grounded && !canClimb)
         {
             worldMoveDir = transform.TransformDirection(moveDir.x * glideSidewaysSpeed, moveDir.y, glideForwardSpeed);
             LockHead();
         }
-
-        worldMoveDir = Vector3.ProjectOnPlane(worldMoveDir, slopeAngle) + new Vector3(0, verticalVelocity, 0);
+        
+        worldMoveDir.y  += verticalVelocity;
 
         if (canClimb)
         {
@@ -311,30 +325,27 @@ public class CharacterMovement : MonoBehaviour
         }
 
 
-        if (!grounded)
+        float _gravity = gravity;
+        float _termVel = terminalVelociy;
+        if (fastFalling && verticalVelocity < 0)
         {
-            float _gravity = gravity;
-            float _termVel = terminalVelociy;
-            if (fastFalling && verticalVelocity < 0)
-            {
-                _gravity = gravity * fallingModifier;
-            }
-            else
-            {
-                _gravity = gravity;
-            }
-            if (isGliding)
-            {
-                _gravity = glideGrav;
-                _termVel = teminalGlideVel;
-            }
+            _gravity = gravity * fallingModifier;
+        }
+        else
+        {
+            _gravity = gravity;
+        }
+        
+        if (isGliding)
+        {
+            _gravity = glideGrav;
+            _termVel = teminalGlideVel;
+        }
 
-            verticalVelocity -= _gravity * Time.deltaTime;
-            if (verticalVelocity <= -_termVel)
-            {
-                verticalVelocity = -_termVel;
-            }
-            //Debug.Log(verticalVelocity);
+        verticalVelocity -= _gravity * Time.deltaTime;
+        if (verticalVelocity <= -_termVel)
+        {
+            verticalVelocity = -_termVel;
         }
         
         
