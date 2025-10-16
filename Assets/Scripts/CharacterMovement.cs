@@ -14,7 +14,10 @@ public class CharacterMovement : MonoBehaviour
     public GameObject head;
     public Vector2 minMaxHeadTilt = new Vector2(-45f, 45f);
     public Vector2 minMaxHeadTurn = new Vector2(-45f, 45f);
-
+    
+    private Vector2 lookInput =  Vector2.zero;
+    private bool isLooking = false;
+    
     public float speed = 10f;
     public float sprintModifier = 1.5f;
     public float crouchModifier = 0.5f;
@@ -69,7 +72,13 @@ public class CharacterMovement : MonoBehaviour
         controller.enabled = true;
     }
     
-    public void Look(Vector2 dir)
+    public void Look(Vector2 dir, bool start)
+    {
+        lookInput = dir;
+        isLooking = start;
+    }
+
+    private void DoLook(Vector2 dir)
     {
         currentHeadDir += dir;
 
@@ -103,6 +112,7 @@ public class CharacterMovement : MonoBehaviour
 
         head.transform.localRotation = Quaternion.Euler(-currentHeadDir.y, currentHeadDir.x, 0);
         transform.localRotation = Quaternion.Euler(0, currentCharacterDir.x, 0);
+        
     }
     public void Move(Vector2 dir)
     {
@@ -271,6 +281,11 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (isLooking)
+        {
+            DoLook(lookInput);
+        }
+        
         Vector3 worldMoveDir = transform.TransformDirection(moveDir);
         worldMoveDir = worldMoveDir * speed * speedModifier;
         

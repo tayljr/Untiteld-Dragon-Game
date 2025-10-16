@@ -4469,6 +4469,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 253854938192959541, guid: eada0f75c12f96c4bac6bf956f0ee32a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 253854938192959541, guid: eada0f75c12f96c4bac6bf956f0ee32a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 253854938192959541, guid: eada0f75c12f96c4bac6bf956f0ee32a, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 957261874918488767, guid: eada0f75c12f96c4bac6bf956f0ee32a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 957261874918488767, guid: eada0f75c12f96c4bac6bf956f0ee32a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342560086918595880, guid: eada0f75c12f96c4bac6bf956f0ee32a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4972471070843191334, guid: eada0f75c12f96c4bac6bf956f0ee32a, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -4477,6 +4501,14 @@ PrefabInstance:
       propertyPath: _animator
       value: 
       objectReference: {fileID: 1115523034}
+    - target: {fileID: 5984905746925030960, guid: eada0f75c12f96c4bac6bf956f0ee32a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046030664691812628, guid: eada0f75c12f96c4bac6bf956f0ee32a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
