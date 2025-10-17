@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour, IPauseable
         look = playerControls.Player.Look;
         look.Enable();
         look.performed += Look;
+        look.canceled += StopLook;
 
         attack = playerControls.Player.Attack;
         attack.Enable();
@@ -146,9 +147,13 @@ public class PlayerController : MonoBehaviour, IPauseable
    
     private void Look(InputAction.CallbackContext obj)
     {
-
-        characterMovement.Look(lookSensitivity * obj.ReadValue<Vector2>());
+        characterMovement.Look(lookSensitivity * obj.ReadValue<Vector2>(), true);
         //Debug.Log(obj.ReadValue<Vector2>());
+    }
+
+    private void StopLook(InputAction.CallbackContext obj)
+    {
+        characterMovement.Look(lookSensitivity * obj.ReadValue<Vector2>(), false);
     }
 
     private void Jump(InputAction.CallbackContext obj)
@@ -178,6 +183,7 @@ public class PlayerController : MonoBehaviour, IPauseable
         jump.performed -= Jump;
         look.Disable();
         look.performed -= Look;
+        look.canceled -= StopLook;
         attack.performed -= Attack;
         attack.canceled -= StopAttack;
         interact.performed -= Interact;

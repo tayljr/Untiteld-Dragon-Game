@@ -5,14 +5,571 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f94100f-c895-4bd5-a498-acd157d05846" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Animations.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Animations/Audio Source.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Animations/Audio Source.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Animations/Camera.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Animations/Camera.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Animations/audio.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Animations/audio.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Animations/cam.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Animations/cam.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/1_Grass.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/1_Grass.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/1_Grass_2 Variant.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/1_Grass_2 Variant.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/1_Grass_2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/1_Grass_2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/2_Grass.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/2_Grass.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/Grass_1_Defuse.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/Grass_1_Defuse.psd.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/Grass_1_heights.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/Grass_1_heights.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/Grass_1_normals2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/Grass_1_normals2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/Materials/1_Grass_.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/Materials/1_Grass_.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/New Material.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Grass/New Material.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/5_Weed 1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/5_Weed 1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/5_Weed 2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/5_Weed 2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/5_Weed_7 .fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/5_Weed_7 .fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/6_Weed.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/6_Weed.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Green river plants.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Green river plants.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Ivy_1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Ivy_1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Ivy_1_1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Ivy_1_1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Ivy_1_2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Ivy_1_2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Ivy_1_3.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Ivy_1_3.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials/2_Tree_Leaves.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials/2_Tree_Leaves.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials/Plants.004.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials/Plants.004.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials/Plants.005.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials/Plants.005.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials/Plants.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials/Plants.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials/stylized art plants 3 NM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials/stylized art plants 3 NM.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials/stylized art plants 3 all layer.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials/stylized art plants 3 all layer.psd.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials/stylized art plants 3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials/stylized art plants 3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials/stylized art plants 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials/stylized art plants 3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials/stylized art plants.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Materials/stylized art plants.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Plant_1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Plant_1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Plant_2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Plant_2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Plant_3.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Plant_3.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Purple Plant.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/Purple Plant.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/White Plant.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/White Plant.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/plants red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/plants red.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/plants red2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/plants red2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/stylized art plants 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/stylized art plants 2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/stylized art plants normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/stylized art plants normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/stylized art plants.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Foliage/Plants/stylized art plants.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Maps.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Maps/Maps_1_Show.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Maps/Maps_1_Show.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Maps/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Maps/Materials/Maps_1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Maps/Materials/Maps_1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Materials/Grass 2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Materials/Grass 2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Materials/Grass.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Materials/Grass.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Materials/New Material.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Materials/New Material.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Materials/Rocks.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Materials/Rocks.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Materials/Shader Graphs_New Shader Graph.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Materials/Shader Graphs_New Shader Graph.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Materials/Show case Room.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Materials/Show case Room.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Materials/Soil.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Materials/Soil.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Materials/Water.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Materials/Water.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Postprocessing Profiles.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Postprocessing Profiles/PostProcessProfile.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Postprocessing Profiles/PostProcessProfile.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/1_Grass_2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/1_Grass_2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/1_Tree.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/1_Tree.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/2_Grass_Ver_0.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/2_Grass_Ver_0.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/2_Rock.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/2_Rock.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/2_Tree.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/2_Tree.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/3_1_Tree.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/3_1_Tree.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/3_2_Tree.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/3_2_Tree.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/3_3_Tree.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/3_3_Tree.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/3_Rock_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/3_Rock_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/3_Rock_2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/3_Rock_2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/3_Rock_3.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/3_Rock_3.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/3_Rock_4.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/3_Rock_4.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/4_Rock.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/4_Rock.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/4_Rock_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/4_Rock_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/4_Rock_2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/4_Rock_2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/5_Weed 1 Variant.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/5_Weed 1 Variant.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/5_Weed 1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/5_Weed 1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/5_Weed 2 Grouped.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/5_Weed 2 Grouped.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/5_Weed 2 Variant.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/5_Weed 2 Variant.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/5_Weed 2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/5_Weed 2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/5_Weed_7  Variant.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/5_Weed_7  Variant.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/6_Weed Variant.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/6_Weed Variant.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/6_Weed.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/6_Weed.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Boulder &amp; Veg Prefab 1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Boulder &amp; Veg Prefab 1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Boulder 2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Boulder 2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Boulder 3.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Boulder 3.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Green river plants Variant.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Green river plants Variant.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Green river plants.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Green river plants.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Ivy_1 Variant.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Ivy_1 Variant.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Ivy_1_1 Variant.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Ivy_1_1 Variant.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Ivy_1_2 Variant.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Ivy_1_2 Variant.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Ivy_1_3 Variant.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Ivy_1_3 Variant.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Ivy_1_3_Gound.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Ivy_1_3_Gound.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Maps_1_Show.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Maps_1_Show.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Plant_1 Grouped Prefab.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Plant_1 Grouped Prefab.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Plant_1 Variant.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Plant_1 Variant.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Plant_3 Variant.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Plant_3 Variant.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Plant_Prefab_2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Plant_Prefab_2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Plants_Prefab_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Plants_Prefab_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Pre_Clif.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Pre_Clif.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Pre_Cliff_2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Pre_Cliff_2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Pre_Rock_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Pre_Rock_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Pre_Rock_2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Pre_Rock_2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Purple Plant Variant.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Purple Plant Variant.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Purple Plant.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Purple Plant.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Purple Plants Grouped.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Purple Plants Grouped.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Tree_Prefab_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Tree_Prefab_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Tree_Prefab_2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Tree_Prefab_2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Tree_Prefab_3.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Tree_Prefab_3.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Tree_Prefab_4.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Tree_Prefab_4.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Veg Prefab 1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Veg Prefab 1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Veg Prefab 2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/Veg Prefab 2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/White Plant Variant.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/White Plant Variant.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/White Plant.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/White Plant.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/White Plants Grouped.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Prefabs/White Plants Grouped.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Read Me.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Read Me.pdf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Read Me.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Read Me.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/2_Rock.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/2_Rock/2_Rock.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/2_Rock/2_Rock.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/2_Rock/Maps.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/2_Rock/Maps/2_Rock_Diffuse.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/2_Rock/Maps/2_Rock_Diffuse.psd.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/2_Rock/Maps/2_Rock_normals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/2_Rock/Maps/2_Rock_normals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/2_Rock/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/2_Rock/Materials/2_Rock.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/2_Rock/Materials/2_Rock.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/3_Rock_1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/3_Rock_1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/3_Rock_2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/3_Rock_2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/3_Rock_3.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/3_Rock_3.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/3_Rock_4.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/3_Rock_4.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/Maps.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/Maps/3_Rock_Difuse.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/Maps/3_Rock_Difuse.psd.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/Maps/3_Rock_normals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/Maps/3_Rock_normals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/Materials/3_Rock.006.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/Materials/3_Rock.006.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/Materials/3_Rock.007.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/Materials/3_Rock.007.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/Materials/3_Rock.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/3_Rocks/Materials/3_Rock.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/4_Rock.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/4_Rock/4_Rock.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/4_Rock/4_Rock.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/4_Rock/4_Rock_1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/4_Rock/4_Rock_1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/4_Rock/4_Rock_2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/4_Rock/4_Rock_2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/4_Rock/Maps.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/4_Rock/Maps/4_Rock_Difuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/4_Rock/Maps/4_Rock_Difuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/4_Rock/Maps/4_Rock_normals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/4_Rock/Maps/4_Rock_normals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/4_Rock/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/4_Rock/Materials/4_Rocks.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Rocks/4_Rock/Materials/4_Rocks.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes/Maps_1.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes/Maps_1.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes/Maps_1.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes/Maps_1/LightingData.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes/Maps_1/LightingData.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes/Maps_1/ReflectionProbe-0.exr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes/Maps_1/ReflectionProbe-0.exr.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes/Maps_1/ReflectionProbe-1.exr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes/Maps_1/ReflectionProbe-1.exr.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes/Maps_1/ReflectionProbe-2.exr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes/Maps_1/ReflectionProbe-2.exr.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes/Maps_1/ReflectionProbe-3.exr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes/Maps_1/ReflectionProbe-3.exr.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes/Maps_1_Profiles.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes/Maps_1_Profiles/Postprocessing Profile.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes/Maps_1_Profiles/Postprocessing Profile.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes/Scene_1.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Scenes/Scene_1.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/BIR.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/BIR/Foliage 1.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/BIR/Foliage 1.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/Foliage Alpha by distance 1.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/Foliage Alpha by distance 1.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/Foliage.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/Foliage.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/HDPR.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/HDPR/Bark.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/HDPR/Bark.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/HDPR/Foliage.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/HDPR/Foliage.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/HDPR/New Material.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/HDPR/New Material.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/HDPR/Rock.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/HDPR/Rock.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/HDPR/Rock_ Precedural.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/HDPR/Rock_ Precedural.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/HDPR/Soil.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/HDPR/Soil.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/HDPR/Water.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/HDPR/Water.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/Maps.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/Maps.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/Rocks.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/Rocks.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/Shaders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/Shaders/CustomLighting.hlsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/Shaders/CustomLighting.hlsl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/URP.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/URP/GetLighting.hlsl.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/URP/GetLighting.hlsl.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/URP/MainLighting.shadersubgraph.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/URP/MainLighting.shadersubgraph.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/URP/Rock Procedural.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/URP/Rock Procedural.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/URP/Rock.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/URP/Rock.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/Water.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Shaders/Water.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/1_Bark_Difuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/1_Bark_Difuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/1_Bark_Difuse_Brown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/1_Bark_Difuse_Brown.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/1_Bark_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/1_Bark_Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/1_Branch_Difuse_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/1_Branch_Difuse_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/1_Branch__normals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/1_Branch__normals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/2_Branch_Difuse_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/2_Branch_Difuse_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/3 Rock Difuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/3 Rock Difuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/3 Rock Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/3 Rock Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/3_Rock_T_NRM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/3_Rock_T_NRM.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/5_Rock_T_Disp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/5_Rock_T_Disp.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/5_Rock_T_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/5_Rock_T_Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Branch 1 Difuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Branch 1 Difuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Branch 1 Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Branch 1 Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Dark Sand.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Dark Sand.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Grass 2.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Grass 2.psd.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Grass_DefuseFinal 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Grass_DefuseFinal 2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Grass_normals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Grass_normals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_6_DFS 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_6_DFS 2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_6_DFS 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_6_DFS 3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_6_DFS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_6_DFS.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_6_T_NRM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_6_T_NRM.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_6_T_OCC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_6_T_OCC.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_Color_Mask.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_Color_Mask.psd.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_T_D_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_T_D_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_T_N_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_T_N_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_Tile_2PM3D_Plane3D_1-NM_u0_v0.tif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_Tile_2PM3D_Plane3D_1-NM_u0_v0.tif.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_Tile_DS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_Tile_DS.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_Tile_NM_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Rock_Tile_NM_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil &amp; Rocks_Difuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil &amp; Rocks_Difuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil &amp; Rocks_Normals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil &amp; Rocks_Normals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_4_Albedo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_4_Albedo.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_4_Cavity.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_4_Cavity.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_4_MSK.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_4_MSK.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_4_NM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_4_NM.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_4___cavity.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_4___cavity.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_4___curvature.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_4___curvature.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_4___normals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_4___normals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_4___occlusion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_4___occlusion.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_Deffuse_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_Deffuse_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_Deffuse_1_B.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_Deffuse_1_B.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_Normal_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Textures/Soil_Normal_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/1_Tree.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/1_Tree.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/2_Tree.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/2_Tree.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/1_Tree_B_Difuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/1_Tree_B_Difuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/1_Tree_cavity.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/1_Tree_cavity.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/1_Tree_curvature.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/1_Tree_curvature.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/1_Tree_heights.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/1_Tree_heights.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/1_Tree_normals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/1_Tree_normals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/1_Tree_occlusion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/1_Tree_occlusion.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/1_Trees_Difuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/1_Trees_Difuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/2_Tree__Difuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/2_Tree__Difuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/2_Tree__cavity.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/2_Tree__cavity.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/2_Tree__curvature.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/2_Tree__curvature.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/2_Tree__heights.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/2_Tree__heights.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/2_Tree__normals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/2_Tree__normals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/2_Tree__occlusion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/2_Tree__occlusion.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/2_Tree__translucency.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/2_Tree__translucency.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/2_Tree_normals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/2_Tree_normals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/4_Trees_Albedo_.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/4_Trees_Albedo_.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/4_Trees_Maps.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/4_Trees_Maps.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/4_tree_Cavits.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/4_tree_Cavits.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/4_tree__curvature.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/4_tree__curvature.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/4_tree__normals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/4_tree__normals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/4_tree__occlusion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/4_tree__occlusion.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/Completed_Difuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/Completed_Difuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/Completed_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/Completed_Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/billboards_Difuse 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/billboards_Difuse 2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/billboards_Difuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/billboards_Difuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/billboards_Normal 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/billboards_Normal 2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/billboards_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Maps/billboards_Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials/1_Tree_B_Difuse.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials/1_Tree_B_Difuse.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials/1_Tree_leave.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials/1_Tree_leave.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials/1_Trees.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials/1_Trees.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials/1_tree_Billboard.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials/1_tree_Billboard.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials/2_Branch_Difuse_2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials/2_Branch_Difuse_2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials/2_Tree.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials/2_Tree.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials/2_Tree_Leaves.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials/2_Tree_Leaves.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials/Billboard.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials/Billboard.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials/Tree_3_Group.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Materials/Tree_3_Group.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Tree_3_1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Tree_3_1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Tree_3_2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Tree_3_2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Tree_3_3.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Tree_3_3.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Tree_3_4.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy Mobile CG/Trees/Tree_3_4.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy stylize Modular Assets 2.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy stylize Modular Assets 2/Setup.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy stylize Modular Assets 2/Setup/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy stylize Modular Assets 2/Setup/Materials/Show case Room.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy stylize Modular Assets 2/Setup/Materials/Show case Room.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy stylize Modular Assets 2/Setup/Show case room.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy stylize Modular Assets 2/Setup/Show case room.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy stylize Modular Assets 2/Terrain.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy stylize Modular Assets 2/Terrain/Grass 1.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy stylize Modular Assets 2/Terrain/Grass 1.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy stylize Modular Assets 2/Terrain/Grass.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy stylize Modular Assets 2/Terrain/Grass.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy stylize Modular Assets 2/Terrain/Mud.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy stylize Modular Assets 2/Terrain/Mud.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy stylize Modular Assets 2/Terrain/New Material.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy stylize Modular Assets 2/Terrain/New Material.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy stylize Modular Assets 2/Terrain/Soil.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Folder/Fristy stylize Modular Assets 2/Terrain/Soil.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Terrain 10.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Terrain 10.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Terrain 9.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Terrain 9.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/NewLayer 2.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/NewLayer 2.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/NewLayer 3.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/NewLayer 3.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/NewLayer 4.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/NewLayer 4.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Delete/TEMP Pole.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Delete/TEMP Pole.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Breakable Test.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Breakable Test.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Loot Item.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Loot Item.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Untiteld-Dragon-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Untiteld-Dragon-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayerMovementTestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayerMovementTestScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Upgrades/ClimibUpdgrade.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Upgrades/ClimibUpdgrade.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Upgrades/Double Jump Upgrade.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Upgrades/Double Jump Upgrade.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Upgrades/UpgradeMonoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Upgrades/UpgradeMonoBehaviour.cs" afterDir="false" />
+<<<<<<< Updated upstream
+      <change beforePath="$PROJECT_DIR$/Assets/DialogSystem/SampleDialogGraph.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DialogSystem/SampleDialogGraph.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JSON/SampleDialog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JSON/SampleDialog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Terrain 6.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Terrain 6.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dialog/DialogSample.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dialog/DialogSample.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Caves.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Caves.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/DarkForrest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/DarkForrest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Farm.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Farm.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu/Settings.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu/Settings.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HealthBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HealthBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HealthBaseTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HealthBaseTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HealthBaseTest.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HealthBaseTest.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Loot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Loot.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LootBag.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LootBag.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterMovement.cs" afterDir="false" />
+>>>>>>> Stashed changes
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,13 +602,16 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "UpgradeManager",
+<<<<<<< Updated upstream
+    "git-widget-placeholder": "Merging DialogSystem",
+=======
+    "git-widget-placeholder": "Respawn",
+>>>>>>> Stashed changes
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -106,15 +666,20 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="18384">
+<<<<<<< Updated upstream
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="18384" />
+      <option name="pid" />
+=======
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="3540">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" value="3540" />
+>>>>>>> Stashed changes
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list>
-          <MonoRuntime />
-        </list>
+        <list />
       </option>
       <option name="selectedOptions">
         <list />
@@ -136,7 +701,11 @@
       <workItem from="1758519870325" duration="1544000" />
       <workItem from="1758685291320" duration="3996000" />
       <workItem from="1759207161763" duration="4963000" />
+<<<<<<< Updated upstream
+=======
       <workItem from="1759541406993" duration="3559000" />
+      <workItem from="1760324461609" duration="17071000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>

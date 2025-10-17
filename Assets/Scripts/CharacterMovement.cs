@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
@@ -11,11 +14,15 @@ public class CharacterMovement : MonoBehaviour
     public GameObject head;
     public Vector2 minMaxHeadTilt = new Vector2(-45f, 45f);
     public Vector2 minMaxHeadTurn = new Vector2(-45f, 45f);
-
+    
+    private Vector2 lookInput =  Vector2.zero;
+    private bool isLooking = false;
+    
     public float speed = 10f;
     public float sprintModifier = 1.5f;
     public float crouchModifier = 0.5f;
 
+    public float coyoteTime = 0.1f;
     public int defaultJumpCount = 1;
     public int maxJumpCount = 1;
     private int jumpCount = 0;
@@ -29,6 +36,7 @@ public class CharacterMovement : MonoBehaviour
     public float teminalGlideVel = 2.5f;
     public float glideForwardSpeed = 10f;
     public float glideSidewaysSpeed = 5f;
+    public float slideSpeed = 500f;
 
 
     //will be private
@@ -39,8 +47,10 @@ public class CharacterMovement : MonoBehaviour
     private float speedModifier = 1f;
     [SerializeField]
     private float verticalVelocity = 0f;
-
+    public Vector3 slopeAngle = Vector3.up;
+    
     //please dont priv this i need for animator :(
+    public bool isSliding = false;
     public bool grounded = false;
     public bool isCrouching = false;
     public bool isGliding = false;
@@ -49,6 +59,8 @@ public class CharacterMovement : MonoBehaviour
 
     [SerializeField]
     private int groundCount = 0;
+    [SerializeField]
+    private List<Collider> groundList = new List<Collider>();
 
     [SerializeField]
     private Vector2 currentCharacterDir = Vector2.zero;
@@ -60,7 +72,13 @@ public class CharacterMovement : MonoBehaviour
         controller.enabled = true;
     }
     
-    public void Look(Vector2 dir)
+    public void Look(Vector2 dir, bool start)
+    {
+        lookInput = dir;
+        isLooking = start;
+    }
+
+    private void DoLook(Vector2 dir)
     {
         currentHeadDir += dir;
 
@@ -94,6 +112,7 @@ public class CharacterMovement : MonoBehaviour
 
         head.transform.localRotation = Quaternion.Euler(-currentHeadDir.y, currentHeadDir.x, 0);
         transform.localRotation = Quaternion.Euler(0, currentCharacterDir.x, 0);
+        
     }
     public void Move(Vector2 dir)
     {
@@ -114,6 +133,10 @@ public class CharacterMovement : MonoBehaviour
     public void Jump()
     {
         //Debug.Log(grounded);
+        if (grounded)
+        {
+            jumpCount = 0;
+        }
         if (jumpCount < maxJumpCount)
         {
             jumpCount++;
@@ -207,27 +230,44 @@ public class CharacterMovement : MonoBehaviour
     {
         if (other.gameObject != gameObject && !other.isTrigger)
         {
+            if (verticalVelocity < 0)
+            {
+                verticalVelocity = 0;
+            }
+            
             groundCount--;
+            
+            if (groundCount <= 0)
+            {
+                groundCount = 0;
+                grounded = false;
+            }
+            
+            StartCoroutine(CoyoteTime());
         }
-        if (groundCount <= 0)
-        {
-            groundCount = 0;
-            grounded = false;
-        }
+
     }
     private void Grounded(GameObject self, Collider other)
     {
-        if (other.gameObject != gameObject && !other.isTrigger)
+        if (other.gameObject != gameObject && !other.isTrigger && !groundList.Contains(other))
         {
-            Debug.Log(other.gameObject.name);
             verticalVelocity = 0;
             grounded = true;
             jumpCount = 0;
             groundCount++;
-            isGliding = false;
+            isGliding = false; 
         }
     }
 
+    IEnumerator CoyoteTime()
+    {
+        yield return new WaitForSeconds(coyoteTime);
+
+        if (!grounded && jumpCount == 0)
+        {
+            jumpCount = 1;
+        }
+    }
     private void LockHead()
     {
         currentCharacterDir.x += currentHeadDir.x;
@@ -241,25 +281,51 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //ground check
-        /*
-        RaycastHit hit;
-        Vector3 feetPos = transform.position;
-        feetPos.y -= controller.height / 3;
-        grounded = Physics.SphereCast(feetPos, controller.height / 4, -transform.up, out hit, 0.5f);
-        */
-
+        if (isLooking)
+        {
+            DoLook(lookInput);
+        }
+        
         Vector3 worldMoveDir = transform.TransformDirection(moveDir);
         worldMoveDir = worldMoveDir * speed * speedModifier;
+        
+        //ground angle check
+        slopeAngle = Vector3.up;
+        if (grounded || isSliding)
+        {
+            //grounded = false;
+            RaycastHit hit;
+            Physics.Raycast(transform.position, Vector3.down, out hit, 10, Int32.MaxValue, QueryTriggerInteraction.Ignore);
+            var angle = Vector3.Angle(hit.normal, Vector3.up);
+            //Debug.Log(angle);
+            if (angle <= controller.slopeLimit + 0.01f)
+            {
+                slopeAngle = hit.normal;
+                isSliding = false;
+                //grounded = true;
+            }
+            else
+            {
+                //grounded = false;
+                Vector3 slideDir = Vector3.RotateTowards(hit.normal, Vector3.down, 90 * Mathf.Deg2Rad, 0f);
+                Debug.DrawRay(hit.point, slideDir, Color.yellow, 1f);
+                worldMoveDir += slideDir.normalized * slideSpeed * Time.deltaTime;
+                verticalVelocity = -slideSpeed * Time.deltaTime;
+                isSliding = true;
+            }
 
+            Debug.DrawRay(hit.point, hit.normal, Color.red, 1f);
+        }
+        
+        worldMoveDir = Vector3.ProjectOnPlane(worldMoveDir, slopeAngle);
+        
         if (isGliding && !grounded && !canClimb)
         {
-            //worldMoveDir.y = -glideGrav;
             worldMoveDir = transform.TransformDirection(moveDir.x * glideSidewaysSpeed, moveDir.y, glideForwardSpeed);
             LockHead();
         }
-
-        worldMoveDir.y = verticalVelocity;
+        
+        worldMoveDir.y  += verticalVelocity;
 
         if (canClimb)
         {
@@ -274,31 +340,29 @@ public class CharacterMovement : MonoBehaviour
         }
 
 
-        if (!grounded)
+        float _gravity = gravity;
+        float _termVel = terminalVelociy;
+        if (fastFalling && verticalVelocity < 0)
         {
-            float _gravity = gravity;
-            float _termVel = terminalVelociy;
-            if (fastFalling && verticalVelocity < 0)
-            {
-                _gravity = gravity * fallingModifier;
-            }
-            else
-            {
-                _gravity = gravity;
-            }
-            if (isGliding)
-            {
-                _gravity = glideGrav;
-                _termVel = teminalGlideVel;
-            }
-
-            verticalVelocity -= _gravity * Time.deltaTime;
-            if (verticalVelocity <= -_termVel)
-            {
-                verticalVelocity = -_termVel;
-            }
-            //Debug.Log(verticalVelocity);
+            _gravity = gravity * fallingModifier;
         }
+        else
+        {
+            _gravity = gravity;
+        }
+        
+        if (isGliding)
+        {
+            _gravity = glideGrav;
+            _termVel = teminalGlideVel;
+        }
+
+        verticalVelocity -= _gravity * Time.deltaTime;
+        if (verticalVelocity <= -_termVel)
+        {
+            verticalVelocity = -_termVel;
+        }
+        
         
         controller.Move(worldMoveDir * Time.deltaTime);
     }
