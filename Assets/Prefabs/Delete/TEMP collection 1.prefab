@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 712983943891365491}
   - component: {fileID: 1687755911538944644}
   - component: {fileID: 1667465141197435415}
+  - component: {fileID: 5893465993998752639}
+  - component: {fileID: 6443520558323711952}
   m_Layer: 0
   m_Name: Sphere (4)
   m_TagString: Untagged
@@ -29,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 6280554194213944276}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.199, y: -0.60284615, z: -0.126}
-  m_LocalScale: {x: 0.1355578, y: 0.1355578, z: 0.1355578}
+  m_LocalPosition: {x: 0.001, y: 0.043, z: 0.255}
+  m_LocalScale: {x: 0.217028, y: 0.217028, z: 0.217028}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7015736811817399394}
@@ -107,7 +109,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1667465141197435415
 MonoBehaviour:
@@ -122,6 +124,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemValue: 1
+--- !u!135 &5893465993998752639
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6280554194213944276}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &6443520558323711952
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6280554194213944276}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6343004726234345480
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,6 +185,8 @@ GameObject:
   - component: {fileID: 3426687693475793530}
   - component: {fileID: 4893161300591661593}
   - component: {fileID: 4753531782738771366}
+  - component: {fileID: 7152780390796373232}
+  - component: {fileID: 6472148575434627979}
   m_Layer: 0
   m_Name: Sphere (7)
   m_TagString: Untagged
@@ -151,7 +203,7 @@ Transform:
   m_GameObject: {fileID: 6343004726234345480}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05358267, y: -0.60284615, z: -0.33336914}
+  m_LocalPosition: {x: 0.25358266, y: 0.178, z: 0.047630876}
   m_LocalScale: {x: 0.31870472, y: 0.31870472, z: 0.31870472}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -229,7 +281,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4753531782738771366
 MonoBehaviour:
@@ -244,6 +296,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemValue: 10
+--- !u!135 &7152780390796373232
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6343004726234345480}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &6472148575434627979
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6343004726234345480}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6746964957135268227
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +392,8 @@ GameObject:
   - component: {fileID: 4992626683622021170}
   - component: {fileID: 7954823695271762604}
   - component: {fileID: 1167087226940634458}
+  - component: {fileID: 5785430596805896060}
+  - component: {fileID: 765323293954400383}
   m_Layer: 0
   m_Name: Sphere (5)
   m_TagString: Untagged
@@ -308,7 +410,7 @@ Transform:
   m_GameObject: {fileID: 8041335947945777933}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.387, y: -0.60284615, z: -0.33336914}
+  m_LocalPosition: {x: -0.18699999, y: 0.178, z: 0.047630876}
   m_LocalScale: {x: 0.2354497, y: 0.39600286, z: 0.2354497}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -386,7 +488,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1167087226940634458
 MonoBehaviour:
@@ -401,6 +503,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemValue: 5
+--- !u!135 &5785430596805896060
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8041335947945777933}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.50000006
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &765323293954400383
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8041335947945777933}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8657002134709301697
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +564,8 @@ GameObject:
   - component: {fileID: 2137053326912511045}
   - component: {fileID: 3921269371535535412}
   - component: {fileID: 7583103516830280942}
+  - component: {fileID: 5872611911677195076}
+  - component: {fileID: 2650608579513012227}
   m_Layer: 0
   m_Name: Sphere (6)
   m_TagString: Untagged
@@ -430,7 +582,7 @@ Transform:
   m_GameObject: {fileID: 8657002134709301697}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.221, y: -0.60284615, z: -0.624}
+  m_LocalPosition: {x: -0.020999998, y: 0.042999998, z: -0.243}
   m_LocalScale: {x: 0.2354497, y: 0.2354497, z: 0.2354497}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -508,7 +660,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7583103516830280942
 MonoBehaviour:
@@ -523,3 +675,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemValue: 3
+--- !u!135 &5872611911677195076
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8657002134709301697}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2650608579513012227
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8657002134709301697}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

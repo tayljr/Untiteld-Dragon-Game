@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4765521749707304062}
   - component: {fileID: 780085189592392989}
   - component: {fileID: 1909544503461126121}
+  - component: {fileID: 5816405221440609200}
   m_Layer: 0
   m_Name: Sphere (7)
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6587484581351613909}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.002, y: 1.31, z: -1.548}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1355578, y: 0.1355578, z: 0.1355578}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -122,3 +123,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemValue: 1
+--- !u!54 &5816405221440609200
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6587484581351613909}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
