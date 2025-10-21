@@ -1607,7 +1607,6 @@ GameObject:
   - component: {fileID: 1355662083719854933}
   - component: {fileID: 723595721396505957}
   - component: {fileID: 4488075488164338901}
-  - component: {fileID: 7710759129991799733}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1760,6 +1759,7 @@ MonoBehaviour:
   speed: 8
   sprintModifier: 3.2
   crouchModifier: 0.5
+  coyoteTime: 0.1
   defaultJumpCount: 1
   maxJumpCount: 1
   jumpForce: 9
@@ -1781,6 +1781,7 @@ MonoBehaviour:
   isGliding: 0
   currentHeadDir: {x: 0, y: 0}
   groundCount: 0
+  groundList: []
   currentCharacterDir: {x: 0, y: 0}
 --- !u!114 &1355662083719854933
 MonoBehaviour:
@@ -1824,19 +1825,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newJumpCount: 2
   characterMovement: {fileID: 2311948180293268705}
---- !u!114 &7710759129991799733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5382560219466656962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98463fe0f1c88a445a59dd40c757d2e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gemCountText: {fileID: 0}
 --- !u!1 &5464076519506682553
 GameObject:
   m_ObjectHideFlags: 0

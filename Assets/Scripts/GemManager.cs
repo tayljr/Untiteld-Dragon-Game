@@ -7,9 +7,11 @@ public class GemManager : MonoBehaviour
 {
     public static GemManager Instance { get; private set; } 
 
-    public TextMeshProUGUI gemCountText; 
+    public TextMeshProUGUI gemCountText;
+    [SerializeField]
     private int totalGems = 0;
-
+    [SerializeField]
+    private AudioSource gemSound;
     private void Awake()
     {
         
@@ -32,6 +34,7 @@ public class GemManager : MonoBehaviour
     {
         totalGems += amount;
         UpdateGemUI();
+        gemSound.Play();
         Debug.Log("Total Gems: " + totalGems);
     }
 
@@ -39,7 +42,7 @@ public class GemManager : MonoBehaviour
     {
         if (gemCountText != null)
         {
-            gemCountText.text = "Gems: " + totalGems.ToString();
+            gemCountText.text = totalGems.ToString();
         }
     }
 }
