@@ -2,11 +2,13 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
 public class SettingsManager : MonoBehaviour
 {
+    public GameObject FirstSelected;
 
     public AudioMixer Master;
 
@@ -24,6 +26,9 @@ public class SettingsManager : MonoBehaviour
     public TMP_Dropdown ResolutionDropdown;
 
     // Start is called before the first frame update
+
+
+    
     public void InstantiateAllSettings()
     {
         MasterSldier.value = PlayerPrefs.GetFloat("MasterVolume", 0.7f);
@@ -118,7 +123,10 @@ public class SettingsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (EventSystem.current.currentSelectedGameObject == null)
+        {
+            EventSystem.current.SetSelectedGameObject(FirstSelected);
+        }
     }
 
 
