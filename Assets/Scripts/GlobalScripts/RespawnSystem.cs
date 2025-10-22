@@ -12,15 +12,25 @@ public class RespawnPoint
 
 public class RespawnSystem : MonoBehaviour
 {
-
+    public static RespawnSystem instance;
     public List<RespawnPoint> respawnPoints = new List<RespawnPoint>();
     public GameObject playerRef;
     [SerializeField]
     //private GameObject PlayerOBJInstance;
     public bool PlayerIsAlive = true;
-    [SerializeField] private int currentRespawnIndex = 0;
+    public int currentRespawnIndex = 0;
 
-
+    private void Awake()
+    {
+        if (this != instance && instance != null)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
