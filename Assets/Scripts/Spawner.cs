@@ -36,7 +36,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //todo fix current
+        //todo fix current wave index after level restart
         if (currentWaveIndex != currentWave)
         {
             currentWave = currentWaveIndex;
@@ -63,15 +63,22 @@ public class Spawner : MonoBehaviour
             if (countdown <= 0)
             {
                 readyToCountDown = false;
-                countdown = waves[currentWaveIndex].timeToNextWave;
+                //countdown = waves[0].timeToNextWave;
+                if (currentWaveIndex < waves.Length)
+                {
+                    countdown = waves[currentWaveIndex].timeToNextWave;
+                }
+
                 StartCoroutine(Spawnwave());
 
             }
 
-            if (waves[currentWaveIndex].enemiesLeft == 0)
+            // if (waves[0].enemiesLeft == 0)
+            if (waves[currentWaveIndex].enemiesLeft == 0 && currentWaveIndex < waves.Length)
             {
                 readyToCountDown = true;
                 currentWaveIndex++;
+                // currentWaveIndex = 1;
             }
         }
     }
@@ -90,7 +97,12 @@ public class Spawner : MonoBehaviour
     {
         if (tag == "Enemy")
         {
-            waves[currentWaveIndex].enemiesLeft--;
+            // waves[0].enemiesLeft--;
+
+            if (currentWaveIndex < waves.Length)
+            {
+                waves[currentWaveIndex].enemiesLeft--;
+            }
         }
     }
 
@@ -98,12 +110,12 @@ public class Spawner : MonoBehaviour
     {
         if (currentWaveIndex < waves.Length)
         {
-            for (int i = 0; i < waves[currentWaveIndex].enemies.Length; i++)
+            for (int i = 0; i < waves[0].enemies.Length; i++)
             {
-                GameObject enemy = Instantiate(waves[currentWaveIndex].enemies[i], SpawnPoint.transform.position, Quaternion.identity);
+                GameObject enemy = Instantiate(waves[0].enemies[i], SpawnPoint.transform.position, Quaternion.identity);
                 //enemy.transform.position = SpawnPoint.transform.position;
                 //enemy.transform.SetParent(SpawnPoint.transform);
-                yield return new WaitForSeconds(waves[currentWaveIndex].timeToNextEnemy);
+                yield return new WaitForSeconds(waves[0].timeToNextEnemy);
             }
         }
        
