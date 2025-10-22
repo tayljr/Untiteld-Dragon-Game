@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1416317042608861094}
   - component: {fileID: 6830001472234244024}
   - component: {fileID: 4775609566275988776}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,9 +133,9 @@ GameObject:
   - component: {fileID: 162447127239537983}
   - component: {fileID: 2847109681493658548}
   - component: {fileID: 4129047081356215466}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (1)
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -242,9 +242,9 @@ GameObject:
   - component: {fileID: 9216473787187965717}
   - component: {fileID: 4038665967100683642}
   - component: {fileID: 2263693304294143387}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TEMP Collectible
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

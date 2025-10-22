@@ -17,7 +17,7 @@ public class CombatZone : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             
-            if (objectsInTrigger.Contains(other.gameObject))
+            if (!objectsInTrigger.Contains(other.gameObject))
             {
                 objectsInTrigger.Add(other.gameObject);
                 Debug.Log("Added {other.gameObject.name} to the list.");

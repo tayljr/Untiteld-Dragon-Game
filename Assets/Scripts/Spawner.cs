@@ -13,6 +13,9 @@ public class Spawner : MonoBehaviour
     public int currentWaveIndex = 0;
 
     private bool readyToCountDown;
+    
+    //todo this is just temp for the demo
+    public GameObject wall;
 
     private void Start()
     {
@@ -28,6 +31,10 @@ public class Spawner : MonoBehaviour
         if (currentWaveIndex >= waves.Length)
         {
             Debug.Log("waves finished");
+            if (wall != null)
+            {
+                wall.SetActive(false);
+            }
             return;
         }
 
@@ -70,8 +77,8 @@ public class Spawner : MonoBehaviour
         {
             for (int i = 0; i < waves[currentWaveIndex].enemies.Length; i++)
             {
-                GameObject enemy = Instantiate(waves[currentWaveIndex].enemies[i], SpawnPoint.transform);
-
+                GameObject enemy = Instantiate(waves[currentWaveIndex].enemies[i], SpawnPoint.transform.position, Quaternion.identity);
+                //enemy.transform.position = SpawnPoint.transform.position;
                 enemy.transform.SetParent(SpawnPoint.transform);
 
                 yield return new WaitForSeconds(waves[currentWaveIndex].timeToNextEnemy);

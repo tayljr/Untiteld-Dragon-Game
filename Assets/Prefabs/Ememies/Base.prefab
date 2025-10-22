@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 709702912221850094}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.396, y: 0.86, z: -2.01}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -289,13 +289,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd1130174aa4d142a8f84cac338358f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  health: 10
+  maxHealth: 3
+  health: 3
   healthPercent: 100
   iFrameTime: 0.25
   invincible: 0
   isDead: 0
-  LootTable: []
+  LootTable:
+  - itemPrefab: {fileID: 6746964957135268227, guid: 3261d0fbfd251744b934074630db879a, type: 3}
+    dropChance: 25
+  - itemPrefab: {fileID: 1193458308084228662, guid: 12fafc39c16cbe94d8e614474097e684, type: 3}
+    dropChance: 25
+  - itemPrefab: {fileID: 3742429543563828067, guid: c3e1773d14f6f6143a3fc5830a67fc70, type: 3}
+    dropChance: 25
+  - itemPrefab: {fileID: 6595012147054270499, guid: 816c4bab93517454bb3674a8382926e2, type: 3}
+    dropChance: 25
 --- !u!1 &3985894151208046855
 GameObject:
   m_ObjectHideFlags: 0
