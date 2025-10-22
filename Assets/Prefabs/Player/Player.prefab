@@ -224,6 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hurtBox: {fileID: 7752858630211847152}
   attackType: 0
+  attackDelay: 0.335
   attackDuration: 0.25
 --- !u!65 &7752858630211847152
 BoxCollider:
@@ -1708,7 +1709,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5382560219466656962}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15bacb415dfff8b4785c0258637edf81, type: 3}
   m_Name: 
@@ -3306,6 +3307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hurtBox: {fileID: 8690909936483226601}
   attackType: 1
+  attackDelay: 0.4
   attackDuration: 0
 --- !u!65 &8690909936483226601
 BoxCollider:

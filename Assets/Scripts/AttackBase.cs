@@ -13,23 +13,26 @@ public class AttackBase : MonoBehaviour
     public Collider hurtBox;
     public AttackType attackType = AttackType.Duration;
 
+    public float attackDelay = 0.67f;
     public float attackDuration = 0.25f;
 
     public void StartAttack()
     {
-        hurtBox.enabled = true;
+        //hurtBox.enabled = true;
         //print("ATTAAAAACK!!");
 
-        if (attackType == AttackType.Duration)
-        {
-            StartCoroutine(BeginAttack());
-        }
+        StartCoroutine(BeginAttack());
     }
 
     IEnumerator BeginAttack()
     {
-        yield return new WaitForSeconds(attackDuration);
-        hurtBox.enabled = false;
+        yield return new WaitForSeconds(attackDelay);
+        hurtBox.enabled = true;
+        if (attackType == AttackType.Duration)
+        {
+            yield return new WaitForSeconds(attackDuration);
+            hurtBox.enabled = false;
+        }
     }
 
     public void StopAttack()

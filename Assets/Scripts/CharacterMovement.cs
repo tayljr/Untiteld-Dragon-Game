@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
@@ -233,7 +234,7 @@ public class CharacterMovement : MonoBehaviour
     }
     private void NotGrounded(GameObject self, Collider other)
     {
-        if (other.gameObject != gameObject && !other.isTrigger)
+        if (other.gameObject != gameObject && !other.isTrigger && groundList.Contains(other) && other.gameObject.layer != LayerMask.NameToLayer("Ignore GroundCheck"))
         {
             if (verticalVelocity < 0)
             {
@@ -241,6 +242,7 @@ public class CharacterMovement : MonoBehaviour
             }
             
             groundCount--;
+            groundList.Remove(other);
             
             if (groundCount <= 0)
             {
@@ -254,12 +256,13 @@ public class CharacterMovement : MonoBehaviour
     }
     private void Grounded(GameObject self, Collider other)
     {
-        if (other.gameObject != gameObject && !other.isTrigger && !groundList.Contains(other))
+        if (other.gameObject != gameObject && !other.isTrigger && !groundList.Contains(other) && other.gameObject.layer != LayerMask.NameToLayer("Ignore GroundCheck"))
         {
             verticalVelocity = 0;
             grounded = true;
             jumpCount = 0;
             groundCount++;
+            groundList.Add(other);
             isGliding = false;
             currentGround = other;
         }
@@ -287,6 +290,19 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        List<Collider> missingColliders = new List<Collider>();
+        foreach (Collider collider in groundList)
+        {
+            if (collider == null)
+            {
+                missingColliders.Add(collider);
+            }
+        }
+        
+        groundList = groundList.Except(missingColliders).ToList();
+        missingColliders.Clear();
+        groundCount = groundList.Count;
+        
         if (isLooking)
         {
             DoLook(lookInput);

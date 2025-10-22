@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7015736811817399394}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TEMP collection 1
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedGem
       objectReference: {fileID: 0}
+    - target: {fileID: 150497350299386848, guid: d7f06eb9722d3154ebf8b3786a906e5c, type: 3}
+      propertyPath: m_TagString
+      value: Collectible
+      objectReference: {fileID: 0}
     - target: {fileID: 3067589878672477006, guid: d7f06eb9722d3154ebf8b3786a906e5c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25358266
@@ -102,6 +106,10 @@ PrefabInstance:
     - target: {fileID: 3067589878672477006, guid: d7f06eb9722d3154ebf8b3786a906e5c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186542535162347772, guid: d7f06eb9722d3154ebf8b3786a906e5c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5971280870700422468, guid: d7f06eb9722d3154ebf8b3786a906e5c, type: 3}
       propertyPath: m_Radius

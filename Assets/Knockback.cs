@@ -11,7 +11,14 @@ public class Knockback : MonoBehaviour
     {
         HealthBase.OnDamage += HealthBase_OnDamage;
     }
-
+    private void OnDisable()
+    {
+        HealthBase.OnDamage -= HealthBase_OnDamage;
+    }
+    private void OnDestroy()
+    {
+        HealthBase.OnDamage -= HealthBase_OnDamage;
+    }
     private void HealthBase_OnDamage(float damage, string tag)
     {
         if (tag == "Enemy")
