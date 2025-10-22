@@ -51,6 +51,18 @@ public class Spawner : MonoBehaviour
             currentWaveIndex++;
         }
     }
+    private void OnEnable()
+    {
+        HealthBase.OnDeath += HealthBase_OnDeath;
+    }
+
+    private void HealthBase_OnDeath(string tag)
+    {
+        if (tag == "Enemy")
+        {
+            waves[currentWaveIndex].enemiesLeft--;
+        }
+    }
 
     private IEnumerator Spawnwave()
     {
@@ -58,7 +70,7 @@ public class Spawner : MonoBehaviour
         {
             for (int i = 0; i < waves[currentWaveIndex].enemies.Length; i++)
             {
-                Enemy enemy = Instantiate(waves[currentWaveIndex].enemies[i], SpawnPoint.transform);
+                GameObject enemy = Instantiate(waves[currentWaveIndex].enemies[i], SpawnPoint.transform);
 
                 enemy.transform.SetParent(SpawnPoint.transform);
 
@@ -69,14 +81,13 @@ public class Spawner : MonoBehaviour
     }
 
     [System.Serializable]
-
     public class Wave
     {
-        public Enemy[] enemies;
+        public GameObject[] enemies;
         public float timeToNextWave;
         public float timeToNextEnemy;
 
-        [HideInInspector] public int enemiesLeft;
+        public int enemiesLeft;
 
     }
 

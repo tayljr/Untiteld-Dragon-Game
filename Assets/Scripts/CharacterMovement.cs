@@ -27,6 +27,7 @@ public class CharacterMovement : MonoBehaviour
     public int maxJumpCount = 1;
     private int jumpCount = 0;
     public float jumpForce = 2f;
+    private Vector3 jumpVelocity = Vector3.zero;
     public bool fastFalling = true;
     public float fallingModifier = 1.5f;
     public float gravity = 10f;
@@ -55,8 +56,10 @@ public class CharacterMovement : MonoBehaviour
     public bool isCrouching = false;
     public bool isGliding = false;
     public Vector2 currentHeadDir = Vector2.zero;
-
-
+    
+    private bool slopeJump = false;
+    private Collider currentGround; 
+    
     [SerializeField]
     private int groundCount = 0;
     [SerializeField]
@@ -140,7 +143,9 @@ public class CharacterMovement : MonoBehaviour
         if (jumpCount < maxJumpCount)
         {
             jumpCount++;
-            verticalVelocity = jumpForce;
+            //Debug.Log(slopeAngle);
+            jumpVelocity = slopeAngle * jumpForce;
+            //verticalVelocity = jumpForce;
         }
     }
 
@@ -255,7 +260,8 @@ public class CharacterMovement : MonoBehaviour
             grounded = true;
             jumpCount = 0;
             groundCount++;
-            isGliding = false; 
+            isGliding = false;
+            currentGround = other;
         }
     }
 
@@ -294,24 +300,37 @@ public class CharacterMovement : MonoBehaviour
         if (grounded || isSliding)
         {
             //grounded = false;
+            // Vector3 rayDir = currentGround.ClosestPointOnBounds(groundTrigger.gameObject.transform.position) - groundTrigger.gameObject.transform.position;
+            Vector3 rayDir = Vector3.down;
+            float rayLength = Vector3.Distance(transform.position, groundTrigger.transform.position);
             RaycastHit hit;
-            Physics.Raycast(transform.position, Vector3.down, out hit, 10, Int32.MaxValue, QueryTriggerInteraction.Ignore);
-            var angle = Vector3.Angle(hit.normal, Vector3.up);
+            Physics.BoxCast(transform.position, new Vector3(0.4f, 0.00f, 0.4f), rayDir, out hit,
+                transform.rotation, rayLength + 0.1f, Int32.MaxValue, QueryTriggerInteraction.Ignore);
+            //Physics.Raycast(groundTrigger.gameObject.transform.position, rayDir, out hit, 2f, Int32.MaxValue, QueryTriggerInteraction.Ignore);
+            if (hit.collider != null)
+            {
+                slopeAngle = hit.normal;
+            }
+            var angle = Vector3.Angle(slopeAngle, Vector3.up);
+            
             //Debug.Log(angle);
             if (angle <= controller.slopeLimit + 0.01f)
             {
-                slopeAngle = hit.normal;
                 isSliding = false;
                 //grounded = true;
             }
-            else
+            else if (angle < 89.5f)
             {
                 //grounded = false;
-                Vector3 slideDir = Vector3.RotateTowards(hit.normal, Vector3.down, 90 * Mathf.Deg2Rad, 0f);
+                Vector3 slideDir = Vector3.RotateTowards(slopeAngle, Vector3.down, 90 * Mathf.Deg2Rad, 0f);
                 Debug.DrawRay(hit.point, slideDir, Color.yellow, 1f);
-                worldMoveDir += slideDir.normalized * slideSpeed * Time.deltaTime;
+                worldMoveDir += slideDir.normalized * (slideSpeed * Time.deltaTime);
                 verticalVelocity = -slideSpeed * Time.deltaTime;
                 isSliding = true;
+            }
+            else
+            {
+                slopeAngle = Vector3.up;
             }
 
             Debug.DrawRay(hit.point, hit.normal, Color.red, 1f);
@@ -338,7 +357,7 @@ public class CharacterMovement : MonoBehaviour
             }
             worldMoveDir = Vector3.Scale(transform.TransformDirection(moveDir.x, moveDir.z, forwardMoveDir), climbSpeed);
         }
-
+        
 
         float _gravity = gravity;
         float _termVel = terminalVelociy;
@@ -363,6 +382,32 @@ public class CharacterMovement : MonoBehaviour
             verticalVelocity = -_termVel;
         }
         
+        //add jump force
+        if (jumpVelocity.magnitude > 0)
+        {
+            if(isSliding || slopeJump)
+            {
+                isSliding = false;
+                slopeJump = true;
+                //grounded = false;
+                worldMoveDir.x += jumpVelocity.x;
+                worldMoveDir.z += jumpVelocity.z;
+                verticalVelocity = jumpVelocity.y;
+                Debug.DrawRay(transform.position, jumpVelocity, Color.blue, 1f);
+            }
+            else
+            {
+                verticalVelocity = jumpForce;
+                jumpVelocity = Vector3.zero;
+            }
+            jumpVelocity = Vector3.MoveTowards(jumpVelocity, Vector3.zero, _gravity * Time.deltaTime);
+            //Debug.Log(jumpVelocity);
+        }
+        else
+        {
+            slopeJump = false;
+            jumpVelocity = Vector3.zero;
+        }
         
         controller.Move(worldMoveDir * Time.deltaTime);
     }
