@@ -1758,7 +1758,7 @@ MonoBehaviour:
   minMaxHeadTilt: {x: -45, y: 45}
   minMaxHeadTurn: {x: -45, y: 45}
   speed: 8
-  sprintModifier: 3.2
+  sprintModifier: 1
   crouchModifier: 0.5
   coyoteTime: 0.1
   defaultJumpCount: 1
