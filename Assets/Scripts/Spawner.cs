@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,12 +14,22 @@ public class Spawner : MonoBehaviour
     public int currentWaveIndex = 0;
 
     private bool readyToCountDown;
+    private bool playerNear = false;
     
     //todo this is just temp for the demo
     public GameObject wall;
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            playerNear = true;
+        }
+    }
+
     private void Start()
     {
+        playerNear = false;
         for (int i = 0; i < waves.Length; i++)
         {
             waves[i].enemiesLeft = waves[i].enemies.Length;
@@ -28,34 +39,38 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentWaveIndex >= waves.Length)
+        if (playerNear)
         {
-            Debug.Log("waves finished");
-            if (wall != null)
+            if (currentWaveIndex >= waves.Length)
             {
-                wall.SetActive(false);
+                Debug.Log("waves finished");
+                if (wall != null)
+                {
+                    wall.SetActive(false);
+                }
+
+                return;
             }
-            return;
-        }
 
-        if (readyToCountDown == true)
-        {
-            countdown -= Time.deltaTime;
+            if (readyToCountDown == true)
+            {
+                countdown -= Time.deltaTime;
 
-        }
+            }
 
-        if (countdown <= 0)
-        {
-            readyToCountDown = false;
-            countdown = waves[currentWaveIndex].timeToNextWave;
-            StartCoroutine(Spawnwave());
+            if (countdown <= 0)
+            {
+                readyToCountDown = false;
+                countdown = waves[currentWaveIndex].timeToNextWave;
+                StartCoroutine(Spawnwave());
 
-        }
+            }
 
-        if (waves[currentWaveIndex].enemiesLeft ==0)
-        {
-            readyToCountDown = true;
-            currentWaveIndex++;
+            if (waves[currentWaveIndex].enemiesLeft == 0)
+            {
+                readyToCountDown = true;
+                currentWaveIndex++;
+            }
         }
     }
     private void OnEnable()
