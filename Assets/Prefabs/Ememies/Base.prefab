@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 4609524136109990721}
   - component: {fileID: 2061243543483362423}
   - component: {fileID: 742146651877690386}
+  - component: {fileID: 7238960813462657116}
   m_Layer: 0
   m_Name: Base
   m_TagString: Enemy
@@ -304,6 +305,44 @@ MonoBehaviour:
     dropChance: 25
   - itemPrefab: {fileID: 6595012147054270499, guid: 816c4bab93517454bb3674a8382926e2, type: 3}
     dropChance: 25
+--- !u!114 &7238960813462657116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709702912221850094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c73a1545248414e949132f36d5f995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  knockbackStrength: 15
+  knockbackDuration: 0.5
 --- !u!1 &3985894151208046855
 GameObject:
   m_ObjectHideFlags: 0
