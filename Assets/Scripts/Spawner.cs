@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
     public Wave[] waves;
 
     public int currentWaveIndex = 0;
+    private int currentWave = 0;
 
     private bool readyToCountDown;
     private bool playerNear = false;
@@ -30,15 +31,16 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         playerNear = false;
-        for (int i = 0; i < waves.Length; i++)
-        {
-            waves[i].enemiesLeft = waves[i].enemies.Length;
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        //todo fix current
+        if (currentWaveIndex != currentWave)
+        {
+            currentWave = currentWaveIndex;
+        }
         if (playerNear)
         {
             if (currentWaveIndex >= waves.Length)
@@ -75,6 +77,12 @@ public class Spawner : MonoBehaviour
     }
     private void OnEnable()
     {
+        currentWaveIndex = 0;
+        for (int i = 0; i < waves.Length; i++)
+        {
+            waves[i].enemiesLeft = waves[i].enemies.Length;
+        }
+        
         HealthBase.OnDeath += HealthBase_OnDeath;
     }
 
@@ -94,8 +102,7 @@ public class Spawner : MonoBehaviour
             {
                 GameObject enemy = Instantiate(waves[currentWaveIndex].enemies[i], SpawnPoint.transform.position, Quaternion.identity);
                 //enemy.transform.position = SpawnPoint.transform.position;
-                enemy.transform.SetParent(SpawnPoint.transform);
-
+                //enemy.transform.SetParent(SpawnPoint.transform);
                 yield return new WaitForSeconds(waves[currentWaveIndex].timeToNextEnemy);
             }
         }

@@ -71,7 +71,10 @@ public class UIManager : MonoBehaviour, IPauseable
             SettingsMenuOpen = false;
             
             //just to be sure the settings menu is closed
-            SceneManager.UnloadSceneAsync("Settings");
+            if (SceneManager.GetSceneByName("settings").isLoaded)
+            {
+                SceneManager.UnloadSceneAsync("Settings");
+            }
         }
         if (arg0.name == "Tutorial")
         {
