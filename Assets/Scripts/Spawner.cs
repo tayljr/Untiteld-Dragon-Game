@@ -64,17 +64,14 @@ public class Spawner : MonoBehaviour
             {
                 readyToCountDown = false;
                 //countdown = waves[0].timeToNextWave;
-                if (currentWaveIndex < waves.Length)
-                {
-                    countdown = waves[currentWaveIndex].timeToNextWave;
-                }
+                countdown = waves[currentWaveIndex].timeToNextWave;
 
                 StartCoroutine(Spawnwave());
 
             }
 
             // if (waves[0].enemiesLeft == 0)
-            if (waves[currentWaveIndex].enemiesLeft == 0 && currentWaveIndex < waves.Length)
+            if (waves[currentWaveIndex].enemiesLeft == 0)
             {
                 readyToCountDown = true;
                 currentWaveIndex++;
@@ -93,16 +90,18 @@ public class Spawner : MonoBehaviour
         HealthBase.OnDeath += HealthBase_OnDeath;
     }
 
+    private void OnDisable()
+    {
+        HealthBase.OnDeath -= HealthBase_OnDeath;
+    }
+
     private void HealthBase_OnDeath(string tag)
     {
         if (tag == "Enemy")
         {
             // waves[0].enemiesLeft--;
 
-            if (currentWaveIndex < waves.Length)
-            {
-                waves[currentWaveIndex].enemiesLeft--;
-            }
+            waves[currentWaveIndex].enemiesLeft--;
         }
     }
 
