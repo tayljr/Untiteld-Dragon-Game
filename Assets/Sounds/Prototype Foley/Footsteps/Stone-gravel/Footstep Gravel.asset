@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-8070299870801425657
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Stone_gravel normal-25_{-8070299870801425657}
+  m_AudioClip: {fileID: 8300000, guid: 98c9c434bb8e07648b790bd3dfb99549, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-6536412376816882133
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Stone_gravel heavy-12_{-6536412376816882133}
+  m_AudioClip: {fileID: 8300000, guid: 1250924c662af8b4f922428b8a6f1db5, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-1983494050254026610
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Stone_gravel heavy-11_{-1983494050254026610}
+  m_AudioClip: {fileID: 8300000, guid: 275719a33e6838744a34fc4977917166, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &3940811854671140474
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Stone_gravel light-19_{3940811854671140474}
+  m_AudioClip: {fileID: 8300000, guid: d7b3745d124db444ba742c533abf10ae, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Footstep Gravel
+  m_Volume: 0
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: 0, y: 0}
+  m_PitchRandomizationRange: {x: -279.66098, y: 213.55934}
+  m_AutomaticTriggerTimeRandomizationRange: {x: -50.2, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: -6536412376816882133}
+  - {fileID: -8070299870801425657}
+  - {fileID: 7235892549216272124}
+  - {fileID: -1983494050254026610}
+  - {fileID: 8479989053450313431}
+  - {fileID: 7734323836496017998}
+  - {fileID: 3940811854671140474}
+  m_AvoidRepeatingLast: 0
+  m_PlaybackMode: 1
+  m_TriggerMode: 0
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 0
+  m_VolumeRandomizationEnabled: 0
+  m_PitchRandomizationEnabled: 1
+  m_AutomaticTriggerTimeRandomizationEnabled: 1
+  m_LoopCountRandomizationEnabled: 0
+--- !u!1233149941 &7235892549216272124
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Stone_gravel light-57_{7235892549216272124}
+  m_AudioClip: {fileID: 8300000, guid: a894591289fa18b4aa7a0d8ab0badab4, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &7734323836496017998
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Stone_gravel normal-11_{7734323836496017998}
+  m_AudioClip: {fileID: 8300000, guid: f08fccef56745634186d1cdd6dc44912, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &8479989053450313431
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Stone_gravel heavy-15_{8479989053450313431}
+  m_AudioClip: {fileID: 8300000, guid: 77bcf6eb25f9c1d439bcaa83f44d62b4, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
