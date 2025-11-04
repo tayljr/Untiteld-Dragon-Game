@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     {
         if (healthBase.health <=0)
         {
-            spawner.waves[spawner.currentWaveIndex].enemiesLeft--;
+            //spawner.waves[spawner.currentWaveIndex].enemiesLeft--;
         }
     }
 }
