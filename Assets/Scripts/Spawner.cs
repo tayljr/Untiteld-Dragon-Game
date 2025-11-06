@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
     private bool readyToCountDown;
     private bool playerNear = false;
     
-    private List<GameObject> enemies = new List<GameObject>();
+    private List<GameObject> aliveEnemies = new List<GameObject>();
     
     //todo this is just temp for the demo
     public GameObject wall;
@@ -99,10 +99,10 @@ public class Spawner : MonoBehaviour
 
     private void HealthBase_OnDeath(string tag, GameObject obj)
     {
-        if (enemies.Contains(obj))
+        if (aliveEnemies.Contains(obj))
         {
             // waves[0].enemiesLeft--;
-            enemies.Remove(obj);
+            aliveEnemies.Remove(obj);
             waves[currentWaveIndex].enemiesLeft--;
         }
     }
@@ -114,7 +114,7 @@ public class Spawner : MonoBehaviour
             for (int i = 0; i < waves[0].enemies.Length; i++)
             {
                 GameObject enemy = Instantiate(waves[0].enemies[i], SpawnPoint.transform.position, Quaternion.identity);
-                enemies.Add(enemy);
+                aliveEnemies.Add(enemy);
                 //enemy.transform.position = SpawnPoint.transform.position;
                 //enemy.transform.SetParent(SpawnPoint.transform);
                 yield return new WaitForSeconds(waves[0].timeToNextEnemy);
