@@ -58,7 +58,7 @@ public class RespawnSystem : MonoBehaviour
 
     public void OnDisable() => HealthBase.OnDeath -= HealthBase_OnDeath;
 
-    private void HealthBase_OnDeath(string tag)
+    private void HealthBase_OnDeath(string tag, GameObject obj)
     {
         //Debug.LogWarning("RespawnSystem detected death of: " + tag);
         //playerRef = Instantiate(PlayerOBJInstance);
