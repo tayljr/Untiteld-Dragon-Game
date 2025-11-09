@@ -21,7 +21,11 @@ public class Spawner : MonoBehaviour
     
     //todo this is just temp for the demo
     public GameObject wall;
-
+    
+    public delegate void WavesFinishedDelegate();
+    
+    public event WavesFinishedDelegate OnWavesFinished;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -53,6 +57,8 @@ public class Spawner : MonoBehaviour
                     wall.SetActive(false);
                 }
 
+                OnWavesFinished?.Invoke();
+                
                 return;
             }
 

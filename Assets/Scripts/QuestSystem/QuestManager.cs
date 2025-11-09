@@ -19,6 +19,11 @@ public class QuestManager : MonoBehaviour
         {
             quest.OnQuestFinished += QuestOnOnQuestFinished;
         }
+        
+        quests[currentQuest].BeginQuest();
+        if (questTitle != null) questTitle.text = quests[currentQuest].name;
+        if (questDescription != null) questDescription.text = quests[currentQuest].description;
+        if (questIcon != null) questIcon.sprite = quests[currentQuest].icon;
     }
 
     private void OnDisable()
@@ -52,10 +57,7 @@ public class QuestManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        quests[currentQuest].BeginQuest();
-        if (questTitle != null) questTitle.text = quests[currentQuest].name;
-        if (questDescription != null) questDescription.text = quests[currentQuest].description;
-        if (questIcon != null) questIcon.sprite = quests[currentQuest].icon;
+        
     }
 
     // Update is called once per frame

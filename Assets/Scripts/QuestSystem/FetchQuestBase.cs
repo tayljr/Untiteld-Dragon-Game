@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class FetchQuestBase : QuestBase
 {
-    //todo pick up base??
     public List<PickUpBase> pickUps;
-    private List<PickUpBase> hasPickedups = new List<PickUpBase>();
+    private List<PickUpBase> hasPickedUps = new List<PickUpBase>();
 
     public void OnEnable()
     {
@@ -28,9 +27,9 @@ public class FetchQuestBase : QuestBase
     {
         if (currentState == QuestState.doing)
         {
-            hasPickedups.Add(pickUpBase);
+            hasPickedUps.Add(pickUpBase);
 
-            if (hasPickedups.Count == pickUps.Count)
+            if (hasPickedUps.Count == pickUps.Count)
             {
                 FinishedQuest();
             }
