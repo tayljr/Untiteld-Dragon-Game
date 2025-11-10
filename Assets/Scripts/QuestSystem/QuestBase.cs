@@ -36,7 +36,7 @@ public abstract class QuestBase : MonoBehaviour
             currentState = QuestState.completed;
             OnQuestFinished?.Invoke(this);
             
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
     }
 
