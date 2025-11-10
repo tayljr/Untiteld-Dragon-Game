@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: To The Gates
-  description: make ypour way to the castle entrence
+  description: make your way to the castle entrence
   icon: {fileID: 21300000, guid: 91d7d255b4dac954388ede6793e298ba, type: 3}
   currentState: 0
   playerTransform: {fileID: 0}
@@ -292,7 +292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8726168820168176871}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 121.58656, y: 32.70716, z: 28.392267}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
