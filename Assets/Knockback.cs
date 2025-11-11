@@ -1,28 +1,19 @@
 using System.Collections;
 using UnityEngine;
 
-public class Knockback : MonoBehaviour
+public class Knockback : MonoBehaviour , IHit
 {
     public AnimationCurve knockbackCurve;
     public float knockbackStrength = 5f;
     public float knockbackDuration = 0.5f;
     private float knockbackTimer;
-    private void OnEnable()
-    {
-        HealthBase.OnDamage += HealthBase_OnDamage;
-    }
-    private void OnDisable()
-    {
-        HealthBase.OnDamage -= HealthBase_OnDamage;
-    }
-    private void OnDestroy()
-    {
-        HealthBase.OnDamage -= HealthBase_OnDamage;
-    }
-    private void HealthBase_OnDamage(float damage, string tag)
+    public void Hit(object args)
     {
         if (tag == "Enemy")
         {
+            float damage = ((object[])args)[0] is float ? (float)((object[])args)[0] : 0f;
+            string tag = ((object[])args)[1] is string ? (string)((object[])args)[1] : "";
+
             StartCoroutine(KnockbackCorutine(damage, tag));
         }
     }

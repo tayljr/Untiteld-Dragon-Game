@@ -12,7 +12,7 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] bool IsIdle;
     [SerializeField] bool IsFalling;
     [SerializeField] bool IsSprinting;
-
+    [SerializeField] bool IsGliding;
 
     [SerializeField] private InputActionReference move;
     [SerializeField] private InputActionReference jump;
@@ -82,12 +82,14 @@ public class PlayerAnimation : MonoBehaviour
         {
             IsSprinting = false;
         }
+
         IsFalling = !characterMovement.grounded;
-        
-        animator.SetBool("IsIdle",IsIdle);
+        IsGliding = characterMovement.isGliding;
+
+        animator.SetBool("IsIdle", IsIdle);
         animator.SetBool("IsFalling", IsFalling);
         animator.SetBool("IsSprinting",IsSprinting);
-
+        animator.SetBool("IsGliding", IsGliding);
 
     }
     void OnAnimatorIK(int layerIndex)
