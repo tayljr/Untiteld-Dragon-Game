@@ -5,6 +5,10 @@ using TMPro;
 
 public class GemManager : MonoBehaviour
 {
+    public delegate void GemDelegate(int amount);
+    
+    public static event GemDelegate OnGemAdded;
+    
     public static GemManager Instance { get; private set; } 
 
     public TextMeshProUGUI gemCountText;
@@ -32,6 +36,7 @@ public class GemManager : MonoBehaviour
 
     public void AddGems(int amount)
     {
+        OnGemAdded?.Invoke(amount);
         totalGems += amount;
         UpdateGemUI();
         gemSound.Play();

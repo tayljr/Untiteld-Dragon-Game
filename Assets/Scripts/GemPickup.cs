@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GemPickup : MonoBehaviour
+public class GemPickup : PickUpBase
 {
     public int gemValue = 1;
     private AudioSource gemSound;
@@ -13,7 +13,8 @@ public class GemPickup : MonoBehaviour
        
         if (other.CompareTag("Player"))
         {
-           
+            PickUpItem(this);
+            
             GemManager.Instance.AddGems(gemValue);
 
             Destroy(gameObject);
