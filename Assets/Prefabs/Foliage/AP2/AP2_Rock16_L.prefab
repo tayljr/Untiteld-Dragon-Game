@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2608103251220239611}
   - component: {fileID: 9151394395761443897}
+  - component: {fileID: -8299974060621561942}
   m_Layer: 0
   m_Name: AP2_Rock16_L
   m_TagString: Untagged
@@ -57,6 +58,28 @@ LODGroup:
     renderers:
     - renderer: {fileID: 4549998807397515495}
   m_Enabled: 1
+--- !u!64 &-8299974060621561942
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5909823448769535600}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -195516944507669433, guid: a92d4a8354aa8674fb70b6ab4e27e8ce, type: 3}
 --- !u!1 &6054828688848254251
 GameObject:
   m_ObjectHideFlags: 0
