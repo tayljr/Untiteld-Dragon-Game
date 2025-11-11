@@ -6,12 +6,7 @@ using System.Collections.Generic;
 public class LevelQuestsMiddleMan : MonoBehaviour
 {
     public List<QuestBase> quests;
-
-    public void OnEnable()
-    {
-        SetQuests();
-        QuestManager.instance.SetQuests(quests);
-    }
+    
 
     
     public void SetQuests()
@@ -25,7 +20,8 @@ public class LevelQuestsMiddleMan : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        SetQuests();
+        QuestManager.instance.SetQuests(quests);
     }
 
     // Update is called once per frame
