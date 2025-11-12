@@ -1752,7 +1752,6 @@ GameObject:
   - component: {fileID: 1656150660519270946}
   - component: {fileID: 8661683300321865444}
   - component: {fileID: 4075684423962670810}
-  - component: {fileID: 1825138057120892324}
   m_Layer: 0
   m_Name: Quest Pannel
   m_TagString: Untagged
@@ -1821,19 +1820,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1825138057120892324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4661186371633950747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7099c3fe8b566824697be9ddbc9bc26c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
 --- !u!1 &4686438451449855477
 GameObject:
   m_ObjectHideFlags: 0
