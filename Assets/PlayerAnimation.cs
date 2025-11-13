@@ -19,6 +19,7 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private InputActionReference jump;
     [SerializeField] private InputActionReference sprint;
     [SerializeField] private InputActionReference punch;
+    [SerializeField] private InputActionReference fire;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +35,20 @@ public class PlayerAnimation : MonoBehaviour
         jump.action.performed += Jump;
         sprint.action.performed += Sprint;
         punch.action.performed += Punch;
+        fire.action.performed += Fire;
+
+        fire.action.canceled += StopFire;
+
+    }
+
+    private void StopFire(InputAction.CallbackContext obj)
+    {
+        animator.SetBool("IsFire", false);
+    }
+
+    private void Fire(InputAction.CallbackContext obj)
+    {
+        animator.SetBool("IsFire",true);
     }
 
     private void Move_canceled(InputAction.CallbackContext obj)
@@ -65,6 +80,7 @@ public class PlayerAnimation : MonoBehaviour
         jump.action.performed -= Jump;
         sprint.action.performed -= Sprint;
         punch.action.performed -= Punch;
+        fire.action.performed -= Fire;
     }
     private void Move(InputAction.CallbackContext obj)
     {
@@ -113,7 +129,15 @@ public class PlayerAnimation : MonoBehaviour
     void OnAnimatorIK(int layerIndex)
     {
         
-        animator.SetLookAtWeight(1f,1f);
-        animator.SetLookAtPosition(characterMovement.head.transform.position + characterMovement.head.transform.forward * 10f);
+        if (IsGliding || IsClimbing)
+        {
+        animator.SetLookAtWeight(0f,0f);
+
+        }
+        else
+        {
+        animator.SetLookAtWeight(1f, 1f);
+        }
+            animator.SetLookAtPosition(characterMovement.head.transform.position + characterMovement.head.transform.forward * 10f);
     }
 }
