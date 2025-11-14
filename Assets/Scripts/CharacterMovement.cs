@@ -59,7 +59,8 @@ public class CharacterMovement : MonoBehaviour
     public bool isClimbing = false;
     public Vector2 currentHeadDir = Vector2.zero;
     
-    private bool slopeJump = false;
+    public bool canSlopeJump = false;
+    public bool slopeJump = false;
     private Collider currentGround; 
     
     [SerializeField]
@@ -141,12 +142,20 @@ public class CharacterMovement : MonoBehaviour
         if (grounded)
         {
             jumpCount = 0;
+            isSliding = false;
         }
         if (jumpCount < maxJumpCount)
         {
             jumpCount++;
             //Debug.Log(slopeAngle);
-            jumpVelocity = slopeAngle * jumpForce;
+            if(canSlopeJump)
+            {
+                jumpVelocity = slopeAngle * jumpForce;
+            }
+            else
+            {
+                jumpVelocity = Vector3.up * jumpForce;
+            }
             //verticalVelocity = jumpForce;
         }
     }
@@ -279,6 +288,16 @@ public class CharacterMovement : MonoBehaviour
             jumpCount = 1;
         }
     }
+
+    IEnumerator SlideCoyoteTime()
+    {
+        yield return new WaitForSeconds(coyoteTime);
+
+        if (isSliding)
+        {
+            canSlopeJump = true;
+        }
+    }
     private void LockHead()
     {
         currentCharacterDir.x += currentHeadDir.x;
@@ -322,8 +341,7 @@ public class CharacterMovement : MonoBehaviour
             Vector3 rayDir = Vector3.down;
             float rayLength = Vector3.Distance(transform.position, groundTrigger.transform.position);
             RaycastHit hit;
-            Physics.BoxCast(transform.position, new Vector3(0.4f, 0.00f, 0.4f), rayDir, out hit,
-                transform.rotation, rayLength + 0.1f, Int32.MaxValue, QueryTriggerInteraction.Ignore);
+            Physics.SphereCast(transform.position, 0.3f, rayDir, out hit, rayLength + 0.1f, Int32.MaxValue, QueryTriggerInteraction.Ignore);
             //Physics.Raycast(groundTrigger.gameObject.transform.position, rayDir, out hit, 2f, Int32.MaxValue, QueryTriggerInteraction.Ignore);
             if (hit.collider != null)
             {
@@ -334,6 +352,7 @@ public class CharacterMovement : MonoBehaviour
             //Debug.Log(angle);
             if (angle <= controller.slopeLimit + 0.01f)
             {
+                canSlopeJump = false;
                 isSliding = false;
                 //grounded = true;
             }
@@ -341,13 +360,17 @@ public class CharacterMovement : MonoBehaviour
             {
                 //grounded = false;
                 Vector3 slideDir = Vector3.RotateTowards(slopeAngle, Vector3.down, 90 * Mathf.Deg2Rad, 0f);
+                slideDir = Vector3.ProjectOnPlane(new Vector3(0, verticalVelocity, 0), slopeAngle);
                 Debug.DrawRay(hit.point, slideDir, Color.yellow, 1f);
                 worldMoveDir += slideDir.normalized * (slideSpeed * Time.deltaTime);
                 verticalVelocity = -slideSpeed * Time.deltaTime;
                 isSliding = true;
+                StartCoroutine(SlideCoyoteTime());
             }
             else
             {
+                isSliding = false;
+                canSlopeJump = false;
                 slopeAngle = Vector3.up;
             }
 
@@ -404,8 +427,9 @@ public class CharacterMovement : MonoBehaviour
         //add jump force
         if (jumpVelocity.magnitude > 0)
         {
-            if(isSliding || slopeJump)
+            if(canSlopeJump || slopeJump)
             {
+                canSlopeJump = false;
                 isSliding = false;
                 slopeJump = true;
                 //grounded = false;
