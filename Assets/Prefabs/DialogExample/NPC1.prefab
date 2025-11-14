@@ -271,6 +271,7 @@ MonoBehaviour:
   - rid: 6173701118591500689
   - rid: 6173701118591501043
   - rid: 6173701149430120605
+  - rid: 8800069177553977553
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
@@ -372,6 +373,14 @@ MonoBehaviour:
           m_Value1: 7424629120669840848
         Name: Messages
         m_Value: {fileID: 6480000831388072972}
+    - rid: 8800069177553977553
+      type: {class: 'BlackboardVariable`1[[NPCQuest, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 8167002663006719531
+          m_Value1: 11434055945254740148
+        Name: Quest
+        m_Value: {fileID: 0}
 --- !u!114 &6480000831388072972
 MonoBehaviour:
   m_ObjectHideFlags: 0
