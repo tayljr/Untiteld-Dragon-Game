@@ -15,6 +15,8 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] bool IsClimbing;
     [SerializeField] bool IsGliding;
 
+    public bool IsTalking;
+
     [SerializeField] private InputActionReference move;
     [SerializeField] private InputActionReference jump;
     [SerializeField] private InputActionReference sprint;
@@ -96,8 +98,23 @@ public class PlayerAnimation : MonoBehaviour
     {
         UpdateAnimatorValues();
     }
+    
     public void UpdateAnimatorValues()
     {
+
+        if (IsTalking)
+        {
+            jump.action.performed -= Jump;
+            int index = animator.GetLayerIndex("Interaction");
+            animator.SetLayerWeight(index, 1f);
+
+        }
+        else
+        {
+            jump.action.performed += Jump;
+            int index = animator.GetLayerIndex("Interaction");
+            animator.SetLayerWeight(index, 0f);
+        }
 
         if (!move.action.phase.IsInProgress())
         {
@@ -129,7 +146,7 @@ public class PlayerAnimation : MonoBehaviour
     void OnAnimatorIK(int layerIndex)
     {
         
-        if (IsGliding || IsClimbing)
+        if (IsGliding || IsClimbing  || IsTalking)
         {
         animator.SetLookAtWeight(0f,0f);
 
