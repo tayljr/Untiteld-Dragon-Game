@@ -331,6 +331,7 @@ MonoBehaviour:
   coyoteTime: 0.1
   defaultJumpCount: 1
   maxJumpCount: 1
+  jumpCount: 0
   jumpForce: 9
   fastFalling: 0
   fallingModifier: 0.5
@@ -350,6 +351,8 @@ MonoBehaviour:
   isGliding: 0
   isClimbing: 0
   currentHeadDir: {x: 0, y: 0}
+  canSlopeJump: 0
+  slopeJump: 0
   groundCount: 0
   groundList: []
   currentCharacterDir: {x: 0, y: 0}
@@ -673,7 +676,7 @@ GameObject:
   m_Component:
   - component: {fileID: 600872557431022177}
   - component: {fileID: 8377326461143470581}
-  - component: {fileID: 3672141892170892952}
+  - component: {fileID: 8304228057369953116}
   - component: {fileID: 2580967777806546306}
   m_Layer: 6
   m_Name: GroundCheck
@@ -709,8 +712,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e295958309cba1348af671314aff7f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &3672141892170892952
-BoxCollider:
+--- !u!135 &8304228057369953116
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -728,8 +731,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.8, y: 0.1, z: 0.8}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!54 &2580967777806546306
 Rigidbody:
   m_ObjectHideFlags: 0
