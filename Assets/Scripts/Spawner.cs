@@ -17,9 +17,15 @@ public class Spawner : MonoBehaviour
     private bool readyToCountDown;
     private bool playerNear = false;
     
+    private List<GameObject> aliveEnemies = new List<GameObject>();
+    
     //todo this is just temp for the demo
     public GameObject wall;
-
+    
+    public delegate void WavesFinishedDelegate();
+    
+    public event WavesFinishedDelegate OnWavesFinished;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -45,12 +51,14 @@ public class Spawner : MonoBehaviour
         {
             if (currentWaveIndex >= waves.Length)
             {
-                Debug.Log("waves finished");
+                //Debug.Log("waves finished");
                 if (wall != null)
                 {
                     wall.SetActive(false);
                 }
 
+                OnWavesFinished?.Invoke();
+                
                 return;
             }
 
@@ -95,12 +103,12 @@ public class Spawner : MonoBehaviour
         HealthBase.OnDeath -= HealthBase_OnDeath;
     }
 
-    private void HealthBase_OnDeath(string tag)
+    private void HealthBase_OnDeath(string tag, GameObject obj)
     {
-        if (tag == "Enemy")
+        if (aliveEnemies.Contains(obj))
         {
             // waves[0].enemiesLeft--;
-
+            aliveEnemies.Remove(obj);
             waves[currentWaveIndex].enemiesLeft--;
         }
     }
@@ -112,6 +120,7 @@ public class Spawner : MonoBehaviour
             for (int i = 0; i < waves[0].enemies.Length; i++)
             {
                 GameObject enemy = Instantiate(waves[0].enemies[i], SpawnPoint.transform.position, Quaternion.identity);
+                aliveEnemies.Add(enemy);
                 //enemy.transform.position = SpawnPoint.transform.position;
                 //enemy.transform.SetParent(SpawnPoint.transform);
                 yield return new WaitForSeconds(waves[0].timeToNextEnemy);

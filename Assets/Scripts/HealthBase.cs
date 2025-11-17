@@ -2,9 +2,11 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+
+
 public class HealthBase : MonoBehaviour
 {
-    public delegate void DeathEvent(string tag);
+    public delegate void DeathEvent(string tag, GameObject obj);
     public static event DeathEvent OnDeath;
 
     public delegate void DamageEvent(float damage, string tag);
@@ -43,6 +45,11 @@ public class HealthBase : MonoBehaviour
             StartCoroutine(IFrames());
             HealthCheck();
             OnDamage?.Invoke(amount, gameObject.tag);
+            object[] args = new object[2];
+            args[0] = amount;
+            args[1] = gameObject.tag;
+
+            gameObject.SendMessage("Hit", args, SendMessageOptions.DontRequireReceiver);
         }
     }
 
@@ -84,7 +91,7 @@ public class HealthBase : MonoBehaviour
         {
             health = 0;
             isDead = true;
-            OnDeath?.Invoke(gameObject.tag);
+            OnDeath?.Invoke(gameObject.tag, gameObject);
             Debug.Log("Dead");
             if(gameObject.tag != "Player")
             {
