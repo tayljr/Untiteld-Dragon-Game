@@ -59,8 +59,10 @@ public class CharacterMovement : MonoBehaviour
     public bool isClimbing = false;
     public Vector2 currentHeadDir = Vector2.zero;
     
-    public bool canSlopeJump = false;
-    public bool slopeJump = false;
+    private bool wasSliding = false;
+    private bool canSlopeJump = false;
+    private bool slopeJump = false;
+    
     private Collider currentGround; 
     
     [SerializeField]
@@ -139,7 +141,7 @@ public class CharacterMovement : MonoBehaviour
     public void Jump()
     {
         //Debug.Log(grounded);
-        if (grounded)
+        if (grounded && !wasSliding)
         {
             jumpCount = 0;
             isSliding = false;
@@ -271,7 +273,10 @@ public class CharacterMovement : MonoBehaviour
         {
             verticalVelocity = 0;
             grounded = true;
-            jumpCount = 0;
+            if (!wasSliding)
+            {
+                //jumpCount = 0;
+            }
             groundCount++;
             groundList.Add(other);
             isGliding = false;
@@ -334,9 +339,9 @@ public class CharacterMovement : MonoBehaviour
         
         //ground angle check
         slopeAngle = Vector3.up;
-        if (grounded || isSliding)
+        if (grounded || isSliding || wasSliding)
         {
-            //grounded = false;
+            //grounded = true;
             // Vector3 rayDir = currentGround.ClosestPointOnBounds(groundTrigger.gameObject.transform.position) - groundTrigger.gameObject.transform.position;
             Vector3 rayDir = Vector3.down;
             float rayLength = Vector3.Distance(transform.position, groundTrigger.transform.position);
@@ -346,32 +351,41 @@ public class CharacterMovement : MonoBehaviour
             if (hit.collider != null)
             {
                 slopeAngle = hit.normal;
-            }
-            var angle = Vector3.Angle(slopeAngle, Vector3.up);
-            
-            //Debug.Log(angle);
-            if (angle <= controller.slopeLimit + 0.01f)
-            {
-                canSlopeJump = false;
-                isSliding = false;
-                //grounded = true;
-            }
-            else if (angle < 89.5f)
-            {
-                //grounded = false;
-                Vector3 slideDir = Vector3.RotateTowards(slopeAngle, Vector3.down, 90 * Mathf.Deg2Rad, 0f);
-                slideDir = Vector3.ProjectOnPlane(new Vector3(0, verticalVelocity, 0), slopeAngle);
-                Debug.DrawRay(hit.point, slideDir, Color.yellow, 1f);
-                worldMoveDir += slideDir.normalized * (slideSpeed * Time.deltaTime);
-                verticalVelocity = -slideSpeed * Time.deltaTime;
-                isSliding = true;
-                StartCoroutine(SlideCoyoteTime());
-            }
-            else
-            {
-                isSliding = false;
-                canSlopeJump = false;
-                slopeAngle = Vector3.up;
+                var angle = Vector3.Angle(slopeAngle, Vector3.up);
+                
+                //Debug.Log(angle);
+                if (angle <= controller.slopeLimit + 0.01f)
+                {
+                    canSlopeJump = false;
+                    isSliding = false;
+                    wasSliding = false;
+                    jumpCount = 0;
+                    //grounded = true;
+                    //isGliding = false;
+                }
+                else if (angle < 89.5f)
+                {
+                    //grounded = false;
+                    Vector3 slideDir = Vector3.RotateTowards(slopeAngle, Vector3.down, 90 * Mathf.Deg2Rad, 0f);
+                    slideDir = Vector3.ProjectOnPlane(new Vector3(0, verticalVelocity, 0), slopeAngle);
+                    Debug.DrawRay(hit.point, slideDir, Color.yellow, 1f);
+                    worldMoveDir += slideDir.normalized * (slideSpeed * Time.deltaTime);
+                    verticalVelocity = -slideSpeed * Time.deltaTime;
+                    isSliding = true;
+                    wasSliding = true;
+                    //isGliding = false;
+                    StartCoroutine(SlideCoyoteTime());
+                }
+                else
+                {
+                    isSliding = false;
+                    wasSliding = false;
+                    canSlopeJump = false;
+                    //grounded = false;
+                    //isGliding = false;
+                    slopeAngle = Vector3.up;
+                }
+                
             }
 
             Debug.DrawRay(hit.point, hit.normal, Color.red, 1f);
@@ -442,6 +456,7 @@ public class CharacterMovement : MonoBehaviour
             {
                 verticalVelocity = jumpForce;
                 jumpVelocity = Vector3.zero;
+                worldMoveDir.y  = verticalVelocity;
             }
             jumpVelocity = Vector3.MoveTowards(jumpVelocity, Vector3.zero, _gravity * Time.deltaTime);
             //Debug.Log(jumpVelocity);
