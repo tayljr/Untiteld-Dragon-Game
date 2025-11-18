@@ -12,7 +12,8 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] bool IsIdle;
     [SerializeField] bool IsFalling;
     [SerializeField] bool IsSprinting;
-
+    [SerializeField] bool IsClimbing;
+    [SerializeField] bool IsGliding;
 
     [SerializeField] private InputActionReference move;
     [SerializeField] private InputActionReference jump;
@@ -29,9 +30,17 @@ public class PlayerAnimation : MonoBehaviour
     private void OnEnable()
     {
         move.action.performed += Move;
+        move.action.canceled += Move_canceled;
         jump.action.performed += Jump;
         sprint.action.performed += Sprint;
         punch.action.performed += Punch;
+    }
+
+    private void Move_canceled(InputAction.CallbackContext obj)
+    {
+
+        animator.SetFloat("Input.x", 0);
+        animator.SetFloat("Input.y", 0);
     }
 
     private void Punch(InputAction.CallbackContext obj)
@@ -52,6 +61,7 @@ public class PlayerAnimation : MonoBehaviour
     private void OnDisable()
     {
         move.action.performed -= Move;
+        move.action.canceled -= Move_canceled;
         jump.action.performed -= Jump;
         sprint.action.performed -= Sprint;
         punch.action.performed -= Punch;
@@ -82,13 +92,23 @@ public class PlayerAnimation : MonoBehaviour
         {
             IsSprinting = false;
         }
+
+        if (IsGliding || IsClimbing)
+        {
+            animator.SetLookAtWeight(0f);
+        }
+        else
+            animator.SetLookAtWeight(1f);
+
         IsFalling = !characterMovement.grounded;
-        
-        animator.SetBool("IsIdle",IsIdle);
+        IsGliding = characterMovement.isGliding;
+        IsClimbing = characterMovement.isClimbing;
+
+        animator.SetBool("IsIdle", IsIdle);
         animator.SetBool("IsFalling", IsFalling);
         animator.SetBool("IsSprinting",IsSprinting);
-
-
+        animator.SetBool("IsGliding", IsGliding);
+        animator.SetBool("IsClimbing", IsClimbing);
     }
     void OnAnimatorIK(int layerIndex)
     {

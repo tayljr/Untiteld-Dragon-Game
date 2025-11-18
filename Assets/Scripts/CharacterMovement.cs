@@ -56,6 +56,7 @@ public class CharacterMovement : MonoBehaviour
     public bool grounded = false;
     public bool isCrouching = false;
     public bool isGliding = false;
+    public bool isClimbing = false;
     public Vector2 currentHeadDir = Vector2.zero;
     
     private bool slopeJump = false;
@@ -180,6 +181,7 @@ public class CharacterMovement : MonoBehaviour
     public void Climb(bool enableClimb)
     {
         canClimb = enableClimb;
+        isClimbing = canClimb;
     }
 
     public void SetCanGlide(bool enableGlide)
@@ -361,7 +363,8 @@ public class CharacterMovement : MonoBehaviour
         }
         
         worldMoveDir.y  += verticalVelocity;
-
+        
+        
         if (canClimb)
         {
             //worldMoveDir.y = worldMoveDir.x;
