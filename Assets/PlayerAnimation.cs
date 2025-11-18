@@ -15,10 +15,13 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] bool IsClimbing;
     [SerializeField] bool IsGliding;
 
+    public bool IsTalking;
+
     [SerializeField] private InputActionReference move;
     [SerializeField] private InputActionReference jump;
     [SerializeField] private InputActionReference sprint;
     [SerializeField] private InputActionReference punch;
+    [SerializeField] private InputActionReference fire;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +37,20 @@ public class PlayerAnimation : MonoBehaviour
         jump.action.performed += Jump;
         sprint.action.performed += Sprint;
         punch.action.performed += Punch;
+        fire.action.performed += Fire;
+
+        fire.action.canceled += StopFire;
+
+    }
+
+    private void StopFire(InputAction.CallbackContext obj)
+    {
+        animator.SetBool("IsFire", false);
+    }
+
+    private void Fire(InputAction.CallbackContext obj)
+    {
+        animator.SetBool("IsFire",true);
     }
 
     private void Move_canceled(InputAction.CallbackContext obj)
@@ -65,6 +82,7 @@ public class PlayerAnimation : MonoBehaviour
         jump.action.performed -= Jump;
         sprint.action.performed -= Sprint;
         punch.action.performed -= Punch;
+        fire.action.performed -= Fire;
     }
     private void Move(InputAction.CallbackContext obj)
     {
@@ -80,8 +98,23 @@ public class PlayerAnimation : MonoBehaviour
     {
         UpdateAnimatorValues();
     }
+    
     public void UpdateAnimatorValues()
     {
+
+        if (IsTalking)
+        {
+            jump.action.performed -= Jump;
+            int index = animator.GetLayerIndex("Interaction");
+            animator.SetLayerWeight(index, 1f);
+
+        }
+        else
+        {
+            jump.action.performed += Jump;
+            int index = animator.GetLayerIndex("Interaction");
+            animator.SetLayerWeight(index, 0f);
+        }
 
         if (!move.action.phase.IsInProgress())
         {
@@ -113,7 +146,15 @@ public class PlayerAnimation : MonoBehaviour
     void OnAnimatorIK(int layerIndex)
     {
         
-        animator.SetLookAtWeight(1f,1f);
-        animator.SetLookAtPosition(characterMovement.head.transform.position + characterMovement.head.transform.forward * 10f);
+        if (IsGliding || IsClimbing  || IsTalking)
+        {
+        animator.SetLookAtWeight(0f,0f);
+
+        }
+        else
+        {
+        animator.SetLookAtWeight(1f, 1f);
+        }
+            animator.SetLookAtPosition(characterMovement.head.transform.position + characterMovement.head.transform.forward * 10f);
     }
 }

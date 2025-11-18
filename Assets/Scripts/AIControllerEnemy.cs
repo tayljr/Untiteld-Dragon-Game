@@ -21,7 +21,7 @@ public class AIControllerEnemy : MonoBehaviour
     private Rigidbody rb;
     private EnemyController enemyController;
     public EnemyCombatBase combat;
-    [SerializeField] private GameObject PlayerTarget;
+    public GameObject PlayerTarget;
 
     [SerializeField] private Transform foveye;
 
@@ -45,12 +45,12 @@ public class AIControllerEnemy : MonoBehaviour
 
     [Range(40f, 120f)]
     public float FOV = 65f;
-    [Range (30f, 1000f)]
+    [Range (3f, 1000f)]
     public float FOVRange = 10.0f;
     public LayerMask RaycastMask;
 
-    [SerializeField] private Vector3 agentVelocity;
-    [SerializeField] private Vector3 CharControlVelocity;
+    public Vector3 agentVelocity;
+    public Vector3 CharControlVelocity;
 
     void Awake()
     {
@@ -115,13 +115,6 @@ public class AIControllerEnemy : MonoBehaviour
             characterController.Move(move * Time.deltaTime);
             agent.nextPosition = characterController.transform.position;
         }
-
-
-
-
-
-
-
         //gravity for the CharController!
 
 

@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1752,7 +1752,6 @@ GameObject:
   - component: {fileID: 1656150660519270946}
   - component: {fileID: 8661683300321865444}
   - component: {fileID: 4075684423962670810}
-  - component: {fileID: 1825138057120892324}
   m_Layer: 0
   m_Name: Quest Pannel
   m_TagString: Untagged
@@ -1821,19 +1820,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1825138057120892324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4661186371633950747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7099c3fe8b566824697be9ddbc9bc26c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
 --- !u!1 &4686438451449855477
 GameObject:
   m_ObjectHideFlags: 0
@@ -2100,9 +2086,9 @@ GameObject:
   - component: {fileID: 5594623074964080662}
   - component: {fileID: 1726719708707201712}
   - component: {fileID: 4395045193145722076}
-  - component: {fileID: 5740921585170395613}
   - component: {fileID: 5562740494918114595}
   - component: {fileID: 5285187256283093005}
+  - component: {fileID: 2100754955546143638}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2245,36 +2231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c71d6b662261a438b1443e8cf07c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5740921585170395613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4972471070843191334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 1468429822809501377}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &5562740494918114595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2307,6 +2263,36 @@ MonoBehaviour:
   questDescription: {fileID: 6910581451844228997}
   questTitle: {fileID: 1645643954784063277}
   questIcon: {fileID: 8330784255802729879}
+--- !u!114 &2100754955546143638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4972471070843191334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &5111355787847762333
 GameObject:
   m_ObjectHideFlags: 0
