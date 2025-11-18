@@ -72,3 +72,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 Assets/New Terrain 1.asset
+
+*.xcf
+
+Assets/Models/Toon_RTS_demo/models/Materials/DemoTexture.xcf.meta

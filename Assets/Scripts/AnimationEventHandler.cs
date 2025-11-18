@@ -4,16 +4,8 @@ public class AnimationEventHandler : MonoBehaviour
 {
 
     private EnemyCombatBase combat;
-    private void Start()
+    public void Attack()
     {
-        combat = GetComponentInParent<EnemyCombatBase>();
-    }
-    public void HurtBoxOn()
-    {
-        combat.hurtBox.enabled = true;
-    }
-    public void HurtBoxOff()
-    {
-        combat.hurtBox.enabled = false;
+        gameObject.BroadcastMessage("StartAttack");
     }
 }

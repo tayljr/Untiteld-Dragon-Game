@@ -6,6 +6,7 @@ using Unity.Properties;
 using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "Conversation", story: "[Agent] and [Target] are in Conversation", category: "Action", id: "db6a1d0bc8b5f037e168e1fa2d36623d")]
@@ -29,6 +30,8 @@ public partial class ConversationAction : Action
     [Tooltip("The characters portrait box")]
     [SerializeReference] public BlackboardVariable<Image> agentPortrait;
 
+    [Tooltip("The Action to perform to go through the conversation")]
+    [SerializeReference] public BlackboardVariable<InputActionReference> advanceConversationAction;
 
     [Tooltip("The other TMP")]
     [SerializeReference] public BlackboardVariable<TextMeshProUGUI> targetDialogBox;
@@ -54,17 +57,25 @@ public partial class ConversationAction : Action
         targetName.Value.color = Target.Value.textColour;
         targetDialogBox.Value.color = Target.Value.textColour;
         targetPortrait.Value.sprite = Target.Value.charPortrait;
-        
-        
+
+        advanceConversationAction.Value.action.Enable();
+        advanceConversationAction.Value.action.performed += OnAction;
+
         playerController = Target.Value.gameObject.GetComponent<PlayerController>();
         if (playerController != null)
         {
             playerController.playerControls.Disable();
+            playerController.playerAnimation.IsTalking = true;
         }
         //todo: replace this with changing the action map
         //Target.Value.gameObject.GetComponent<PlayerController>().enabled = false;
 
         return Status.Running;
+    }
+
+    private void OnAction(InputAction.CallbackContext obj)
+    {
+        currentMessage++;
     }
 
     protected override Status OnUpdate()
@@ -79,28 +90,30 @@ public partial class ConversationAction : Action
             }
             //todo: replace this with changing the action map
             //Target.Value.gameObject.GetComponent<PlayerController>().enabled = true;
+
+            //DONE by paul :3
             return Status.Success;
         }
         if (!Conversation.Value.myMessageList.message[currentMessage].targetResponding)
         {
+            //npc talking
             agentDialogBox.Value.text = Conversation.Value.myMessageList.message[currentMessage].saying;
             targetDialogBox.Value.text = "";
         }
         else
         {
+
+            //player talking
             agentDialogBox.Value.text = "";
             targetDialogBox.Value.text = Conversation.Value.myMessageList.message[currentMessage].saying;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            currentMessage++;
         }
         return Status.Running;
     }
 
     protected override void OnEnd()
     {
+        playerController.playerAnimation.IsTalking = false;
+        advanceConversationAction.Value.action.Disable();
     }
 }
 
