@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.TextCore.Text;
 
 public class MovingPlatform : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class MovingPlatform : MonoBehaviour
 
     private float timeToWaypoint;
     private float elapsedTime;
+    
+    private Vector3 moveDistance;
+    private List<CharacterMovement> characters = new List<CharacterMovement>();
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,6 +36,14 @@ public class MovingPlatform : MonoBehaviour
 
         float elapsedPercentage = elapsedTime / timeToWaypoint;
         elapsedPercentage = Mathf.SmoothStep(0, 1, elapsedPercentage);
+        
+        moveDistance = Vector3.Lerp(previouseWaypoint.position, targetWaypoint.position, elapsedPercentage) - transform.position;
+
+        foreach (CharacterMovement character in characters)
+        {
+            character.PlatformMove(moveDistance);
+        }
+        
         transform.position = Vector3.Lerp(previouseWaypoint.position, targetWaypoint.position, elapsedPercentage);
         transform.rotation = Quaternion.Lerp(previouseWaypoint.rotation, targetWaypoint.rotation, elapsedPercentage);
 
@@ -53,12 +65,27 @@ public class MovingPlatform : MonoBehaviour
         timeToWaypoint = distanceToWaypoint / speed;
     }
 
+    public Transform GetPos()
+    {
+        return transform;
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
-        other.transform.SetParent(transform);
+        CharacterMovement charMove = other.gameObject.GetComponentInParent<CharacterMovement>();
+        if (charMove != null)
+        {
+            characters.Add(charMove);
+        }
+        //other.transform.SetParent(transform);
     }
     private void OnTriggerExit(Collider other)
     {
-        other.transform.SetParent(null);
+        CharacterMovement charMove = other.gameObject.GetComponentInParent<CharacterMovement>();
+        if (charMove != null)
+        {
+            characters.Remove(charMove);
+        }
+        //other.transform.SetParent(null);
     }
 }
