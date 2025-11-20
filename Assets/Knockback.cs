@@ -29,7 +29,8 @@ public class Knockback : MonoBehaviour , IHit
             {
                 float curveKnockback = knockbackCurve.Evaluate(knockbackDuration / knockbackTimer);
                 Vector3 knockbackDirection = -transform.forward;
-                Charcontroller.Move(knockbackDirection * knockbackStrength * Time.deltaTime);
+                float convertedStrength = knockbackStrength * damage;
+                Charcontroller.Move(knockbackDirection * convertedStrength * Time.deltaTime);
                 knockbackTimer -= Time.deltaTime;
                 yield return null;
             }
