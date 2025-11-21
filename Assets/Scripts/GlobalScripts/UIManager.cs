@@ -22,7 +22,6 @@ public class UIManager : MonoBehaviour, IPauseable
     [SerializeField]
     private GameObject currentSelectedUI;
 
-
     private void Update()
     {
         currentSelectedUI = EventSystem.current.currentSelectedGameObject;
@@ -38,11 +37,6 @@ public class UIManager : MonoBehaviour, IPauseable
             pauseMenu.SetActive(false);
             HUD.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
-            if (EventSystem.current.currentSelectedGameObject == null)
-            {
-                Button button = FindAnyObjectByType<Button>();
-                EventSystem.current.SetSelectedGameObject(button.gameObject);
-            }
         }
         Music.SetActive(!SettingsMenuOpen);
         
@@ -51,6 +45,7 @@ public class UIManager : MonoBehaviour, IPauseable
     {
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         SceneManager.sceneUnloaded += SceneManager_sceneUnloaded;
+        
     }
 
     private void SceneManager_sceneUnloaded(Scene arg0)

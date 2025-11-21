@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour, IPauseable
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour, IPauseable
     
     public bool inDialogue = false;
 
+    private PlayerInput _playerInput;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -31,7 +34,7 @@ public class GameManager : MonoBehaviour, IPauseable
     }
     void Start()
     {
-        
+     _playerInput = GetComponent<PlayerInput>();   
         StartCoroutine(FindPlayer(player =>
         {
             Debug.Log("found Player" + player.name);
@@ -44,6 +47,8 @@ public class GameManager : MonoBehaviour, IPauseable
         if (!gameStartMenu)
         {
             _player.SendMessage("OnPause");
+            _playerInput.actions.FindActionMap("Player").Disable();
+            _playerInput.actions.FindActionMap("UI").Enable();
         }
     }
     public void OnResume()
@@ -52,6 +57,8 @@ public class GameManager : MonoBehaviour, IPauseable
         if (!gameStartMenu)
         {
             _player.SendMessage("OnResume");
+            _playerInput.actions.FindActionMap("UI").Disable();
+            _playerInput.actions.FindActionMap("Player").Enable();
         }
 
     }
@@ -70,6 +77,7 @@ public class GameManager : MonoBehaviour, IPauseable
     void Update()
     {
             Time.timeScale = isPaused ? 0f : 1f ;
+            
     }
     //im going to real chatGPT made this, its kinda peam!
     public IEnumerator FindPlayer(System.Action<GameObject> onFound)
