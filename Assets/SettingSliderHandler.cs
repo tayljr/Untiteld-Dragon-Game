@@ -13,16 +13,24 @@ public class SettingSliderHandler : MonoBehaviour, IMoveHandler
     [SerializeField]
     private TextMeshProUGUI valueText;
 
+    [SerializeField] bool PercentDisplay = true;
+
 
     private void Start()
     {
         source = GetComponent<AudioSource>();
         slider = GetComponentInChildren<Slider>();
     }
-
+    private void OnEnable()
+    {
+        
+    }
     private void Update()
     {
-            valueText.text = (slider.value).ToString("0"+ "%");
+        if (PercentDisplay)
+            valueText.text = slider.value.ToString("0" + "%");
+        else
+            valueText.text = slider.value.ToString("0.00");
 
     }
 

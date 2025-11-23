@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -19,6 +22,10 @@ public class GameManager : MonoBehaviour, IPauseable
 
     private PlayerInput _playerInput;
 
+    [Header("Audio cause idk")]
+    public AudioMixer Master;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -31,6 +38,7 @@ public class GameManager : MonoBehaviour, IPauseable
             _instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
     }
     void Start()
     {
@@ -40,7 +48,41 @@ public class GameManager : MonoBehaviour, IPauseable
             Debug.Log("found Player" + player.name);
         }));
     }
+    public void OnGameOver()
+    {
+        gameOver = true;
+        OnPause();
+    }
+    public void GameAwake()
+    {
+        InstantiateAllSettings();
 
+    }
+    public void InstantiateAllSettings()
+    {
+        //audio settings
+        Master.SetFloat("Master", PlayerPrefs.GetFloat("MasterVolume", 1f));
+        Master.SetFloat("Music", PlayerPrefs.GetFloat("MusicVolume", 0.5f));
+        Master.SetFloat("SFX", PlayerPrefs.GetFloat("SFXVolume", 0.6f));
+        Master.SetFloat("UI", PlayerPrefs.GetFloat("UIVolume", 1f));
+        Master.SetFloat("Voice", PlayerPrefs.GetFloat("VoiceVolume", 1f));
+        //graphics settings
+        //Screen.fullScreen = Convert.ToBoolean(PlayerPrefs.GetInt("Fullscreen", 1));
+        //ResolutionIndex = PlayerPrefs.GetInt("ResolutionIndex", 1);
+        //FrameRateDropdown.value = PlayerPrefs.GetInt("FrameRate", 3);
+        //AntiAliasingDropdown.value = PlayerPrefs.GetInt("AntiAliasing", 1);
+        //TextureDropdown.value = PlayerPrefs.GetInt("TextureQuality", 1);
+        //LightingDropdown.value = PlayerPrefs.GetInt("LightingQuality", 1);
+        //ShadowDropdown.value = PlayerPrefs.GetInt("ShadowQuality", 1);
+        //GraphicsDropdown.value = PlayerPrefs.GetInt("GraphicsPreset", 2);
+        //VSyncToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("VSync", 1));
+        //ShadowsToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("Shadows", 1));
+        //BloomToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("Bloom", 1));
+        ////game settings
+        //SensitivitySlider.value = PlayerPrefs.GetFloat("LookSensitivity", 0.5f);
+
+        //i dont know :(
+    }
     public void OnPause()
     {
         isPaused = true;
