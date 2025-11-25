@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Decor_Foliage_GrassBlade
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ea6b71fd00f603f4482ac427b01b1f80, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

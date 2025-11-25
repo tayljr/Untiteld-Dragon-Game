@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: M_W1Hub_Wall_DistrictEnterence
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f9cad01b941efb549871599274fecf83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: M_W1Hub_Building_RuinedWall_Support2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ffb0d4e2a930a8f4b80d7cc942aa464a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

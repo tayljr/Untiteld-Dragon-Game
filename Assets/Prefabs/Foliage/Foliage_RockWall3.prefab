@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Foliage_RockWall3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db6d82ad6c2b6a740820bb9c6d558e5c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
