@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+#if UNITY_EDITOR
+using UnityEditor;
 
 [CustomEditor(typeof(SettingsManager))]
 public class SettingsEditor : Editor
@@ -26,6 +27,7 @@ public class SettingsEditor : Editor
         }
     }
 }
+#endif
 enum TabSelected
 {
     Game,
