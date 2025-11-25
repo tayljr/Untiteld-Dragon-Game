@@ -440,6 +440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1690431816161467756}
   - component: {fileID: 5102345458749017237}
+  - component: {fileID: -8949694633360850186}
   m_Layer: 0
   m_Name: TEMP KEY
   m_TagString: Key
@@ -490,6 +491,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.55549634, y: 2.5901392, z: 1.2005701}
   m_Center: {x: 0, y: -0.32607448, z: 0}
+--- !u!114 &-8949694633360850186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238983514721968807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e344f7e39b49ab24eadd740932391902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7884521493648605812
 GameObject:
   m_ObjectHideFlags: 0
