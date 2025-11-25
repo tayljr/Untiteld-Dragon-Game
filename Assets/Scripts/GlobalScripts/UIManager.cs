@@ -43,10 +43,12 @@ public class UIManager : MonoBehaviour, IPauseable
         }
         
     }
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         SceneManager.sceneUnloaded += SceneManager_sceneUnloaded;
+        
         ExitCancelAction.action.performed += OnExit;
     }
 
@@ -78,7 +80,7 @@ public class UIManager : MonoBehaviour, IPauseable
             SendMessage("OnResume");
         }
     }
-
+    
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         EventSystem.current.SetSelectedGameObject(null);

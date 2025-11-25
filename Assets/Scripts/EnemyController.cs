@@ -18,8 +18,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Animator animator;
     public EnemyType enemyType;
-    
-   
+
+
     public float speed = 1f;
     public float damage = 2f;
 
@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
 
     public string enemyName;
     public string description;
-    
+
     void Awake()
     {
         AI = GetComponent<AIControllerEnemy>();
@@ -40,6 +40,7 @@ public class EnemyController : MonoBehaviour
     }
     private void Start()
     {
+
 
 
     }
@@ -56,10 +57,5 @@ public class EnemyController : MonoBehaviour
             AI.enabled = false;
         }
 
-    }
-
-    public void OnAttackEvent(ListOfAttacks attack)
-    {
-        animator.SetTrigger(attack.ToString());
     }
 }
