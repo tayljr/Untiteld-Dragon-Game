@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Decor_Foliage_Pebble3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d4141399b77e78346877edbf75764543, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
