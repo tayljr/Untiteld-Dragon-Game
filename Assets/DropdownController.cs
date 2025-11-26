@@ -14,12 +14,15 @@ public class DropdownController : MonoBehaviour, IMoveHandler, ISubmitHandler
     private GameObject arrowRight;
 
     private bool isFocused = false;
-
+    public bool isDropdown;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
         dropdown = GetComponentInChildren<TMP_Dropdown>();
-        EvaluateDropdown();
+        if (!dropdown)
+        {
+            EvaluateDropdown();
+        }
     }
     public void OnSubmit(BaseEventData eventData)
     {
@@ -37,7 +40,10 @@ public class DropdownController : MonoBehaviour, IMoveHandler, ISubmitHandler
         {
             dropdown.value = Mathf.Max(dropdown.value - 1, 0);
         }
-        EvaluateDropdown();
+        if (!dropdown)
+        {
+            EvaluateDropdown();
+        }
     }
     
     public void EvaluateDropdown()

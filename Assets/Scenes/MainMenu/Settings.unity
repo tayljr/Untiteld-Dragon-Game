@@ -4032,6 +4032,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1468429822809501377, guid: eada0f75c12f96c4bac6bf956f0ee32a, type: 3}
+      propertyPath: m_MoveRepeatDelay
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2100754955546143638, guid: eada0f75c12f96c4bac6bf956f0ee32a, type: 3}
       propertyPath: m_Camera
       value: 
@@ -5539,8 +5543,8 @@ MonoBehaviour:
   LightingDropdown: {fileID: 303427786}
   TextureDropdown: {fileID: 262290132}
   ShadowDropdown: {fileID: 1925140435}
-  Next: {fileID: -2230800145501599022, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  Previous: {fileID: 2062521627906808980, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  Next: {fileID: 7476244043514120974, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  Previous: {fileID: 2411907206095950430, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   scroll: {fileID: 6240969308177333660, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   Navigate: {fileID: -8784545083839296357, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!82 &934943103
