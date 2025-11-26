@@ -126,13 +126,6 @@ public class PlayerAnimation : MonoBehaviour
             IsSprinting = false;
         }
 
-        if (IsGliding || IsClimbing)
-        {
-            animator.SetLookAtWeight(0f);
-        }
-        else
-            animator.SetLookAtWeight(1f);
-
         IsFalling = !characterMovement.grounded;
         IsGliding = characterMovement.isGliding;
         IsClimbing = characterMovement.isClimbing;
@@ -145,7 +138,14 @@ public class PlayerAnimation : MonoBehaviour
     }
     void OnAnimatorIK(int layerIndex)
     {
-        
+
+        if (IsGliding || IsClimbing)
+        {
+            animator.SetLookAtWeight(0);
+        }
+        else
+            animator.SetLookAtWeight(1f);
+
         if (IsGliding || IsClimbing  || IsTalking)
         {
         animator.SetLookAtWeight(0f,0f);

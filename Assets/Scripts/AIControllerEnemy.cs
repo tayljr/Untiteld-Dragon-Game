@@ -38,8 +38,7 @@ public class AIControllerEnemy : MonoBehaviour
     public bool notGrounded;
     private float verticalvel;
     public float agro;
-    [SerializeField,Range(0f,10f)]
-    private float agromax = 4f;
+    public float agromax = 4f;
     public float Gravity;
     public float minDistance;
 
@@ -65,7 +64,6 @@ public class AIControllerEnemy : MonoBehaviour
 
         agent.autoTraverseOffMeshLink = true;
         StartCoroutine(FindPlayer());
-        StartCoroutine(AttackCoroutine());
     }
 
     // Update is called once per frame
@@ -104,7 +102,7 @@ public class AIControllerEnemy : MonoBehaviour
         Vector3 move = (desVelocity.magnitude * transform.forward)  * agent.speed;
         move.y = verticalvel;
         
-        if (AttackDistanceCheck())
+        if (combat.isAttacking)
         {
             characterController.Move(Vector3.zero * Time.deltaTime);
             agent.nextPosition = transform.position;
@@ -208,60 +206,6 @@ public class AIControllerEnemy : MonoBehaviour
             
         }
         yield return new WaitForSeconds(0.5f);
-    }
-    public IEnumerator AttackCoroutine()
-    {
-        while (true)
-        {
-            LineOfSight();
-            yield return new WaitForSeconds(combat.attackDelay);
-            //check if the enemy can attack the player
-            if (AttackDistanceCheck())
-            {
-                isAttacking = true;
-                roaming = false;
-                enemyController.OnAttackEvent(combat.TypeOfAttack);
-            }
-            
-        }
-    }
-    public void LineOfSight()
-    {
-        Vector3 dir = (PlayerTarget.transform.position - transform.position).normalized;
-
-        float angleToTarget = Vector3.Angle(transform.forward, dir);
-        if (angleToTarget > FOV / 2)
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, dir, out hit, FOVRange, RaycastMask))
-            {
-                Debug.DrawRay(transform.position, dir * hit.distance, Color.red);
-                Debug.LogWarning($"Did Hit {hit.collider.name}");
-                if (hit.transform.gameObject == PlayerTarget)
-                {
-                    agro = agromax;
-                    lineOfSight = true;
-                }
-                else lineOfSight = false;
-            }
-        else
-        {
-                lineOfSight = false;
-                return; //outside of view, lets get out of this function!
-        }
-
-            
-        
-        }
-    }
-    public bool AttackDistanceCheck()
-    {
-        if (Vector3.Distance(gameObject.transform.position, PlayerTarget.transform.position) <= combat.attackRange)
-        {
-            return true;
-        }
-        else 
-            return false;
     }
     private void OnDrawGizmos()
     {
