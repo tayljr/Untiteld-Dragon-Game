@@ -129,7 +129,7 @@ public class EnemyCombatBase : MonoBehaviour
             if (Physics.Raycast(transform.position, dir, out hit, AIControllerEnemy.FOVRange, AIControllerEnemy.RaycastMask))
             {
                 Debug.DrawRay(transform.position, dir * hit.distance, Color.red);
-                Debug.LogWarning($"Did Hit {hit.collider.name}");
+                //Debug.LogWarning($"Did Hit {hit.collider.name}");
                 if (hit.transform.gameObject == AIControllerEnemy.PlayerTarget)
                 {
                     AIControllerEnemy.agro = AIControllerEnemy.agromax;

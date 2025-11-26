@@ -331,13 +331,12 @@ MonoBehaviour:
   coyoteTime: 0.1
   defaultJumpCount: 1
   maxJumpCount: 1
-  jumpCount: 0
   jumpForce: 9
   fastFalling: 0
   fallingModifier: 0.5
   gravity: 22
   terminalVelociy: 50
-  climbSpeed: {x: 10, y: 10, z: 10}
+  climbSpeed: {x: 2, y: 2, z: 2}
   glideGrav: 5
   teminalGlideVel: 2.5
   glideForwardSpeed: 10
@@ -351,8 +350,6 @@ MonoBehaviour:
   isGliding: 0
   isClimbing: 0
   currentHeadDir: {x: 0, y: 0}
-  canSlopeJump: 0
-  slopeJump: 0
   groundCount: 0
   groundList: []
   currentCharacterDir: {x: 0, y: 0}
@@ -363,7 +360,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5382560219466656962}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d0d9922a61f642478f12070727b8698, type: 3}
   m_Name: 
@@ -378,7 +375,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5382560219466656962}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce24f027bec4e1647a45ddc25464c21f, type: 3}
   m_Name: 
@@ -391,7 +388,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5382560219466656962}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 909075522e9051141a84e4f19d3a75f6, type: 3}
   m_Name: 
@@ -1513,7 +1510,7 @@ MonoBehaviour:
   jump: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   sprint: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   punch: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  fire: {fileID: 0}
+  fire: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!114 &3814933677706383071
 MonoBehaviour:
   m_ObjectHideFlags: 0

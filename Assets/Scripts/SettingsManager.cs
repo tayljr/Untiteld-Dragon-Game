@@ -115,10 +115,17 @@ public class SettingsManager : MonoBehaviour
     private void Update()
     {
         var current = EventSystem.current.currentSelectedGameObject;
-        if (current != lastselected)
+        if (current != lastselected && current != null)
         {
             lastselected = current;
-            PlayUISound(current.tag);
+            try
+            {
+                PlayUISound(current.tag);
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning(e + $"{current} tryed to play sound");
+            }
         }
     }
     private void OnNavigate(InputAction.CallbackContext obj)
