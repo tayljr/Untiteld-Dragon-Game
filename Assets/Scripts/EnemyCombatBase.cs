@@ -24,8 +24,15 @@ public class EnemyCombatBase : MonoBehaviour
 
     public ListOfAttacks TypeOfAttack;
     public BoxCollider hurtBox;
+    public LineRenderer ChargeLine;
+    public LineRenderer ShootLine;
     public float attackRange;
     public float attackDelay;
+
+    public float attackTime;
+    [SerializeField]
+    private float attackTimeCurrent;
+
     private DamageBase damageBase;
     private AttackBase attackBase;
     private Animator animator;
@@ -42,6 +49,7 @@ public class EnemyCombatBase : MonoBehaviour
     private void Start()
     {
         AIControllerEnemy = GetComponent<AIControllerEnemy>();
+        //lazer = GetComponent<LineRenderer>();
         animator = GetComponentInChildren<Animator>();
         StartCoroutine(AttackCoroutine());
 
@@ -57,7 +65,7 @@ public class EnemyCombatBase : MonoBehaviour
         Gizmos.DrawLine(transform.position, (transform.forward * attackRange) + transform.position );
 
     }
-    public bool AttackDistanceCheck(bool hasLineOfSigh)
+    public bool AttackDistanceCheck(bool hasLineOfSight)
     {
         if (TypeOfAttack == ListOfAttacks.None) { return false; }
         if (TypeOfAttack == ListOfAttacks.Punch)
@@ -78,18 +86,20 @@ public class EnemyCombatBase : MonoBehaviour
         if (TypeOfAttack == ListOfAttacks.Shoot_Projectile)
         {
             //I used to be a adventure like you...until I took a arrow to the knee
-            return (hasLineOfSigh ? true : false);
+            return (hasLineOfSight ? true : false);
 
         }
         if (TypeOfAttack == ListOfAttacks.Shoot_Lazer)
         {
             //A lazer BWAAAAAAA
-            if (hasLineOfSigh)
+            if (hasLineOfSight)
             {
+                StartCoroutine(LazerAttack());
                 return true;
             }
-            else if (hasLineOfSigh && isCharging == true)
+            else if (!hasLineOfSight)
             {
+                ChargeLine.enabled = false;
                 return false;
             }
 
@@ -98,7 +108,26 @@ public class EnemyCombatBase : MonoBehaviour
         return false;
 
     }
+    public IEnumerator LazerAttack()
+    {
+        while (AIControllerEnemy.lineOfSight)
+        {
+            yield return null;
+            attackTimeCurrent += Time.deltaTime;
+            if (attackTimeCurrent >= attackTime) 
+            { 
+                OnAttackEvent(ListOfAttacks.Shoot_Lazer);
+                ChargeLine.enabled = false;
+                ShootLine.enabled = true;
 
+                ShootLine.SetPosition(0, ChargeLine.GetPosition(0));
+                ShootLine.SetPosition(1, ChargeLine.GetPosition(1));
+                attackTimeCurrent = 0;
+                StopCoroutine(LazerAttack());
+
+            }
+        }
+    }
     public IEnumerator AttackCoroutine()
     {
         while (true)
@@ -106,10 +135,7 @@ public class EnemyCombatBase : MonoBehaviour
             LineOfSight();
             yield return new WaitForSeconds(attackDelay);
             //check if the enemy can attack the player
-            if (AttackDistanceCheck(AIControllerEnemy.lineOfSight))
-            {
-                OnAttackEvent(TypeOfAttack);
-            }
+            AttackDistanceCheck(AIControllerEnemy.lineOfSight);
 
         }
     }

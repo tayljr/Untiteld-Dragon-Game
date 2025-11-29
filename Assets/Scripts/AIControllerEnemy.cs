@@ -23,7 +23,7 @@ public class AIControllerEnemy : MonoBehaviour
     public EnemyCombatBase combat;
     public GameObject PlayerTarget;
 
-    [SerializeField] private Transform foveye;
+    public Transform foveye;
 
     public AIType Type;
     public Transform[] patrolPoints;
