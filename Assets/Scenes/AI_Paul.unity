@@ -138,7 +138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 709702912221850094, guid: cef140ba6f1b31d40bd96afbc80d69dc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1865743068643524998, guid: cef140ba6f1b31d40bd96afbc80d69dc, type: 3}
       propertyPath: IAmA
@@ -1027,6 +1027,7 @@ MonoBehaviour:
   IAmA: 0
   TypeOfAttack: 1
   hurtBox: {fileID: 0}
+  LazerDamageBox: {fileID: 0}
   ChargeLine: {fileID: 0}
   ShootLine: {fileID: 0}
   attackRange: 2
@@ -1434,7 +1435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cfbfb95b5f2b90949be0b5faab2775fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.001
+      value: -1.24
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cfbfb95b5f2b90949be0b5faab2775fb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1470,19 +1471,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cfbfb95b5f2b90949be0b5faab2775fb, type: 3}
       propertyPath: m_Name
-      value: GiantModel01 - Golem
+      value: GolemMesh
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: cfbfb95b5f2b90949be0b5faab2775fb, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e8e421faac1bd23499a6424957bad2d9, type: 2}
+    - target: {fileID: 5866666021909216657, guid: cfbfb95b5f2b90949be0b5faab2775fb, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -3765236089850875182, guid: cfbfb95b5f2b90949be0b5faab2775fb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1127295173}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cfbfb95b5f2b90949be0b5faab2775fb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2064301800}
   m_SourcePrefab: {fileID: 100100000, guid: cfbfb95b5f2b90949be0b5faab2775fb, type: 3}
 --- !u!4 &630878281 stripped
 Transform:
@@ -1872,7 +1880,7 @@ Transform:
   m_GameObject: {fileID: 1343176026}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5852604, z: 0.5575266}
+  m_LocalPosition: {x: 0, y: 2.3462605, z: 0.5575266}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1963,7 +1971,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 490c25b2fda35fc4582a9582c4179ad5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2307,6 +2315,7 @@ GameObject:
   - component: {fileID: 1625953387}
   - component: {fileID: 1625953391}
   - component: {fileID: 1625953392}
+  - component: {fileID: 1625953393}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -2444,7 +2453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedVersion: 0
-  m_AgentTypeID: -334000983
+  m_AgentTypeID: -1372625422
   m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
@@ -2459,10 +2468,42 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.33333334
+  m_VoxelSize: 0.23333333
   m_MinRegionArea: 1
   m_NavMeshData: {fileID: 23800000, guid: f54f875ee04913041bd6e7f77f5d593a, type: 2}
   m_BuildHeightMesh: 1
+--- !u!114 &1625953393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625953386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_AgentTypeID: -334000983
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.33333334
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 6bf275f7b5b8f754ab2a7815248231f7, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!4 &1753539994 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3765236089850875182, guid: cfbfb95b5f2b90949be0b5faab2775fb, type: 3}
@@ -2636,6 +2677,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2064301798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cfbfb95b5f2b90949be0b5faab2775fb, type: 3}
+  m_PrefabInstance: {fileID: 607308669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2064301800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064301798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daec4e95f2c5aeb45b9df9a072e46e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2081631098
 GameObject:
   m_ObjectHideFlags: 0
@@ -4638,6 +4696,7 @@ MonoBehaviour:
   IAmA: 0
   TypeOfAttack: 1
   hurtBox: {fileID: 4744930815298374922}
+  LazerDamageBox: {fileID: 0}
   ChargeLine: {fileID: 0}
   ShootLine: {fileID: 0}
   attackRange: 2
@@ -4875,10 +4934,11 @@ MonoBehaviour:
   IAmA: 2
   TypeOfAttack: 4
   hurtBox: {fileID: 0}
+  LazerDamageBox: {fileID: 5985544376591993933, guid: b96d465f8a9216240a7bfcd75ce3b70f, type: 3}
   ChargeLine: {fileID: 1346378621}
   ShootLine: {fileID: 223458252}
   attackRange: 2
-  attackDelay: 1.5
+  attackDelay: 0.7
   attackTime: 2
   attackTimeCurrent: 0
   isAttacking: 0

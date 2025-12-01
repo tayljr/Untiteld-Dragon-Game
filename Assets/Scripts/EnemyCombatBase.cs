@@ -24,8 +24,11 @@ public class EnemyCombatBase : MonoBehaviour
 
     public ListOfAttacks TypeOfAttack;
     public BoxCollider hurtBox;
+    public GameObject LazerDamageBox;
     public LineRenderer ChargeLine;
     public LineRenderer ShootLine;
+
+
     public float attackRange;
     public float attackDelay;
 
@@ -44,11 +47,12 @@ public class EnemyCombatBase : MonoBehaviour
 
 
     private AIControllerEnemy AIControllerEnemy;
-    
+    private EnemyController enemyController;
 
     private void Start()
     {
         AIControllerEnemy = GetComponent<AIControllerEnemy>();
+        enemyController = GetComponent<EnemyController>();
         //lazer = GetComponent<LineRenderer>();
         animator = GetComponentInChildren<Animator>();
         StartCoroutine(AttackCoroutine());
@@ -92,7 +96,7 @@ public class EnemyCombatBase : MonoBehaviour
         if (TypeOfAttack == ListOfAttacks.Shoot_Lazer)
         {
             //A lazer BWAAAAAAA
-            if (hasLineOfSight)
+            if (hasLineOfSight && !isAttacking)
             {
                 StartCoroutine(LazerAttack());
                 return true;
@@ -100,11 +104,13 @@ public class EnemyCombatBase : MonoBehaviour
             else if (!hasLineOfSight)
             {
                 ChargeLine.enabled = false;
+                ShootLine.enabled = false;
+                isAttacking = false;
+                isCharging = false;
                 return false;
             }
 
         }
-        Debug.LogWarning("How did i get here?!?!?!?");
         return false;
 
     }
@@ -113,20 +119,36 @@ public class EnemyCombatBase : MonoBehaviour
         while (AIControllerEnemy.lineOfSight)
         {
             yield return null;
+            isAttacking = true;
             attackTimeCurrent += Time.deltaTime;
             if (attackTimeCurrent >= attackTime) 
-            { 
+            {
+                yield return new WaitForSeconds(attackDelay);
                 OnAttackEvent(ListOfAttacks.Shoot_Lazer);
                 ChargeLine.enabled = false;
                 ShootLine.enabled = true;
 
                 ShootLine.SetPosition(0, ChargeLine.GetPosition(0));
                 ShootLine.SetPosition(1, ChargeLine.GetPosition(1));
+                LazerDamage();
+                yield return new WaitForSeconds(0.2f);
                 attackTimeCurrent = 0;
                 StopCoroutine(LazerAttack());
 
             }
+            else
+            {
+                ChargeLine.enabled = true ;
+                ChargeLine.SetPosition(0, AIControllerEnemy.foveye.position);
+                ChargeLine.SetPosition(1, AIControllerEnemy.PlayerTarget.transform.position);
+            }
         }
+    }
+    public void LazerDamage()
+    {
+        GameObject lzrdmg = Instantiate(LazerDamageBox);
+        lzrdmg.transform.position = ShootLine.GetPosition(1);
+        lzrdmg.GetComponent<AttackBase>().StartAttack();
     }
     public IEnumerator AttackCoroutine()
     {
