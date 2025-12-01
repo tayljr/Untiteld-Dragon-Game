@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using soulercoasterLite.scripts.pathGenerators;
 public enum ListOfAttacks
 {
     None,
@@ -26,8 +27,8 @@ public class EnemyCombatBase : MonoBehaviour
     public BoxCollider hurtBox;
     public GameObject LazerDamageBox;
     public LineRenderer ChargeLine;
-    public LineRenderer ShootLine;
-
+    public LightningPath ShootLine;
+    public GameObject HitPrefab;
 
     public float attackRange;
     public float attackDelay;
@@ -69,6 +70,7 @@ public class EnemyCombatBase : MonoBehaviour
         Gizmos.DrawLine(transform.position, (transform.forward * attackRange) + transform.position );
 
     }
+    //enemy comabat logic sits in here
     public bool AttackDistanceCheck(bool hasLineOfSight)
     {
         if (TypeOfAttack == ListOfAttacks.None) { return false; }
@@ -77,7 +79,7 @@ public class EnemyCombatBase : MonoBehaviour
             //your punch/sword 
             if (Vector3.Distance(gameObject.transform.position, AIControllerEnemy.PlayerTarget.transform.position) <= attackRange)
             {
-                return true;
+                OnAttackEvent(ListOfAttacks.Punch);
             }
             else
                 return false;
@@ -127,11 +129,20 @@ public class EnemyCombatBase : MonoBehaviour
                 OnAttackEvent(ListOfAttacks.Shoot_Lazer);
                 ChargeLine.enabled = false;
                 ShootLine.enabled = true;
+                //ShootLine.SetPosition(0, ChargeLine.GetPosition(0));
+                //ShootLine.SetPosition(1, ChargeLine.GetPosition(1
+                // old line
 
-                ShootLine.SetPosition(0, ChargeLine.GetPosition(0));
-                ShootLine.SetPosition(1, ChargeLine.GetPosition(1));
+                //new line
+                ShootLine.origin = ChargeLine.GetPosition(0);
+                ShootLine.destination = ChargeLine.GetPosition(1);
+                
                 LazerDamage();
+                Instantiate(HitPrefab, ChargeLine.GetPosition(1),Quaternion.identity);
+
+
                 yield return new WaitForSeconds(0.2f);
+                ShootLine.enabled = false ;
                 attackTimeCurrent = 0;
                 StopCoroutine(LazerAttack());
 
@@ -147,7 +158,7 @@ public class EnemyCombatBase : MonoBehaviour
     public void LazerDamage()
     {
         GameObject lzrdmg = Instantiate(LazerDamageBox);
-        lzrdmg.transform.position = ShootLine.GetPosition(1);
+        lzrdmg.transform.position = ChargeLine.GetPosition(1);
         lzrdmg.GetComponent<AttackBase>().StartAttack();
     }
     public IEnumerator AttackCoroutine()
