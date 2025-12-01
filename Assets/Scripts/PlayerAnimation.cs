@@ -63,6 +63,7 @@ public class PlayerAnimation : MonoBehaviour
     private void Punch(InputAction.CallbackContext obj)
     {
         animator.SetTrigger("Punch");
+        
     }
 
     private void Sprint(InputAction.CallbackContext obj)

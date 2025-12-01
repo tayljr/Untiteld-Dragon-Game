@@ -8,8 +8,8 @@ using UnityEngine.UIElements;
 
 public enum AIType
 {
-    Flying,
-    Grounded
+    PlayerFocus,
+    PlayerDistance
 }
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIControllerEnemy : MonoBehaviour
@@ -118,11 +118,24 @@ public class AIControllerEnemy : MonoBehaviour
 
         //patrol bool
 
-        if (agro > 0)
+        if (agro > 0 && Type == AIType.PlayerFocus)
         {
             agent.SetDestination(PlayerTarget.transform.position);
             agro -= Time.deltaTime;
             roaming = false;
+        }
+        if (agro > 0 && Type == AIType.PlayerDistance)
+        {
+            //get furthest away from player in fov range
+            Vector3 PlayerVector = PlayerTarget.transform.position - gameObject.transform.position;
+            var invert = PlayerVector.normalized * -1;
+            var TargetPos = invert * FOVRange;
+
+            
+
+            agent.SetDestination(TargetPos);
+            agro -= Time.deltaTime;
+            roaming = false ;
         }
         else
         {

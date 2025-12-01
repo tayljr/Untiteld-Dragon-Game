@@ -13,10 +13,10 @@ public enum EnemyType
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private AIControllerEnemy AI;
-    [SerializeField] private HealthBase HealthBase;
-    [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private Animator animator;
+    public AIControllerEnemy AI;
+    public HealthBase HealthBase;
+    public NavMeshAgent agent;
+    public Animator animator;
     public EnemyType enemyType;
 
 

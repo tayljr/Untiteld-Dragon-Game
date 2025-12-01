@@ -1,10 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using soulercoasterLite.scripts.pathGenerators;
 public enum ListOfAttacks
 {
     None,
     Punch,
-    Charge,
+    SpawnSkele,
     Shoot_Projectile,
     Shoot_Lazer
 
@@ -23,11 +24,10 @@ public class EnemyCombatBase : MonoBehaviour
     public ListOfEnemies IAmA;
 
     public ListOfAttacks TypeOfAttack;
-    public BoxCollider hurtBox;
     public GameObject LazerDamageBox;
     public LineRenderer ChargeLine;
-    public LineRenderer ShootLine;
-
+    public LightningPath ShootLine;
+    public GameObject HitPrefab;
 
     public float attackRange;
     public float attackDelay;
@@ -40,7 +40,7 @@ public class EnemyCombatBase : MonoBehaviour
     private AttackBase attackBase;
     private Animator animator;
 
-
+    public bool isSpawing;
     public bool isAttacking;
     public bool isCharging;
     public bool roaming;
@@ -49,12 +49,18 @@ public class EnemyCombatBase : MonoBehaviour
     private AIControllerEnemy AIControllerEnemy;
     private EnemyController enemyController;
 
+    private SpawnerNecro spawner;
+
     private void Start()
     {
         AIControllerEnemy = GetComponent<AIControllerEnemy>();
         enemyController = GetComponent<EnemyController>();
         //lazer = GetComponent<LineRenderer>();
         animator = GetComponentInChildren<Animator>();
+        if (IAmA == ListOfEnemies.Necromancer)
+        {
+            spawner = GetComponentInChildren<SpawnerNecro>();
+        }
         StartCoroutine(AttackCoroutine());
 
     }
@@ -69,6 +75,7 @@ public class EnemyCombatBase : MonoBehaviour
         Gizmos.DrawLine(transform.position, (transform.forward * attackRange) + transform.position );
 
     }
+    //enemy comabat logic sits in here
     public bool AttackDistanceCheck(bool hasLineOfSight)
     {
         if (TypeOfAttack == ListOfAttacks.None) { return false; }
@@ -77,14 +84,22 @@ public class EnemyCombatBase : MonoBehaviour
             //your punch/sword 
             if (Vector3.Distance(gameObject.transform.position, AIControllerEnemy.PlayerTarget.transform.position) <= attackRange)
             {
-                return true;
+                OnAttackEvent(ListOfAttacks.Punch);
             }
             else
+                isAttacking = false;
                 return false;
         }
-        if (TypeOfAttack == ListOfAttacks.Charge)
-        {
-            //this would be a long distance melee attack where they charge at the player like a cavilary or somethin
+        if (TypeOfAttack == ListOfAttacks.SpawnSkele)
+        { 
+            if (Vector3.Distance(AIControllerEnemy.PlayerTarget.transform.position,gameObject.transform.forward) <= attackRange)
+            {
+                OnAttackEvent(ListOfAttacks.SpawnSkele);
+                StartCoroutine(SpawnSkele());
+                return true;
+            }
+            //Our good old spawn skele
+            StopCoroutine(SpawnSkele());
             return false;
         }
         if (TypeOfAttack == ListOfAttacks.Shoot_Projectile)
@@ -114,6 +129,12 @@ public class EnemyCombatBase : MonoBehaviour
         return false;
 
     }
+    public IEnumerator SpawnSkele()
+    {
+        yield return new WaitForSeconds(0.1f);
+        isAttacking = spawner.Spawning;
+
+    }
     public IEnumerator LazerAttack()
     {
         while (AIControllerEnemy.lineOfSight)
@@ -127,11 +148,20 @@ public class EnemyCombatBase : MonoBehaviour
                 OnAttackEvent(ListOfAttacks.Shoot_Lazer);
                 ChargeLine.enabled = false;
                 ShootLine.enabled = true;
+                //ShootLine.SetPosition(0, ChargeLine.GetPosition(0));
+                //ShootLine.SetPosition(1, ChargeLine.GetPosition(1
+                // old line
 
-                ShootLine.SetPosition(0, ChargeLine.GetPosition(0));
-                ShootLine.SetPosition(1, ChargeLine.GetPosition(1));
+                //new line
+                ShootLine.origin = ChargeLine.GetPosition(0);
+                ShootLine.destination = ChargeLine.GetPosition(1);
+                
                 LazerDamage();
+                Instantiate(HitPrefab, ChargeLine.GetPosition(1),Quaternion.identity);
+
+
                 yield return new WaitForSeconds(0.2f);
+                ShootLine.enabled = false ;
                 attackTimeCurrent = 0;
                 StopCoroutine(LazerAttack());
 
@@ -147,7 +177,7 @@ public class EnemyCombatBase : MonoBehaviour
     public void LazerDamage()
     {
         GameObject lzrdmg = Instantiate(LazerDamageBox);
-        lzrdmg.transform.position = ShootLine.GetPosition(1);
+        lzrdmg.transform.position = ChargeLine.GetPosition(1);
         lzrdmg.GetComponent<AttackBase>().StartAttack();
     }
     public IEnumerator AttackCoroutine()
