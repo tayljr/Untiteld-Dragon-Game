@@ -31,7 +31,10 @@ public class PlayerController : MonoBehaviour, IPauseable
     {
         playerControls = new InputSystem_Actions();
     }
-
+    public void SetSensitivity(float value)
+    {
+        lookSensitivity = value;
+    }
     public void OnPause()
     {
         //isPaused = true;

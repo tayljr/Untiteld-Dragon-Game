@@ -36,7 +36,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: IsSpawning
+    m_ConditionEvent: SpawnSkele
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1704736605837366815}
@@ -61,6 +61,12 @@ AnimatorController:
   m_Name: EnemyNeco
   serializedVersion: 5
   m_AnimatorParameters:
+  - m_Name: SpawnSkele
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   - m_Name: IsSpawning
     m_Type: 4
     m_DefaultFloat: 0
@@ -152,7 +158,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: IsSpawning
+    m_ConditionEvent: SpawnSkele
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3135924226481179297}
@@ -189,7 +195,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 7b50f5c06e368484fb97616ecb579a21, type: 3}
+  m_Motion: {fileID: 7400000, guid: 312d3117f3c9b6d46909646521c82b37, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

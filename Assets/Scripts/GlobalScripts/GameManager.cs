@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour, IPauseable
         //ShadowsToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("Shadows", 1));
         //BloomToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("Bloom", 1));
         ////game settings
-        //SensitivitySlider.value = PlayerPrefs.GetFloat("LookSensitivity", 0.5f);
+        _player.GetComponent<PlayerController>().SetSensitivity(PlayerPrefs.GetFloat("LookSensitivity", 0.5f));
 
         //i dont know :(
     }

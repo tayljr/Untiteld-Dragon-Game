@@ -2582,17 +2582,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 86197157852987601}
-  - component: {fileID: 8472267561595500049}
-  - component: {fileID: 183217633116937407}
+  - component: {fileID: 2408930834974460726}
+  - component: {fileID: 5562740494918114595}
   - component: {fileID: 7731429727062710189}
   - component: {fileID: 9109726741971976386}
   - component: {fileID: 5594623074964080662}
   - component: {fileID: 1726719708707201712}
   - component: {fileID: 4395045193145722076}
-  - component: {fileID: 5562740494918114595}
   - component: {fileID: 5285187256283093005}
   - component: {fileID: 2100754955546143638}
-  - component: {fileID: 2408930834974460726}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2620,7 +2618,7 @@ Transform:
   - {fileID: 7843745204350843620}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8472267561595500049
+--- !u!114 &2408930834974460726
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2629,11 +2627,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4972471070843191334}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f335b8ec01c9ee4193290ea790a4c50, type: 3}
+  m_Script: {fileID: 11500000, guid: 15bacb415dfff8b4785c0258637edf81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currencyCount: 0
---- !u!114 &183217633116937407
+  Collectibles: 0
+  Keys: 0
+  collectibleText: {fileID: 7370499177563935623}
+  keyText: {fileID: 1895379074696174138}
+--- !u!114 &5562740494918114595
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2642,9 +2643,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4972471070843191334}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ff8787b50bd94f4c9ae02c0c6397f78, type: 3}
+  m_Script: {fileID: 11500000, guid: 98463fe0f1c88a445a59dd40c757d2e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gemCountText: {fileID: 1660145358411169684}
+  totalGems: 0
+  gemSound: {fileID: 1774216488168687919}
 --- !u!114 &7731429727062710189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2737,21 +2741,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c71d6b662261a438b1443e8cf07c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5562740494918114595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4972471070843191334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98463fe0f1c88a445a59dd40c757d2e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gemCountText: {fileID: 1660145358411169684}
-  totalGems: 0
-  gemSound: {fileID: 1774216488168687919}
 --- !u!114 &5285187256283093005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2799,26 +2788,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &2408930834974460726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4972471070843191334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15bacb415dfff8b4785c0258637edf81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Collectibles: 0
-  Keys: 0
-  collectibleText: {fileID: 0}
-  currencyText: {fileID: 0}
-  KeysText: {fileID: 0}
-  currencyCount: 0
-  cm: {fileID: 0}
-  coin: {fileID: 0}
 --- !u!1 &5111355787847762333
 GameObject:
   m_ObjectHideFlags: 0
@@ -4942,7 +4911,7 @@ GameObject:
   - component: {fileID: 9220887224550823860}
   - component: {fileID: 3426825948166030245}
   m_Layer: 0
-  m_Name: Keys (1)
+  m_Name: Eggs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

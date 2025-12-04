@@ -9,11 +9,11 @@ public class PlayerAnimation : MonoBehaviour
     private PlayerController playerController;
     private CharacterMovement characterMovement;
 
-    [SerializeField] bool IsIdle;
-    [SerializeField] bool IsFalling;
-    [SerializeField] bool IsSprinting;
-    [SerializeField] bool IsClimbing;
-    [SerializeField] bool IsGliding;
+    public bool IsIdle;
+    public bool IsFalling;
+    public bool IsSprinting;
+    public bool IsClimbing;
+    public bool IsGliding;
 
     public bool IsTalking;
 
@@ -55,6 +55,8 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Move_canceled(InputAction.CallbackContext obj)
     {
+        GetComponent<PlayerAudioController>().StopAllCoroutines();
+        GetComponent<PlayerAudioController>().StopWalking();
 
         animator.SetFloat("Input.x", 0);
         animator.SetFloat("Input.y", 0);
@@ -74,6 +76,8 @@ public class PlayerAnimation : MonoBehaviour
     private void Jump(InputAction.CallbackContext obj)
     {
         animator.SetTrigger("HasJumped");
+        GetComponent<PlayerAudioController>().StopWalking();
+
     }
 
     private void OnDisable()
@@ -88,7 +92,6 @@ public class PlayerAnimation : MonoBehaviour
     private void Move(InputAction.CallbackContext obj)
     {
         IsIdle = false;
-
         animator.SetFloat("Input.x", obj.ReadValue<Vector2>().x);
         animator.SetFloat("Input.y", obj.ReadValue<Vector2>().y);
 
@@ -120,6 +123,10 @@ public class PlayerAnimation : MonoBehaviour
         if (!move.action.phase.IsInProgress())
         {
             IsIdle = true;
+        }
+        else
+        {
+            GetComponent<PlayerAudioController>().StartWalking();
         }
 
         if (!sprint.action.phase.IsInProgress())
