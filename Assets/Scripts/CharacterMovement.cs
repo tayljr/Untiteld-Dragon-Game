@@ -65,6 +65,9 @@ public class CharacterMovement : MonoBehaviour
     
     private Collider currentGround; 
     
+    private Vector3 platformMovement = Vector3.zero;
+    private Transform movingPlatform;
+    
     [SerializeField]
     private int groundCount = 0;
     [SerializeField]
@@ -138,6 +141,12 @@ public class CharacterMovement : MonoBehaviour
         */
     }
 
+    public void PlatformMove(Vector3 dir)
+    {
+        platformMovement = dir;
+        //controller.Move(transform.TransformDirection(dir));
+    }
+   
     public void Jump()
     {
         //Debug.Log(grounded);
@@ -337,6 +346,7 @@ public class CharacterMovement : MonoBehaviour
         Vector3 worldMoveDir = transform.TransformDirection(moveDir);
         worldMoveDir = worldMoveDir * speed * speedModifier;
         
+        
         //ground angle check
         slopeAngle = Vector3.up;
         if (grounded || isSliding || wasSliding)
@@ -466,7 +476,27 @@ public class CharacterMovement : MonoBehaviour
             slopeJump = false;
             jumpVelocity = Vector3.zero;
         }
+
+        /*
+        foreach (Collider collider in groundList)
+        {
+            MovingPlatform platform = collider.GetComponent<MovingPlatform>();
+            if (platform.transform != movingPlatform)
+            {
+                
+            }
+            movingPlatform = platform.transform;
+            if (movingPlatform != null)
+            {
+                movingPlatform = platform.transform;
+            }
+        }
+        */
         
-        controller.Move(worldMoveDir * Time.deltaTime);
+        //worldMoveDir += platformMovement;
+        
+        controller.Move(worldMoveDir * Time.deltaTime + platformMovement);
+        
+        platformMovement = Vector3.zero;
     }
 }
