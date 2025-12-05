@@ -8,7 +8,7 @@ public enum AttackType
     Continuous,
 }
 
-public class AttackBase : MonoBehaviour
+public class AttackBase : MonoBehaviour, IPauseable
 {
     public Collider hurtBox;
     public AttackType attackType = AttackType.Duration;
@@ -16,21 +16,29 @@ public class AttackBase : MonoBehaviour
     public float attackDelay = 0.67f;
     public float attackDuration = 0.25f;
 
+    private bool isAttacking = false;
+    
     public void StartAttack()
     {
         //hurtBox.enabled = true;
         //print("ATTAAAAACK!!");
-
+        
+        isAttacking = true;
+        
         StartCoroutine(BeginAttack());
     }
 
     IEnumerator BeginAttack()
     {
         yield return new WaitForSeconds(attackDelay);
-        hurtBox.enabled = true;
+        if(isAttacking)
+        {
+            hurtBox.enabled = true;
+        }
         if (attackType == AttackType.Duration)
         {
             yield return new WaitForSeconds(attackDuration);
+            isAttacking = false;
             hurtBox.enabled = false;
         }
     }
@@ -39,6 +47,7 @@ public class AttackBase : MonoBehaviour
     {
         if (attackType == AttackType.Continuous)
         {
+            isAttacking = false;
             hurtBox.enabled = false;
         }
         print("Done");
@@ -54,5 +63,21 @@ public class AttackBase : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnPause()
+    {
+        if (attackType == AttackType.Continuous)
+        {
+            hurtBox.enabled = false;
+        }
+    }
+
+    public void OnResume()
+    {
+        if (attackType == AttackType.Continuous)
+        {
+            hurtBox.enabled = false;
+        }
     }
 }
