@@ -5,12 +5,13 @@ public class EnemyAnimationController : MonoBehaviour
 {
     private Animator animator;
     private AIControllerEnemy controllerEnemy;
+    private EnemyCombatBase combatBase;
     private AudioSource source;
     private Vector3 enemyVel;
     private Vector3 enemyLookPos;
 
-     
 
+    bool isSpawning;
     bool isAttacking;
     bool isDead;
     bool idle;
@@ -22,6 +23,7 @@ public class EnemyAnimationController : MonoBehaviour
         animator = GetComponent<Animator>();
         source = GetComponent<AudioSource>();
         controllerEnemy = GetComponentInParent<AIControllerEnemy>();
+        combatBase = GetComponentInParent<EnemyCombatBase>();
     }
 
     // Update is called once per frame
@@ -29,16 +31,15 @@ public class EnemyAnimationController : MonoBehaviour
     {
         UpdateAnimatorValues();
     }
-    public void PlaySound()
+    public void PlaySound(AudioClip clip)
     {
-        source.Play();
+        source.PlayOneShot(clip);
     }
     void UpdateAnimatorValues()
     {
         enemyVel = controllerEnemy.CharControlVelocity.normalized;
         enemyLookPos = controllerEnemy.PlayerTarget.transform.position;
         isAttacking = controllerEnemy.lineOfSight;
-
         if (enemyVel == Vector3.zero)
         {
             idle = true;
@@ -47,7 +48,6 @@ public class EnemyAnimationController : MonoBehaviour
         {
             idle = false;
         }
-
         animator.SetBool("IsIdle", idle);
         animator.SetBool("IsAttacking", isAttacking);
         animator.SetFloat("Velocity.x", enemyVel.x);

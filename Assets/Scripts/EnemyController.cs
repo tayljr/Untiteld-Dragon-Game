@@ -13,13 +13,13 @@ public enum EnemyType
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private AIControllerEnemy AI;
-    [SerializeField] private HealthBase HealthBase;
-    [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private Animator animator;
+    public AIControllerEnemy AI;
+    public HealthBase HealthBase;
+    public NavMeshAgent agent;
+    public Animator animator;
     public EnemyType enemyType;
-    
-   
+
+
     public float speed = 1f;
     public float damage = 2f;
 
@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
 
     public string enemyName;
     public string description;
-    
+
     void Awake()
     {
         AI = GetComponent<AIControllerEnemy>();
@@ -40,6 +40,7 @@ public class EnemyController : MonoBehaviour
     }
     private void Start()
     {
+
 
 
     }
@@ -56,10 +57,5 @@ public class EnemyController : MonoBehaviour
             AI.enabled = false;
         }
 
-    }
-
-    public void OnAttackEvent(ListOfAttacks attack)
-    {
-        animator.SetTrigger(attack.ToString());
     }
 }

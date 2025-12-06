@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-6580548016945963627
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Classic UI SFX - Short - High #7_{-6580548016945963627}
+  m_AudioClip: {fileID: 8300000, guid: eb22616ad3d58554abe97db0b03c9305, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-4630323827737011600
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Classic UI SFX - Short - High #10_{-4630323827737011600}
+  m_AudioClip: {fileID: 8300000, guid: 4d5f07b9939addb4d9ea7d3ceacc7c93, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &1247294761408145340
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Classic UI SFX - Short - High #5_{1247294761408145340}
+  m_AudioClip: {fileID: 8300000, guid: 794231b810a60da4f9e79decc8f8080d, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &2937422876416829647
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Classic UI SFX - Short - High #8_{2937422876416829647}
+  m_AudioClip: {fileID: 8300000, guid: 02e53c0d08b0b4f44b61222ede55fd4a, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &4414638819003371418
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Classic UI SFX - Short - High #9_{4414638819003371418}
+  m_AudioClip: {fileID: 8300000, guid: 2e93310f749be6a44b5dab3bb51f85b9, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI Short
+  m_Volume: 0
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: 0, y: 0}
+  m_PitchRandomizationRange: {x: -248.00006, y: 244.00005}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: 1247294761408145340}
+  - {fileID: 7329497055475605335}
+  - {fileID: -6580548016945963627}
+  - {fileID: 2937422876416829647}
+  - {fileID: 4414638819003371418}
+  - {fileID: -4630323827737011600}
+  m_AvoidRepeatingLast: 0
+  m_PlaybackMode: 2
+  m_TriggerMode: 0
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 2
+  m_VolumeRandomizationEnabled: 0
+  m_PitchRandomizationEnabled: 0
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
+--- !u!1233149941 &7329497055475605335
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Classic UI SFX - Short - High #6_{7329497055475605335}
+  m_AudioClip: {fileID: 8300000, guid: 55bd34ea361057a48bc18449913f51a9, type: 3}
+  m_Volume: 0
+  m_Enabled: 1

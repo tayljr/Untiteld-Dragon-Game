@@ -48,14 +48,6 @@ PrefabInstance:
       value: Collectable_GemRed (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5436374961638123381, guid: 710512615feb70a4599d13b76fb5f29e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 17.023548
-      objectReference: {fileID: 0}
-    - target: {fileID: 5436374961638123381, guid: 710512615feb70a4599d13b76fb5f29e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 17.023548
-      objectReference: {fileID: 0}
-    - target: {fileID: 5436374961638123381, guid: 710512615feb70a4599d13b76fb5f29e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -116,14 +108,6 @@ PrefabInstance:
     - target: {fileID: 4628067186583600591, guid: 710512615feb70a4599d13b76fb5f29e, type: 3}
       propertyPath: m_Name
       value: Collectable_GemRed
-      objectReference: {fileID: 0}
-    - target: {fileID: 5436374961638123381, guid: 710512615feb70a4599d13b76fb5f29e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 17.023548
-      objectReference: {fileID: 0}
-    - target: {fileID: 5436374961638123381, guid: 710512615feb70a4599d13b76fb5f29e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 17.023548
       objectReference: {fileID: 0}
     - target: {fileID: 5436374961638123381, guid: 710512615feb70a4599d13b76fb5f29e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -189,11 +173,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5436374961638123381, guid: 710512615feb70a4599d13b76fb5f29e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 17.023548
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5436374961638123381, guid: 710512615feb70a4599d13b76fb5f29e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 17.023548
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5436374961638123381, guid: 710512615feb70a4599d13b76fb5f29e, type: 3}
       propertyPath: m_LocalPosition.x

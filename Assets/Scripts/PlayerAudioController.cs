@@ -1,17 +1,59 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 [RequireComponent(typeof(AudioSource))]
 public class PlayerAudioController : MonoBehaviour
 {
+    public AudioClip[] walkingSounds;
     public AudioSource walkingSource;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float delay = 0.4f;
+
+    private Coroutine walkRoutine;
+
+    bool CanWalk,isGliding,IsFalling,IsClimbing = false;
+    
     void Start()
     {
-        walkingSource = GetComponent<AudioSource>();
+    }
+    private void Update()
+    {
+        IsFalling = GetComponent<PlayerAnimation>().IsFalling;
+        isGliding = GetComponent<PlayerAnimation>().IsGliding;
+        IsClimbing = GetComponent <PlayerAnimation>().IsClimbing;
+        if (isGliding || IsFalling || IsClimbing)
+        {
+            CanWalk = false;
+            StopWalking();
+        }
+        else
+            CanWalk = true;
+    }
+    public void StartWalking()
+    {
+        if (walkRoutine == null && CanWalk)
+            walkRoutine = StartCoroutine(WalkLoop());
     }
 
-    // Update is called once per frame
+    public void StopWalking()
+    {
+        if (walkRoutine != null)
+        {
+            StopCoroutine(walkRoutine);
+            walkRoutine = null;
+        }
+    }
+
+    private IEnumerator WalkLoop()
+    {
+        while (true)
+        {
+            int index = Random.Range(0, walkingSounds.Length);
+            walkingSource.PlayOneShot(walkingSounds[index]);
+            yield return new WaitForSeconds(delay);
+        }
+    }
     public void PlaySound(AudioClip clip)
     {
         walkingSource.PlayOneShot(clip);

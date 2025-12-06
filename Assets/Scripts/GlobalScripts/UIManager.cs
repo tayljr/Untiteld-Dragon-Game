@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -16,12 +17,13 @@ public class UIManager : MonoBehaviour, IPauseable
     public bool SettingsMenuOpen = false;
     public GameObject Music;
 
+    [SerializeField] private InputActionReference ExitCancelAction;
+
+
     [Header("FirstSelectedUI")]
     public GameObject firstSelectedPauseMenu;
-    [Header("CurrentSelectedUI")]
-    [SerializeField]
-    private GameObject currentSelectedUI;
 
+    private GameObject currentSelectedUI;
 
     private void Update()
     {
@@ -38,19 +40,35 @@ public class UIManager : MonoBehaviour, IPauseable
             pauseMenu.SetActive(false);
             HUD.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
-            if (EventSystem.current.currentSelectedGameObject == null)
-            {
-                Button button = FindAnyObjectByType<Button>();
-                EventSystem.current.SetSelectedGameObject(button.gameObject);
-            }
         }
-        Music.SetActive(!SettingsMenuOpen);
         
     }
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         SceneManager.sceneUnloaded += SceneManager_sceneUnloaded;
+        
+        ExitCancelAction.action.performed += OnExit;
+    }
+
+    private void OnExit(InputAction.CallbackContext obj)
+    {
+        if(SettingsMenuOpen)
+        {
+            SceneManager.UnloadSceneAsync("Settings");
+        }
+        else if (!StartMenu && !SettingsMenuOpen)
+        {
+            if (PauseMenuOpen)
+            {
+                SendMessage("OnResume");
+            }
+            else
+            {
+                SendMessage("OnPause");
+            }
+        }
     }
 
     private void SceneManager_sceneUnloaded(Scene arg0)
@@ -58,10 +76,11 @@ public class UIManager : MonoBehaviour, IPauseable
         if (arg0.name == "Settings")
         {
             SettingsMenuOpen = false;
+            Cursor.lockState = CursorLockMode.None;
             SendMessage("OnResume");
         }
     }
-
+    
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         EventSystem.current.SetSelectedGameObject(null);
@@ -85,11 +104,7 @@ public class UIManager : MonoBehaviour, IPauseable
         if (arg0.name == "Settings")
         {
             SettingsMenuOpen = true;
-            if (EventSystem.current.currentSelectedGameObject == null)
-            {
-                Button button = FindAnyObjectByType<Button>();
-                EventSystem.current.SetSelectedGameObject(button.gameObject);
-            }
+            Cursor.lockState = CursorLockMode.None;
             SendMessage("OnPause");
         }
     }

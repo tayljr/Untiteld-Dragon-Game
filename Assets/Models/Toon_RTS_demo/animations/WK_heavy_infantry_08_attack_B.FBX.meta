@@ -203,7 +203,7 @@ ModelImporter:
       - time: 0
         functionName: PlaySound
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 8300000, guid: ad2dbb2ccb2da154f9c8b51b9b7fb1ad, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

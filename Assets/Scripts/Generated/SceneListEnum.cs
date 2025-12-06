@@ -1,6 +1,7 @@
 public enum SceneList
 {
     MainMenu,
+    Loading,
     Settings,
     Breakable_Test,
     Barracks,

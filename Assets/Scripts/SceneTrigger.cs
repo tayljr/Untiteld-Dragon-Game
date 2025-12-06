@@ -1,28 +1,27 @@
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneTrigger : MonoBehaviour
 {
-    public string sceneName;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public delegate void TransitionScene(string Scene);
+    public delegate void TransitionScene(string Scene, string ActiveScene);
     public static event TransitionScene OnSceneTransitionEvent;
-    void Start()
+
+    public SceneList scene;
+
+    public void TriggerSceneFunction()
     {
-        
+        OnSceneTransitionEvent.Invoke(scene.ToString(), SceneManager.GetActiveScene().name);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
         //transition
         if (other.gameObject.tag == "Player")
         {
-            OnSceneTransitionEvent.Invoke(sceneName);
+            OnSceneTransitionEvent.Invoke(scene.ToString(), SceneManager.GetActiveScene().name);
         }
     }
 }

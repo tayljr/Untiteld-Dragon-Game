@@ -8,4 +8,8 @@ public class AnimationEventHandler : MonoBehaviour
     {
         gameObject.BroadcastMessage("StartAttack");
     }
+    public void Stop()
+    {
+        gameObject.BroadcastMessage("StopAttack");
+    }
 }
