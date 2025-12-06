@@ -10,10 +10,12 @@ public class DamageBase : MonoBehaviour
 {
     [SerializeField]
     public string ignoreTag = "Player";
-
+ 
     public DamageType damageType = DamageType.impact;
 
     public float damage = 1f;
+    public float damageInterval = 0.5f;
+    private float timer = 0f;
 
     private List<HealthBase> healthList = new List<HealthBase>();
 
@@ -35,9 +37,16 @@ public class DamageBase : MonoBehaviour
 
         if(damageType == DamageType.dps)
         {
-            foreach(HealthBase health in healthList)
+            timer += Time.deltaTime;
+            if (timer >= damageInterval)
             {
-                health.Damage(damage * Time.deltaTime);
+                timer -= damageInterval;
+
+                foreach (HealthBase health in healthList)
+                {
+
+                    health.Damage(damage * damageInterval);
+                }
             }
         }
         else
