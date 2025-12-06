@@ -75,7 +75,11 @@ public partial class ConversationAction : Action
 
     private void OnAction(InputAction.CallbackContext obj)
     {
-        currentMessage++;
+        //pause check
+        if(Time.timeScale != 0)
+        {
+            currentMessage++;
+        }
     }
 
     protected override Status OnUpdate()
