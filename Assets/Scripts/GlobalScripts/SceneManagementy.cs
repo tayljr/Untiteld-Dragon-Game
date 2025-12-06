@@ -2,6 +2,11 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
+
+
+
 #if UNITY_EDITOR
 using UnityEditor;
 
@@ -46,12 +51,14 @@ public class SceneManagementy : MonoBehaviour
 #if UNITY_EDITOR
     public List<SceneAsset> m_SceneAssets = new List<SceneAsset>();
 #endif
-
-
-    [SerializeField] private Animator _animator;
     [SerializeField] private float _fadeSpeed = 1f;
-    private float _opacity = 0f;
-    private bool _isTransitioning = false;
+
+    [SerializeField]
+    private Slider _loadingbar;
+    [SerializeField]
+    private TextMeshProUGUI _loadingtext;
+
+
 
     private static SceneManagementy instance;
     public static SceneManagementy Instance { get { return instance; } }
@@ -75,48 +82,67 @@ public class SceneManagementy : MonoBehaviour
     {
 
     }
-    public void StartSceneTransition(string sceneName)
+    
+    public void StartSceneTransition(string sceneName, string lastActiveScene)
     {
-        if (!_isTransitioning)
-        {
-            StartCoroutine(SceneTransit(sceneName));
-        }
+        StartCoroutine(SceneTransit(sceneName, lastActiveScene));
     }
     // Update is called once per frame
     void Update()
     {
 
     }
-    public void UIAnimationTrigger(System.Action action)
+    public IEnumerator SceneTransit(string sceneName, string lastActiveScene)
     {
-        _animator.SetTrigger("trigger");
-        action.Invoke();
-    }
-    public IEnumerator SceneTransit(string sceneName)
-    {
-        _isTransitioning = true;
+        //load loading scene
+        AsyncOperation loadLoadingScene = SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Additive);
+        while (!loadLoadingScene.isDone)
+        {
+            yield return null;
+        }
+        //unload current scene
+        Debug.LogWarning("Unloading Scene: " + lastActiveScene);
+        AsyncOperation unloadCurrentOp = SceneManager.UnloadSceneAsync(lastActiveScene);
+        while (!unloadCurrentOp.isDone)
+        {
+            yield return null;
+        }
 
-        while (_opacity < 1f)
+        _loadingbar = GameObject.Find("LoadingBar").GetComponent<Slider>();
+        _loadingtext = GameObject.Find("LoadingText").GetComponent<TextMeshProUGUI>();
+
+        AsyncOperation loadGameScene = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        loadGameScene.allowSceneActivation = false;
+        
+        while (loadGameScene.progress < 0.9f)
         {
-            _opacity += Time.deltaTime * _fadeSpeed;
-            _opacity = Mathf.Clamp01(_opacity);
-            _animator.SetFloat("Opacity", _opacity);
+            float p = Mathf.Clamp01(loadGameScene.progress / 0.9f);
+            _loadingbar.value = p;
+            _loadingtext.text = "Loading " + (loadGameScene.progress * 100).ToString("F0") + "%";
             yield return null;
         }
 
-        AsyncOperation async = SceneManager.LoadSceneAsync(sceneName);
-        while (!async.isDone)
+        _loadingbar.value = 1f;
+        _loadingtext.text = "Loading 100%";
+
+        //activate scene
+        loadGameScene.allowSceneActivation = true;
+
+        while (!loadGameScene.isDone)
         {
             yield return null;
         }
-        while (_opacity > 0f)
+
+        Scene loadedScene = SceneManager.GetSceneByName(sceneName);
+        SceneManager.SetActiveScene(loadedScene);
+
+        //unload loading scene
+        AsyncOperation unloadOp = SceneManager.UnloadSceneAsync("Loading");
+        while (!unloadOp.isDone)
         {
-            _opacity -= Time.deltaTime * _fadeSpeed;
-            _opacity = Mathf.Clamp01(_opacity);
-            _animator.SetFloat("Opacity", _opacity);
             yield return null;
         }
-        _isTransitioning = false;
+
     }
     private void OnEnable() => SceneTrigger.OnSceneTransitionEvent += StartSceneTransition;
     private void OnDisable() => SceneTrigger.OnSceneTransitionEvent -= StartSceneTransition;

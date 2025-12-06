@@ -31,7 +31,10 @@ public class PlayerController : MonoBehaviour, IPauseable
     {
         playerControls = new InputSystem_Actions();
     }
-
+    public void SetSensitivity(float value)
+    {
+        lookSensitivity = value;
+    }
     public void OnPause()
     {
         //isPaused = true;
@@ -87,6 +90,8 @@ public class PlayerController : MonoBehaviour, IPauseable
         glide.Enable();
         glide.performed += Glide;
         glide.canceled += StopGlide;
+
+        lookSensitivity = PlayerPrefs.GetFloat("LookSensitivity", 0.2f);
     }
 
 

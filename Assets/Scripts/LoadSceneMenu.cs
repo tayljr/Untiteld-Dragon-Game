@@ -4,18 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class LoadSceneMenu : MonoBehaviour
 {
+
+    public delegate void SceneLoadAction();
+    public static event SceneLoadAction OnSceneLoad;
+
+
     public SceneList scene;
     public void LoadScene()
     {
-        SceneManager.LoadScene(scene.ToString());
+        OnSceneLoad?.Invoke();
     }
     public void LoadSceneAdditive()
     {
         SceneManager.LoadScene(scene.ToString(), LoadSceneMode.Additive);
-    }
-    public void UnLoadYourself()
-    {// :3
-               SceneManager.UnloadSceneAsync(scene.ToString());
     }
     public void QuitGame()
     {

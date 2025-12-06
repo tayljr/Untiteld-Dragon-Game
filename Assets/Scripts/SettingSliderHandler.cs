@@ -1,24 +1,49 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
+using UnityEngine.UI;
 
-public class SettingSliderHandler : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
+public class SettingSliderHandler : MonoBehaviour, IMoveHandler
 {
     private AudioSource source;
+    [SerializeField]
+    private Slider slider;
+    [SerializeField]
+    private TextMeshProUGUI valueText;
+
+    [SerializeField] bool PercentDisplay = true;
+
+
     private void Start()
     {
         source = GetComponent<AudioSource>();
+        slider = GetComponentInChildren<Slider>();
     }
-    public void OnPointerDown(PointerEventData eventData)
+    private void OnEnable()
     {
-        source.enabled = true;
-        source.Play();
-        source.loop = true;
+        
     }
-    public void OnPointerUp(PointerEventData eventData)
+    private void Update()
     {
-        source.enabled = false;
-        source.Stop();
-        source.loop = false;
+        if (PercentDisplay)
+            valueText.text = slider.value.ToString("0" + "%");
+        else
+            valueText.text = slider.value.ToString("0.00");
+
+    }
+
+    public void OnMove(AxisEventData eventData)
+    {
+        if (eventData.moveDir == MoveDirection.Right)
+        {
+            slider.value += 0.05f;
+        }
+        else if (eventData.moveDir == MoveDirection.Left)
+        {
+            slider.value -= 0.05f;
+
+        }
     }
 }

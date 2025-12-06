@@ -1,30 +1,228 @@
 using UnityEngine;
-
+using System.Collections;
+using soulercoasterLite.scripts.pathGenerators;
 public enum ListOfAttacks
 {
     None,
     Punch,
-    Charge,
+    SpawnSkele,
     Shoot_Projectile,
     Shoot_Lazer
 
 }
-
+public enum ListOfEnemies 
+{ 
+    NPC,
+    Knight,
+    Golem,
+    Skeleton,
+    Necromancer
+}
 
 public class EnemyCombatBase : MonoBehaviour
 {
+    public ListOfEnemies IAmA;
+
     public ListOfAttacks TypeOfAttack;
-    public BoxCollider hurtBox;
+    public GameObject LazerDamageBox;
+    public LineRenderer ChargeLine;
+    public LightningPath ShootLine;
+    public GameObject HitPrefab;
+
     public float attackRange;
     public float attackDelay;
+
+    public float attackTime;
+    [SerializeField]
+    private float attackTimeCurrent;
+
     private DamageBase damageBase;
     private AttackBase attackBase;
+    private Animator animator;
 
+    public bool isSpawing;
+    public bool isAttacking;
+    public bool isCharging;
+    public bool roaming;
+
+
+    private AIControllerEnemy AIControllerEnemy;
+    private EnemyController enemyController;
+
+    private SpawnerNecro spawner;
+
+    private void Start()
+    {
+        AIControllerEnemy = GetComponent<AIControllerEnemy>();
+        enemyController = GetComponent<EnemyController>();
+        //lazer = GetComponent<LineRenderer>();
+        animator = GetComponentInChildren<Animator>();
+        if (IAmA == ListOfEnemies.Necromancer)
+        {
+            spawner = GetComponentInChildren<SpawnerNecro>();
+        }
+        StartCoroutine(AttackCoroutine());
+
+    }
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, (transform.forward * attackRange) + transform.position );
 
+    }
+    //enemy comabat logic sits in here
+    public bool AttackDistanceCheck(bool hasLineOfSight)
+    {
+        if (TypeOfAttack == ListOfAttacks.None) { return false; }
+        if (TypeOfAttack == ListOfAttacks.Punch)
+        {
+            //your punch/sword 
+            if (Vector3.Distance(gameObject.transform.position, AIControllerEnemy.PlayerTarget.transform.position) <= attackRange)
+            {
+                OnAttackEvent(ListOfAttacks.Punch);
+            }
+            else
+                isAttacking = false;
+                return false;
+        }
+        if (TypeOfAttack == ListOfAttacks.SpawnSkele)
+        { 
+            if (Vector3.Distance(AIControllerEnemy.PlayerTarget.transform.position,gameObject.transform.forward) <= attackRange)
+            {
+                OnAttackEvent(ListOfAttacks.SpawnSkele);
+                StartCoroutine(SpawnSkele());
+                return true;
+            }
+            //Our good old spawn skele
+            StopCoroutine(SpawnSkele());
+            return false;
+        }
+        if (TypeOfAttack == ListOfAttacks.Shoot_Projectile)
+        {
+            //I used to be a adventure like you...until I took a arrow to the knee
+            return (hasLineOfSight ? true : false);
+
+        }
+        if (TypeOfAttack == ListOfAttacks.Shoot_Lazer)
+        {
+            //A lazer BWAAAAAAA
+            if (hasLineOfSight && !isAttacking)
+            {
+                StartCoroutine(LazerAttack());
+                return true;
+            }
+            else if (!hasLineOfSight)
+            {
+                ChargeLine.enabled = false;
+                ShootLine.enabled = false;
+                isAttacking = false;
+                isCharging = false;
+                return false;
+            }
+
+        }
+        return false;
+
+    }
+    public IEnumerator SpawnSkele()
+    {
+        yield return new WaitForSeconds(0.1f);
+        isAttacking = spawner.Spawning;
+
+    }
+    public IEnumerator LazerAttack()
+    {
+        while (AIControllerEnemy.lineOfSight)
+        {
+            yield return null;
+            isAttacking = true;
+            attackTimeCurrent += Time.deltaTime;
+            if (attackTimeCurrent >= attackTime) 
+            {
+                yield return new WaitForSeconds(attackDelay);
+                OnAttackEvent(ListOfAttacks.Shoot_Lazer);
+                ChargeLine.enabled = false;
+                ShootLine.enabled = true;
+                //ShootLine.SetPosition(0, ChargeLine.GetPosition(0));
+                //ShootLine.SetPosition(1, ChargeLine.GetPosition(1
+                // old line
+
+                //new line
+                ShootLine.origin = ChargeLine.GetPosition(0);
+                ShootLine.destination = ChargeLine.GetPosition(1);
+                
+                LazerDamage();
+                Instantiate(HitPrefab, ChargeLine.GetPosition(1),Quaternion.identity);
+
+
+                yield return new WaitForSeconds(0.2f);
+                ShootLine.enabled = false ;
+                attackTimeCurrent = 0;
+                StopCoroutine(LazerAttack());
+
+            }
+            else
+            {
+                ChargeLine.enabled = true ;
+                ChargeLine.SetPosition(0, AIControllerEnemy.foveye.position);
+                ChargeLine.SetPosition(1, AIControllerEnemy.PlayerTarget.transform.position);
+            }
+        }
+    }
+    public void LazerDamage()
+    {
+        GameObject lzrdmg = Instantiate(LazerDamageBox);
+        lzrdmg.transform.position = ChargeLine.GetPosition(1);
+        lzrdmg.GetComponent<AttackBase>().StartAttack();
+    }
+    public IEnumerator AttackCoroutine()
+    {
+        while (true)
+        {
+            LineOfSight();
+            yield return new WaitForSeconds(attackDelay);
+            //check if the enemy can attack the player
+            AttackDistanceCheck(AIControllerEnemy.lineOfSight);
+
+        }
+    }
+    public void OnAttackEvent(ListOfAttacks attack)
+    {
+        animator.SetTrigger(attack.ToString());
+    }
+
+    public void LineOfSight()
+    {
+        Vector3 dir = (AIControllerEnemy.PlayerTarget.transform.position - transform.position).normalized;
+
+        float angleToTarget = Vector3.Angle(transform.forward, dir);
+        if (angleToTarget > AIControllerEnemy.FOV / 2)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, dir, out hit, AIControllerEnemy.FOVRange, AIControllerEnemy.RaycastMask))
+            {
+                Debug.DrawRay(transform.position, dir * hit.distance, Color.red);
+                //Debug.LogWarning($"Did Hit {hit.collider.name}");
+                if (hit.transform.gameObject == AIControllerEnemy.PlayerTarget)
+                {
+                    AIControllerEnemy.agro = AIControllerEnemy.agromax;
+                    AIControllerEnemy.lineOfSight = true;
+                }
+                else AIControllerEnemy.lineOfSight = false;
+            }
+            else
+            {
+                AIControllerEnemy.lineOfSight = false;
+                return; //outside of view, lets get out of this function!
+            }
+
+
+
+        }
     }
 }

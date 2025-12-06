@@ -46,14 +46,6 @@ PrefabInstance:
       value: Collectable_GemGreen
       objectReference: {fileID: 0}
     - target: {fileID: 2220553594361344116, guid: f95fb609da53fc84598a98d3aab03308, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 17.023212
-      objectReference: {fileID: 0}
-    - target: {fileID: 2220553594361344116, guid: f95fb609da53fc84598a98d3aab03308, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 17.023212
-      objectReference: {fileID: 0}
-    - target: {fileID: 2220553594361344116, guid: f95fb609da53fc84598a98d3aab03308, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.025
       objectReference: {fileID: 0}
@@ -114,14 +106,6 @@ PrefabInstance:
     - target: {fileID: 1556887669742480078, guid: f95fb609da53fc84598a98d3aab03308, type: 3}
       propertyPath: m_Name
       value: Collectable_GemGreen (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2220553594361344116, guid: f95fb609da53fc84598a98d3aab03308, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 17.023212
-      objectReference: {fileID: 0}
-    - target: {fileID: 2220553594361344116, guid: f95fb609da53fc84598a98d3aab03308, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 17.023212
       objectReference: {fileID: 0}
     - target: {fileID: 2220553594361344116, guid: f95fb609da53fc84598a98d3aab03308, type: 3}
       propertyPath: m_LocalPosition.x
