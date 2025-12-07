@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour, IPauseable
     
     public bool inDialogue = false;
 
+    public bool inAnimation = false;
+
     private PlayerInput _playerInput;
 
     [Header("Audio cause idk")]
@@ -67,7 +69,7 @@ public class GameManager : MonoBehaviour, IPauseable
         Master.SetFloat("UI", PlayerPrefs.GetFloat("UIVolume", 1f));
         Master.SetFloat("Voice", PlayerPrefs.GetFloat("VoiceVolume", 1f));
         //graphics settings
-        //Screen.fullScreen = Convert.ToBoolean(PlayerPrefs.GetInt("Fullscreen", 1));
+        Screen.fullScreen = Convert.ToBoolean(PlayerPrefs.GetInt("Fullscreen", 1));
         //ResolutionIndex = PlayerPrefs.GetInt("ResolutionIndex", 1);
         //FrameRateDropdown.value = PlayerPrefs.GetInt("FrameRate", 3);
         //AntiAliasingDropdown.value = PlayerPrefs.GetInt("AntiAliasing", 1);

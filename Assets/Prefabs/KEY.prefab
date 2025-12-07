@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1690431816161467756}
   - component: {fileID: 5102345458749017237}
   - component: {fileID: -8949694633360850186}
+  - component: {fileID: 8641458671234255899}
+  - component: {fileID: 2417091242972178532}
   m_Layer: 0
   m_Name: KEY
   m_TagString: Key
@@ -67,6 +69,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e344f7e39b49ab24eadd740932391902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8641458671234255899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238983514721968807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9265ee951f3976c488a1a3b39d8d79f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2417091242972178532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238983514721968807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251e68e41c5224349bbde033debad595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.00072818995
+      value: 1.0003873
+      inSlope: -0.45482296
+      outSlope: -0.45482296
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.114804514
+    - serializedVersion: 3
+      time: 0.30292642
+      value: 0.9489814
+      inSlope: -0.0022999847
+      outSlope: -0.0022999847
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.19462922
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.710992
+      value: 1.0727983
+      inSlope: -0.02688472
+      outSlope: -0.02688472
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.26500282
+    - serializedVersion: 3
+      time: 0.9983774
+      value: 1.0003829
+      inSlope: -0.44023287
+      outSlope: -0.44023287
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.12266459
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 1
+    m_RotationOrder: 4
 --- !u!1001 &5430996242042482371
 PrefabInstance:
   m_ObjectHideFlags: 0

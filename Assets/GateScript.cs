@@ -26,10 +26,15 @@ public class GateScript : MonoBehaviour, IInteractable
     public void StartInteract(GameObject interactor)
     {
         int currentKeys = CollectiblesCollector.Instance.Keys;
-        if (currentKeys == KeysNeededForPass)
+        //if (currentKeys == KeysNeededForPass)
+        //{
+        //    StartCoroutine(OpenRoutine());
+        //} // paul you are a fucking idiot
+        if (currentKeys >= CollectiblesCollector.Instance.Keys)
         {
             StartCoroutine(OpenRoutine());
         }
+       
         else
         {
             animator.SetTrigger("Shake");
