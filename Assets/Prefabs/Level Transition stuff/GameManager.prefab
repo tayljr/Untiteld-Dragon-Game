@@ -1597,6 +1597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4557879882822731935}
   - component: {fileID: 4351364032099480136}
+  - component: {fileID: 2878697033841622834}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -1716,6 +1717,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2878697033841622834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3168563199811556014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cce907b7144c9c4584cd44dfe42de50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 4351364032099480136}
+  sceneList: 000000000b0000000a00000006000000
+  musicList:
+  - {fileID: 8300000, guid: 40414c9a3a670824a992840c5dd80e63, type: 3}
+  - {fileID: 8300000, guid: dc62b3ce9fbacb747b444a2340ad2be7, type: 3}
+  - {fileID: 8300000, guid: 96fc453a34e11e642933cb17a6c37919, type: 3}
+  - {fileID: 8300000, guid: 96f59244a4ee049449c81a1d700afc73, type: 3}
 --- !u!1 &3222546489681776623
 GameObject:
   m_ObjectHideFlags: 0
@@ -2666,6 +2686,7 @@ MonoBehaviour:
   gameStartMenu: 1
   isPaused: 0
   inDialogue: 0
+  inAnimation: 0
   Master: {fileID: 24100000, guid: 42ee2dbcbd726cd49aa281107b01d48e, type: 2}
 --- !u!114 &9109726741971976386
 MonoBehaviour:
