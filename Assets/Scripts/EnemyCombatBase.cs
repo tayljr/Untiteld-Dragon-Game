@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using soulercoasterLite.scripts.pathGenerators;
 public enum ListOfAttacks
 {
     None,
@@ -26,7 +25,7 @@ public class EnemyCombatBase : MonoBehaviour
     public ListOfAttacks TypeOfAttack;
     public GameObject LazerDamageBox;
     public LineRenderer ChargeLine;
-    public LightningPath ShootLine;
+    public LineRenderer ShootLine;
     public GameObject HitPrefab;
 
     public float attackRange;
@@ -153,8 +152,8 @@ public class EnemyCombatBase : MonoBehaviour
                 // old line
 
                 //new line
-                ShootLine.origin = ChargeLine.GetPosition(0);
-                ShootLine.destination = ChargeLine.GetPosition(1);
+                ShootLine.SetPosition(0, ChargeLine.GetPosition(0));
+                ShootLine.SetPosition(1, ChargeLine.GetPosition(1));
                 
                 LazerDamage();
                 Instantiate(HitPrefab, ChargeLine.GetPosition(1),Quaternion.identity);
