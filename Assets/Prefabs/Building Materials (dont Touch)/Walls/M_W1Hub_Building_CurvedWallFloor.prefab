@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 396ecad46f8e1c04e94fba84772ebe29, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fd442871c5add6e4cbbb2d84bf8d6104, type: 2}
     - target: {fileID: 919132149155446097, guid: 396ecad46f8e1c04e94fba84772ebe29, type: 3}
       propertyPath: m_Name
       value: M_W1Hub_Building_CurvedWallFloor
