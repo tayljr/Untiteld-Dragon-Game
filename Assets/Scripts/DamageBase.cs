@@ -45,7 +45,7 @@ public class DamageBase : MonoBehaviour
                 foreach (HealthBase health in healthList)
                 {
 
-                    health.Damage(damage * damageInterval);
+                    health.Damage(damage * damageInterval, gameObject.transform.forward);
                 }
             }
         }
@@ -53,7 +53,7 @@ public class DamageBase : MonoBehaviour
         {
             foreach (HealthBase health in healthList)
             {
-                health.Damage(damage);
+                health.Damage(damage, gameObject.transform.forward);
             }
             healthList.Clear();
         }

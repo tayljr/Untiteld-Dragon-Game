@@ -9,7 +9,7 @@ public class HealthBase : MonoBehaviour
     public delegate void DeathEvent(string tag, GameObject obj);
     public static event DeathEvent OnDeath;
 
-    public delegate void DamageEvent(float damage, string tag);
+    public delegate void DamageEvent(float damage,Vector3 distance, string tag);
     public static event DamageEvent OnDamage;
 
     public delegate void HealEvent(float heal, string tag);
@@ -37,17 +37,18 @@ public class HealthBase : MonoBehaviour
         HealthCheck();
     }
 
-    public void Damage(float amount)
+    public void Damage(float amount, Vector3 direction)
     {
         if (!invincible)
         {
             health -= amount;
             StartCoroutine(IFrames());
             HealthCheck();
-            OnDamage?.Invoke(amount, gameObject.tag);
-            object[] args = new object[2];
+            OnDamage?.Invoke(amount,direction ,gameObject.tag);
+            object[] args = new object[3];
             args[0] = amount;
             args[1] = gameObject.tag;
+            args[2] = direction;
 
             gameObject.SendMessage("Hit", args, SendMessageOptions.DontRequireReceiver);
         }

@@ -12,4 +12,5 @@ public enum SceneList
     Hub_1_Inside,
     Hub_1_Outside,
     Tutorial,
+    Thanks4Playing,
 }

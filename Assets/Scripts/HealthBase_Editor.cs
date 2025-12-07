@@ -12,7 +12,7 @@ public class HealthBase_Editor : Editor
 
         if (GUILayout.Button("Damage"))
         {
-            myTarget.Damage(1f);
+            myTarget.Damage(1f, Vector3.zero);
         }
         if (GUILayout.Button("Damage%"))
         {
