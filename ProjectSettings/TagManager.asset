@@ -11,6 +11,7 @@ TagManager:
   - Currency
   - Strong
   - Weak
+  - GroundCheck
   layers:
   - Default
   - TransparentFX

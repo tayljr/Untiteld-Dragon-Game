@@ -74,7 +74,7 @@ public class MovingPlatform : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         CharacterMovement charMove = other.gameObject.GetComponentInParent<CharacterMovement>();
-        if (charMove != null)
+        if (charMove != null && other.CompareTag("GroundCheck"))
         {
             characters.Add(charMove);
         }
@@ -83,7 +83,7 @@ public class MovingPlatform : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         CharacterMovement charMove = other.gameObject.GetComponentInParent<CharacterMovement>();
-        if (charMove != null)
+        if (charMove != null && other.CompareTag("GroundCheck"))
         {
             characters.Remove(charMove);
         }
