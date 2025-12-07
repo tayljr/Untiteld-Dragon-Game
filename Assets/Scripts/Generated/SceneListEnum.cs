@@ -10,7 +10,7 @@ public enum SceneList
     Farm,
     Hills,
     Hub_1_Inside,
-    Hub_1_Outside,
+    Hub1Outside,
     Tutorial,
     Thanks4Playing,
 }
