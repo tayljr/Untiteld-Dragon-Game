@@ -48,6 +48,8 @@ public partial class ConversationAction : Action
     
     protected override Status OnStart()
     {
+        currentMessage = 0;
+        
         agentName.Value.text = Agent.Value.charName;
         agentName.Value.color = Agent.Value.textColour;
         agentDialogBox.Value.color = Agent.Value.textColour;
