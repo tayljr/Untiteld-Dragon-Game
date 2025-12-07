@@ -333,6 +333,7 @@ MonoBehaviour:
   ignoreTag: Enemy
   damageType: 1
   damage: 1
+  damageInterval: 0.5
   hurtBox: {fileID: 3691764576748270229}
 --- !u!114 &4489293724616708170
 MonoBehaviour:
