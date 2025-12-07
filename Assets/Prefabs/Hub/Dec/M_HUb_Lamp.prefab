@@ -302,6 +302,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 39b0bc1114850bd46a9b1a7eb291ffd3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b757df8270268a748bbd0e4dba8190ad, type: 2}
     - target: {fileID: 919132149155446097, guid: 39b0bc1114850bd46a9b1a7eb291ffd3, type: 3}
       propertyPath: m_Name
       value: M_HUb_Lamp
