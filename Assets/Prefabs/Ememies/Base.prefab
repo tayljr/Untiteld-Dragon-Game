@@ -156,21 +156,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd1130174aa4d142a8f84cac338358f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 2
   health: 3
   healthPercent: 100
   iFrameTime: 0.25
   invincible: 0
   isDead: 0
   LootTable:
-  - itemPrefab: {fileID: 6746964957135268227, guid: 3261d0fbfd251744b934074630db879a, type: 3}
-    dropChance: 25
-  - itemPrefab: {fileID: 1193458308084228662, guid: 12fafc39c16cbe94d8e614474097e684, type: 3}
-    dropChance: 25
-  - itemPrefab: {fileID: 3742429543563828067, guid: c3e1773d14f6f6143a3fc5830a67fc70, type: 3}
-    dropChance: 25
-  - itemPrefab: {fileID: 6595012147054270499, guid: 816c4bab93517454bb3674a8382926e2, type: 3}
-    dropChance: 25
+  - itemPrefab: {fileID: 6038372679577471179, guid: 7e688e4df3111684fa96f76678fa0e6b, type: 3}
+    dropChance: 83.9
+  - itemPrefab: {fileID: 52451365248008161, guid: 3c717dba5c87d72409a2156e34e64d7d, type: 3}
+    dropChance: 41
+  - itemPrefab: {fileID: 7104164204386370937, guid: c00128dda12c61847b88b5d1f44507d9, type: 3}
+    dropChance: 27.2
+  - itemPrefab: {fileID: 4429535963535549182, guid: 179376842ee20c64caeed65b5061e707, type: 3}
+    dropChance: 7.2
 --- !u!114 &7238960813462657116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +283,7 @@ ParentConstraint:
   m_TranslationAtRest: {x: 0.627, y: 0.733, z: 0.452}
   m_RotationAtRest: {x: 1.0262772, y: -5.856958, z: 140.69801}
   m_TranslationOffsets:
-  - {x: -0.11138928, y: 0.022758007, z: 0.7106638}
+  - {x: -0.11138916, y: 0.022757888, z: 0.7106643}
   m_RotationOffsets:
   - {x: 0, y: 0, z: 0}
   m_AffectTranslationX: 1
