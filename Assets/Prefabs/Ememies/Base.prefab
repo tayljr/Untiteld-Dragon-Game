@@ -101,7 +101,7 @@ MonoBehaviour:
   combat: {fileID: 0}
   PlayerTarget: {fileID: 0}
   foveye: {fileID: 2635916759467224419}
-  Type: 1
+  Type: 0
   patrolPoints: []
   currentPoint: 0
   isAttacking: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   agro: 0
   agromax: 4
   Gravity: -11
-  minDistance: 1
+  minDistance: 0.5
   FOV: 40
   FOVRange: 10
   RaycastMask:
@@ -283,7 +283,7 @@ ParentConstraint:
   m_TranslationAtRest: {x: 0.627, y: 0.733, z: 0.452}
   m_RotationAtRest: {x: 1.0262772, y: -5.856958, z: 140.69801}
   m_TranslationOffsets:
-  - {x: -0.11138916, y: 0.022757888, z: 0.7106643}
+  - {x: -0.11138916, y: 0.022758484, z: 0.71066284}
   m_RotationOffsets:
   - {x: 0, y: 0, z: 0}
   m_AffectTranslationX: 1
