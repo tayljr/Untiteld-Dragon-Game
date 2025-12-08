@@ -75,15 +75,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 428a6649b45349945a7af9f62f930bc6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 127.33948
+      value: 80.123314
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 428a6649b45349945a7af9f62f930bc6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 29.040968
+      value: 29.040977
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 428a6649b45349945a7af9f62f930bc6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 80.41777
+      value: 82.38397
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 428a6649b45349945a7af9f62f930bc6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -303,7 +303,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
