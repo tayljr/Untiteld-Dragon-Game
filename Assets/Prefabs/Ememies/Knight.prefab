@@ -98,6 +98,7 @@ MonoBehaviour:
   ignoreTag: Enemy
   damageType: 1
   damage: 1
+  damageInterval: 0.5
   hurtBox: {fileID: 8929966395203533515}
 --- !u!114 &1285999942243787952
 MonoBehaviour:
@@ -216,7 +217,7 @@ MonoBehaviour:
   combat: {fileID: 0}
   PlayerTarget: {fileID: 0}
   foveye: {fileID: 7000389631358098260}
-  Type: 1
+  Type: 0
   patrolPoints: []
   currentPoint: 0
   isAttacking: 0
@@ -278,14 +279,12 @@ MonoBehaviour:
   invincible: 0
   isDead: 0
   LootTable:
-  - itemPrefab: {fileID: 6746964957135268227, guid: 3261d0fbfd251744b934074630db879a, type: 3}
-    dropChance: 25
-  - itemPrefab: {fileID: 1193458308084228662, guid: 12fafc39c16cbe94d8e614474097e684, type: 3}
-    dropChance: 25
-  - itemPrefab: {fileID: 3742429543563828067, guid: c3e1773d14f6f6143a3fc5830a67fc70, type: 3}
-    dropChance: 25
-  - itemPrefab: {fileID: 6595012147054270499, guid: 816c4bab93517454bb3674a8382926e2, type: 3}
-    dropChance: 25
+  - itemPrefab: {fileID: 4429535963535549182, guid: 179376842ee20c64caeed65b5061e707, type: 3}
+    dropChance: 34
+  - itemPrefab: {fileID: 4127339023611036575, guid: 285a611116fa57c408d8fdc26f74b62c, type: 3}
+    dropChance: 34
+  - itemPrefab: {fileID: 8524010811354079560, guid: 399ab476bc4dd1d48ad2138cb53f2d23, type: 3}
+    dropChance: 34
 --- !u!114 &1916572089501714150
 MonoBehaviour:
   m_ObjectHideFlags: 0

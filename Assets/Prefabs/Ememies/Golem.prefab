@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 565589000484596340}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000035762787, y: 3.5862608, z: 0.55752647}
+  m_LocalPosition: {x: -0.000018134713, y: 3.5862608, z: 0.5575023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -437,7 +437,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8736165564436871496}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.19862741, z: -0, w: 0.9800751}
+  m_LocalRotation: {x: 0, y: 0.19862385, z: 0, w: 0.98007584}
   m_LocalPosition: {x: -9.86, y: 1.1, z: -6.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -545,7 +545,7 @@ MonoBehaviour:
   TypeOfAttack: 4
   LazerDamageBox: {fileID: 5985544376591993933, guid: b96d465f8a9216240a7bfcd75ce3b70f, type: 3}
   ChargeLine: {fileID: 4042939965283950120}
-  ShootLine: {fileID: 0}
+  ShootLine: {fileID: 2369733889701942073}
   HitPrefab: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
   attackRange: 2
   attackDelay: 0.4
@@ -596,14 +596,14 @@ MonoBehaviour:
   invincible: 0
   isDead: 0
   LootTable:
-  - itemPrefab: {fileID: 6746964957135268227, guid: 3261d0fbfd251744b934074630db879a, type: 3}
-    dropChance: 25
-  - itemPrefab: {fileID: 1193458308084228662, guid: 12fafc39c16cbe94d8e614474097e684, type: 3}
-    dropChance: 25
-  - itemPrefab: {fileID: 3742429543563828067, guid: c3e1773d14f6f6143a3fc5830a67fc70, type: 3}
-    dropChance: 25
-  - itemPrefab: {fileID: 6595012147054270499, guid: 816c4bab93517454bb3674a8382926e2, type: 3}
-    dropChance: 25
+  - itemPrefab: {fileID: 4429535963535549182, guid: 179376842ee20c64caeed65b5061e707, type: 3}
+    dropChance: 34
+  - itemPrefab: {fileID: 4127339023611036575, guid: 285a611116fa57c408d8fdc26f74b62c, type: 3}
+    dropChance: 34
+  - itemPrefab: {fileID: 8524010811354079560, guid: 399ab476bc4dd1d48ad2138cb53f2d23, type: 3}
+    dropChance: 34
+  - itemPrefab: {fileID: 7238983514721968807, guid: 11536d5a2c3ffa347be69a8673516dfe, type: 3}
+    dropChance: 100
 --- !u!114 &1217690802607055420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -702,6 +702,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8079782462984123775, guid: cfbfb95b5f2b90949be0b5faab2775fb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b4520f8acdca9747970254c78c0606b, type: 2}
+    - target: {fileID: -6135593927970851872, guid: cfbfb95b5f2b90949be0b5faab2775fb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b4520f8acdca9747970254c78c0606b, type: 2}
+    - target: {fileID: -5126060000771187914, guid: cfbfb95b5f2b90949be0b5faab2775fb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b4520f8acdca9747970254c78c0606b, type: 2}
     - target: {fileID: 919132149155446097, guid: cfbfb95b5f2b90949be0b5faab2775fb, type: 3}
       propertyPath: m_Name
       value: GolemMesh
