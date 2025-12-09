@@ -338,8 +338,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterMovement: {fileID: 2311948180293268705}
   playerAnimation: {fileID: 6205070893463992773}
-  punch: {fileID: 5151307173428227930}
-  fireBreath: {fileID: 8151910811845410999}
+  attackPunch: {fileID: 5151307173428227930}
+  attackFireBreath: {fileID: 8151910811845410999}
   interactor: {fileID: 8891611318461208239}
   lookSensitivity: 0.2
 --- !u!114 &2311948180293268705
@@ -1612,7 +1612,7 @@ MonoBehaviour:
   jump: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   sprint: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   punch: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  fire: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  fire: {fileID: -7281641829591389062, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!114 &3814933677706383071
 MonoBehaviour:
   m_ObjectHideFlags: 0

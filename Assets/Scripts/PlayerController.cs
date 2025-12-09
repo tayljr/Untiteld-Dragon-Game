@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour, IPauseable
 {
@@ -8,8 +9,8 @@ public class PlayerController : MonoBehaviour, IPauseable
     public PlayerAnimation playerAnimation;
 
     //could have a list of attacks, like ratchet and clank
-    public AttackBase punch;
-    public AttackBase fireBreath;
+    [FormerlySerializedAs("punch")] public AttackBase attackPunch;
+    [FormerlySerializedAs("fireBreath")] public AttackBase attackFireBreath;
 
     public Interactor interactor;
     
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour, IPauseable
     private InputAction sprint;
     private InputAction crouch;
     private InputAction attack;
+    private InputAction fireBreath;
     private InputAction interact;
     private InputAction glide;
 
@@ -80,6 +82,12 @@ public class PlayerController : MonoBehaviour, IPauseable
         attack.Enable();
         attack.performed += Attack;
         attack.canceled += StopAttack;
+        
+        
+        fireBreath = playerControls.Player.FireBreath;
+        fireBreath.Enable();
+        fireBreath.performed += FireBreath;
+        fireBreath.canceled += StopFireBreath;
 
         interact = playerControls.Player.Interact;
         interact.Enable();
@@ -110,25 +118,32 @@ public class PlayerController : MonoBehaviour, IPauseable
     private void Interact(InputAction.CallbackContext obj)
     {
         if (interactor != null) interactor.Interact(true);
-        fireBreath.StartAttack();
     }
 
     private void StopInteract(InputAction.CallbackContext obj)
     {
         if (interactor != null) interactor.Interact(false);
-        fireBreath.StopAttack();
     }
 
     private void Attack(InputAction.CallbackContext obj)
     {
-        punch.StartAttack();
+        attackPunch.StartAttack();
     }
 
     private void StopAttack(InputAction.CallbackContext obj)
     {
-        punch.StopAttack();
+        attackPunch.StopAttack();
     }
 
+    private void FireBreath(InputAction.CallbackContext obj)
+    {
+        attackFireBreath.StartAttack();
+    }
+    
+    private void StopFireBreath(InputAction.CallbackContext obj)
+    {
+        attackFireBreath.StopAttack();
+    }
     private void Crouch(InputAction.CallbackContext obj)
     {
         characterMovement.Crouch(true);
