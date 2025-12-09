@@ -1,20 +1,37 @@
 {
 	"message": [
 		{
-			"targetResponding": false,
-			"saying": "hi, press space to continue..."
-		},
-		{
 			"targetResponding": true,
-			"saying": "hello there"
+			"saying": "hel.."
 		},
 		{
 			"targetResponding": false,
-			"saying": "see you later"
+			"saying": "AHHHH a dragon, oh god please dont eat me"
 		},
 		{
 			"targetResponding": true,
-			"saying": "bye"
+			"saying": "no im not here to..."
+		},
+		{
+			"targetResponding": false,
+			"saying": "Please dont torch me, sizzle my flesh to a dry grey ash"
+		}
+		{
+			"targetResponding": true,
+			"saying": "Thats a bit graphic"
+		},
+		{
+			"targetResponding": false,
+			"saying": "AHHHHHH"
+		}
+		{
+			"targetResponding": true,
+			"saying": "Will you stop screaming im not here to hurt you"
+		},
+		{
+			"targetResponding": false,
+			"saying": "Look theres a key over there just knock the fence down and leave me"
 		}
 	]
 }
+

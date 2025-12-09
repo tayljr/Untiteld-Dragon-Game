@@ -1,36 +1,33 @@
 {
 	"message": [
 		{
-			"targetResponding": true,
-			"saying": "hel.."
+			"targetResponding": false,
+			"saying": "Shinny looking tricket isn't it "
 		},
 		{
 			"targetResponding": false,
-			"saying": "AHHHH a dragon, oh god please dont eat me"
-		},
-		{
-			"targetResponding": true,
-			"saying": "no im not here to..."
+			"saying": "imagine how good it would be if it did something "
 		},
 		{
 			"targetResponding": false,
-			"saying": "Please dont torch me, sizzle my flesh to a dry grey ash"
+			"saying": "..."
+		},
+		{
+			"targetResponding": false,
+			"saying": "oh well, its fun to imagine"
+		},
+		{
+			"targetResponding": false,
+			"saying": "or dont i dont care"
 		}
 		{
-			"targetResponding": true,
-			"saying": "Thats a bit graphic"
+			"targetResponding": false,
+			"saying": "..."
 		},
 		{
 			"targetResponding": false,
-			"saying": "AHHHHHH"
-		}
-		{
-			"targetResponding": true,
-			"saying": "Will you stop screaming im not here to hurt you"
+			"saying": "don't you have anything better to do then stand there, go away"
 		},
-		{
-			"targetResponding": false,
-			"saying": "Look theres a key over there just knock the fence down and leave me"
-		}
+
 	]
 }
