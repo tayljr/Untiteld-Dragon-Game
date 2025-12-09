@@ -19,7 +19,7 @@
 		{
 			"targetResponding": false,
 			"saying": "or dont i dont care"
-		}
+		},
 		{
 			"targetResponding": false,
 			"saying": "..."
@@ -27,7 +27,7 @@
 		{
 			"targetResponding": false,
 			"saying": "don't you have anything better to do then stand there, go away"
-		},
+		}
 
 	]
 }
