@@ -30,7 +30,7 @@ public class GateScript : MonoBehaviour, IInteractable
         //{
         //    StartCoroutine(OpenRoutine());
         //} // paul you are a fucking idiot
-        if (currentKeys >= CollectiblesCollector.Instance.Keys)
+        if (currentKeys >= KeysNeededForPass)
         {
             StartCoroutine(OpenRoutine());
         }
