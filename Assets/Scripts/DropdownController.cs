@@ -19,15 +19,29 @@ public class DropdownController : MonoBehaviour, IMoveHandler, ISubmitHandler
     private void Start()
     {
         dropdown = GetComponentInChildren<TMP_Dropdown>();
-        if (!dropdown)
+        arrowLeft = dropdown.transform.Find("Arrow Left").gameObject;
+        arrowRight = dropdown.transform.Find("Arrow Right").gameObject;
+
+            if (dropdown != null)
         {
             EvaluateDropdown();
         }
     }
     public void OnSubmit(BaseEventData eventData)
     {
+        if (isFocused && isDropdown)
+        {
+            dropdown.Hide();
+            isFocused = false;
+
+        }
+        else
+        {
             dropdown.Show();
             isFocused = true;
+
+        }
+
     }
 
     public void OnMove(AxisEventData eventData)
@@ -40,7 +54,7 @@ public class DropdownController : MonoBehaviour, IMoveHandler, ISubmitHandler
         {
             dropdown.value = Mathf.Max(dropdown.value - 1, 0);
         }
-        if (!dropdown)
+        if (dropdown != null)
         {
             EvaluateDropdown();
         }
@@ -48,22 +62,28 @@ public class DropdownController : MonoBehaviour, IMoveHandler, ISubmitHandler
     
     public void EvaluateDropdown()
     {
-        if (dropdown.value == 0)
+
+        if (arrowLeft != null && arrowRight != null)
         {
-            arrowLeft.SetActive(false);
+
+            if (dropdown.value == 0)
+            {
+                arrowLeft.SetActive(false);
+            }
+            else
+            {
+                arrowLeft.SetActive(true);
+            }
+            if (dropdown.value == dropdown.options.Count - 1)
+            {
+                arrowRight.SetActive(false);
+            }
+            else
+            {
+                arrowRight.SetActive(true);
+            }
         }
-        else
-        {
-            arrowLeft.SetActive(true);
-        }
-        if (dropdown.value == dropdown.options.Count - 1)
-        {
-            arrowRight.SetActive(false);
-        }
-        else
-        {
-            arrowRight.SetActive(true);
-        }
+
     }
     public void MoveLeft()
     {
@@ -75,5 +95,5 @@ public class DropdownController : MonoBehaviour, IMoveHandler, ISubmitHandler
         dropdown.value = Mathf.Min(dropdown.value + 1, dropdown.options.Count - 1);
         EvaluateDropdown();
     }
-    // Update is called once per frame
+    
 }
