@@ -1,0 +1,192 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-7412747476785518296
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: attack grunts-09_{-7412747476785518296}
+  m_AudioClip: {fileID: 8300000, guid: 2d3d267dc3d68474cbf0d721dba3d41e, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-3688504809531686068
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: attack grunts-07_{-3688504809531686068}
+  m_AudioClip: {fileID: 8300000, guid: 5c421ebbaf0aa1848be14dbf2024db63, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-3618259947039950665
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: attack grunts-08_{-3618259947039950665}
+  m_AudioClip: {fileID: 8300000, guid: 20650ad7ff6aeef4397e091c9b29f5c8, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-2576780532844134009
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: attack grunts-06_{-2576780532844134009}
+  m_AudioClip: {fileID: 8300000, guid: 9cb31a9a452c4fa42bd1b9afe5bd28b8, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-2519594317093770574
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: attack grunts-19_{-2519594317093770574}
+  m_AudioClip: {fileID: 8300000, guid: ce8c9933bd09dcb46ac2e72cd7548e70, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-2415823183919594887
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: attack grunts-02_{-2415823183919594887}
+  m_AudioClip: {fileID: 8300000, guid: 2ef09115b4d0e3a448966c5521813fda, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-963146242828875029
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: attack grunts-12_{-963146242828875029}
+  m_AudioClip: {fileID: 8300000, guid: 76f6778486366544eb0cad816b3faf6b, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &1057098530373097216
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: attack grunts-17_{1057098530373097216}
+  m_AudioClip: {fileID: 8300000, guid: b78b842510066bf49b32a729b7ec49af, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &1249038946909864548
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: attack grunts-19_{1249038946909864548}
+  m_AudioClip: {fileID: 8300000, guid: ce8c9933bd09dcb46ac2e72cd7548e70, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &1957098271796509914
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: attack grunts-04_{1957098271796509914}
+  m_AudioClip: {fileID: 8300000, guid: cd1d3ca262f48fc48a4c311c41e3801d, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &2130170843051621856
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: attack grunts-15_{2130170843051621856}
+  m_AudioClip: {fileID: 8300000, guid: 3870b6cd9c24ffd429a3a153fd845ed5, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &3011740185462881244
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: attack grunts-18_{3011740185462881244}
+  m_AudioClip: {fileID: 8300000, guid: 6d0f5fc43350d954b9feef4232aa98b0, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &6275093491036573477
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: attack grunts-03_{6275093491036573477}
+  m_AudioClip: {fileID: 8300000, guid: 330a37f2788f7524faa44c56069b9530, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Damage
+  m_Volume: 0
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: 0, y: 0}
+  m_PitchRandomizationRange: {x: 0, y: 0}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: -2519594317093770574}
+  - {fileID: -2415823183919594887}
+  - {fileID: 6275093491036573477}
+  - {fileID: 1957098271796509914}
+  - {fileID: -2576780532844134009}
+  - {fileID: -3688504809531686068}
+  - {fileID: -3618259947039950665}
+  - {fileID: -7412747476785518296}
+  - {fileID: 7451747501927202729}
+  - {fileID: -963146242828875029}
+  - {fileID: 8407827828043773722}
+  - {fileID: 2130170843051621856}
+  - {fileID: 1057098530373097216}
+  - {fileID: 3011740185462881244}
+  - {fileID: 1249038946909864548}
+  m_AvoidRepeatingLast: 0
+  m_PlaybackMode: 1
+  m_TriggerMode: 0
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 2
+  m_VolumeRandomizationEnabled: 0
+  m_PitchRandomizationEnabled: 0
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
+--- !u!1233149941 &7451747501927202729
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: attack grunts-11_{7451747501927202729}
+  m_AudioClip: {fileID: 8300000, guid: 77978e9b1157bac4e91b85150a144ebd, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &8407827828043773722
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: attack grunts-13_{8407827828043773722}
+  m_AudioClip: {fileID: 8300000, guid: 329b47e5fa6627f43af01c66549bcc3b, type: 3}
+  m_Volume: 0
+  m_Enabled: 1

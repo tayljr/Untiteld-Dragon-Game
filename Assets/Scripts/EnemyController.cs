@@ -11,12 +11,13 @@ public enum EnemyType
     Flying_Ranged
 }
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, IHit
 {
     public AIControllerEnemy AI;
     public HealthBase HealthBase;
     public NavMeshAgent agent;
     public Animator animator;
+    public AudioSource source;
     public EnemyType enemyType;
 
 
@@ -24,8 +25,6 @@ public class EnemyController : MonoBehaviour
     public float damage = 2f;
 
     public bool isDead = false;
-
-
 
     public string enemyName;
     public string description;
@@ -36,6 +35,7 @@ public class EnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         HealthBase = GetComponent<HealthBase>();
         animator = GetComponentInChildren<Animator>();
+        source = GetComponent<AudioSource>();
 
     }
     private void Start()
@@ -57,5 +57,9 @@ public class EnemyController : MonoBehaviour
             AI.enabled = false;
         }
 
+    }
+    public void Hit(object args)
+    {
+        source.Play();
     }
 }
