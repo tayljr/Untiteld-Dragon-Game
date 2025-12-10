@@ -42,6 +42,9 @@ public partial class ConversationAction : Action
     [Tooltip("The targets portrait box")]
     [SerializeReference] public BlackboardVariable<Image> targetPortrait;
 
+    [Tooltip("The targets animator")]
+    [SerializeReference] public BlackboardVariable<Animator> animator;
+
     private int currentMessage = 0;
     
     private PlayerController playerController;
@@ -104,6 +107,7 @@ public partial class ConversationAction : Action
         {
             //npc talking
             agentDialogBox.Value.text = Conversation.Value.myMessageList.message[currentMessage].saying;
+            animator.Value.SetTrigger("talk");
             targetDialogBox.Value.text = "";
         }
         else
