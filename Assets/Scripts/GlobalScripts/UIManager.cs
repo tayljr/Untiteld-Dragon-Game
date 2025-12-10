@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour, IPauseable
 {
+
+    [SerializeField] private GameObject DebugSelected;
+
     public bool StartMenu = true;
 
     public bool HUDOn = false;
@@ -23,11 +26,11 @@ public class UIManager : MonoBehaviour, IPauseable
     [Header("FirstSelectedUI")]
     public GameObject firstSelectedPauseMenu;
 
-    private GameObject currentSelectedUI;
+
 
     private void Update()
     {
-        currentSelectedUI = EventSystem.current.currentSelectedGameObject;
+        DebugSelected = EventSystem.current.currentSelectedGameObject;
         if (!StartMenu)
         {
             if (HUD != null && HUD)
@@ -39,6 +42,10 @@ public class UIManager : MonoBehaviour, IPauseable
         {
             pauseMenu.SetActive(false);
             HUD.SetActive(false);
+            if (EventSystem.current.currentSelectedGameObject == null)
+            {
+                EventSystem.current.SetSelectedGameObject(GameObject.Find("Start"));
+            }
             Cursor.lockState = CursorLockMode.None;
         }
         
@@ -119,6 +126,7 @@ public class UIManager : MonoBehaviour, IPauseable
         StartMenu = true;
         PauseMenuOpen = false;
         HUDOn = false;
+        EventSystem.current.SetSelectedGameObject(GameObject.Find("Start"));
     }
     public void TogglePauseMenu()
     {
