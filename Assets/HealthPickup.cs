@@ -1,7 +1,6 @@
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
-public class CollectablePickup : PickUpBase
+public class HealthPickup : PickUpBase
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,7 +20,7 @@ public class CollectablePickup : PickUpBase
         {
             PickUpItem(this);
 
-            CollectiblesCollector.Instance.CollectTheCollectable(gameObject);
+            other.GetComponentInParent<HealthBase>().HealPercent(100);
 
             Destroy(gameObject);
         }
