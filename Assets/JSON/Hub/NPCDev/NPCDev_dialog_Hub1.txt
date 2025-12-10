@@ -1,0 +1,36 @@
+{
+	"message": [
+		{
+			"targetResponding": false,
+			"saying": "Welcome to the hall of cut content "
+		},
+		{
+			"targetResponding": false,
+			"saying": "what....you need help"
+		},
+		{
+			"targetResponding": false,
+			"saying": "look this is a hub area you know H.U.B"
+		},
+		{
+			"targetResponding": false,
+			"saying": "you can either wizz off the side of this bridge or you can find a level to go through"
+		},
+		{
+			"targetResponding": false,
+			"saying": "just look for a gate and slap one of those fancy keys in there"
+		},
+		{
+			"targetResponding": false,
+			"saying": "you know gate.....like the one in the garden"
+		},
+		{
+			"targetResponding": false,
+			"saying": "to the left"
+		},
+		{
+			"targetResponding": false,
+			"saying": "............go away......wait don't go DELETE ME"
+		}
+	]
+}

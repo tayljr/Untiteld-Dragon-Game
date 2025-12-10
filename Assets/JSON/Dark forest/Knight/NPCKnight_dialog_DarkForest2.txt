@@ -1,0 +1,25 @@
+{
+	"message": [
+		{
+			"targetResponding": false,
+			"saying": "Cough Cough Cough..."
+		},
+		{
+			"targetResponding": false,
+			"saying": "a...a dragon.....arn't you supposed to be all extinct....COUGH"
+		},
+		{
+			"targetResponding": false,
+			"saying": "If the rest of my men don't get you dont worry"
+		},
+		{
+			"targetResponding": false,
+			"saying": "Cough Cough....that......thing over there will"
+		},
+	
+		{
+			"targetResponding": false,
+			"saying": "now go..... leave me foul creature"
+		}
+	]
+}

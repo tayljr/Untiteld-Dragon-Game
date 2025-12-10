@@ -1,0 +1,24 @@
+{
+	"message": [
+		{
+			"targetResponding": false,
+			"saying": "Well hello there, I am but a stranger passing through and am definitely not a stand in for one of the devs "
+		},
+		{
+			"targetResponding": false,
+			"saying": "There was supposed to be a narrator around here but he got cut so now im stuck here till you leave"
+		},
+		{
+			"targetResponding": false,
+			"saying": "so there's a castle or something at the end of W1_L0_Tutorial.Unity"
+		},
+		{
+			"targetResponding": false,
+			"saying": "go there and leave me alone"
+		},
+		{
+			"targetResponding": false,
+			"saying": "or dont i dont care"
+		}
+	]
+}

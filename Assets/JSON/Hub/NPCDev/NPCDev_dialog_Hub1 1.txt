@@ -1,0 +1,32 @@
+{
+	"message": [
+		{
+			"targetResponding": false,
+			"saying": "did you know i write all those quest logs "
+		},
+		{
+			"targetResponding": false,
+			"saying": "im sort of a literary genius "
+		},
+		{
+			"targetResponding": false,
+			"saying": "you know this place here is a nice remnant of the old hub"
+		},
+		{
+			"targetResponding": false,
+			"saying": "Sigh..."
+		},
+		{
+			"targetResponding": false,
+			"saying": "i miss the old hub"
+		},
+		{
+			"targetResponding": false,
+			"saying": "hasn't been the same since he left"
+		},
+		{
+			"targetResponding": false,
+			"saying": "Error Hub not found"
+		}
+	]
+}

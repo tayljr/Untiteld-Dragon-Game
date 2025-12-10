@@ -1,0 +1,33 @@
+{
+	"message": [
+		{
+			"targetResponding": false,
+			"saying": "Shinny looking tricket isn't it "
+		},
+		{
+			"targetResponding": false,
+			"saying": "imagine how good it would be if it did something "
+		},
+		{
+			"targetResponding": false,
+			"saying": "..."
+		},
+		{
+			"targetResponding": false,
+			"saying": "oh well, its fun to imagine"
+		},
+		{
+			"targetResponding": false,
+			"saying": "or dont i dont care"
+		},
+		{
+			"targetResponding": false,
+			"saying": "..."
+		},
+		{
+			"targetResponding": false,
+			"saying": "don't you have anything better to do then stand there, go away"
+		}
+
+	]
+}

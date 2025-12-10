@@ -16,7 +16,7 @@ public class CollectablePickup : PickUpBase
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("test");
+        //Debug.Log("test");
         if (other.CompareTag("Player"))
         {
             PickUpItem(this);

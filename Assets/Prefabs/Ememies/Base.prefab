@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 2
-  health: 3
+  health: 2
   healthPercent: 100
   iFrameTime: 0.25
   invincible: 0
