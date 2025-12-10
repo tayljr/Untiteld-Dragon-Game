@@ -8,6 +8,8 @@ public class PlayerAudioController : MonoBehaviour
 {
     public AudioClip[] walkingSounds;
     public AudioSource walkingSource;
+
+    public AudioSource PunchSource;
     public float delay = 0.4f;
 
     private Coroutine walkRoutine;
@@ -57,5 +59,9 @@ public class PlayerAudioController : MonoBehaviour
     public void PlaySound(AudioClip clip)
     {
         walkingSource.PlayOneShot(clip);
+    }
+    public void PunchShit()
+    {
+        PunchSource.Play();
     }
 }

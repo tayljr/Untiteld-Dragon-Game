@@ -17,8 +17,10 @@ public class GameManager : MonoBehaviour, IPauseable
     public bool gameStartMenu = true;
 
     public bool isPaused = false;
-    
+
     public bool inDialogue = false;
+
+    public bool inCredits;
 
     public bool inAnimation = false;
 
@@ -120,7 +122,8 @@ public class GameManager : MonoBehaviour, IPauseable
     // Update is called once per frame
     void Update()
     {
-            Time.timeScale = isPaused ? 0f : 1f ;
+        
+            Time.timeScale = isPaused && SceneManager.GetActiveScene().name != "Thanks4Playing" ? 0f : 1f ;
             
     }
     //im going to real chatGPT made this, its kinda peam!
@@ -150,4 +153,6 @@ public class GameManager : MonoBehaviour, IPauseable
         onFound?.Invoke(player);
     }
 
+
 }
+

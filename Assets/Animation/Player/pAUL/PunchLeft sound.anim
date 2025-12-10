@@ -147082,9 +147082,9 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.11666667
-    functionName: PlaySound
+    functionName: PunchShit
     data: 
-    objectReferenceParameter: {fileID: 8300000, guid: d09623d0cf4ad3b41ba223d0073081bc, type: 3}
+    objectReferenceParameter: {fileID: 8300000, guid: a5ef7cd8b9053dc4da68abe5ff9618e3, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
