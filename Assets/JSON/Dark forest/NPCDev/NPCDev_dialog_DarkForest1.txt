@@ -1,0 +1,32 @@
+{
+	"message": [
+		{
+			"targetResponding": false,
+			"saying": "You know the devs were supposed to have deleted me by now "
+		},
+		{
+			"targetResponding": false,
+			"saying": "and yet im still here"
+		},
+		{
+			"targetResponding": false,
+			"saying": "..."
+		},
+		{
+			"targetResponding": false,
+			"saying": "you know it gets real cold when you turn the game off"
+		},
+		{
+			"targetResponding": false,
+			"saying": "oh yeah you probably want some kind of tutorial or something"
+		},
+		{
+			"targetResponding": false,
+			"saying": "i dont know, uh... you have a fire attack hold F/R Trigger to use it"
+		},
+		{
+			"targetResponding": false,
+			"saying": "now go jump in a pit or something"
+		}
+	]
+}

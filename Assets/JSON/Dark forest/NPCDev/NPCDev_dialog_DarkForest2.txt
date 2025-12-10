@@ -1,0 +1,20 @@
+{
+	"message": [
+		{
+			"targetResponding": false,
+			"saying": "the wall over there can be broken"
+		},
+		{
+			"targetResponding": false,
+			"saying": "if you put some effort in you might be able to actually do something"
+		},
+		{
+			"targetResponding": false,
+			"saying": "there i have given you a tutorial now"
+		},
+		{
+			"targetResponding": false,
+			"saying": "CAN SOMEONE PLEASE DELETE ME NOW"
+		}
+	]
+}
