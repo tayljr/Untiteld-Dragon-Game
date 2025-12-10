@@ -2,7 +2,7 @@
 	"message": [
 		{
 			"targetResponding": false,
-			"saying": "Well hello there, I am but a stranger passing through and am definitely not a stand in for one of the devs, Also pssst....Press 'The Jump Button' to Continue the conversation"
+			"saying": "Well hello there, I am but a stranger passing through and am definitely not a stand in for one of the devs "
 		},
 		{
 			"targetResponding": false,
