@@ -22,7 +22,7 @@
 		},
 		{
 			"targetResponding": false,
-			"saying": "i dont know, uh... you have a fire attack hold F/R Trigger to use it"
+			"saying": "i dont know, uh... you have a fire attack hold F/B button to use it"
 		},
 		{
 			"targetResponding": false,

@@ -10,7 +10,7 @@
 		},
 		{
 			"targetResponding": false,
-			"saying": "look this is a hub area you know H.U.B"
+			"saying": "look this is a hub area, you know H.U.B"
 		},
 		{
 			"targetResponding": false,

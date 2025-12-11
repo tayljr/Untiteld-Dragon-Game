@@ -1,0 +1,20 @@
+{
+	"message": [
+		{
+			"targetResponding": false,
+			"saying": "bet you killed that guy down there didn't you"
+		},
+		{
+			"targetResponding": false,
+			"saying": "yeah i bet you did, you know your kind of a sicko you know that"
+		},
+		{
+			"targetResponding": false,
+			"saying": "or maybe you didn't, my eyes aren't real you know"
+		},
+		{
+			"targetResponding": false,
+			"saying": "AHHHHHHHHHHHHHHHHHHHHHHHHHH"
+		}
+	]
+}
