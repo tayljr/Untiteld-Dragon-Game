@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-
-
     public CharacterController controller;
 
     public ColliderEvents groundTrigger;
@@ -198,7 +196,7 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    public void Climb(bool enableClimb)
+    public void SetCanClimb(bool enableClimb)
     {
         canClimb = enableClimb;
         isClimbing = canClimb;
@@ -217,8 +215,6 @@ public class CharacterMovement : MonoBehaviour
         }else
         {
             isGliding = false;
-            //todo not stoppping
-            //Move(Vector2.zero);
         }
     }
 
@@ -323,6 +319,10 @@ public class CharacterMovement : MonoBehaviour
     }
 
     // Update is called once per frame
+    private void Update()
+    {
+    }
+
     void FixedUpdate()
     {
         List<Collider> missingColliders = new List<Collider>();
@@ -424,7 +424,7 @@ public class CharacterMovement : MonoBehaviour
             worldMoveDir = Vector3.Scale(transform.TransformDirection(moveDir.x, moveDir.z, forwardMoveDir), climbSpeed);
         }
         
-
+        
         float _gravity = gravity;
         float _termVel = terminalVelociy;
         if (fastFalling && verticalVelocity < 0)
@@ -469,6 +469,7 @@ public class CharacterMovement : MonoBehaviour
                 worldMoveDir.y  = verticalVelocity;
             }
             jumpVelocity = Vector3.MoveTowards(jumpVelocity, Vector3.zero, _gravity * Time.deltaTime);
+            //Debug.Log("current grav = " + _gravity);
             //Debug.Log(jumpVelocity);
         }
         else

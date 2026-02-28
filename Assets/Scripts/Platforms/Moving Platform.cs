@@ -22,6 +22,7 @@ public class MovingPlatform : MonoBehaviour
     
     private Vector3 moveDistance;
     private List<CharacterMovement> characters = new List<CharacterMovement>();
+    private List<CharacterStateMachine> characterMachines = new List<CharacterStateMachine>();
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -41,6 +42,10 @@ public class MovingPlatform : MonoBehaviour
         moveDistance = Vector3.Lerp(previouseWaypoint.position, targetWaypoint.position, elapsedPercentage) - transform.position;
 
         foreach (CharacterMovement character in characters)
+        {
+            character.PlatformMove(moveDistance);
+        }
+        foreach (CharacterStateMachine character in characterMachines)
         {
             character.PlatformMove(moveDistance);
         }
@@ -74,18 +79,30 @@ public class MovingPlatform : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         CharacterMovement charMove = other.gameObject.GetComponentInParent<CharacterMovement>();
+        CharacterStateMachine charMach = other.gameObject.GetComponentInParent<CharacterStateMachine>();
         if (charMove != null && other.CompareTag("GroundCheck"))
         {
             characters.Add(charMove);
+        }
+
+        if (charMach != null && other.CompareTag("GroundCheck"))
+        {
+            characterMachines.Add(charMach);
         }
         //other.transform.SetParent(transform);
     }
     private void OnTriggerExit(Collider other)
     {
         CharacterMovement charMove = other.gameObject.GetComponentInParent<CharacterMovement>();
+        CharacterStateMachine charMach = other.gameObject.GetComponentInParent<CharacterStateMachine>();
         if (charMove != null && other.CompareTag("GroundCheck"))
         {
             characters.Remove(charMove);
+        }
+
+        if (charMach != null && other.CompareTag("GroundCheck"))
+        {
+            characterMachines.Remove(charMach);
         }
         //other.transform.SetParent(null);
     }

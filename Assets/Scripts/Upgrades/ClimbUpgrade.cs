@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 
 /// <summary>
@@ -9,6 +10,7 @@ public class ClimbUpgrade : UpgradeMonoBehaviour
 {
     public ColliderEvents climbTrigger;
     public CharacterMovement characterMovement;
+    public CharacterStateMachine characterMachine;
     public string climbableTag = "Climbable";
 
     private int climbCount = 0;
@@ -30,7 +32,8 @@ public class ClimbUpgrade : UpgradeMonoBehaviour
         }
         if (climbCount > 0)
         {
-            characterMovement.Climb(true);
+            if (characterMovement != null) characterMovement.SetCanClimb(true);
+            if (characterMachine != null) characterMachine.SetCanClimb(true);
         }
     }
 
@@ -43,7 +46,8 @@ public class ClimbUpgrade : UpgradeMonoBehaviour
         if (climbCount <= 0)
         {
             climbCount = 0;
-            characterMovement.Climb(false);
+            if (characterMovement != null) characterMovement.SetCanClimb(false);
+            if (characterMachine != null) characterMachine.SetCanClimb(false);
         }
     }
 

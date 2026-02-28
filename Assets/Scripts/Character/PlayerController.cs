@@ -6,6 +6,7 @@ using UnityEngine.Serialization;
 public class PlayerController : MonoBehaviour, IPauseable
 {
     public CharacterMovement characterMovement;
+    public CharacterStateMachine stateMachine;
     public PlayerAnimation playerAnimation;
 
     //could have a list of attacks, like ratchet and clank
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour, IPauseable
         //isPaused = true;
         enabled = false;
         characterMovement.enabled = false;
+        stateMachine.enabled = false;
         playerAnimation.enabled = false;
     }
     public void OnResume()
@@ -49,6 +51,7 @@ public class PlayerController : MonoBehaviour, IPauseable
         //isPaused = false;
         enabled = true;
         characterMovement.enabled = true;
+        stateMachine.enabled = true;
         playerAnimation.enabled = true;
     }
 
@@ -72,6 +75,7 @@ public class PlayerController : MonoBehaviour, IPauseable
         jump = playerControls.Player.Jump;
         jump.Enable();
         jump.performed += Jump;
+        jump.canceled += StopJump;
 
         look = playerControls.Player.Look;
         look.Enable();
@@ -105,14 +109,16 @@ public class PlayerController : MonoBehaviour, IPauseable
 
     //could have a list of attacks, like ratchet and clank
 
-    private void Glide(InputAction.CallbackContext obj) 
+    private void Glide(InputAction.CallbackContext obj)
     {
-        characterMovement.Glide(true);
+        if (characterMovement != null) characterMovement.Glide(true);
+        if (stateMachine != null) stateMachine.Glide(true);
     }
 
     private void StopGlide(InputAction.CallbackContext obj)
     {
-        characterMovement.Glide(false);
+        if (characterMovement != null) characterMovement.Glide(false);
+        if (stateMachine != null) stateMachine.Glide(false);
     }
 
     private void Interact(InputAction.CallbackContext obj)
@@ -127,65 +133,75 @@ public class PlayerController : MonoBehaviour, IPauseable
 
     private void Attack(InputAction.CallbackContext obj)
     {
-        attackPunch.StartAttack();
+        if (attackPunch != null) attackPunch.StartAttack();
     }
 
     private void StopAttack(InputAction.CallbackContext obj)
     {
-        attackPunch.StopAttack();
+        if (attackPunch != null) attackPunch.StopAttack();
     }
 
     private void FireBreath(InputAction.CallbackContext obj)
     {
-        attackFireBreath.StartAttack();
+        if (attackFireBreath != null) attackFireBreath.StartAttack();
     }
     
     private void StopFireBreath(InputAction.CallbackContext obj)
     {
-        attackFireBreath.StopAttack();
+        if (attackFireBreath != null) attackFireBreath.StopAttack();
     }
     private void Crouch(InputAction.CallbackContext obj)
     {
-        characterMovement.Crouch(true);
+        if (characterMovement != null) characterMovement.Crouch(true);
     }
     private void StopCrouch(InputAction.CallbackContext obj)
     {
-        characterMovement.Crouch(false);
+        if (characterMovement != null) characterMovement.Crouch(false);
     }
 
     
     private void Sprint(InputAction.CallbackContext obj)
     {
-        characterMovement.Sprint(true);
+        if (characterMovement != null) characterMovement.Sprint(true);
+        if (stateMachine != null) stateMachine.Sprint(true);
     }
 
     private void StopSprint(InputAction.CallbackContext obj)
     {
-        characterMovement.Sprint(false);
+        if (characterMovement != null) characterMovement.Sprint(false);
     }
 
    
     private void Look(InputAction.CallbackContext obj)
     {
-        characterMovement.Look(lookSensitivity * obj.ReadValue<Vector2>(), true);
+        if (characterMovement != null) characterMovement.Look(lookSensitivity * obj.ReadValue<Vector2>(), true);
+        if (stateMachine != null) stateMachine.Look(lookSensitivity * obj.ReadValue<Vector2>(), true);
         //Debug.Log(obj.ReadValue<Vector2>());
     }
 
     private void StopLook(InputAction.CallbackContext obj)
     {
-        characterMovement.Look(lookSensitivity * obj.ReadValue<Vector2>(), false);
+        if (characterMovement != null) characterMovement.Look(lookSensitivity * obj.ReadValue<Vector2>(), false);
+        if (stateMachine != null) stateMachine.Look(lookSensitivity * obj.ReadValue<Vector2>(), false);
     }
 
     private void Jump(InputAction.CallbackContext obj)
     {
-        Debug.Log("Jump");
-        characterMovement.Jump();
+        //Debug.Log("Jump");
+        if (characterMovement != null) characterMovement.Jump();
+        if (stateMachine != null) stateMachine.Jump(true);
+    }
+
+    private void StopJump(InputAction.CallbackContext obj)
+    {
+        if (stateMachine != null) stateMachine.Jump(false);
     }
     private void Move(InputAction.CallbackContext obj)
     {
         //Debug.Log(obj.ReadValue<Vector2>());
 
-        characterMovement.Move(obj.ReadValue<Vector2>());
+        if (characterMovement != null) characterMovement.Move(obj.ReadValue<Vector2>());
+        if (stateMachine != null) stateMachine.Move(obj.ReadValue<Vector2>());
     }
 
     private void OnDisable()
@@ -201,6 +217,7 @@ public class PlayerController : MonoBehaviour, IPauseable
         crouch.canceled -= StopCrouch;
         jump.Disable();
         jump.performed -= Jump;
+        jump.canceled -= StopJump;
         look.Disable();
         look.performed -= Look;
         look.canceled -= StopLook;

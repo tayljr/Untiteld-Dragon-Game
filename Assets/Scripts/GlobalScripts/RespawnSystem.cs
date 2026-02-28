@@ -103,6 +103,7 @@ public class RespawnSystem : MonoBehaviour
     public void RespawnPlayer(int spawnIndex)
     {
         playerRef.GetComponent<CharacterMovement>().Teleport(respawnPoints[spawnIndex].transform.position);
+        playerRef.GetComponent<CharacterStateMachine>().Teleport(respawnPoints[spawnIndex].transform.position);
         PlayerIsAlive = true;
         playerRef.GetComponent<HealthBase>().HealPercent(100f);
     }

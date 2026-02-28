@@ -4,11 +4,17 @@ public class DoubleJumpUpgrade : UpgradeMonoBehaviour
 {
     public int newJumpCount = 2;
     public CharacterMovement characterMovement;
+    public CharacterStateMachine characterMachine;
     private void OnEnable()
     {
         if (characterMovement != null)
         {
             characterMovement.SetJumpCount(newJumpCount);
+        }
+
+        if (characterMachine != null)
+        {
+            characterMachine.SetJumpCount(newJumpCount);
         }
     }
 
@@ -18,7 +24,12 @@ public class DoubleJumpUpgrade : UpgradeMonoBehaviour
         {
             characterMovement.ResetJumpCount();
         }
+        if (characterMachine != null)
+        {
+            characterMachine.ResetJumpCount();
+        }
     }
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
