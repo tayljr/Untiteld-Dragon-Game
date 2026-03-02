@@ -101,7 +101,7 @@ public class CharacterStateMachine : MonoBehaviour
     {
         //setup states
         _states = new CharacterStateFactory(this);
-        _currentState = _states.Grounded();
+        _currentState = _states.InAir();
         _currentState.EnterState();
     }
     
@@ -329,18 +329,34 @@ public class CharacterStateMachine : MonoBehaviour
     //todo move fixed update to update
     private void Update()
     {
-        Debug.Log(_currentState.ToString());
-        _currentState.UpdateStates();
+        if (GameManager.instance.isPaused)
+        {
+            return; 
+        }
+        
+        
+        
+        //todo move to in air state
+        //Debug.Log("is grounded = " + grounded);
+        if (!grounded)
+        {
+            //StartCoroutine(CoyoteTime());
+        }
+
+        if (isLooking)
+        {
+            DoLook(lookInput);
+        }
+        
+        worldMoveDir.y = verticalVelocity;
+        controller.Move(worldMoveDir * Time.deltaTime + platformMovement);
+        platformMovement = Vector3.zero;
+        
+        //Debug.Log(_currentState.ToString());
         grounded = groundCheck.grounded;
         slopeAngle = groundCheck.slopeAngle;
         slopeNormal = groundCheck.slopeNormal;
-        
-        //todo move to in air state
-        Debug.Log("is grounded = " + grounded);
-        if (!grounded)
-        {
-            StartCoroutine(CoyoteTime());
-        }
+        _currentState.UpdateStates();
     }
 
     // Update is called once per frame
@@ -362,14 +378,7 @@ public class CharacterStateMachine : MonoBehaviour
         missingColliders.Clear();
         groundCount = groundList.Count;
         */
-        if (isLooking)
-        {
-            DoLook(lookInput);
-        }
         
-        worldMoveDir.y  = verticalVelocity;
-        controller.Move(worldMoveDir * Time.deltaTime + platformMovement);
-        platformMovement = Vector3.zero;
         
         //old test stuff vvv
         /*

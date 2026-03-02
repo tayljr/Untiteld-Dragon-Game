@@ -12,12 +12,14 @@ public class CharacterGlideState : CharacterStateBase
     {
         //Debug.Log("Entering Character Glide State");
         //HandleGlide();
+        _context.currentGravity = _context.glideGrav;
+        _context.currentTerminalVelocity = _context.teminalGlideVel;
     }
 
     public override void UpdateState()
     {
         CheckSwitchStates();
-        HandleGravity();
+        //HandleGravity();
         DoGlide();
     }
 
@@ -62,13 +64,11 @@ public class CharacterGlideState : CharacterStateBase
     //todo change glide gravity
     void HandleGravity()
     {
-        _context.currentGravity = _context.glideGrav;
-        _context.currentTerminalVelocity = _context.teminalGlideVel;
     }
 
     void DoGlide()
     {
-        _context.verticalVelocity = _context.moveDir.y;
+        //_context.verticalVelocity = _context.moveDir.y;
         _context.worldMoveDir = _context.transform.TransformDirection(_context.moveDir.x * _context.glideSidewaysSpeed, _context.moveDir.y, _context.glideForwardSpeed);
         _context.LockHead();
     }

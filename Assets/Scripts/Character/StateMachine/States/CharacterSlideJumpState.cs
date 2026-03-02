@@ -10,6 +10,8 @@ public class CharacterSlideJumpState : CharacterStateBase
     public override void EnterState()
     {
         //Debug.Log("Entering Slide Jump State");
+        _context.currentGravity = _context.gravity;
+        _context.currentTerminalVelocity = _context.terminalVelociy;
         HandleJump();
     }
 
@@ -56,7 +58,7 @@ public class CharacterSlideJumpState : CharacterStateBase
             _context.worldMoveDir.x += _context.jumpVelocity.x;
             _context.worldMoveDir.z += _context.jumpVelocity.z;
             _context.verticalVelocity = _context.jumpVelocity.y;
-            Debug.DrawRay(_context.transform.position, _context.jumpVelocity, Color.blue, 1f);
+            //Debug.DrawRay(_context.transform.position, _context.jumpVelocity, Color.blue, 1f);
             
             _context.jumpVelocity = Vector3.MoveTowards(_context.jumpVelocity, Vector3.zero, _context.currentGravity * Time.deltaTime);
         }

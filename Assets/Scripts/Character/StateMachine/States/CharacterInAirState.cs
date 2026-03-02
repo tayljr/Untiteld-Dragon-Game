@@ -17,8 +17,8 @@ public class CharacterInAirState : CharacterStateBase
 
     public override void UpdateState()
     {
-        DoMove();
         HandleGravity();
+        DoMove();
         CheckSwitchStates();
         //Debug.Log("2.0 = " +_context.transform.position.y);
     }
@@ -81,24 +81,18 @@ public class CharacterInAirState : CharacterStateBase
     
     void HandleGravity()
     {
-        _context.worldMoveDir.y = _context.verticalVelocity;
         
-        _context.currentGravity = _context.gravity;
-        _context.currentTerminalVelocity = _context.terminalVelociy;
-        if (_context.fastFalling && _context.verticalVelocity < 0)
-        {
-            _context.currentGravity = _context.gravity * _context.fallingModifier;
-        }
-        else
-        {
-            _context.currentGravity = _context.gravity;
-        }
+        //_context.currentGravity = _context.gravity;
+        //_context.currentTerminalVelocity = _context.terminalVelociy;
+        //todo move to falling
+        
 
         _context.verticalVelocity -= _context.currentGravity * Time.deltaTime;
         if (_context.verticalVelocity <= -_context.currentTerminalVelocity)
         {
             _context.verticalVelocity = -_context.currentTerminalVelocity;
         }
+        _context.worldMoveDir.y = _context.verticalVelocity;
     }
     
     public void DoMove()

@@ -12,6 +12,8 @@ public class CharacterJumpState : CharacterStateBase
     public override void EnterState()
     {
         //Debug.Log("Entering Character Jump State");
+        _context.currentGravity = _context.gravity;
+        _context.currentTerminalVelocity = _context.terminalVelociy;
         HandleJump();
     }
 

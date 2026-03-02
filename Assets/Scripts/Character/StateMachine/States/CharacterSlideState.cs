@@ -11,6 +11,8 @@ public class CharacterSlideState : CharacterStateBase
     public override void EnterState()
     {
         //Debug.Log("Entering Character Slide State");
+        _context.currentGravity = _context.gravity;
+        _context.currentTerminalVelocity = _context.terminalVelociy;
         
         HandleSlide();
     }
@@ -66,7 +68,7 @@ public class CharacterSlideState : CharacterStateBase
         slideDir = Vector3.ProjectOnPlane(new Vector3(0, _context.verticalVelocity, 0), _context.slopeNormal);
         Debug.DrawRay(_context.slopeHit.point, slideDir, Color.yellow, 1f);
         _context.worldMoveDir += slideDir.normalized * (_context.slideSpeed * Time.deltaTime);
-        _context.verticalVelocity = -_context.slideSpeed * Time.deltaTime;
+        _context.verticalVelocity = -_context.slideSpeed;
     }
     
     void HandleGravity()
@@ -88,7 +90,7 @@ public class CharacterSlideState : CharacterStateBase
             _termVel = _context.teminalGlideVel;
         }
 
-        _context.verticalVelocity -= _gravity * Time.deltaTime;
+        _context.verticalVelocity -= _gravity;
         if (_context.verticalVelocity <= -_termVel)
         {
             _context.verticalVelocity = -_termVel;

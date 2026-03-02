@@ -30,7 +30,7 @@ public abstract class CharacterStateBase
         
         if (currentSubState != null)
         {
-            Debug.Log(currentSubState.GetType().Name);
+            //Debug.Log(currentSubState.GetType().Name);
             currentSubState.UpdateStates();
         }
     }
