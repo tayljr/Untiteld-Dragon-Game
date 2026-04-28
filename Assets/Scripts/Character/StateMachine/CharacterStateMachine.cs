@@ -66,15 +66,18 @@ public class CharacterStateMachine : MonoBehaviour
     public Vector3 slopeNormal = Vector3.up;
     public float slopeAngle = 0;
     public RaycastHit slopeHit;
+    public float stepAngle = 90;
     
     //please dont priv this i need for animator :(
     public bool isSliding = false;
+    public bool isUpStairs = false;
     public bool grounded = false;
     public bool isCrouching = false;
     public bool isGliding = false;
     public bool isClimbing = false;
     public Vector2 currentHeadDir = Vector2.zero;
 
+    public Transform groundObjTransform;
     public bool wasSliding = false;
     public bool canSlopeJump = false;
     public bool slopeJump = false;
@@ -127,12 +130,14 @@ public class CharacterStateMachine : MonoBehaviour
     
     public void Look(Vector2 dir, bool start)
     {
-        lookInput = dir;
+        lookInput = dir * Time.deltaTime;
+        //lookInput = dir;
         isLooking = start;
     }
     
     private void DoLook(Vector2 dir)
     {
+        Debug.Log(dir.ToString());
         currentHeadDir += dir;
 
         if (moveDir.x != 0f || moveDir.z != 0f)
@@ -326,7 +331,7 @@ public class CharacterStateMachine : MonoBehaviour
         transform.localRotation = Quaternion.Euler(0, currentCharacterDir.x, 0);
     }
     
-    //todo move fixed update to update
+    
     private void Update()
     {
         if (GameManager.instance.isPaused)
@@ -348,14 +353,22 @@ public class CharacterStateMachine : MonoBehaviour
             DoLook(lookInput);
         }
         
+        if (groundCheck.movingGround != null)
+        {
+            groundCheck.movingGround.AddCharacter(this);
+        }
         worldMoveDir.y = verticalVelocity;
         controller.Move(worldMoveDir * Time.deltaTime + platformMovement);
         platformMovement = Vector3.zero;
         
         //Debug.Log(_currentState.ToString());
         grounded = groundCheck.grounded;
+        //groundObjTransform = groundCheck.groundObjTrans;
+        //transform.parent = groundObjTransform;
+        //transform.SetParent(groundObjTransform, true);
         slopeAngle = groundCheck.slopeAngle;
         slopeNormal = groundCheck.slopeNormal;
+        stepAngle = groundCheck.stepAngle;
         _currentState.UpdateStates();
     }
 

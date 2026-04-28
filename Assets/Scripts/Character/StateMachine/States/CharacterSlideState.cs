@@ -64,11 +64,11 @@ public class CharacterSlideState : CharacterStateBase
     void DoSlide()
     {
         //grounded = false;
+        _context.verticalVelocity = -_context.slideSpeed;
         Vector3 slideDir = Vector3.RotateTowards(_context.slopeNormal, Vector3.down, 90 * Mathf.Deg2Rad, 0f);
         slideDir = Vector3.ProjectOnPlane(new Vector3(0, _context.verticalVelocity, 0), _context.slopeNormal);
         Debug.DrawRay(_context.slopeHit.point, slideDir, Color.yellow, 1f);
         _context.worldMoveDir += slideDir.normalized * (_context.slideSpeed * Time.deltaTime);
-        _context.verticalVelocity = -_context.slideSpeed;
     }
     
     void HandleGravity()

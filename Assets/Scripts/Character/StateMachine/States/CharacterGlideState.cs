@@ -31,6 +31,7 @@ public class CharacterGlideState : CharacterStateBase
     public override void ExitState()
     {
         //Debug.Log("Exiting Character Glide State");
+        _context.isGliding = false;
     }
 
     public override void CheckSwitchStates()

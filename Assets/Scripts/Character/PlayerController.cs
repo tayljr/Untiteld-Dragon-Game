@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -27,9 +28,11 @@ public class PlayerController : MonoBehaviour, IPauseable
     private InputAction interact;
     private InputAction glide;
 
-    [Range(0.05f, 0.8f)]
+    [Range(3f, 45f)]
     [SerializeField] private float lookSensitivity;
 
+    private int hasLooked = 0;
+    
     private void Awake()
     {
         playerControls = new InputSystem_Actions();
@@ -102,8 +105,10 @@ public class PlayerController : MonoBehaviour, IPauseable
         glide.Enable();
         glide.performed += Glide;
         glide.canceled += StopGlide;
-
-        lookSensitivity = PlayerPrefs.GetFloat("LookSensitivity", 0.2f);
+        
+        
+        hasLooked = 0;
+        lookSensitivity = PlayerPrefs.GetFloat("LookSensitivity", 12f);
     }
 
 
@@ -172,11 +177,20 @@ public class PlayerController : MonoBehaviour, IPauseable
     }
 
    
+    // todo Switch Look to Update polling instead (see GPT)
     private void Look(InputAction.CallbackContext obj)
     {
-        if (characterMovement != null) characterMovement.Look(lookSensitivity * obj.ReadValue<Vector2>(), true);
-        if (stateMachine != null) stateMachine.Look(lookSensitivity * obj.ReadValue<Vector2>(), true);
-        //Debug.Log(obj.ReadValue<Vector2>());
+        Vector2 input = obj.ReadValue<Vector2>();
+        //Debug.Log(hasLooked);
+        // hack to prevent cam snapping when first moving the mouse
+        if (hasLooked < 10000)
+        {
+            hasLooked++;
+            //return;
+        }
+        if (characterMovement != null) characterMovement.Look(lookSensitivity * input, true);
+        if (stateMachine != null) stateMachine.Look(lookSensitivity * input, true);
+        
     }
 
     private void StopLook(InputAction.CallbackContext obj)

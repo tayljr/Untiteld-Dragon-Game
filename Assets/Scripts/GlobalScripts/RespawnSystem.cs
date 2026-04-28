@@ -102,8 +102,17 @@ public class RespawnSystem : MonoBehaviour
     // Update is called once per frame
     public void RespawnPlayer(int spawnIndex)
     {
-        playerRef.GetComponent<CharacterMovement>().Teleport(respawnPoints[spawnIndex].transform.position);
-        playerRef.GetComponent<CharacterStateMachine>().Teleport(respawnPoints[spawnIndex].transform.position);
+        CharacterMovement characterMovement = playerRef.GetComponent<CharacterMovement>();
+        CharacterStateMachine stateMachine = playerRef.GetComponent<CharacterStateMachine>();
+        if (characterMovement != null)
+        {
+            characterMovement.Teleport(respawnPoints[spawnIndex].transform.position);
+        }
+
+        if (stateMachine != null)
+        {
+            stateMachine.Teleport(respawnPoints[spawnIndex].transform.position);
+        }
         PlayerIsAlive = true;
         playerRef.GetComponent<HealthBase>().HealPercent(100f);
     }

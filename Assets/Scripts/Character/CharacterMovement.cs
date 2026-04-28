@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+//todo (this script is being replaced with a custom state machine script in progress)
 public class CharacterMovement : MonoBehaviour
 {
     public CharacterController controller;
@@ -83,14 +84,15 @@ public class CharacterMovement : MonoBehaviour
     
     public void Look(Vector2 dir, bool start)
     {
-        lookInput = dir;
+        lookInput = dir * Time.fixedDeltaTime;
         isLooking = start;
     }
 
     private void DoLook(Vector2 dir)
     {
         currentHeadDir += dir;
-
+        
+        // lock cam forward when moving
         if (moveDir.x != 0f || moveDir.z != 0f)
         {
             currentCharacterDir.x += dir.x;
@@ -98,6 +100,7 @@ public class CharacterMovement : MonoBehaviour
         }
         else
         {
+            // when the head has turned all the way, continuing to moe the camera, now moves the player
             if (currentHeadDir.x > minMaxHeadTurn.y)
             {
                 currentHeadDir.x = minMaxHeadTurn.y;
@@ -109,7 +112,8 @@ public class CharacterMovement : MonoBehaviour
                 currentCharacterDir.x += dir.x;
             }
         }
-
+        
+        //custom clamp head tilt
         if (currentHeadDir.y > minMaxHeadTilt.y)
         {
             currentHeadDir.y = minMaxHeadTilt.y;
@@ -145,14 +149,17 @@ public class CharacterMovement : MonoBehaviour
         //controller.Move(transform.TransformDirection(dir));
     }
    
+    // when jump is called/pressed
     public void Jump()
     {
         //Debug.Log(grounded);
+        // if they are standing on the ground, then make sure the number of jumps is 0
         if (grounded && !wasSliding)
         {
             jumpCount = 0;
             isSliding = false;
         }
+        // if they haven't succeeded the maximum jump count, then add jump velocity
         if (jumpCount < maxJumpCount)
         {
             jumpCount++;
@@ -250,6 +257,8 @@ public class CharacterMovement : MonoBehaviour
         groundTrigger.OnTriggerEnterEvent -= Grounded;
         groundTrigger.OnTriggerExitEvent -= NotGrounded;
     }
+    
+    // an int value for the number of objects the charter is standing on
     private void NotGrounded(GameObject self, Collider other)
     {
         if (other.gameObject != gameObject && !other.isTrigger && groundList.Contains(other) && other.gameObject.layer != LayerMask.NameToLayer("Ignore GroundCheck"))
@@ -262,6 +271,7 @@ public class CharacterMovement : MonoBehaviour
             groundCount--;
             groundList.Remove(other);
             
+            // if they are no longer standing on any objects, they are no longer grounded
             if (groundCount <= 0)
             {
                 groundCount = 0;
@@ -272,6 +282,8 @@ public class CharacterMovement : MonoBehaviour
         }
 
     }
+    
+    // an int value for the number of objects the charter is standing on
     private void Grounded(GameObject self, Collider other)
     {
         if (other.gameObject != gameObject && !other.isTrigger && !groundList.Contains(other) && other.gameObject.layer != LayerMask.NameToLayer("Ignore GroundCheck"))
@@ -289,6 +301,8 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
+    
+    // wait approx 0.1 secs before preventing the character to jump after leaving an edge
     IEnumerator CoyoteTime()
     {
         yield return new WaitForSeconds(coyoteTime);
@@ -308,6 +322,9 @@ public class CharacterMovement : MonoBehaviour
             canSlopeJump = true;
         }
     }
+    
+    
+    // lock cam forward when moving
     private void LockHead()
     {
         currentCharacterDir.x += currentHeadDir.x;
@@ -325,6 +342,7 @@ public class CharacterMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        //check that the ground objects still exist
         List<Collider> missingColliders = new List<Collider>();
         foreach (Collider collider in groundList)
         {
@@ -343,19 +361,21 @@ public class CharacterMovement : MonoBehaviour
             DoLook(lookInput);
         }
         
+        // convert local coordinates to world space coordinates
         Vector3 worldMoveDir = transform.TransformDirection(moveDir);
         worldMoveDir = worldMoveDir * speed * speedModifier;
         
         
-        //ground angle check
+        // ground angle check
         slopeAngle = Vector3.up;
         if (grounded || isSliding || wasSliding)
         {
             //grounded = true;
-            // Vector3 rayDir = currentGround.ClosestPointOnBounds(groundTrigger.gameObject.transform.position) - groundTrigger.gameObject.transform.position;
+            //Vector3 rayDir = currentGround.ClosestPointOnBounds(groundTrigger.gameObject.transform.position) - groundTrigger.gameObject.transform.position;
             Vector3 rayDir = Vector3.down;
             float rayLength = Vector3.Distance(transform.position, groundTrigger.transform.position);
             RaycastHit hit;
+            // get the angle of the surface the character is standing on using a sphere cast
             Physics.SphereCast(transform.position, 0.3f, rayDir, out hit, rayLength + 0.1f, Int32.MaxValue, QueryTriggerInteraction.Ignore);
             //Physics.Raycast(groundTrigger.gameObject.transform.position, rayDir, out hit, 2f, Int32.MaxValue, QueryTriggerInteraction.Ignore);
             if (hit.collider != null)
@@ -364,6 +384,7 @@ public class CharacterMovement : MonoBehaviour
                 var angle = Vector3.Angle(slopeAngle, Vector3.up);
                 
                 //Debug.Log(angle);
+                // if the ground angle is less then the slope limit, then act normal
                 if (angle <= controller.slopeLimit + 0.01f)
                 {
                     canSlopeJump = false;
@@ -373,6 +394,8 @@ public class CharacterMovement : MonoBehaviour
                     //grounded = true;
                     //isGliding = false;
                 }
+                
+                // if the ground angle is more then the slope limit, but not vertical, then slide down the slope
                 else if (angle < 89.5f)
                 {
                     //grounded = false;
@@ -401,6 +424,7 @@ public class CharacterMovement : MonoBehaviour
             Debug.DrawRay(hit.point, hit.normal, Color.red, 1f);
         }
         
+        // project the move direction onto the slope to help walk up and down
         worldMoveDir = Vector3.ProjectOnPlane(worldMoveDir, slopeAngle);
         
         if (isGliding && !grounded && !canClimb)
@@ -427,6 +451,8 @@ public class CharacterMovement : MonoBehaviour
         
         float _gravity = gravity;
         float _termVel = terminalVelociy;
+        
+        // when descending, gravity is increased to allow for greater player control
         if (fastFalling && verticalVelocity < 0)
         {
             _gravity = gravity * fallingModifier;
@@ -448,9 +474,10 @@ public class CharacterMovement : MonoBehaviour
             verticalVelocity = -_termVel;
         }
         
-        //add jump force
+        // add jump force
         if (jumpVelocity.magnitude > 0)
         {
+            // if jumping off a slope, jump off the angle of the slope
             if(canSlopeJump || slopeJump)
             {
                 canSlopeJump = false;
@@ -462,6 +489,7 @@ public class CharacterMovement : MonoBehaviour
                 verticalVelocity = jumpVelocity.y;
                 Debug.DrawRay(transform.position, jumpVelocity, Color.blue, 1f);
             }
+            // else just jump up
             else
             {
                 verticalVelocity = jumpForce;

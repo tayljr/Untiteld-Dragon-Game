@@ -466,11 +466,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterMovement: {fileID: 2311948180293268705}
+  stateMachine: {fileID: 0}
   playerAnimation: {fileID: 6205070893463992773}
   attackPunch: {fileID: 5151307173428227930}
   attackFireBreath: {fileID: 8151910811845410999}
   interactor: {fileID: 8891611318461208239}
-  lookSensitivity: 0.2
+  lookSensitivity: 3
 --- !u!114 &2311948180293268705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,6 +531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   climbTrigger: {fileID: 3891959835567655656}
   characterMovement: {fileID: 2311948180293268705}
+  characterMachine: {fileID: 0}
   climbableTag: Climbable
 --- !u!114 &723595721396505957
 MonoBehaviour:
@@ -544,6 +546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterMovement: {fileID: 2311948180293268705}
+  characterMachine: {fileID: 0}
 --- !u!114 &4488075488164338901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,6 +561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newJumpCount: 2
   characterMovement: {fileID: 2311948180293268705}
+  characterMachine: {fileID: 0}
 --- !u!114 &7027438337093398086
 MonoBehaviour:
   m_ObjectHideFlags: 0

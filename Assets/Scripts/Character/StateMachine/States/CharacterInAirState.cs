@@ -31,6 +31,7 @@ public class CharacterInAirState : CharacterStateBase
     public override void ExitState()
     {
         //Debug.Log("Exiting Character In Air State");
+        
         _context.jumpCount = 0;
         _context.isSliding = false;
     }

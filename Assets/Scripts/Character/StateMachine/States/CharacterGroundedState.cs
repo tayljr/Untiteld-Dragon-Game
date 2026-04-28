@@ -19,10 +19,11 @@ public class CharacterGroundedState : CharacterStateBase
 
     public override void UpdateState()
     {
-        CheckSwitchStates();
         //HandleGravity();
         DoMove();
         CheckSlope();
+        CheckStep();
+        CheckSwitchStates();
     }
 
     public override void FixedUpdateState()
@@ -68,7 +69,7 @@ public class CharacterGroundedState : CharacterStateBase
 
     public override void InitializeSubState()
     {
-        if (_context.isSliding)
+        if (_context.isSliding && !_context.isUpStairs)
         {
             SetSubState(_factory.Sliding());
         }
@@ -105,6 +106,7 @@ public class CharacterGroundedState : CharacterStateBase
             _context.isSliding = false;
             _context.wasSliding = false;
             _context.jumpCount = 0;
+            
             //_context.grounded = true;
             //isGliding = false;
         }
@@ -154,5 +156,21 @@ public class CharacterGroundedState : CharacterStateBase
         }
         
         _context.verticalVelocity = _context.worldMoveDir.y;
+    }
+
+    public void CheckStep()
+    {
+        if (_context.stepAngle <= _context.controller.slopeLimit + 0.01f)
+        {
+            _context.canSlopeJump = false;
+            _context.isSliding = false;
+            _context.wasSliding = false;
+            _context.isUpStairs = true;
+            _context.jumpCount = 0;
+        }
+        else
+        {
+            _context.isUpStairs = false;
+        }
     }
 }
