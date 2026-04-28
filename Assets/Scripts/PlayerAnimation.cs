@@ -8,6 +8,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private PlayerController playerController;
     private CharacterMovement characterMovement;
+    private CharacterStateMachine characterStateMachine;
 
     public bool IsIdle;
     public bool IsFalling;
@@ -29,6 +30,7 @@ public class PlayerAnimation : MonoBehaviour
         animator = GetComponent<Animator>();
         playerController = GetComponentInParent<PlayerController>();
         characterMovement = GetComponentInParent<CharacterMovement>();
+        characterStateMachine = GetComponentInParent<CharacterStateMachine>();
     }
     private void OnEnable()
     {
@@ -134,9 +136,18 @@ public class PlayerAnimation : MonoBehaviour
             IsSprinting = false;
         }
 
-        IsFalling = !characterMovement.grounded;
-        IsGliding = characterMovement.isGliding;
-        IsClimbing = characterMovement.isClimbing;
+        if (characterMovement != null)
+        {
+            IsFalling = !characterMovement.grounded;
+            IsGliding = characterMovement.isGliding;
+            IsClimbing = characterMovement.isClimbing;
+        }
+        if (characterStateMachine != null)
+        {
+            IsFalling = !characterStateMachine.grounded;
+            IsGliding = characterStateMachine.isGliding;
+            IsClimbing = characterStateMachine.isClimbing;
+        }
 
         animator.SetBool("IsIdle", IsIdle);
         animator.SetBool("IsFalling", IsFalling);
@@ -156,13 +167,22 @@ public class PlayerAnimation : MonoBehaviour
 
         if (IsGliding || IsClimbing  || IsTalking)
         {
-        animator.SetLookAtWeight(0f,0f);
+            animator.SetLookAtWeight(0f,0f);
 
         }
         else
         {
-        animator.SetLookAtWeight(1f, 1f);
+            animator.SetLookAtWeight(1f, 1f);
         }
+
+        if (characterMovement != null)
+        {
             animator.SetLookAtPosition(characterMovement.head.transform.position + characterMovement.head.transform.forward * 10f);
+        }
+
+        if (characterStateMachine != null)
+        {
+            animator.SetLookAtPosition(characterStateMachine.head.transform.position + characterStateMachine.head.transform.forward * 10f);
+        }
     }
 }

@@ -18,7 +18,7 @@ public class FallingPlatform : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.name == "Player")
+        if (collider.gameObject.CompareTag("Player"))
         {
             StartCoroutine(FallAfterDelay());
         }
